@@ -29,6 +29,68 @@
         return false;
     });
 
+    // Hero Carousel
+    $(document).ready(function() {
+        try {
+            $(".hero-carousel").owlCarousel({
+                items: 1,
+                loop: true,
+                autoplay: true,
+                autoplayTimeout: 7000,
+                autoplayHoverPause: true,
+                dots: true,
+                nav: true,
+                navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
+                animateOut: 'fadeOut',
+                animateIn: 'fadeIn',
+                smartSpeed: 1000,
+                onInitialized: function() {
+                    console.log('Hero carousel initialized');
+                },
+                onTranslated: function() {
+                    console.log('Hero carousel translated');
+                },
+                onChanged: function() {
+                    console.log('Hero carousel changed');
+                },
+                onResize: function() {
+                    console.log('Hero carousel resized');
+                },
+                rewind: true,
+                mouseDrag: true,
+                touchDrag: true,
+                pullDrag: true,
+                freeDrag: false,
+                margin: 0,
+                stagePadding: 0,
+                merge: false,
+                mergeFit: true,
+                autoWidth: false,
+                startPosition: 0,
+                rtl: false,
+                slideBy: 1,
+                fallbackEasing: 'swing',
+                info: function() {
+                    console.log('Hero carousel info');
+                },
+                nestedItemSelector: false,
+                itemElement: 'div',
+                stageElement: 'div',
+                refreshClass: 'owl-refresh',
+                loadedClass: 'owl-loaded',
+                loadingClass: 'owl-loading',
+                rtlClass: 'owl-rtl',
+                responsiveClass: 'owl-responsive',
+                dragClass: 'owl-drag',
+                itemClass: 'owl-item',
+                stageClass: 'owl-stage',
+                stageOuterClass: 'owl-stage-outer',
+                grabClass: 'owl-grab'
+            });
+        } catch (error) {
+            console.error('Error initializing hero carousel:', error);
+        }
+    });
 
     // Modal Video
     $(document).ready(function () {
