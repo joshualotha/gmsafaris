@@ -13,8 +13,12 @@ require 'lib/PHPMailer/src/SMTP.php';
 
 header('Content-Type: application/json');
 
+function log_mail_error($msg) {
+    file_put_contents(__DIR__ . '/mail_error.log', date('Y-m-d H:i:s') . " - " . $msg . "\n", FILE_APPEND);
+}
+
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    $to = 'joshualotha@gmsafaris.co.tz';
+    $to = 'info@gmsafaris.co.tz';
     $subject = 'New Inquiry from GMSafaris Website';
     $fields = '';
     foreach ($_POST as $key => $value) {
@@ -41,8 +45,10 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->send();
         echo json_encode(['success' => true, 'message' => 'Your inquiry has been sent successfully!']);
     } catch (Exception $e) {
+        log_mail_error('Mailer Error: ' . $mail->ErrorInfo . ' | Exception: ' . $e->getMessage());
         echo json_encode(['success' => false, 'message' => 'Mailer Error: ' . $mail->ErrorInfo]);
     }
 } else {
+    log_mail_error('Invalid request method: ' . $_SERVER['REQUEST_METHOD']);
     echo json_encode(['success' => false, 'message' => 'Invalid request.']);
 } 

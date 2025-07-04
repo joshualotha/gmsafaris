@@ -346,7 +346,7 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Ready to explore the Serengeti? Let us know your interests and preferences, and we'll help craft your perfect itinerary.</p>
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form action="#" method="POST">
+                        <form id="serengetiForm" method="POST">
                             <div class="row g-3 form">
 
                                 <!-- Contact Info -->
@@ -510,7 +510,29 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-        // Add any page-specific JS here if needed
+$(function(){
+  $('#serengetiForm').on('submit', function(e){
+    e.preventDefault();
+    var form = $(this);
+    $.ajax({
+      url: 'process-form.php',
+      type: 'POST',
+      data: form.serialize(),
+      dataType: 'json',
+      success: function(resp){
+        if(resp.success){
+          alert(resp.message);
+          form[0].reset();
+        } else {
+          alert('Error: ' + resp.message);
+        }
+      },
+      error: function(xhr){
+        alert('There was a problem sending your message.\n' + xhr.responseText);
+      }
+    });
+  });
+});
     </script>
 </body>
 

@@ -621,8 +621,8 @@ $(function(){
           alert('Error: ' + resp.message);
         }
       },
-      error: function(){
-        alert('There was a problem sending your message.');
+      error: function(xhr){
+        alert('There was a problem sending your message.\n' + xhr.responseText);
       }
     });
   });

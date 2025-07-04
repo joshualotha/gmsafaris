@@ -221,7 +221,7 @@
 
                         <div class="card shadow-sm border-light p-4 p-md-5 booking-form">
                              <!-- *** IMPORTANT: Add 'action' and 'method' attributes to the form tag once you set up form processing (e.g., action="process-booking.php" method="POST") *** -->
-                            <form>
+                            <form id="bookingForm" method="POST">
                                 <h4 class="mb-4 text-primary border-bottom pb-2"><i class="fas fa-user-circle me-2"></i>Your Contact Information</h4>
                                 <div class="row g-3 mb-4">
                                     <div class="col-md-6">
@@ -491,6 +491,31 @@
 
             });
          </script>
+         <script>
+$(function(){
+  $('#bookingForm').on('submit', function(e){
+    e.preventDefault();
+    var form = $(this);
+    $.ajax({
+      url: 'process-form.php',
+      type: 'POST',
+      data: form.serialize(),
+      dataType: 'json',
+      success: function(resp){
+        if(resp.success){
+          alert(resp.message);
+          form[0].reset();
+        } else {
+          alert('Error: ' + resp.message);
+        }
+      },
+      error: function(xhr){
+        alert('There was a problem sending your message.\n' + xhr.responseText);
+      }
+    });
+  });
+});
+</script>
 
     </body>
 
