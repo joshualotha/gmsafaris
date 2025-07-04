@@ -33,8 +33,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->SMTPSecure = PHPMailer::ENCRYPTION_SMTPS;
         $mail->Port = 465;
 
-        $mail->setFrom('joshualotha@gmsafaris.co.tz', 'GMSafaris Website');
-        $mail->addAddress($to);
+        $mail->setFrom('no-reply@gmsafaris.co.tz', 'GMSafaris Website');
+        $mail->addAddress('joshualotha@gmsafaris.co.tz');
         $mail->Subject = $subject;
         $mail->Body = $body;
 
