@@ -34,7 +34,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $mail->Port = 465;
 
         $mail->setFrom('no-reply@gmsafaris.co.tz', 'GMSafaris Website');
-        $mail->addAddress('joshualotha@gmsafaris.co.tz');
+        $mail->addAddress('info@gmsafaris.co.tz');
         $mail->Subject = $subject;
         $mail->Body = $body;
 
