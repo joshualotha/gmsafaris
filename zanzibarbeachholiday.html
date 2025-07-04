@@ -307,7 +307,7 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Dreaming of Zanzibar? Share your preferences, and our island experts will tailor the perfect beach escape or safari combination for you.</p> <!-- Updated Text -->
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form action="#" method="POST">
+                        <form id="zanzibarBeachForm" method="POST">
                             <div class="row g-3 form">
 
                                 <!-- Contact Info -->
@@ -471,7 +471,29 @@
     <!-- Template Javascript -->
     <script src="js/main.js"></script>
     <script>
-        // Add any page-specific JS here if needed
+$(function(){
+  $('#zanzibarBeachForm').on('submit', function(e){
+    e.preventDefault();
+    var form = $(this);
+    $.ajax({
+      url: 'process-form.php',
+      type: 'POST',
+      data: form.serialize(),
+      dataType: 'json',
+      success: function(resp){
+        if(resp.success){
+          alert(resp.message);
+          form[0].reset();
+        } else {
+          alert('Error: ' + resp.message);
+        }
+      },
+      error: function(){
+        alert('There was a problem sending your message.');
+      }
+    });
+  });
+});
     </script>
 </body>
 
