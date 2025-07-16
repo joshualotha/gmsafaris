@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Gallery - Golden Memories Safaris</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #d69c40;
+            --primary-hover: #c58d39;
+        }
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f8f9fa;
+        }
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        .sidebar-header {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        .sidebar-header h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+        .sidebar-header img {
+            max-height: 40px;
+        }
+        .sidebar-menu {
+            padding: 0 15px;
+        }
+        .sidebar-menu .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        .sidebar-menu .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        .admin-header {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .admin-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .admin-card h4 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        .btn-admin-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        .btn-admin-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            color: white;
+        }
+        .gallery-container {
+            margin-top: 0;
+        }
+        .gallery-item {
+            margin-bottom: 20px;
+            position: relative;
+            transition: transform 0.2s;
+        }
+        .gallery-item:hover {
+            transform: scale(1.02);
+        }
+        .gallery-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+        }
+        .gallery-actions {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            opacity: 0;
+            transition: opacity 0.2s;
+        }
+        .gallery-item:hover .gallery-actions {
+            opacity: 1;
+        }
+        .upload-area {
+            border: 2px dashed #6c757d;
+            padding: 30px;
+            text-align: center;
+            margin-bottom: 20px;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: all 0.3s;
+            background-color: #f8f9fa;
+        }
+        .upload-area:hover {
+            border-color: var(--primary-color);
+            background-color: #fff8ef;
+        }
+        .upload-area.active {
+            border-color: var(--primary-color);
+            background-color: #fff8ef;
+        }
+        #fileList {
+            max-height: 200px;
+            overflow-y: auto;
+        }
+        .file-item {
+            padding: 8px;
+            border-bottom: 1px solid #eee;
+        }
+        .file-item:last-child {
+            border-bottom: none;
+        }
+        .badge-category {
+            background-color: #6f42c1;
+        }
+        .card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            border: none;
+        }
+        .card-title {
+            color: #333;
+        }
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -280px;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .main-content.active {
+                margin-left: 280px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="../img/logo.png" alt="Golden Memories Safaris Logo" class="me-2">
+                <h3>Admin Panel</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-packages.html">
+                            <i class="fas fa-suitcase"></i> Packages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-destinations.html">
+                            <i class="fas fa-map-marked-alt"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-blogs.html">
+                            <i class="fas fa-blog"></i> Blog Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-gallery.html">
+                            <i class="fas fa-images"></i> Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-booking.html">
+                            <i class="fas fa-calendar-check"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-contactus.html">
+                            <i class="fas fa-envelope"></i> Contact Messages
+                        </a>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="container py-4">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h1><i class="fas fa-images me-2" style="color: var(--primary-color);"></i>Gallery Management</h1>
+                    <button class="btn btn-admin-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                        <i class="fas fa-plus me-1"></i>Add Images
+                    </button>
+                </div>
+
+                <!-- Status Message Area -->
+                <div id="statusMessage" class="alert alert-dismissible fade" role="alert">
+                    <span id="messageText"></span>
+                    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+                </div>
+
+                <!-- Gallery Filter -->
+                <div class="row mb-4">
+                    <div class="col-md-6">
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-search"></i></span>
+                            <input type="text" id="searchInput" class="form-control" placeholder="Search images...">
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <select id="categoryFilter" class="form-select">
+                            <option value="">All Categories</option>
+                            <option value="wildlife">Wildlife</option>
+                            <option value="landscape">Landscape</option>
+                            <option value="culture">Culture</option>
+                            <option value="lodges">Lodges</option>
+                            <option value="adventure">Adventure</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Gallery Images Grid -->
+                <div class="row gallery-container" id="galleryGrid">
+                    <!-- Images will be loaded here via JavaScript -->
+                    <div class="col-12 text-center py-5">
+                        <div class="spinner-border" role="status" style="color: var(--primary-color);">
+                            <span class="visually-hidden">Loading...</span>
+                        </div>
+                        <p class="mt-2">Loading gallery images...</p>
+                    </div>
+                </div>
+
+                <!-- Pagination -->
+                <nav aria-label="Gallery pagination" class="mt-4">
+                    <ul class="pagination justify-content-center" id="pagination">
+                        <!-- Pagination will be added via JavaScript -->
+                    </ul>
+                </nav>
+            </div>
+
+            <!-- Upload Modal -->
+            <div class="modal fade" id="uploadModal" tabindex="-1" aria-labelledby="uploadModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg">
+                    <div class="modal-content">
+                        <div class="modal-header bg-primary text-white">
+                            <h5 class="modal-title" id="uploadModalLabel"><i class="fas fa-cloud-upload-alt me-2"></i>Upload Images</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <form id="uploadForm">
+                                <div class="upload-area" id="uploadArea">
+                                    <i class="fas fa-cloud-upload-alt fa-4x mb-3" style="color: var(--primary-color);"></i>
+                                    <h5>Drag & drop images here</h5>
+                                    <p class="text-muted">or click to browse files</p>
+                                    <input type="file" name="images[]" id="fileInput" multiple accept="image/*" style="display: none;">
+                                </div>
+                                <div class="mb-3">
+                                    <label for="imageCategory" class="form-label">Category (optional):</label>
+                                    <select class="form-select" id="imageCategory">
+                                        <option value="">None</option>
+                                        <option value="wildlife">Wildlife</option>
+                                        <option value="landscape">Landscape</option>
+                                        <option value="culture">Culture</option>
+                                        <option value="lodges">Lodges</option>
+                                        <option value="adventure">Adventure</option>
+                                    </select>
+                                </div>
+                                <div class="mb-3">
+                                    <label for="altText" class="form-label">Alt Text (optional):</label>
+                                    <input type="text" class="form-control" id="altText" placeholder="Description for accessibility">
+                                </div>
+                                <div id="fileList" class="mb-3 border rounded p-2" style="max-height: 200px; overflow-y: auto; display: none;">
+                                    <h6 class="border-bottom pb-2">Selected Files (<span id="fileCount">0</span>):</h6>
+                                    <div id="fileItems"></div>
+                                </div>
+                            </form>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" id="uploadBtn" class="btn btn-primary" disabled>
+                                <i class="fas fa-upload me-1"></i>Upload
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Delete Confirmation Modal -->
+            <div class="modal fade" id="deleteModal" tabindex="-1" aria-hidden="true">
+                <div class="modal-dialog">
+                    <div class="modal-content">
+                        <div class="modal-header bg-danger text-white">
+                            <h5 class="modal-title"><i class="fas fa-trash-alt me-2"></i>Confirm Delete</h5>
+                            <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                        </div>
+                        <div class="modal-body">
+                            <p>Are you sure you want to delete this image? This action cannot be undone.</p>
+                            <input type="hidden" id="imageIdToDelete">
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancel</button>
+                            <button type="button" id="confirmDeleteBtn" class="btn btn-danger">
+                                <i class="fas fa-trash-alt me-1"></i>Delete
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap Bundle with Popper -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <script>
+        // DOM Elements
+        const uploadArea = document.getElementById('uploadArea');
+        const fileInput = document.getElementById('fileInput');
+        const fileList = document.getElementById('fileList');
+        const fileItems = document.getElementById('fileItems');
+        const fileCount = document.getElementById('fileCount');
+        const uploadBtn = document.getElementById('uploadBtn');
+        const uploadForm = document.getElementById('uploadForm');
+        const galleryGrid = document.getElementById('galleryGrid');
+        const searchInput = document.getElementById('searchInput');
+        const categoryFilter = document.getElementById('categoryFilter');
+        const statusMessage = document.getElementById('statusMessage');
+        const messageText = document.getElementById('messageText');
+        const deleteModal = new bootstrap.Modal(document.getElementById('deleteModal'));
+        const confirmDeleteBtn = document.getElementById('confirmDeleteBtn');
+        const imageIdToDelete = document.getElementById('imageIdToDelete');
+
+        // Current page for pagination
+        let currentPage = 1;
+        const imagesPerPage = 12;
+
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            loadGalleryImages();
+            setupEventListeners();
+        });
+
+        function setupEventListeners() {
+            // File upload handling
+            uploadArea.addEventListener('click', () => fileInput.click());
+            
+            uploadArea.addEventListener('dragover', (e) => {
+                e.preventDefault();
+                uploadArea.classList.add('active');
+            });
+            
+            uploadArea.addEventListener('dragleave', () => {
+                uploadArea.classList.remove('active');
+            });
+            
+            uploadArea.addEventListener('drop', (e) => {
+                e.preventDefault();
+                uploadArea.classList.remove('active');
+                fileInput.files = e.dataTransfer.files;
+                updateFileList();
+            });
+            
+            fileInput.addEventListener('change', updateFileList);
+            
+            // Upload button
+            uploadBtn.addEventListener('click', handleUpload);
+            
+            // Search and filter
+            searchInput.addEventListener('input', () => {
+                currentPage = 1;
+                loadGalleryImages();
+            });
+            
+            categoryFilter.addEventListener('change', () => {
+                currentPage = 1;
+                loadGalleryImages();
+            });
+            
+            // Delete confirmation
+            confirmDeleteBtn.addEventListener('click', deleteImage);
+        }
+
+        function updateFileList() {
+            fileItems.innerHTML = '';
+            const files = fileInput.files;
+            
+            if (files.length > 0) {
+                fileList.style.display = 'block';
+                fileCount.textContent = files.length;
+                uploadBtn.disabled = false;
+                
+                for (let i = 0; i < files.length; i++) {
+                    const fileItem = document.createElement('div');
+                    fileItem.className = 'file-item d-flex justify-content-between align-items-center';
+                    
+                    const fileInfo = document.createElement('div');
+                    fileInfo.className = 'text-truncate me-2';
+                    fileInfo.style.maxWidth = '70%';
+                    fileInfo.textContent = files[i].name;
+                    
+                    const fileSize = document.createElement('small');
+                    fileSize.className = 'text-muted';
+                    fileSize.textContent = formatFileSize(files[i].size);
+                    
+                    fileInfo.appendChild(fileSize);
+                    
+                    const removeBtn = document.createElement('button');
+                    removeBtn.className = 'btn btn-sm btn-outline-danger';
+                    removeBtn.innerHTML = '<i class="fas fa-times"></i>';
+                    removeBtn.onclick = (e) => {
+                        e.stopPropagation();
+                        removeFileFromList(i);
+                    };
+                    
+                    fileItem.appendChild(fileInfo);
+                    fileItem.appendChild(removeBtn);
+                    fileItems.appendChild(fileItem);
+                }
+            } else {
+                fileList.style.display = 'none';
+                uploadBtn.disabled = true;
+            }
+        }
+
+        function removeFileFromList(index) {
+            const dt = new DataTransfer();
+            const files = fileInput.files;
+            
+            for (let i = 0; i < files.length; i++) {
+                if (i !== index) {
+                    dt.items.add(files[i]);
+                }
+            }
+            
+            fileInput.files = dt.files;
+            updateFileList();
+        }
+
+        function formatFileSize(bytes) {
+            if (bytes === 0) return '0 Bytes';
+            const k = 1024;
+            const sizes = ['Bytes', 'KB', 'MB', 'GB'];
+            const i = Math.floor(Math.log(bytes) / Math.log(k));
+            return parseFloat((bytes / Math.pow(k, i)).toFixed(2)) + ' ' + sizes[i];
+        }
+
+        function handleUpload() {
+            if (fileInput.files.length === 0) return;
+            
+            uploadBtn.disabled = true;
+            uploadBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Uploading...';
+            
+            // In a real implementation, you would use FormData to send files to your backend
+            const formData = new FormData();
+            for (let i = 0; i < fileInput.files.length; i++) {
+                formData.append('images[]', fileInput.files[i]);
+            }
+            
+            const category = document.getElementById('imageCategory').value;
+            if (category) {
+                formData.append('category', category);
+            }
+            
+            const altText = document.getElementById('altText').value;
+            if (altText) {
+                formData.append('altText', altText);
+            }
+            
+            // Simulate AJAX upload - replace with actual fetch/AJAX call to your backend
+            setTimeout(() => {
+                showMessage('success', `${fileInput.files.length} images uploaded successfully!`);
+                uploadBtn.innerHTML = '<i class="fas fa-upload me-1"></i>Upload';
+                
+                // Reset form
+                fileInput.value = '';
+                updateFileList();
+                document.getElementById('imageCategory').value = '';
+                document.getElementById('altText').value = '';
+                
+                // Close modal and refresh gallery
+                bootstrap.Modal.getInstance(document.getElementById('uploadModal')).hide();
+                loadGalleryImages();
+            }, 1500);
+            
+            // Example of what your actual fetch might look like:
+            /*
+            fetch('your-upload-endpoint.php', {
+                method: 'POST',
+                body: formData
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('success', data.message);
+                    // Reset form and refresh gallery
+                } else {
+                    showMessage('danger', data.message || 'Upload failed');
+                    uploadBtn.disabled = false;
+                    uploadBtn.innerHTML = '<i class="fas fa-upload me-1"></i>Upload';
+                }
+            })
+            .catch(error => {
+                showMessage('danger', 'An error occurred during upload');
+                uploadBtn.disabled = false;
+                uploadBtn.innerHTML = '<i class="fas fa-upload me-1"></i>Upload';
+            });
+            */
+        }
+
+        function loadGalleryImages(page = currentPage) {
+            currentPage = page;
+            galleryGrid.innerHTML = `
+                <div class="col-12 text-center py-5">
+                    <div class="spinner-border" role="status" style="color: var(--primary-color);">
+                        <span class="visually-hidden">Loading...</span>
+                    </div>
+                    <p class="mt-2">Loading gallery images...</p>
+                </div>
+            `;
+            
+            // In a real implementation, you would fetch images from your backend API
+            // This is a mock implementation with setTimeout to simulate API call
+            setTimeout(() => {
+                // Mock data - replace with actual data from your backend
+                const mockImages = generateMockImages();
+                
+                // Filter based on search and category
+                const searchTerm = searchInput.value.toLowerCase();
+                const category = categoryFilter.value;
+                
+                let filteredImages = mockImages.filter(img => {
+                    const matchesSearch = img.filename.toLowerCase().includes(searchTerm) || 
+                                        (img.altText && img.altText.toLowerCase().includes(searchTerm));
+                    const matchesCategory = !category || img.category === category;
+                    return matchesSearch && matchesCategory;
+                });
+                
+                // Pagination
+                const totalPages = Math.ceil(filteredImages.length / imagesPerPage);
+                const startIdx = (page - 1) * imagesPerPage;
+                const paginatedImages = filteredImages.slice(startIdx, startIdx + imagesPerPage);
+                
+                // Render images
+                renderGalleryImages(paginatedImages);
+                
+                // Render pagination
+                renderPagination(totalPages, page);
+            }, 800);
+        }
+
+        function renderGalleryImages(images) {
+            if (images.length === 0) {
+                galleryGrid.innerHTML = `
+                    <div class="col-12 text-center py-5">
+                        <i class="fas fa-images fa-3x text-muted mb-3"></i>
+                        <h4 class="text-muted">No images found</h4>
+                        <p>Try adjusting your search or upload new images.</p>
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#uploadModal">
+                            <i class="fas fa-plus me-1"></i>Upload Images
+                        </button>
+                    </div>
+                `;
+                document.getElementById('pagination').innerHTML = '';
+                return;
+            }
+            
+            galleryGrid.innerHTML = '';
+            
+            images.forEach(image => {
+                const col = document.createElement('div');
+                col.className = 'col-md-6 col-lg-4 col-xl-3 gallery-item';
+                
+                col.innerHTML = `
+                    <div class="card h-100">
+                        <img src="${image.thumbnail}" class="card-img-top" alt="${image.altText || 'Gallery image'}">
+                        <div class="gallery-actions">
+                            <button class="btn btn-sm btn-danger delete-btn" data-id="${image.id}">
+                                <i class="fas fa-trash-alt"></i>
+                            </button>
+                        </div>
+                        <div class="card-body">
+                            <h6 class="card-title text-truncate">${image.filename}</h6>
+                            <div class="d-flex justify-content-between align-items-center">
+                                <small class="text-muted">${formatDate(image.uploadDate)}</small>
+                                ${image.category ? `<span class="badge badge-category">${image.category}</span>` : ''}
+                            </div>
+                        </div>
+                    </div>
+                `;
+                
+                galleryGrid.appendChild(col);
+            });
+            
+            // Add event listeners to delete buttons
+            document.querySelectorAll('.delete-btn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    imageIdToDelete.value = btn.getAttribute('data-id');
+                    deleteModal.show();
+                });
+            });
+        }
+
+        function renderPagination(totalPages, currentPage) {
+            const pagination = document.getElementById('pagination');
+            pagination.innerHTML = '';
+            
+            if (totalPages <= 1) return;
+            
+            // Previous button
+            const prevLi = document.createElement('li');
+            prevLi.className = `page-item ${currentPage === 1 ? 'disabled' : ''}`;
+            prevLi.innerHTML = `<a class="page-link" href="#" aria-label="Previous"><span aria-hidden="true">&laquo;</span></a>`;
+            prevLi.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage > 1) loadGalleryImages(currentPage - 1);
+            });
+            pagination.appendChild(prevLi);
+            
+            // Page numbers
+            for (let i = 1; i <= totalPages; i++) {
+                const pageLi = document.createElement('li');
+                pageLi.className = `page-item ${i === currentPage ? 'active' : ''}`;
+                pageLi.innerHTML = `<a class="page-link" href="#">${i}</a>`;
+                pageLi.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    loadGalleryImages(i);
+                });
+                pagination.appendChild(pageLi);
+            }
+            
+            // Next button
+            const nextLi = document.createElement('li');
+            nextLi.className = `page-item ${currentPage === totalPages ? 'disabled' : ''}`;
+            nextLi.innerHTML = `<a class="page-link" href="#" aria-label="Next"><span aria-hidden="true">&raquo;</span></a>`;
+            nextLi.addEventListener('click', (e) => {
+                e.preventDefault();
+                if (currentPage < totalPages) loadGalleryImages(currentPage + 1);
+            });
+            pagination.appendChild(nextLi);
+        }
+
+        function deleteImage() {
+            const id = imageIdToDelete.value;
+            if (!id) return;
+            
+            confirmDeleteBtn.disabled = true;
+            confirmDeleteBtn.innerHTML = '<span class="spinner-border spinner-border-sm me-1" role="status" aria-hidden="true"></span> Deleting...';
+            
+            // Simulate API call - replace with actual fetch/AJAX call to your backend
+            setTimeout(() => {
+                showMessage('success', 'Image deleted successfully');
+                deleteModal.hide();
+                confirmDeleteBtn.disabled = false;
+                confirmDeleteBtn.innerHTML = '<i class="fas fa-trash-alt me-1"></i>Delete';
+                loadGalleryImages(currentPage);
+            }, 800);
+            
+            /*
+            // Example of what your actual fetch might look like:
+            fetch(`your-api-endpoint/delete-image.php?id=${id}`, {
+                method: 'DELETE'
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.success) {
+                    showMessage('success', data.message);
+                    deleteModal.hide();
+                    loadGalleryImages(currentPage);
+                } else {
+                    showMessage('danger', data.message || 'Delete failed');
+                }
+                confirmDeleteBtn.disabled = false;
+                confirmDeleteBtn.innerHTML = '<i class="fas fa-trash-alt me-1"></i>Delete';
+            })
+            .catch(error => {
+                showMessage('danger', 'An error occurred during deletion');
+                confirmDeleteBtn.disabled = false;
+                confirmDeleteBtn.innerHTML = '<i class="fas fa-trash-alt me-1"></i>Delete';
+            });
+            */
+        }
+
+        function showMessage(type, text) {
+            messageText.textContent = text;
+            statusMessage.className = `alert alert-${type} alert-dismissible fade show`;
+            setTimeout(() => {
+                const alert = bootstrap.Alert.getInstance(statusMessage);
+                if (alert) alert.close();
+            }, 5000);
+        }
+
+        function formatDate(dateString) {
+            const date = new Date(dateString);
+            return date.toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' });
+        }
+
+        // Helper function to generate mock images for demonstration
+        function generateMockImages() {
+            const categories = ['wildlife', 'landscape', 'culture', 'lodges', 'adventure', null];
+            const mockImages = [];
+            
+            for (let i = 1; i <= 24; i++) {
+                const hasCategory = Math.random() > 0.3;
+                const category = hasCategory ? categories[Math.floor(Math.random() * (categories.length - 1))] : null;
+                
+                mockImages.push({
+                    id: `img_${i}`,
+                    filename: `safari_image_${i}.jpg`,
+                    thumbnail: `https://picsum.photos/300/200?random=${i}`,
+                    fullsize: `https://picsum.photos/1200/800?random=${i}`,
+                    uploadDate: new Date(Date.now() - Math.random() * 30 * 24 * 60 * 60 * 1000).toISOString(),
+                    altText: `Safari image ${i} showing ${category || 'Tanzanian scenery'}`,
+                    category: category
+                });
+            }
+            
+            return mockImages;
+        }
+    </script>
+</body>
+</html>

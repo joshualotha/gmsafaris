@@ -1,0 +1,801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Destination Management | Golden Memories Safaris Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #d69c40;
+            --primary-hover: #c58d39;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+        
+        .sidebar-header img {
+            max-height: 40px;
+        }
+        
+        .sidebar-menu {
+            padding: 0 15px;
+        }
+        
+        .sidebar-menu .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .admin-header {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .admin-card h4 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-admin-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-admin-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            color: white;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h5 {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        
+        .destination-image-thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .feature-item-admin {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .activity-item-admin {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .season-item-admin {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -280px;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .main-content.active {
+                margin-left: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="../img/logo.png" alt="Golden Memories Safaris Logo" class="me-2">
+                <h3>Admin Panel</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-packages.html">
+                            <i class="fas fa-suitcase"></i> Packages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-destinations.html">
+                            <i class="fas fa-map-marked-alt"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-blogs.html">
+                            <i class="fas fa-blog"></i> Blog Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-gallery.html">
+                            <i class="fas fa-images"></i> Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-booking.html">
+                            <i class="fas fa-calendar-check"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-contactus.html">
+                            <i class="fas fa-envelope"></i> Contact Messages
+                        </a>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="admin-header">
+                <h4 class="mb-0">Destination Management</h4>
+                <button class="btn btn-sm btn-primary d-md-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="mb-0">Edit Destination - Ngorongoro</h4>
+                    <div>
+                        <button class="btn btn-admin-primary me-2">
+                            <i class="fas fa-save me-1"></i> Save Destination
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-eye me-1"></i> Preview
+                        </button>
+                    </div>
+                </div>
+
+                <form id="destinationForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h5>Basic Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="destinationTitle" class="form-label">Destination Title</label>
+                                <input type="text" class="form-control" id="destinationTitle" 
+                                       value="Ngorongoro Conservation Area & Crater Safari - Tanzania" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="destinationSlug" class="form-label">URL Slug</label>
+                                <input type="text" class="form-control" id="destinationSlug" 
+                                       value="ngorongoro" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="pageHeader" class="form-label">Page Header Text</label>
+                                <input type="text" class="form-control" id="pageHeader" 
+                                       value="Ngorongoro Conservation Area">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="breadcrumbText" class="form-label">Breadcrumb Text</label>
+                                <input type="text" class="form-control" id="breadcrumbText" 
+                                       value="Ngorongoro">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="destinationDescription" class="form-label">Short Description (Meta Description)</label>
+                            <textarea class="form-control" id="destinationDescription" rows="3">Explore the breathtaking Ngorongoro Crater and Conservation Area with Golden Memories Safaris. Witness incredible wildlife density, the Big Five, Olduvai Gorge, and Maasai culture in this UNESCO World Heritage site.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="destinationKeywords" class="form-label">Keywords (SEO)</label>
+                            <input type="text" class="form-control" id="destinationKeywords" 
+                                   value="ngorongoro crater safari, ngorongoro conservation area, tanzania safari, big five ngorongoro, black rhino tanzania, olduvai gorge, maasai tanzania">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="destinationStatus" class="form-label">Status</label>
+                                <select class="form-select" id="destinationStatus">
+                                    <option value="published" selected>Published</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="destinationFeatured" class="form-label">Featured Destination</label>
+                                <select class="form-select" id="destinationFeatured">
+                                    <option value="no">No</option>
+                                    <option value="yes" selected>Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image Section -->
+                    <div class="form-section">
+                        <h5>Hero Image</h5>
+                        <div class="mb-3">
+                            <label for="heroImage" class="form-label">Upload Hero Image</label>
+                            <input class="form-control" type="file" id="heroImage" accept="image/*">
+                            <small class="text-muted">Recommended size: 1920x1080 pixels</small>
+                        </div>
+                        <div class="mb-3">
+                            <img id="heroImagePreview" src="../img/ngorongoro-header.JPG" alt="Hero Image Preview" class="image-preview img-fluid">
+                        </div>
+                    </div>
+
+                    <!-- Introduction Section -->
+                    <div class="form-section">
+                        <h5>Introduction Section</h5>
+                        <div class="mb-3">
+                            <label for="introTagline" class="form-label">Intro Tagline</label>
+                            <input type="text" class="form-control" id="introTagline" 
+                                   value="A Natural & Cultural Jewel">
+                        </div>
+                        <div class="mb-3">
+                            <label for="introTitle" class="form-label">Intro Title</label>
+                            <input type="text" class="form-control" id="introTitle" 
+                                   value="The Ngorongoro Crater & Beyond">
+                        </div>
+                        <div class="mb-3">
+                            <label for="introParagraph1" class="form-label">First Paragraph</label>
+                            <textarea class="form-control" id="introParagraph1" rows="3">Step into a world of breathtaking beauty and unique coexistence within the Ngorongoro Conservation Area (NCA). This UNESCO World Heritage site is most famous for the Ngorongoro Crater, the world's largest intact volcanic caldera, often called the "Garden of Eden" for its incredible density of wildlife.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="introParagraph2" class="form-label">Second Paragraph</label>
+                            <textarea class="form-control" id="introParagraph2" rows="3">But the NCA offers more than just the Crater. It's a pioneering area where wildlife, semi-nomadic Maasai pastoralists, and their livestock live side-by-side. Explore the vast plains, visit the archaeologically significant Olduvai Gorge, and witness a harmonious blend of nature and culture found nowhere else on Earth.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="introImage" class="form-label">Intro Image</label>
+                            <input class="form-control" type="file" id="introImage" accept="image/*">
+                            <small class="text-muted">Recommended size: 800x600 pixels or similar aspect ratio</small>
+                        </div>
+                        <div class="mb-3">
+                            <img id="introImagePreview" src="../img/ngorongoro-crater-main.JPG" alt="Intro Image Preview" class="image-preview img-fluid">
+                        </div>
+                    </div>
+
+                    <!-- Key Features Section -->
+                    <div class="form-section">
+                        <h5>Key Features Section</h5>
+                        <div class="mb-3">
+                            <label for="featuresTitle" class="form-label">Section Title</label>
+                            <input type="text" class="form-control" id="featuresTitle" 
+                                   value="Why Visit Ngorongoro?">
+                        </div>
+                        <div id="featureItems">
+                            <div class="feature-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Feature Title</label>
+                                        <input type="text" class="form-control" value="The Ngorongoro Crater">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-meteor">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <input type="text" class="form-control" value="A stunning natural amphitheater teeming with wildlife year-round.">
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <div class="feature-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Feature Title</label>
+                                        <input type="text" class="form-control" value="Incredible Wildlife Density">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-paw">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <input type="text" class="form-control" value="One of the best places in Africa for concentrated game viewing.">
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- More feature items would be here -->
+                        </div>
+                        <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addFeature">
+                            <i class="fas fa-plus me-1"></i> Add Feature
+                        </button>
+                    </div>
+
+                    <!-- Best Time to Visit Section -->
+                    <div class="form-section">
+                        <h5>Best Time to Visit Section</h5>
+                        <div class="mb-3">
+                            <label for="bestTimeTitle" class="form-label">Section Title</label>
+                            <input type="text" class="form-control" id="bestTimeTitle" 
+                                   value="Best Time to Visit Ngorongoro">
+                        </div>
+                        <div class="mb-3">
+                            <label for="bestTimeIntro" class="form-label">Introduction Text</label>
+                            <textarea class="form-control" id="bestTimeIntro" rows="3">The Ngorongoro Crater offers superb wildlife viewing year-round due to the permanent water sources and abundant resident wildlife within the caldera.</textarea>
+                        </div>
+                        
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="admin-card">
+                                    <h6>Dry Season (June - October)</h6>
+                                    <div id="drySeasonItems">
+                                        <div class="season-item-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Cooler temperatures, less chance of rain.">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="season-item-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Vegetation is thinner, potentially making wildlife easier to spot.">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- More dry season items would be here -->
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addDrySeasonItem">
+                                        <i class="fas fa-plus me-1"></i> Add Item
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="admin-card">
+                                    <h6>Wet/Green Season (November - May)</h6>
+                                    <div id="wetSeasonItems">
+                                        <div class="season-item-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Lush, green scenery, beautiful landscapes.">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="season-item-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Migration calving in nearby Ndutu (Dec-Mar) is a major draw.">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- More wet season items would be here -->
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addWetSeasonItem">
+                                        <i class="fas fa-plus me-1"></i> Add Item
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Activities Section -->
+                    <div class="form-section">
+                        <h5>Activities Section</h5>
+                        <div class="mb-3">
+                            <label for="activitiesTitle" class="form-label">Section Title</label>
+                            <input type="text" class="form-control" id="activitiesTitle" 
+                                   value="Activities in Ngorongoro">
+                        </div>
+                        <div class="mb-3">
+                            <label for="activitiesImage" class="form-label">Activities Image</label>
+                            <input class="form-control" type="file" id="activitiesImage" accept="image/*">
+                            <small class="text-muted">Recommended size: 800x600 pixels or similar aspect ratio</small>
+                        </div>
+                        <div class="mb-3">
+                            <img id="activitiesImagePreview" src="../img/ngorongoro-viewpoint.JPG" alt="Activities Image Preview" class="image-preview img-fluid">
+                        </div>
+                        <div id="activityItems">
+                            <div class="activity-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Activity Title</label>
+                                        <input type="text" class="form-control" value="Crater Game Drive">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-car-side">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" rows="3">The primary activity, exploring the caldera floor in a 4x4 vehicle searching for the Big Five and other wildlife.</textarea>
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <div class="activity-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Activity Title</label>
+                                        <input type="text" class="form-control" value="Visit Olduvai Gorge">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-landmark">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" rows="3">A fascinating stop to learn about human origins at the museum and viewpoint.</textarea>
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- More activity items would be here -->
+                        </div>
+                        <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addActivity">
+                            <i class="fas fa-plus me-1"></i> Add Activity
+                        </button>
+                    </div>
+
+                    <!-- Inquiry Form Section -->
+                    <div class="form-section">
+                        <h5>Inquiry Form Section</h5>
+                        <div class="mb-3">
+                            <label for="inquiryTagline" class="form-label">Form Tagline</label>
+                            <input type="text" class="form-control" id="inquiryTagline" 
+                                   value="Plan Your Crater Adventure">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inquiryTitle" class="form-label">Form Title</label>
+                            <input type="text" class="form-control" id="inquiryTitle" 
+                                   value="Inquire About Your Ngorongoro Safari">
+                        </div>
+                        <div class="mb-3">
+                            <label for="inquiryDescription" class="form-label">Form Description</label>
+                            <textarea class="form-control" id="inquiryDescription" rows="3">Ready to explore the Ngorongoro Conservation Area? Tell us your travel plans, and we'll create a tailored itinerary including the Crater and beyond.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inquiryPlaceholder" class="form-label">Textarea Placeholder</label>
+                            <textarea class="form-control" id="inquiryPlaceholder" rows="3">Tell us about your ideal Ngorongoro visit. How much time in the Crater vs Conservation Area? Interested in Olduvai or Maasai visits? Combining with other parks? Any special interests or needs?</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="inquiryButtonText" class="form-label">Submit Button Text</label>
+                            <input type="text" class="form-control" id="inquiryButtonText" 
+                                   value="Request Ngorongoro Safari Info">
+                        </div>
+                    </div>
+
+                    <!-- Gallery Section -->
+                    <div class="form-section">
+                        <h5>Gallery Images</h5>
+                        <div class="mb-3">
+                            <label for="galleryImages" class="form-label">Upload Gallery Images</label>
+                            <input class="form-control" type="file" id="galleryImages" accept="image/*" multiple>
+                            <small class="text-muted">Recommended size: 800x600 pixels or similar aspect ratio</small>
+                        </div>
+                        <div class="d-flex flex-wrap" id="galleryPreviews">
+                            <img src="../img/ngorongoro-header.JPG" class="destination-image-thumbnail">
+                            <img src="../img/ngorongoro-crater-main.JPG" class="destination-image-thumbnail">
+                            <img src="../img/ngorongoro-viewpoint.JPG" class="destination-image-thumbnail">
+                        </div>
+                    </div>
+
+                    <!-- Meta Information Section -->
+                    <div class="form-section">
+                        <h5>Meta Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="metaTitle" class="form-label">Meta Title</label>
+                                <input type="text" class="form-control" id="metaTitle" 
+                                       value="Ngorongoro Conservation Area & Crater Safari - Tanzania - Golden Memories Safaris">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="metaDescription" class="form-label">Meta Description</label>
+                                <textarea class="form-control" id="metaDescription" rows="2">Explore the breathtaking Ngorongoro Crater and Conservation Area with Golden Memories Safaris. Witness incredible wildlife density, the Big Five, Olduvai Gorge, and Maasai culture in this UNESCO World Heritage site.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-secondary">
+                            <i class="fas fa-times me-1"></i> Cancel
+                        </button>
+                        <div>
+                            <button type="button" class="btn btn-outline-primary me-2">
+                                <i class="fas fa-save me-1"></i> Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-admin-primary">
+                                <i class="fas fa-check-circle me-1"></i> Publish Destination
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('main-content').classList.toggle('active');
+        });
+
+        // Preview hero image when selected
+        document.getElementById('heroImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('heroImagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Preview intro image when selected
+        document.getElementById('introImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('introImagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Preview activities image when selected
+        document.getElementById('activitiesImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('activitiesImagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Add new feature item
+        document.getElementById('addFeature').addEventListener('click', function() {
+            const featureHTML = `
+                <div class="feature-item-admin">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Feature Title</label>
+                            <input type="text" class="form-control" placeholder="Enter feature title">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Icon (Font Awesome class)</label>
+                            <input type="text" class="form-control" placeholder="fas fa-icon">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" placeholder="Enter feature description">
+                    </div>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i> Remove
+                    </button>
+                </div>
+            `;
+            document.getElementById('featureItems').insertAdjacentHTML('beforeend', featureHTML);
+        });
+
+        // Add new dry season item
+        document.getElementById('addDrySeasonItem').addEventListener('click', function() {
+            const itemHTML = `
+                <div class="season-item-admin">
+                    <div class="d-flex">
+                        <input type="text" class="form-control form-control-sm me-2" placeholder="Enter dry season characteristic">
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('drySeasonItems').insertAdjacentHTML('beforeend', itemHTML);
+        });
+
+        // Add new wet season item
+        document.getElementById('addWetSeasonItem').addEventListener('click', function() {
+            const itemHTML = `
+                <div class="season-item-admin">
+                    <div class="d-flex">
+                        <input type="text" class="form-control form-control-sm me-2" placeholder="Enter wet season characteristic">
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('wetSeasonItems').insertAdjacentHTML('beforeend', itemHTML);
+        });
+
+        // Add new activity item
+        document.getElementById('addActivity').addEventListener('click', function() {
+            const activityHTML = `
+                <div class="activity-item-admin">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Activity Title</label>
+                            <input type="text" class="form-control" placeholder="Enter activity title">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Icon (Font Awesome class)</label>
+                            <input type="text" class="form-control" placeholder="fas fa-icon">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="3" placeholder="Enter activity description"></textarea>
+                    </div>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i> Remove
+                    </button>
+                </div>
+            `;
+            document.getElementById('activityItems').insertAdjacentHTML('beforeend', activityHTML);
+        });
+
+        // Handle form submission
+        document.getElementById('destinationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Destination saved successfully!');
+            // In a real application, you would send the form data to your server here
+        });
+
+        // Event delegation for delete buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-danger') && 
+                e.target.closest('.feature-item-admin, .activity-item-admin, .season-item-admin')) {
+                e.target.closest('.feature-item-admin, .activity-item-admin, .season-item-admin').remove();
+            }
+        });
+
+        // Auto-generate slug from destination title
+        document.getElementById('destinationTitle').addEventListener('input', function() {
+            const title = this.value;
+            const slug = title.toLowerCase()
+                .replace(/[^\w\s-]/g, '') // Remove non-word chars
+                .replace(/[\s_-]+/g, '-')  // Replace spaces/underscores with dashes
+                .replace(/^-+|-+$/g, '');  // Trim dashes from start/end
+            document.getElementById('destinationSlug').value = slug;
+        });
+    </script>
+</body>
+</html>

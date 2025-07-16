@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Admin Bookings | Golden Memories Safaris</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #d69c40;
+            --primary-hover: #c58d39;
+        }
+        body { font-family: 'Open Sans', sans-serif; background-color: #f8f9fa; }
+        .admin-container { display: flex; min-height: 100vh; }
+        .sidebar { width: var(--sidebar-width); background-color: #343a40; color: white; position: fixed; height: 100vh; padding: 20px 0; transition: all 0.3s; z-index: 1000; }
+        .sidebar-header { padding: 10px 20px; border-bottom: 1px solid rgba(255,255,255,0.1); margin-bottom: 20px; }
+        .sidebar-header h3 { color: white; font-size: 1.2rem; margin-bottom: 0; }
+        .sidebar-header img { max-height: 40px; }
+        .sidebar-menu { padding: 0 15px; }
+        .sidebar-menu .nav-link { color: rgba(255,255,255,0.8); padding: 10px 15px; margin-bottom: 5px; border-radius: 4px; transition: all 0.3s; }
+        .sidebar-menu .nav-link:hover, .sidebar-menu .nav-link.active { color: white; background-color: rgba(255,255,255,0.1); }
+        .sidebar-menu .nav-link i { margin-right: 10px; width: 20px; text-align: center; }
+        .main-content { margin-left: var(--sidebar-width); flex: 1; padding: 20px; transition: all 0.3s; }
+        .admin-header { background-color: white; padding: 15px 20px; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); margin-bottom: 20px; display: flex; justify-content: space-between; align-items: center; }
+        .admin-card { background-color: white; border-radius: 5px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); padding: 20px; margin-bottom: 20px; }
+        .table-responsive { border-radius: 5px; overflow: hidden; }
+        .table th { background-color: var(--primary-color); color: white; }
+        .action-btn { padding: 0.25rem 0.5rem; font-size: 0.875rem; }
+        @media (max-width: 768px) { .sidebar { margin-left: -280px; } .sidebar.active { margin-left: 0; } .main-content { margin-left: 0; } .main-content.active { margin-left: 280px; } }
+    </style>
+</head>
+<body>
+<div class="admin-container">
+    <!-- Sidebar -->
+    <div class="sidebar" id="sidebar">
+        <div class="sidebar-header d-flex align-items-center">
+            <img src="../img/logo.png" alt="Golden Memories Safaris Logo" class="me-2">
+            <h3>Admin Panel</h3>
+        </div>
+        <div class="sidebar-menu">
+            <ul class="nav flex-column">
+                <li class="nav-item"><a class="nav-link" href="admin-dashboard.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-packages.html"><i class="fas fa-suitcase"></i> Packages</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-destinations.html"><i class="fas fa-map-marked-alt"></i> Destinations</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-blogs.html"><i class="fas fa-blog"></i> Blog Posts</a></li>
+                <li class="nav-item"><a class="nav-link" href="admin-gallery.html"><i class="fas fa-images"></i> Gallery</a></li>
+                <li class="nav-item"><a class="nav-link active" href="admin-booking.html"><i class="fas fa-calendar-check"></i> Bookings</a></li>
+                <li class="nav-item mt-4"><a class="nav-link text-danger" href="#"><i class="fas fa-sign-out-alt"></i> Logout</a></li>
+            </ul>
+        </div>
+    </div>
+    <!-- Main Content -->
+    <div class="main-content" id="main-content">
+        <div class="admin-header">
+            <h4 class="mb-0">Booking Inquiries</h4>
+        </div>
+        <div class="admin-card">
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered align-middle">
+                    <thead>
+                        <tr>
+                            <th>Name</th><th>Email</th><th>Phone</th><th>Country</th><th>Trip Type</th><th>Destinations</th><th>Dates</th><th>Duration</th><th>Adults</th><th>Children</th><th>Accommodation</th><th>Source</th><th>Date</th><th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Jane Doe</td><td>jane@example.com</td><td>+123456789</td><td>USA</td><td>Wildlife Safari</td><td>Serengeti, Ngorongoro</td><td>July 2024</td><td>7 Days</td><td>2</td><td>1</td><td>Luxury Tented Camps</td><td>Google Search</td><td>2024-05-20</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary action-btn" data-bs-toggle="modal" data-bs-target="#viewBookingModal"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-outline-danger action-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>John Smith</td><td>john@example.com</td><td>+987654321</td><td>UK</td><td>Kilimanjaro Trek</td><td>Kilimanjaro</td><td>August 2024</td><td>9 Days</td><td>1</td><td>0</td><td>Mid-Range Lodges</td><td>Facebook</td><td>2024-05-19</td>
+                            <td>
+                                <button class="btn btn-sm btn-outline-primary action-btn" data-bs-toggle="modal" data-bs-target="#viewBookingModal"><i class="fas fa-eye"></i></button>
+                                <button class="btn btn-sm btn-outline-danger action-btn"><i class="fas fa-trash"></i></button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <!-- Booking Details Modal -->
+        <div class="modal fade" id="viewBookingModal" tabindex="-1" aria-labelledby="viewBookingModalLabel" aria-hidden="true">
+            <div class="modal-dialog modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header bg-primary text-white">
+                        <h5 class="modal-title" id="viewBookingModalLabel"><i class="fas fa-info-circle me-2"></i>Booking Details</h5>
+                        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <dl class="row">
+                            <dt class="col-sm-4">Name</dt><dd class="col-sm-8">Jane Doe</dd>
+                            <dt class="col-sm-4">Email</dt><dd class="col-sm-8">jane@example.com</dd>
+                            <dt class="col-sm-4">Phone</dt><dd class="col-sm-8">+123456789</dd>
+                            <dt class="col-sm-4">Country</dt><dd class="col-sm-8">USA</dd>
+                            <dt class="col-sm-4">Trip Type</dt><dd class="col-sm-8">Wildlife Safari</dd>
+                            <dt class="col-sm-4">Destinations</dt><dd class="col-sm-8">Serengeti, Ngorongoro</dd>
+                            <dt class="col-sm-4">Dates</dt><dd class="col-sm-8">July 2024</dd>
+                            <dt class="col-sm-4">Duration</dt><dd class="col-sm-8">7 Days</dd>
+                            <dt class="col-sm-4">Adults</dt><dd class="col-sm-8">2</dd>
+                            <dt class="col-sm-4">Children</dt><dd class="col-sm-8">1</dd>
+                            <dt class="col-sm-4">Accommodation</dt><dd class="col-sm-8">Luxury Tented Camps</dd>
+                            <dt class="col-sm-4">Source</dt><dd class="col-sm-8">Google Search</dd>
+                            <dt class="col-sm-4">Comments</dt><dd class="col-sm-8">Honeymoon trip, want to see the Big Five.</dd>
+                        </dl>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html> 

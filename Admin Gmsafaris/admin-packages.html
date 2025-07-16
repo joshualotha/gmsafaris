@@ -1,0 +1,756 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Package Management | Golden Memories Safaris Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #d69c40;
+            --primary-hover: #c58d39;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+        
+        .sidebar-header img {
+            max-height: 40px;
+        }
+        
+        .sidebar-menu {
+            padding: 0 15px;
+        }
+        
+        .sidebar-menu .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .admin-header {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .admin-card h4 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-admin-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-admin-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            color: white;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h5 {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        
+        .package-image-thumbnail {
+            width: 80px;
+            height: 60px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+        }
+        
+        .highlight-item-admin {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+        }
+        
+        .itinerary-day-admin {
+            background-color: #f8f9fa;
+            padding: 15px;
+            border-radius: 5px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary-color);
+        }
+        
+        .price-feature-admin {
+            padding: 8px 0;
+            border-bottom: 1px dashed #eee;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -280px;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .main-content.active {
+                margin-left: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="../img/logo.png" alt="Golden Memories Safaris Logo" class="me-2">
+                <h3>Admin Panel</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link active" href="admin-packages.html">
+                            <i class="fas fa-suitcase"></i> Packages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-destinations.html">
+                            <i class="fas fa-map-marked-alt"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-blogs.html">
+                            <i class="fas fa-blog"></i> Blog Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-gallery.html">
+                            <i class="fas fa-images"></i> Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-booking.html">
+                            <i class="fas fa-calendar-check"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-contactus.html">
+                            <i class="fas fa-envelope"></i> Contact Messages
+                        </a>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="admin-header">
+                <h4 class="mb-0">Package Management</h4>
+                <button class="btn btn-sm btn-primary d-md-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="mb-0">Edit Safari Package</h4>
+                    <div>
+                        <button class="btn btn-admin-primary me-2">
+                            <i class="fas fa-save me-1"></i> Save Package
+                        </button>
+                        <button class="btn btn-outline-secondary">
+                            <i class="fas fa-eye me-1"></i> Preview
+                        </button>
+                    </div>
+                </div>
+
+                <form id="packageForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h5>Basic Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="packageTitle" class="form-label">Package Title</label>
+                                <input type="text" class="form-control" id="packageTitle" 
+                                       value="Selfie with White Lion" required>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="packageSlug" class="form-label">URL Slug</label>
+                                <input type="text" class="form-control" id="packageSlug" 
+                                       value="selfie-with-white-lion" required>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="packageSubtitle" class="form-label">Subtitle</label>
+                                <input type="text" class="form-control" id="packageSubtitle" 
+                                       value="An unforgettable 1-day fly-in adventure from Zanzibar featuring close wildlife encounters, coffee, culture, and included flights.">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="packageDuration" class="form-label">Duration</label>
+                                <input type="text" class="form-control" id="packageDuration" 
+                                       value="1 Day Trip">
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="packageDescription" class="form-label">Short Description (Meta Description)</label>
+                            <textarea class="form-control" id="packageDescription" rows="3">Take a unique 'Selfie with a White Lion' on this 1-day fly-in adventure from Zanzibar to Arusha, including flights, Serval Wildlife, coffee tour & cultural experiences.</textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="packageKeywords" class="form-label">Keywords (SEO)</label>
+                            <input type="text" class="form-control" id="packageKeywords" 
+                                   value="Tanzania day trip, Zanzibar day trip, White Lion, Serval Wildlife, Arusha, Coffee tour">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="packageStatus" class="form-label">Status</label>
+                                <select class="form-select" id="packageStatus">
+                                    <option value="published" selected>Published</option>
+                                    <option value="draft">Draft</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="packageFeatured" class="form-label">Featured Package</label>
+                                <select class="form-select" id="packageFeatured">
+                                    <option value="no">No</option>
+                                    <option value="yes" selected>Yes</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image Section -->
+                    <div class="form-section">
+                        <h5>Hero Image</h5>
+                        <div class="mb-3">
+                            <label for="heroImage" class="form-label">Upload Hero Image</label>
+                            <input class="form-control" type="file" id="heroImage" accept="image/*">
+                            <small class="text-muted">Recommended size: 1920x1080 pixels</small>
+                        </div>
+                        <div class="mb-3">
+                            <img id="heroImagePreview" src="../img/serval-header.jpg" alt="Hero Image Preview" class="image-preview img-fluid">
+                        </div>
+                    </div>
+
+                    <!-- Package Highlights Section -->
+                    <div class="form-section">
+                        <h5>Package Highlights</h5>
+                        <div id="highlightItems">
+                            <div class="highlight-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Highlight Title</label>
+                                        <input type="text" class="form-control" value="Serval Wildlife Visit">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-check">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <input type="text" class="form-control" value="Get close to rescued wildlife, including white lions.">
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <div class="highlight-item-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Highlight Title</label>
+                                        <input type="text" class="form-control" value="Zanzibar Return Flights Included">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Icon (Font Awesome class)</label>
+                                        <input type="text" class="form-control" value="fas fa-check">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <input type="text" class="form-control" value="Easy same-day travel from Zanzibar.">
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove
+                                </button>
+                            </div>
+                            
+                            <!-- More highlight items would be here -->
+                        </div>
+                        <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addHighlight">
+                            <i class="fas fa-plus me-1"></i> Add Highlight
+                        </button>
+                    </div>
+
+                    <!-- Detailed Description Section -->
+                    <div class="form-section">
+                        <h5>Detailed Description</h5>
+                        <div class="mb-3">
+                            <label for="packageOverview" class="form-label">Package Overview</label>
+                            <textarea class="form-control" id="packageOverview" rows="5">Have a spare day in Zanzibar? Make it truly memorable with our "Selfie with White Lion" day trip! This all-inclusive package flies you from Zanzibar to Arusha and back on the same day. Experience the thrill of visiting Serval Wildlife Reserve, where you can safely get close to rescued animals, including magnificent white lions – a unique photo opportunity!
+
+The day also includes Arusha sightseeing, a cultural experience, a taste of local coffee production, and a glimpse into Maasai culture. It's a packed, diverse, and utterly unique way to experience mainland Tanzania in just one day, with the convenience of included flights.</textarea>
+                        </div>
+                    </div>
+
+                    <!-- Itinerary Section -->
+                    <div class="form-section">
+                        <h5>Itinerary</h5>
+                        <div id="itineraryItems">
+                            <div class="itinerary-day-admin">
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Day Title</label>
+                                        <input type="text" class="form-control" value="Fly Zanzibar-Arusha, Wildlife, Culture & Return">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Day Location</label>
+                                        <input type="text" class="form-control" value="Zanzibar - Arusha - Zanzibar">
+                                    </div>
+                                </div>
+                                <div class="mb-2">
+                                    <label class="form-label">Description</label>
+                                    <textarea class="form-control" rows="4">Depart Zanzibar around 8 am for your flight to Arusha (ARK). Upon arrival, embark on a packed day including: Arusha sightseeing & cultural highlights, a local coffee experience, a visit to Serval Wildlife Reserve (highlight: white lions), and a brief Maasai cultural experience. Enjoy lunch during the day. Transfer back to Arusha Airport (ARK) for your return flight to Zanzibar, arriving in the evening (flight times vary).</textarea>
+                                </div>
+                                <div class="row">
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Meals</label>
+                                        <input type="text" class="form-control" value="Lunch">
+                                    </div>
+                                    <div class="col-md-6 mb-2">
+                                        <label class="form-label">Accommodation</label>
+                                        <input type="text" class="form-control" value="None (Day Trip)">
+                                    </div>
+                                </div>
+                                <button class="btn btn-sm btn-danger">
+                                    <i class="fas fa-trash me-1"></i> Remove Day
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addItineraryDay">
+                            <i class="fas fa-plus me-1"></i> Add Itinerary Day
+                        </button>
+                    </div>
+
+                    <!-- Pricing Section -->
+                    <div class="form-section">
+                        <h5>Pricing Information</h5>
+                        <div class="row">
+                            <div class="col-md-4 mb-3">
+                                <label for="packagePrice" class="form-label">Price Amount</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">$</span>
+                                    <input type="number" class="form-control" id="packagePrice" value="790">
+                                </div>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="pricePer" class="form-label">Price Per</label>
+                                <input type="text" class="form-control" id="pricePer" value="per person">
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="priceNote" class="form-label">Price Note</label>
+                                <input type="text" class="form-control" id="priceNote" value="All-inclusive day trip">
+                            </div>
+                        </div>
+
+                        <div class="row">
+                            <div class="col-md-6">
+                                <div class="admin-card">
+                                    <h6>What's Included</h6>
+                                    <div id="includedItems">
+                                        <div class="price-feature-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Return flights: Zanzibar (ZNZ) - Arusha (ARK) - Zanzibar (ZNZ)">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="price-feature-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Airport transfers in Arusha">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- More included items would be here -->
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addIncluded">
+                                        <i class="fas fa-plus me-1"></i> Add Included Item
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <div class="admin-card">
+                                    <h6>What's Excluded</h6>
+                                    <div id="excludedItems">
+                                        <div class="price-feature-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Accommodation (it's a day trip)">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <div class="price-feature-admin">
+                                            <div class="d-flex">
+                                                <input type="text" class="form-control form-control-sm me-2" value="Airport transfers in Zanzibar (to/from hotel)">
+                                                <button class="btn btn-sm btn-danger">
+                                                    <i class="fas fa-times"></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                        <!-- More excluded items would be here -->
+                                    </div>
+                                    <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addExcluded">
+                                        <i class="fas fa-plus me-1"></i> Add Excluded Item
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Important Notes Section -->
+                    <div class="form-section">
+                        <h5>Important Notes</h5>
+                        <div id="importantNotes">
+                            <div class="mb-2">
+                                <div class="d-flex">
+                                    <input type="text" class="form-control me-2" value="Price includes return flights Zanzibar-Arusha-Zanzibar & transfers/activities in Arusha.">
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="mb-2">
+                                <div class="d-flex">
+                                    <input type="text" class="form-control me-2" value="Price based on per person rate.">
+                                    <button class="btn btn-sm btn-danger">
+                                        <i class="fas fa-times"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <!-- More notes would be here -->
+                        </div>
+                        <button type="button" class="btn btn-sm btn-admin-primary mt-2" id="addNote">
+                            <i class="fas fa-plus me-1"></i> Add Note
+                        </button>
+                    </div>
+
+                    <!-- Gallery Section -->
+                    <div class="form-section">
+                        <h5>Gallery Images</h5>
+                        <div class="mb-3">
+                            <label for="galleryImages" class="form-label">Upload Gallery Images</label>
+                            <input class="form-control" type="file" id="galleryImages" accept="image/*" multiple>
+                            <small class="text-muted">Recommended size: 800x600 pixels or similar aspect ratio</small>
+                        </div>
+                        <div class="d-flex flex-wrap" id="galleryPreviews">
+                            <img src="../img/serval-wildebeest.JPG" class="package-image-thumbnail">
+                            <img src="../img/serval-zebra.JPG" class="package-image-thumbnail">
+                            <img src="../img/serval-eland.JPG" class="package-image-thumbnail">
+                            <img src="../img/serval-header.jpg" class="package-image-thumbnail">
+                        </div>
+                    </div>
+
+                    <!-- Meta Information Section -->
+                    <div class="form-section">
+                        <h5>Meta Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="metaTitle" class="form-label">Meta Title</label>
+                                <input type="text" class="form-control" id="metaTitle" 
+                                       value="Selfie with White Lion - 1 Day Trip from Zanzibar | Golden Memories Safaris">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="metaDescription" class="form-label">Meta Description</label>
+                                <textarea class="form-control" id="metaDescription" rows="2">Take a unique 'Selfie with a White Lion' on this 1-day fly-in adventure from Zanzibar to Arusha, including flights, Serval Wildlife, coffee tour & cultural experiences.</textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-secondary">
+                            <i class="fas fa-times me-1"></i> Cancel
+                        </button>
+                        <div>
+                            <button type="button" class="btn btn-outline-primary me-2">
+                                <i class="fas fa-save me-1"></i> Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-admin-primary">
+                                <i class="fas fa-check-circle me-1"></i> Publish Package
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('main-content').classList.toggle('active');
+        });
+
+        // Preview hero image when selected
+        document.getElementById('heroImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('heroImagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Auto-generate slug from package title
+        document.getElementById('packageTitle').addEventListener('input', function() {
+            const title = this.value;
+            const slug = title.toLowerCase()
+                .replace(/[^\w\s-]/g, '') // Remove non-word chars
+                .replace(/[\s_-]+/g, '-')  // Replace spaces/underscores with dashes
+                .replace(/^-+|-+$/g, '');  // Trim dashes from start/end
+            document.getElementById('packageSlug').value = slug;
+        });
+
+        // Add new highlight item
+        document.getElementById('addHighlight').addEventListener('click', function() {
+            const highlightHTML = `
+                <div class="highlight-item-admin">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Highlight Title</label>
+                            <input type="text" class="form-control" placeholder="Enter highlight title">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Icon (Font Awesome class)</label>
+                            <input type="text" class="form-control" placeholder="fas fa-check">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Description</label>
+                        <input type="text" class="form-control" placeholder="Enter highlight description">
+                    </div>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i> Remove
+                    </button>
+                </div>
+            `;
+            document.getElementById('highlightItems').insertAdjacentHTML('beforeend', highlightHTML);
+        });
+
+        // Add new itinerary day
+        document.getElementById('addItineraryDay').addEventListener('click', function() {
+            const itineraryHTML = `
+                <div class="itinerary-day-admin">
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Day Title</label>
+                            <input type="text" class="form-control" placeholder="Enter day title">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Day Location</label>
+                            <input type="text" class="form-control" placeholder="Enter location">
+                        </div>
+                    </div>
+                    <div class="mb-2">
+                        <label class="form-label">Description</label>
+                        <textarea class="form-control" rows="4" placeholder="Enter day description"></textarea>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Meals</label>
+                            <input type="text" class="form-control" placeholder="Breakfast, Lunch, Dinner">
+                        </div>
+                        <div class="col-md-6 mb-2">
+                            <label class="form-label">Accommodation</label>
+                            <input type="text" class="form-control" placeholder="Enter accommodation details">
+                        </div>
+                    </div>
+                    <button class="btn btn-sm btn-danger">
+                        <i class="fas fa-trash me-1"></i> Remove Day
+                    </button>
+                </div>
+            `;
+            document.getElementById('itineraryItems').insertAdjacentHTML('beforeend', itineraryHTML);
+        });
+
+        // Add included item
+        document.getElementById('addIncluded').addEventListener('click', function() {
+            const includedHTML = `
+                <div class="price-feature-admin">
+                    <div class="d-flex">
+                        <input type="text" class="form-control form-control-sm me-2" placeholder="Enter included item">
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('includedItems').insertAdjacentHTML('beforeend', includedHTML);
+        });
+
+        // Add excluded item
+        document.getElementById('addExcluded').addEventListener('click', function() {
+            const excludedHTML = `
+                <div class="price-feature-admin">
+                    <div class="d-flex">
+                        <input type="text" class="form-control form-control-sm me-2" placeholder="Enter excluded item">
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('excludedItems').insertAdjacentHTML('beforeend', excludedHTML);
+        });
+
+        // Add important note
+        document.getElementById('addNote').addEventListener('click', function() {
+            const noteHTML = `
+                <div class="mb-2">
+                    <div class="d-flex">
+                        <input type="text" class="form-control me-2" placeholder="Enter important note">
+                        <button class="btn btn-sm btn-danger">
+                            <i class="fas fa-times"></i>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('importantNotes').insertAdjacentHTML('beforeend', noteHTML);
+        });
+
+        // Handle form submission
+        document.getElementById('packageForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Package saved successfully!');
+            // In a real application, you would send the form data to your server here
+        });
+
+        // Event delegation for delete buttons
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-danger') && 
+                e.target.closest('.highlight-item-admin, .itinerary-day-admin, .price-feature-admin')) {
+                e.target.closest('.highlight-item-admin, .itinerary-day-admin, .price-feature-admin').remove();
+            }
+        });
+    </script>
+</body>
+</html>

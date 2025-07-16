@@ -1,0 +1,882 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>Blog Post Editor | Golden Memories Safaris Admin</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <link rel="icon" href="../img/logo.png" type="image/x-icon">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- SortableJS for drag and drop -->
+    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+
+    <!-- Custom Styles -->
+    <style>
+        :root {
+            --sidebar-width: 280px;
+            --primary-color: #d69c40;
+            --primary-hover: #c58d39;
+        }
+        
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f5f5f5;
+        }
+        
+        .admin-container {
+            display: flex;
+            min-height: 100vh;
+        }
+        
+        .sidebar {
+            width: var(--sidebar-width);
+            background-color: #343a40;
+            color: white;
+            position: fixed;
+            height: 100vh;
+            padding: 20px 0;
+            transition: all 0.3s;
+            z-index: 1000;
+        }
+        
+        .sidebar-header {
+            padding: 10px 20px;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            margin-bottom: 20px;
+        }
+        
+        .sidebar-header h3 {
+            color: white;
+            font-size: 1.2rem;
+            margin-bottom: 0;
+        }
+        
+        .sidebar-header img {
+            max-height: 40px;
+        }
+        
+        .sidebar-menu {
+            padding: 0 15px;
+        }
+        
+        .sidebar-menu .nav-link {
+            color: rgba(255, 255, 255, 0.8);
+            padding: 10px 15px;
+            margin-bottom: 5px;
+            border-radius: 4px;
+            transition: all 0.3s;
+        }
+        
+        .sidebar-menu .nav-link:hover,
+        .sidebar-menu .nav-link.active {
+            color: white;
+            background-color: rgba(255, 255, 255, 0.1);
+        }
+        
+        .sidebar-menu .nav-link i {
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .main-content {
+            margin-left: var(--sidebar-width);
+            flex: 1;
+            padding: 20px;
+            transition: all 0.3s;
+        }
+        
+        .admin-header {
+            background-color: white;
+            padding: 15px 20px;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .admin-card {
+            background-color: white;
+            border-radius: 5px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        
+        .admin-card h4 {
+            color: #333;
+            margin-bottom: 20px;
+            padding-bottom: 10px;
+            border-bottom: 1px solid #eee;
+        }
+        
+        .btn-admin-primary {
+            background-color: var(--primary-color);
+            border-color: var(--primary-color);
+            color: white;
+        }
+        
+        .btn-admin-primary:hover {
+            background-color: var(--primary-hover);
+            border-color: var(--primary-hover);
+            color: white;
+        }
+        
+        .form-section {
+            margin-bottom: 30px;
+        }
+        
+        .form-section h5 {
+            margin-bottom: 15px;
+            color: #555;
+        }
+        
+        .image-preview {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            display: none;
+        }
+        
+        .content-section {
+            background-color: #f8f9fa;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 15px;
+            border-left: 3px solid var(--primary-color);
+            position: relative;
+        }
+        
+        .section-handle {
+            cursor: move;
+            padding: 5px;
+            background-color: #e9ecef;
+            border-radius: 3px;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .section-handle i {
+            margin-right: 5px;
+            color: #6c757d;
+        }
+        
+        .section-controls {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+        }
+        
+        .section-type-badge {
+            position: absolute;
+            top: 10px;
+            left: 10px;
+            font-size: 0.7rem;
+            background-color: var(--primary-color);
+            color: white;
+            padding: 2px 5px;
+            border-radius: 3px;
+        }
+        
+        .content-builder {
+            min-height: 200px;
+            border: 2px dashed #dee2e6;
+            border-radius: 5px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+        
+        .empty-builder {
+            text-align: center;
+            padding: 40px 20px;
+            color: #6c757d;
+            border: 2px dashed #dee2e6;
+            border-radius: 5px;
+        }
+        
+        @media (max-width: 768px) {
+            .sidebar {
+                margin-left: -280px;
+            }
+            .sidebar.active {
+                margin-left: 0;
+            }
+            .main-content {
+                margin-left: 0;
+            }
+            .main-content.active {
+                margin-left: 280px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="admin-container">
+        <!-- Sidebar -->
+        <div class="sidebar" id="sidebar">
+            <div class="sidebar-header d-flex align-items-center">
+                <img src="../img/logo.png" alt="Golden Memories Safaris Logo" class="me-2">
+                <h3>Admin Panel</h3>
+            </div>
+            <div class="sidebar-menu">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-dashboard.html">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-packages.html">
+                            <i class="fas fa-suitcase"></i> Packages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-destinations.html">
+                            <i class="fas fa-map-marked-alt"></i> Destinations
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-blogs.html">
+                            <i class="fas fa-blog"></i> Blog Posts
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-gallery.html">
+                            <i class="fas fa-images"></i> Gallery
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-booking.html">
+                            <i class="fas fa-calendar-check"></i> Bookings
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="admin-contactus.html">
+                            <i class="fas fa-envelope"></i> Contact Messages
+                        </a>
+                    </li>
+                    <li class="nav-item mt-4">
+                        <a class="nav-link text-danger" href="#">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Main Content -->
+        <div class="main-content" id="main-content">
+            <div class="admin-header">
+                <h4 class="mb-0">Blog Post Editor</h4>
+                <button class="btn btn-sm btn-primary d-md-none" id="sidebarToggle">
+                    <i class="fas fa-bars"></i>
+                </button>
+            </div>
+
+            <div class="admin-card">
+                <div class="d-flex justify-content-between align-items-center mb-4">
+                    <h4 class="mb-0">Create/Edit Blog Post</h4>
+                    <div>
+                        <button class="btn btn-admin-primary me-2" id="savePost">
+                            <i class="fas fa-save me-1"></i> Save Post
+                        </button>
+                        <button class="btn btn-outline-secondary" id="previewPost">
+                            <i class="fas fa-eye me-1"></i> Preview
+                        </button>
+                    </div>
+                </div>
+
+                <form id="blogPostForm">
+                    <!-- Basic Information Section -->
+                    <div class="form-section">
+                        <h5>Basic Information (Required)</h5>
+                        <div class="row">
+                            <div class="col-md-8 mb-3">
+                                <label for="postTitle" class="form-label">Post Title*</label>
+                                <input type="text" class="form-control" id="postTitle" required>
+                            </div>
+                            <div class="col-md-4 mb-3">
+                                <label for="postSlug" class="form-label">URL Slug*</label>
+                                <input type="text" class="form-control" id="postSlug" required>
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postDescription" class="form-label">Short Description (Meta Description)*</label>
+                            <textarea class="form-control" id="postDescription" rows="2" required></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="postKeywords" class="form-label">Keywords (SEO)</label>
+                            <input type="text" class="form-control" id="postKeywords" placeholder="Comma-separated keywords">
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="postAuthor" class="form-label">Author</label>
+                                <input type="text" class="form-control" id="postAuthor">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="postDate" class="form-label">Publish Date</label>
+                                <input type="date" class="form-control" id="postDate">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="postStatus" class="form-label">Status</label>
+                                <select class="form-select" id="postStatus">
+                                    <option value="published">Published</option>
+                                    <option value="draft" selected>Draft</option>
+                                    <option value="archived">Archived</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="postCategory" class="form-label">Category</label>
+                                <select class="form-select" id="postCategory">
+                                    <option value="safari-tips">Safari Tips</option>
+                                    <option value="travel-stories">Travel Stories</option>
+                                    <option value="wildlife">Wildlife</option>
+                                    <option value="culture">Culture</option>
+                                    <option value="news">News</option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Hero Image Section -->
+                    <div class="form-section">
+                        <h5>Hero Image (Required)</h5>
+                        <div class="mb-3">
+                            <label for="heroImage" class="form-label">Upload Hero Image*</label>
+                            <input class="form-control" type="file" id="heroImage" accept="image/*" required>
+                            <small class="text-muted">Recommended size: 1920x1080 pixels</small>
+                        </div>
+                        <div class="mb-3">
+                            <img id="heroImagePreview" src="" alt="Hero Image Preview" class="image-preview img-fluid">
+                        </div>
+                    </div>
+
+                    <!-- Content Builder Section -->
+                    <div class="form-section">
+                        <h5>Content Builder</h5>
+                        <p class="text-muted mb-3">Build your post content by adding sections below. Drag to reorder.</p>
+                        
+                        <div class="d-flex flex-wrap mb-3" id="sectionButtons">
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addTextSection">
+                                <i class="fas fa-paragraph me-1"></i> Text
+                            </button>
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addHeadingSection">
+                                <i class="fas fa-heading me-1"></i> Heading
+                            </button>
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addImageSection">
+                                <i class="fas fa-image me-1"></i> Image
+                            </button>
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addListSection">
+                                <i class="fas fa-list-ul me-1"></i> List
+                            </button>
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addQuoteSection">
+                                <i class="fas fa-quote-right me-1"></i> Quote
+                            </button>
+                            <button type="button" class="btn btn-outline-primary me-2 mb-2" id="addVideoSection">
+                                <i class="fas fa-video me-1"></i> Video
+                            </button>
+                            <button type="button" class="btn btn-outline-primary mb-2" id="addGallerySection">
+                                <i class="fas fa-images me-1"></i> Gallery
+                            </button>
+                        </div>
+                        
+                        <div id="contentBuilder" class="content-builder">
+                            <div class="empty-builder">
+                                <i class="fas fa-plus-circle fa-3x mb-3 text-muted"></i>
+                                <p class="mb-0">Start building your post by adding sections above</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Meta Information Section -->
+                    <div class="form-section">
+                        <h5>Meta Information</h5>
+                        <div class="row">
+                            <div class="col-md-6 mb-3">
+                                <label for="metaTitle" class="form-label">Meta Title</label>
+                                <input type="text" class="form-control" id="metaTitle">
+                            </div>
+                            <div class="col-md-6 mb-3">
+                                <label for="metaDescription" class="form-label">Meta Description</label>
+                                <textarea class="form-control" id="metaDescription" rows="2"></textarea>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Save Buttons -->
+                    <div class="d-flex justify-content-between mt-4">
+                        <button type="button" class="btn btn-outline-secondary" id="cancelPost">
+                            <i class="fas fa-times me-1"></i> Cancel
+                        </button>
+                        <div>
+                            <button type="button" class="btn btn-outline-primary me-2" id="saveDraft">
+                                <i class="fas fa-save me-1"></i> Save Draft
+                            </button>
+                            <button type="submit" class="btn btn-admin-primary" id="publishPost">
+                                <i class="fas fa-check-circle me-1"></i> Publish Post
+                            </button>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- JavaScript Libraries -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <!-- Custom JavaScript -->
+    <script>
+        // Toggle sidebar on mobile
+        document.getElementById('sidebarToggle').addEventListener('click', function() {
+            document.getElementById('sidebar').classList.toggle('active');
+            document.getElementById('main-content').classList.toggle('active');
+        });
+
+        // Preview hero image when selected
+        document.getElementById('heroImage').addEventListener('change', function(e) {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const preview = document.getElementById('heroImagePreview');
+                    preview.src = event.target.result;
+                    preview.style.display = 'block';
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+
+        // Initialize Sortable for content builder
+        const contentBuilder = document.getElementById('contentBuilder');
+        new Sortable(contentBuilder, {
+            handle: '.section-handle',
+            animation: 150,
+            ghostClass: 'sortable-ghost',
+            chosenClass: 'sortable-chosen',
+            dragClass: 'sortable-drag'
+        });
+
+        // Section templates
+        const sectionTemplates = {
+            text: `
+                <div class="content-section" data-type="text">
+                    <span class="section-type-badge">Text</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Text Section
+                    </div>
+                    <div class="section-content">
+                        <textarea class="form-control" rows="5" placeholder="Enter your text content..."></textarea>
+                    </div>
+                </div>
+            `,
+            heading: `
+                <div class="content-section" data-type="heading">
+                    <span class="section-type-badge">Heading</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Heading Section
+                    </div>
+                    <div class="section-content">
+                        <select class="form-select mb-2 heading-level">
+                            <option value="h2">Heading 2</option>
+                            <option value="h3">Heading 3</option>
+                            <option value="h4">Heading 4</option>
+                        </select>
+                        <input type="text" class="form-control" placeholder="Enter heading text...">
+                    </div>
+                </div>
+            `,
+            image: `
+                <div class="content-section" data-type="image">
+                    <span class="section-type-badge">Image</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Image Section
+                    </div>
+                    <div class="section-content">
+                        <div class="mb-2">
+                            <label class="form-label">Upload Image</label>
+                            <input class="form-control" type="file" accept="image/*">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Image Alt Text</label>
+                            <input type="text" class="form-control" placeholder="Describe the image for accessibility...">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Caption (optional)</label>
+                            <input type="text" class="form-control" placeholder="Image caption...">
+                        </div>
+                        <div class="image-preview-container">
+                            <img src="" class="image-preview img-fluid mb-2">
+                        </div>
+                    </div>
+                </div>
+            `,
+            list: `
+                <div class="content-section" data-type="list">
+                    <span class="section-type-badge">List</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> List Section
+                    </div>
+                    <div class="section-content">
+                        <select class="form-select mb-2 list-type">
+                            <option value="ul">Unordered List (Bullets)</option>
+                            <option value="ol">Ordered List (Numbers)</option>
+                        </select>
+                        <div class="list-items">
+                            <div class="input-group mb-2">
+                                <input type="text" class="form-control" placeholder="List item">
+                                <button class="btn btn-outline-danger remove-list-item" type="button">
+                                    <i class="fas fa-times"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <button type="button" class="btn btn-sm btn-outline-primary add-list-item">
+                            <i class="fas fa-plus me-1"></i> Add Item
+                        </button>
+                    </div>
+                </div>
+            `,
+            quote: `
+                <div class="content-section" data-type="quote">
+                    <span class="section-type-badge">Quote</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Quote Section
+                    </div>
+                    <div class="section-content">
+                        <textarea class="form-control mb-2" rows="3" placeholder="Enter quote text..."></textarea>
+                        <input type="text" class="form-control" placeholder="Source (optional)">
+                    </div>
+                </div>
+            `,
+            video: `
+                <div class="content-section" data-type="video">
+                    <span class="section-type-badge">Video</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Video Section
+                    </div>
+                    <div class="section-content">
+                        <div class="mb-2">
+                            <label class="form-label">Video URL (YouTube, Vimeo, etc.)</label>
+                            <input type="url" class="form-control" placeholder="https://...">
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Caption (optional)</label>
+                            <input type="text" class="form-control" placeholder="Video caption...">
+                        </div>
+                    </div>
+                </div>
+            `,
+            gallery: `
+                <div class="content-section" data-type="gallery">
+                    <span class="section-type-badge">Gallery</span>
+                    <div class="section-controls">
+                        <button type="button" class="btn btn-sm btn-danger section-remove">
+                            <i class="fas fa-trash"></i>
+                        </button>
+                    </div>
+                    <div class="section-handle">
+                        <i class="fas fa-arrows-alt"></i> Gallery Section
+                    </div>
+                    <div class="section-content">
+                        <div class="mb-2">
+                            <label class="form-label">Upload Gallery Images</label>
+                            <input class="form-control" type="file" accept="image/*" multiple>
+                        </div>
+                        <div class="mb-2">
+                            <label class="form-label">Gallery Title (optional)</label>
+                            <input type="text" class="form-control" placeholder="Gallery title...">
+                        </div>
+                        <div class="gallery-preview d-flex flex-wrap">
+                            <p class="text-muted">No images selected</p>
+                        </div>
+                    </div>
+                </div>
+            `
+        };
+
+        // Add section buttons functionality
+        document.getElementById('addTextSection').addEventListener('click', function() {
+            addSection('text');
+        });
+
+        document.getElementById('addHeadingSection').addEventListener('click', function() {
+            addSection('heading');
+        });
+
+        document.getElementById('addImageSection').addEventListener('click', function() {
+            addSection('image');
+        });
+
+        document.getElementById('addListSection').addEventListener('click', function() {
+            addSection('list');
+        });
+
+        document.getElementById('addQuoteSection').addEventListener('click', function() {
+            addSection('quote');
+        });
+
+        document.getElementById('addVideoSection').addEventListener('click', function() {
+            addSection('video');
+        });
+
+        document.getElementById('addGallerySection').addEventListener('click', function() {
+            addSection('gallery');
+        });
+
+        // Function to add a new section
+        function addSection(type) {
+            const builder = document.getElementById('contentBuilder');
+            
+            // Remove empty builder message if it exists
+            const emptyBuilder = builder.querySelector('.empty-builder');
+            if (emptyBuilder) {
+                builder.removeChild(emptyBuilder);
+            }
+            
+            // Add the new section
+            builder.insertAdjacentHTML('beforeend', sectionTemplates[type]);
+            
+            // Initialize any section-specific functionality
+            if (type === 'image') {
+                initializeImageUpload(builder.lastElementChild);
+            } else if (type === 'gallery') {
+                initializeGalleryUpload(builder.lastElementChild);
+            }
+        }
+
+        // Initialize image upload preview
+        function initializeImageUpload(section) {
+            const fileInput = section.querySelector('input[type="file"]');
+            const preview = section.querySelector('.image-preview');
+            
+            fileInput.addEventListener('change', function(e) {
+                const file = e.target.files[0];
+                if (file) {
+                    const reader = new FileReader();
+                    reader.onload = function(event) {
+                        preview.src = event.target.result;
+                        preview.style.display = 'block';
+                    };
+                    reader.readAsDataURL(file);
+                }
+            });
+        }
+
+        // Initialize gallery upload preview
+        function initializeGalleryUpload(section) {
+            const fileInput = section.querySelector('input[type="file"]');
+            const previewContainer = section.querySelector('.gallery-preview');
+            
+            fileInput.addEventListener('change', function(e) {
+                const files = e.target.files;
+                previewContainer.innerHTML = '';
+                
+                if (files.length > 0) {
+                    for (let i = 0; i < files.length; i++) {
+                        const reader = new FileReader();
+                        reader.onload = function(event) {
+                            const img = document.createElement('img');
+                            img.src = event.target.result;
+                            img.className = 'img-thumbnail me-2 mb-2';
+                            img.style.width = '80px';
+                            img.style.height = '60px';
+                            img.style.objectFit = 'cover';
+                            previewContainer.appendChild(img);
+                        };
+                        reader.readAsDataURL(files[i]);
+                    }
+                } else {
+                    previewContainer.innerHTML = '<p class="text-muted">No images selected</p>';
+                }
+            });
+        }
+
+        // Event delegation for section controls
+        contentBuilder.addEventListener('click', function(e) {
+            // Remove section
+            if (e.target.closest('.section-remove')) {
+                const section = e.target.closest('.content-section');
+                section.remove();
+                
+                // Show empty message if no sections left
+                if (contentBuilder.children.length === 0) {
+                    contentBuilder.innerHTML = `
+                        <div class="empty-builder">
+                            <i class="fas fa-plus-circle fa-3x mb-3 text-muted"></i>
+                            <p class="mb-0">Start building your post by adding sections above</p>
+                        </div>
+                    `;
+                }
+            }
+            
+            // Add list item
+            if (e.target.closest('.add-list-item')) {
+                const listContainer = e.target.closest('.section-content').querySelector('.list-items');
+                const newItem = document.createElement('div');
+                newItem.className = 'input-group mb-2';
+                newItem.innerHTML = `
+                    <input type="text" class="form-control" placeholder="List item">
+                    <button class="btn btn-outline-danger remove-list-item" type="button">
+                        <i class="fas fa-times"></i>
+                    </button>
+                `;
+                listContainer.appendChild(newItem);
+            }
+            
+            // Remove list item
+            if (e.target.closest('.remove-list-item')) {
+                e.target.closest('.input-group').remove();
+            }
+        });
+
+        // Handle form submission
+        document.getElementById('blogPostForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate required fields
+            if (!document.getElementById('postTitle').value) {
+                alert('Please enter a post title');
+                return;
+            }
+            
+            if (!document.getElementById('postSlug').value) {
+                alert('Please enter a URL slug');
+                return;
+            }
+            
+            if (!document.getElementById('postDescription').value) {
+                alert('Please enter a short description');
+                return;
+            }
+            
+            if (!document.getElementById('heroImage').files[0]) {
+                alert('Please upload a hero image');
+                return;
+            }
+            
+            // In a real application, you would collect all the data and send to server
+            const postData = {
+                title: document.getElementById('postTitle').value,
+                slug: document.getElementById('postSlug').value,
+                description: document.getElementById('postDescription').value,
+                status: document.getElementById('postStatus').value,
+                // Collect all sections data
+                sections: collectSectionsData()
+            };
+            
+            console.log('Post data:', postData); // For demonstration
+            alert('Blog post saved successfully!');
+        });
+
+        // Collect all sections data
+        function collectSectionsData() {
+            const sections = [];
+            const sectionElements = contentBuilder.querySelectorAll('.content-section');
+            
+            sectionElements.forEach(section => {
+                const type = section.getAttribute('data-type');
+                const data = { type };
+                
+                switch (type) {
+                    case 'text':
+                        data.content = section.querySelector('textarea').value;
+                        break;
+                        
+                    case 'heading':
+                        data.level = section.querySelector('.heading-level').value;
+                        data.text = section.querySelector('input[type="text"]').value;
+                        break;
+                        
+                    case 'image':
+                        // In a real app, you would upload the image file
+                        data.altText = section.querySelectorAll('input[type="text"]')[0].value;
+                        data.caption = section.querySelectorAll('input[type="text"]')[1].value;
+                        break;
+                        
+                    case 'list':
+                        data.listType = section.querySelector('.list-type').value;
+                        data.items = [];
+                        section.querySelectorAll('.list-items .form-control').forEach(item => {
+                            data.items.push(item.value);
+                        });
+                        break;
+                        
+                    case 'quote':
+                        data.quote = section.querySelector('textarea').value;
+                        data.source = section.querySelector('input[type="text"]').value;
+                        break;
+                        
+                    case 'video':
+                        data.url = section.querySelector('input[type="url"]').value;
+                        data.caption = section.querySelector('input[type="text"]').value;
+                        break;
+                        
+                    case 'gallery':
+                        // In a real app, you would upload the gallery images
+                        data.title = section.querySelector('input[type="text"]').value;
+                        break;
+                }
+                
+                sections.push(data);
+            });
+            
+            return sections;
+        }
+
+        // Auto-generate slug from title
+        document.getElementById('postTitle').addEventListener('input', function() {
+            const title = this.value;
+            const slug = title.toLowerCase()
+                .replace(/[^\w\s-]/g, '') // Remove non-word chars
+                .replace(/[\s_-]+/g, '-')  // Replace spaces/underscores with dashes
+                .replace(/^-+|-+$/g, '');  // Trim dashes from start/end
+            document.getElementById('postSlug').value = slug;
+        });
+    </script>
+</body>
+</html>
