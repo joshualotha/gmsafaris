@@ -105,6 +105,51 @@
         @media (max-width: 768px) { .package-hero { min-height: 50vh; } .package-title { font-size: 2rem; } .package-subtitle { font-size: 1.1rem; } }
         @media (max-width: 576px) { .package-hero { min-height: 40vh; } .package-title { font-size: 1.8rem; } }
     </style>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gmsafaris.co.tz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Ultimate Tanzanian Escape",
+          "item": "https://www.gmsafaris.co.tz/ultimate-tanzanian-escape"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "Ultimate Tanzanian Escape",
+      "description": "Embark on the Ultimate Tanzanian Escape - a comprehensive 6-day premium safari exploring Tarangire, Serengeti, Ngorongoro, Arusha culture, and more.",
+      "touristType": "Safari",
+      "itinerary": {
+        "@type": "ItemList",
+        "numberOfItems": 1,
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Ultimate Tanzanian Escape"
+        }]
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Golden Memories Safaris",
+        "url": "https://www.gmsafaris.co.tz"
+      }
+    }
+    </script>
 </head>
 
 <body>

@@ -511,6 +511,66 @@
 }
         </style>
 
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TravelAgency",
+      "name": "Golden Memories Safaris",
+      "url": "https://www.gmsafaris.co.tz",
+      "logo": "https://www.gmsafaris.co.tz/img/logo.png",
+      "image": "https://www.gmsafaris.co.tz/img/hero-1.jpg",
+      "description": "Golden Memories Safaris is a premier tour operator based in Arusha, Tanzania, specializing in wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and cultural tours.",
+      "telephone": "+255786383273",
+      "email": "info@gmsafaris.co.tz",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Sokoine Road",
+        "addressLocality": "Arusha",
+        "addressCountry": "TZ"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": -3.429117,
+        "longitude": 36.702341
+      },
+      "openingHoursSpecification": {
+        "@type": "OpeningHoursSpecification",
+        "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday","Saturday"],
+        "opens": "08:00",
+        "closes": "18:00"
+      },
+      "sameAs": [],
+      "priceRange": "$$",
+      "areaServed": {
+        "@type": "Country",
+        "name": "Tanzania"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Safari Packages",
+        "itemListElement": [
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Ultimate Tanzanian Escape", "description": "6-day journey through Tarangire, Serengeti, Ngorongoro"}},
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "A Taste of Tanzania", "description": "3-day tour featuring Ngorongoro Crater and Arusha culture"}},
+          {"@type": "Offer", "itemOffered": {"@type": "TouristTrip", "name": "Tanzanian Express", "description": "2-day fly-in safari from Zanzibar"}}
+        ]
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "WebSite",
+      "name": "Golden Memories Safaris",
+      "url": "https://www.gmsafaris.co.tz",
+      "potentialAction": {
+        "@type": "SearchAction",
+        "target": "https://www.gmsafaris.co.tz/?s={search_term_string}",
+        "query-input": "required name=search_term_string"
+      }
+    }
+    </script>
 </head>
 <body>
 

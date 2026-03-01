@@ -65,6 +65,51 @@
      <style> /* Copied Styles from Template */
         .package-hero { min-height: 60vh; background-size: cover; background-position: center; position: relative; display: flex; align-items: center; } .package-hero-overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: linear-gradient(to bottom, rgba(0,0,0,0.2) 0%, rgba(0,0,0,0.7) 100%); } .package-hero-content { position: relative; z-index: 2; color: white; } .package-title { font-size: 3rem; font-weight: 700; margin-bottom: 1rem; text-shadow: 0 2px 4px rgba(0,0,0,0.5); } .package-subtitle { font-size: 1.5rem; margin-bottom: 2rem; text-shadow: 0 1px 3px rgba(0,0,0,0.5); } .package-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin-bottom: 2rem; } .package-meta-item { display: flex; align-items: center; } .package-meta-item i { margin-right: 0.5rem; color: #d69c40; } .package-details-section { padding: 5rem 0; } .package-highlights { background-color: #f8f9fa; border-radius: 0.5rem; padding: 2rem; margin-bottom: 2rem; } .highlight-item { display: flex; align-items: flex-start; margin-bottom: 1rem; } .highlight-icon { color: #d69c40; margin-right: 1rem; font-size: 1.2rem; margin-top: 0.2rem; } .package-itinerary { margin-top: 3rem; } .itinerary-day { margin-bottom: 2rem; border-left: 3px solid #d69c40; padding-left: 1.5rem; position: relative; } .itinerary-day:last-child { margin-bottom: 0; } .day-number { position: absolute; left: -1.2rem; top: 0; background-color: #d69c40; color: white; width: 2.4rem; height: 2.4rem; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; } .day-title { font-size: 1.5rem; margin-bottom: 1rem; padding-top: 0.3rem; } .day-location { color: #d69c40; font-weight: 600; margin-bottom: 0.5rem; } .pricing-section { background-color: #f8f9fa; padding: 5rem 0; } .price-card { background-color: white; border-radius: 0.5rem; box-shadow: 0 0.5rem 1rem rgba(0,0,0,0.1); padding: 2rem; margin-bottom: 2rem; } .price-amount { font-size: 2.5rem; font-weight: 700; color: #d69c40; margin-bottom: 1rem; } .price-per { color: #6c757d; font-size: 1rem; } .price-includes, .price-excludes { margin-top: 2rem; } .price-includes h5, .price-excludes h5 { margin-bottom: 1rem; } .price-feature { display: flex; align-items: center; margin-bottom: 0.5rem; } .price-feature i { margin-right: 0.5rem; } .price-includes .price-feature i { color: #28a745; } .price-excludes .price-feature.excluded i { color: #dc3545; } .gallery-section { padding: 5rem 0; } .gallery-item { margin-bottom: 1.5rem; border-radius: 0.5rem; overflow: hidden; position: relative; transition: transform 0.3s ease; } .gallery-item:hover { transform: translateY(-5px); } .gallery-item img { width: 100%; height: 250px; object-fit: cover; } @media (max-width: 992px) { .package-title { font-size: 2.5rem; } .package-subtitle { font-size: 1.25rem; } } @media (max-width: 768px) { .package-hero { min-height: 50vh; } .package-title { font-size: 2rem; } .package-subtitle { font-size: 1.1rem; } } @media (max-width: 576px) { .package-hero { min-height: 40vh; } .package-title { font-size: 1.8rem; } }
     </style>
+
+    <!-- Structured Data (JSON-LD) -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gmsafaris.co.tz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Golden Safari 5 Days",
+          "item": "https://www.gmsafaris.co.tz/golden-safari-5days"
+        }
+      ]
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TouristTrip",
+      "name": "Golden Safari 5 Days",
+      "description": "Explore Tanzania's Serengeti and Ngorongoro Crater on this 5-day Golden Safari. Enjoy game drives, cultural insights, and comfortable accommodations.",
+      "touristType": "Safari",
+      "itinerary": {
+        "@type": "ItemList",
+        "numberOfItems": 1,
+        "itemListElement": [{
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Golden Safari 5 Days"
+        }]
+      },
+      "provider": {
+        "@type": "TravelAgency",
+        "name": "Golden Memories Safaris",
+        "url": "https://www.gmsafaris.co.tz"
+      }
+    }
+    </script>
 </head>
 
 <body>
