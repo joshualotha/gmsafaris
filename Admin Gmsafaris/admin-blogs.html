@@ -24,7 +24,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <!-- SortableJS for drag and drop -->
-    <script src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
+    <script defer src="https://cdn.jsdelivr.net/npm/sortablejs@1.15.0/Sortable.min.js"></script>
 
     <!-- Custom Styles -->
     <style>
@@ -371,7 +371,7 @@
                             <small class="text-muted">Recommended size: 1920x1080 pixels</small>
                         </div>
                         <div class="mb-3">
-                            <img id="heroImagePreview" src="" alt="Hero Image Preview" class="image-preview img-fluid">
+                            <img id="heroImagePreview" src="" alt="Hero Image Preview" class="image-preview img-fluid" loading="lazy">
                         </div>
                     </div>
 
@@ -546,7 +546,7 @@
                             <input type="text" class="form-control" placeholder="Image caption...">
                         </div>
                         <div class="image-preview-container">
-                            <img src="" class="image-preview img-fluid mb-2">
+                            <img src="" class="image-preview img-fluid mb-2" loading="lazy">
                         </div>
                     </div>
                 </div>

@@ -641,7 +641,7 @@
                 
                 col.innerHTML = `
                     <div class="card h-100">
-                        <img src="${image.thumbnail}" class="card-img-top" alt="${image.altText || 'Gallery image'}">
+                        <img src="${image.thumbnail}" class="card-img-top" alt="${image.altText || 'Gallery image'}" loading="lazy">
                         <div class="gallery-actions">
                             <button class="btn btn-sm btn-danger delete-btn" data-id="${image.id}">
                                 <i class="fas fa-trash-alt"></i>

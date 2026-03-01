@@ -19,7 +19,31 @@
         <meta content="Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges." name="description">
         <link rel="icon" href="img/logo.png" type="image/x-icon">
 
-        <!-- Google Web Fonts -->
+        
+<link rel="dns-prefetch" href="https://fonts.googleapis.com">
+<link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
+<link rel="dns-prefetch" href="https://use.fontawesome.com">
+
+    
+    <!-- SEO Meta Tags -->
+    <link rel="canonical" href="https://www.gmsafaris.co.tz/gallery">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Photo Gallery - Golden Memories Safaris">
+    <meta property="og:description" content="Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.">
+    <meta property="og:url" content="https://www.gmsafaris.co.tz/gallery">
+    <meta property="og:image" content="https://www.gmsafaris.co.tz/img/hero-1.jpg">
+    <meta property="og:site_name" content="Golden Memories Safaris">
+    <meta property="og:locale" content="en_US">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Photo Gallery - Golden Memories Safaris">
+    <meta name="twitter:description" content="Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.">
+    <meta name="twitter:image" content="https://www.gmsafaris.co.tz/img/hero-1.jpg">
+    <meta name="robots" content="index, follow">
+    <meta name="author" content="Golden Memories Safaris">
+    <meta name="geo.region" content="TZ-01">
+    <meta name="geo.placename" content="Arusha, Tanzania">
+
+    <!-- Google Web Fonts -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet">
@@ -330,15 +354,15 @@
     <!-- JavaScript Libraries -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script src="lib/wow/wow.min.js"></script>
-    <script src="lib/easing/easing.min.js"></script>
-    <script src="lib/waypoints/waypoints.min.js"></script>
-    <script src="lib/counterup/counterup.min.js"></script>
-    <script src="lib/lightbox/js/lightbox.min.js"></script> <!-- Essential for gallery -->
-    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script defer src="lib/wow/wow.min.js"></script>
+    <script defer src="lib/easing/easing.min.js"></script>
+    <script defer src="lib/waypoints/waypoints.min.js"></script>
+    <script defer src="lib/counterup/counterup.min.js"></script>
+    <script defer src="lib/lightbox/js/lightbox.min.js"></script> <!-- Essential for gallery -->
+    <script defer src="lib/owlcarousel/owl.carousel.min.js"></script>
 
     <!-- Template Javascript -->
-    <script src="js/main.js"></script>
+    <script defer src="js/main.js"></script>
      <script>
         function generateGalleryItems() {
             const imageBasenames = [
@@ -366,7 +390,7 @@
                     <div class="col-lg-4 col-md-6 wow fadeInUp gallery-item" data-wow-delay="${delay.toFixed(1)}s">
                         <div class="gallery-item-inner">
                             <a href="img/gallery/full/${filename}" data-lightbox="gallery" data-title="Golden Memories - Image ${baseName}">
-                                <img src="img/gallery/thumb/${filename}" class="img-fluid w-100" alt="Tanzania Safari Image ${baseName}">
+                                <img src="img/gallery/thumb/${filename}" class="img-fluid w-100" alt="Tanzania Safari Image ${baseName}" loading="lazy">
                                 <div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>
                             </a>
                         </div>
