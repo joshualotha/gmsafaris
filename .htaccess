@@ -5,6 +5,15 @@
 </IfModule>
 # php -- END cPanel-generated handler, do not edit
 
+# -- BEGIN Force HTTPS (GMS Recommendation) --
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteCond %{HTTPS} off
+  RewriteRule ^(.*)$ https://%{HTTP_HOST}%{REQUEST_URI} [L,R=301]
+</IfModule>
+# -- END Force HTTPS --
+
+
 # -- BEGIN Clean URLs (hide .html extension) --
 <IfModule mod_rewrite.c>
   RewriteEngine On
@@ -101,5 +110,8 @@
 
   # Enable DNS prefetching
   Header set X-DNS-Prefetch-Control "on"
+
+  # CSP Fail-safe: Automatically upgrade insecure requests (GMS Recommendation)
+  Header set Content-Security-Policy "upgrade-insecure-requests"
 </IfModule>
 # -- END Security & Performance Headers --
