@@ -118,6 +118,15 @@
 # -- BEGIN Disable PageSpeed (GMS Recommendation for Debugging) --
 <IfModule mod_pagespeed.c>
   ModPagespeed off
+  ModPagespeed DisableFilters combine_css,combine_javascript,rewrite_javascript,rewrite_css
+</IfModule>
+<IfModule pagespeed_module>
+  ModPagespeed off
+</IfModule>
+# Force no Pagespeed via Header
+<IfModule mod_headers.c>
+  Header set X-Mod-Pagespeed "off"
+  Header set PageSpeed "off"
 </IfModule>
 # -- END Disable PageSpeed --
 # -- END Security & Performance Headers --
