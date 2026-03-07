@@ -114,4 +114,10 @@
   # CSP Fail-safe: Automatically upgrade insecure requests (GMS Recommendation)
   Header set Content-Security-Policy "upgrade-insecure-requests"
 </IfModule>
+
+# -- BEGIN Disable PageSpeed (GMS Recommendation for Debugging) --
+<IfModule mod_pagespeed.c>
+  ModPagespeed off
+</IfModule>
+# -- END Disable PageSpeed --
 # -- END Security & Performance Headers --
