@@ -1,17 +1,17 @@
-
 /*** Spinner Start ***/
 #spinner {
     opacity: 0;
     visibility: hidden;
     transition: opacity .8s ease-out, visibility 0s linear .5s;
     z-index: 99999;
- }
+}
 
- #spinner.show {
-     transition: opacity .8s ease-out, visibility 0s linear .0s;
-     visibility: visible;
-     opacity: 1;
- }
+#spinner.show {
+    transition: opacity .8s ease-out, visibility 0s linear .0s;
+    visibility: visible;
+    opacity: 1;
+}
+
 /*** Spinner End ***/
 
 
@@ -22,12 +22,22 @@
     z-index: 99;
 }
 
-h1, h2, h3, .h1, .h2, .h3 {
+h1,
+h2,
+h3,
+.h1,
+.h2,
+.h3 {
     font-weight: 400 !important;
     font-family: 'Playball', cursive !important;
 }
 
-h4, h5, h6, .h4, .h5, .h6 {
+h4,
+h5,
+h6,
+.h4,
+.h5,
+.h6 {
     font-weight: 600 !important;
     font-family: 'Open Sans', sans-serif !important;
 }
@@ -93,6 +103,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     justify-content: center;
     font-weight: normal;
 }
+
 /*** Button End ***/
 
 
@@ -143,6 +154,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     top: 0;
     z-index: 1050;
 }
+
 /* === End Sticky Navbar === */
 
 .navbar .navbar-nav .nav-link:hover,
@@ -169,7 +181,7 @@ h4, h5, h6, .h4, .h5, .h6 {
         transition: .5s;
         opacity: 0;
     }
-    
+
     .navbar .nav-item:hover .dropdown-menu {
         transform: rotateX(0deg);
         visibility: visible;
@@ -185,6 +197,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 #searchModal .modal-content {
     background-color: rgba(255, 255, 255, .95);
 }
+
 /*** Navbar End ***/
 
 
@@ -209,6 +222,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .event .event-img:hover .event-overlay {
     opacity: 1;
 }
+
 /*** Events End ***/
 
 
@@ -264,6 +278,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .service-item .service-content-icon a.btn-primary {
     transition: 1s !important;
 }
+
 /*** Services End ***/
 
 
@@ -275,53 +290,81 @@ h4, h5, h6, .h4, .h5, .h6 {
 .menu .menu-item .border-bottom {
     border-bottom-style: dashed !important;
 }
+
 /*** Menu End ***/
-            /* Booking Process Styling - Template Consistent */
-            .booking-process-section {
-                background-color: var(--bs-light); /* Use standard light background */
-                /* Optional: Add border if desired */
-                /* border-top: 1px solid #dee2e6; */
-                /* border-bottom: 1px solid #dee2e6; */
-            }
-            .process-step {
-                text-align: center;
-                padding: 1.5rem 1rem;
-                height: 100%; /* Ensure equal height */
-                display: flex; /* Use flexbox for better alignment */
-                flex-direction: column; /* Stack items vertically */
-                align-items: center; /* Center items horizontally */
-            }
-            .process-step .icon-circle {
-                width: 75px;  /* Consistent size */
-                height: 75px; /* Consistent size */
-                background-color: var(--bs-primary); /* Use template primary color */
-                color: white; /* White icon color */
-                border-radius: 50%; /* Fully rounded */
-                display: inline-flex;
-                align-items: center;
-                justify-content: center;
-                margin-bottom: 1.5rem;
-                font-size: 2rem; /* Adjust icon size as needed */
-                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Subtle shadow */
-                transition: transform 0.3s ease, box-shadow 0.3s ease;
-            }
-             .process-step:hover .icon-circle {
-                 transform: translateY(-5px); /* Simple lift effect */
-                 box-shadow: 0 8px 15px rgba(var(--bs-primary-rgb), 0.2); /* Slightly stronger shadow tinted with primary */
-             }
-            .process-step h5 {
-                color: var(--bs-dark); /* Darker heading for readability */
-                margin-bottom: 0.5rem; /* Reduced space */
-                font-weight: 600;
-                 margin-top: auto; /* Push title down slightly if needed */
-            }
-             .process-step p {
-                 font-size: 0.9em; /* Slightly smaller text */
-                 color: #6c757d; /* Muted text color */
-                 flex-grow: 1; /* Allow paragraph to take space */
-                 max-width: 90%; /* Prevent text going too wide */
-                 margin-top: 0.5rem; /* Add space above paragraph */
-             }
+/* Booking Process Styling - Template Consistent */
+.booking-process-section {
+    background-color: var(--bs-light);
+    /* Use standard light background */
+    /* Optional: Add border if desired */
+    /* border-top: 1px solid #dee2e6; */
+    /* border-bottom: 1px solid #dee2e6; */
+}
+
+.process-step {
+    text-align: center;
+    padding: 1.5rem 1rem;
+    height: 100%;
+    /* Ensure equal height */
+    display: flex;
+    /* Use flexbox for better alignment */
+    flex-direction: column;
+    /* Stack items vertically */
+    align-items: center;
+    /* Center items horizontally */
+}
+
+.process-step .icon-circle {
+    width: 75px;
+    /* Consistent size */
+    height: 75px;
+    /* Consistent size */
+    background-color: var(--bs-primary);
+    /* Use template primary color */
+    color: white;
+    /* White icon color */
+    border-radius: 50%;
+    /* Fully rounded */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    /* Adjust icon size as needed */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    /* Subtle shadow */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.process-step:hover .icon-circle {
+    transform: translateY(-5px);
+    /* Simple lift effect */
+    box-shadow: 0 8px 15px rgba(var(--bs-primary-rgb), 0.2);
+    /* Slightly stronger shadow tinted with primary */
+}
+
+.process-step h5 {
+    color: var(--bs-dark);
+    /* Darker heading for readability */
+    margin-bottom: 0.5rem;
+    /* Reduced space */
+    font-weight: 600;
+    margin-top: auto;
+    /* Push title down slightly if needed */
+}
+
+.process-step p {
+    font-size: 0.9em;
+    /* Slightly smaller text */
+    color: #6c757d;
+    /* Muted text color */
+    flex-grow: 1;
+    /* Allow paragraph to take space */
+    max-width: 90%;
+    /* Prevent text going too wide */
+    margin-top: 0.5rem;
+    /* Add space above paragraph */
+}
 
 /*** Youtube Video start ***/
 .video {
@@ -440,6 +483,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     background: #000000;
     opacity: 1;
 }
+
 /*** Youtube Video End ***/
 
 /* Safari Packages Styles */
@@ -450,7 +494,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .safari-card {
     background: white;
     transition: all 0.3s ease;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     height: 100%;
     display: flex;
     flex-direction: column;
@@ -458,7 +502,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .safari-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .safari-img {
@@ -502,6 +546,7 @@ h4, h5, h6, .h4, .h5, .h6 {
         height: 180px;
     }
 }
+
 /*** Blog Start ***/
 .blog-item {
     position: relative;
@@ -528,6 +573,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .blog-item:hover .blog-content a.btn h5 {
     color: var(--bs-primary) !important;
 }
+
 /*** Blog End ***/
 
 /* Destinations Styles */
@@ -539,7 +585,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     background: white;
     border-radius: 8px;
     overflow: hidden;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     transition: all 0.3s ease;
     height: 100%;
     display: flex;
@@ -548,7 +594,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 
 .destination-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0,0,0,0.2);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
 }
 
 .destination-img {
@@ -577,7 +623,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     display: flex;
     align-items: center;
     justify-content: center;
-    background: rgba(0,0,0,0.3);
+    background: rgba(0, 0, 0, 0.3);
     opacity: 0;
     transition: all 0.3s ease;
 }
@@ -590,7 +636,7 @@ h4, h5, h6, .h4, .h5, .h6 {
     position: absolute;
     top: 15px;
     right: 15px;
-    background: rgba(255,255,255,0.9);
+    background: rgba(255, 255, 255, 0.9);
     padding: 5px 10px;
     border-radius: 20px;
     font-size: 14px;
@@ -689,6 +735,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .team-item:hover .team-content p {
     color: var(--bs-white);
 }
+
 /*** Team End ***/
 
 
@@ -706,6 +753,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 .testimonial-carousel.owl-rtl .testimonial-item {
     direction: ltr !important;
 }
+
 /*** testimonial End ***/
 
 
@@ -721,8 +769,5 @@ h4, h5, h6, .h4, .h5, .h6 {
 .footer .footer-item a.text-body:hover {
     color: var(--bs-primary) !important;
 }
+
 /*** Footer End ***/
-
-
-
-
