@@ -1,0 +1,14 @@
+# Prevent viewing of .env file
+<Files ".env">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Prevent directory listing
+Options -Indexes
+
+# Serve pages without .html extension
+RewriteEngine On
+RewriteCond %{REQUEST_FILENAME} !-d
+RewriteCond %{REQUEST_FILENAME} !-f
+RewriteRule ^([^.]+)$ $1.html [NC,L]

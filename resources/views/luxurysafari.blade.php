@@ -1,0 +1,310 @@
+@extends('layouts.app')
+
+@section('title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
+@section('keywords', 'luxury safari tanzania, tanzania luxury lodges, premium safari, exclusive safari, five star safari, golden memories safaris')
+@section('description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
+@section('canonical', 'https://www.gmsafaris.co.tz/luxurysafari')
+@section('og_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
+@section('og_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
+@section('og_url', 'https://www.gmsafaris.co.tz/luxurysafari')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
+@section('twitter_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('extra_styles')
+<style>
+
+        .page-header {
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/luxury-header.jpg) center center no-repeat; /* <!-- Use a relevant luxury background --> */
+            background-size: cover;
+        }
+        .benefit-item i {
+            width: 35px; /* Adjusted width for luxury icons */
+            text-align: center;
+        }
+        .experience-item i {
+            width: 25px;
+            text-align: center;
+        }
+         /* Ensure form selects/inputs have consistent height */
+        .form .form-select, .form .form-control {
+            height: calc(1.5em + 1rem + 2px); /* Adjust based on your padding/font */
+        }
+        .form textarea.form-control {
+             height: auto; /* Allow textarea to define its height */
+        }
+    </style>
+@endsection
+
+@section('structured_data')
+<script type="application/ld+json">
+
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Home",
+          "item": "https://www.gmsafaris.co.tz/"
+        },
+        {
+          "@type": "ListItem",
+          "position": 2,
+          "name": "Luxury Safaris in Tanzania",
+          "item": "https://www.gmsafaris.co.tz/luxurysafari"
+        }
+      ]
+    }
+    </script>
+@endsection
+
+@section('body_content')
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal Search End -->
+
+    <!-- Page Header Start -->
+    <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
+        <div class="container text-center py-5">
+            <h1 class="display-4 text-white animated slideInDown mb-4">Luxury Tanzania Safaris</h1> 
+            <nav aria-label="breadcrumb animated slideInDown">
+                <ol class="breadcrumb justify-content-center mb-0">
+                    <li class="breadcrumb-item"><a class="text-white" href="{{ route('home') }}">Home</a></li>
+                    <li class="breadcrumb-item"><a class="text-white" href="{{ route('safaris') }}">Safaris</a></li>
+                    <li class="breadcrumb-item text-primary active" aria-current="page">Luxury Safaris</li> 
+                </ol>
+            </nav>
+        </div>
+    </div>
+    <!-- Page Header End -->
+
+    <!-- Luxury Safari Content Start -->
+    <div class="container-fluid py-6">
+        <div class="container">
+            <div class="row g-5 align-items-center">
+                <!-- Introduction Text -->
+                <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
+                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Unforgettable Indulgence</small> 
+                    <h1 class="display-5 mb-4">Experience Tanzania in Ultimate Style</h1> 
+                    <p class="mb-4">Embark on a journey where breathtaking wildlife encounters meet unparalleled comfort and exclusivity. Golden Memories Safaris curates luxury Tanzania experiences that redefine adventure, blending thrilling game drives with stays in the finest lodges and camps the country has to offer.</p>
+                    <p class="mb-4">From private vehicles and expert guides dedicated solely to your party, to gourmet dining under the stars and seamless travel logistics, every detail is meticulously arranged. Indulge in personalized service, unique activities, and intimate settings that create truly once-in-a-lifetime memories.</p>
+                    <a href="#inquire-luxury" class="btn btn-primary py-3 px-5 rounded-pill">Inquire Now<i class="fas fa-arrow-down ps-2"></i></a> 
+                </div>
+                 <!-- Image -->
+                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
+                    <img src="{{ asset('img/luxury-main.jpg') }}" class="img-fluid rounded" alt="Luxury safari lodge view" loading="lazy"> 
+                    
+                </div>
+            </div>
+
+            <!-- Hallmarks Section -->
+            <div class="row g-4 mt-5 wow bounceInUp" data-wow-delay="0.1s">
+                <div class="col-12 text-center">
+                     <h2 class="mb-5">Hallmarks of Our Luxury Safaris</h2>
+                </div>
+            
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-gem fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Exclusive Lodges & Camps</h5>
+                            <p class="mb-0 small">Stay in premium, often intimate properties with exceptional locations and amenities.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-user-tie fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Private Guided Experiences</h5>
+                            <p class="mb-0 small">Enjoy the flexibility and expertise of your own dedicated guide and vehicle.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-utensils fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Gourmet Cuisine & Drinks</h5>
+                            <p class="mb-0 small">Savor exceptional meals, often paired with fine wines and premium beverages.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-concierge-bell fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Seamless Logistics</h5>
+                            <p class="mb-0 small">Effortless travel, including internal flights, transfers, and dedicated support.</p>
+                        </div>
+                    </div>
+                </div>
+                 <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-edit fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Personalized Itineraries</h5>
+                            <p class="mb-0 small">Crafted around your interests, ensuring a unique and fulfilling journey.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6">
+                    <div class="benefit-item d-flex align-items-center p-3 bg-light rounded h-100">
+                        <i class="fas fa-star fa-2x text-primary me-3"></i>
+                        <div>
+                            <h5 class="mb-1">Exceptional Service</h5>
+                            <p class="mb-0 small">Attentive, discreet, and anticipating your needs throughout your safari.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+             <!-- Signature Experiences Section -->
+             <div class="row g-5 mt-5 align-items-center">
+                <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
+                    <img src="{{ asset('img/luxury-experiences.jpg') }}" class="img-fluid rounded" alt="Hot air balloon over Serengeti" loading="lazy"> 
+                </div>
+                <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
+                     <h2 class="mb-4">Signature Luxury Experiences</h2>
+                     <p>Elevate your safari with unique activities often included or easily arranged on our luxury tours:</p>
+                     <ul class="list-unstyled">
+                        <li class="mb-3 d-flex align-items-start experience-item">
+                            <i class="fas fa-wind text-primary fa-lg me-3 mt-1"></i>
+                            <div><strong>Hot Air Balloon Safaris:</strong> Glide silently over the plains at sunrise for breathtaking panoramic views (e.g., Serengeti).</div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start experience-item">
+                             <i class="fas fa-glass-cheers text-primary fa-lg me-3 mt-1"></i>
+                            <div><strong>Private Sundowners:</strong> Enjoy cocktails and canapés in stunning, secluded locations as the sun sets.</div>
+                        </li>
+                        <li class="mb-3 d-flex align-items-start experience-item">
+                            <i class="fas fa-plane text-primary fa-lg me-3 mt-1"></i>
+                           <div> <strong>Fly-In Safaris:</strong> Maximize your time in remote parks with convenient light aircraft flights between locations.</div>
+                        </li>
+                         <li class="mb-3 d-flex align-items-start experience-item">
+                            <i class="fas fa-spa text-primary fa-lg me-3 mt-1"></i>
+                            <div><strong>Wellness & Spa:</strong> Relax and rejuvenate with spa treatments available at select luxury lodges.</div>
+                        </li>
+                         <li class="mb-3 d-flex align-items-start experience-item">
+                            <i class="fas fa-walking text-primary fa-lg me-3 mt-1"></i>
+                            <div><strong>Guided Bush Walks:</strong> Connect with nature intimately on guided walks (where permitted and safe).</div>
+                        </li>
+                          <li class="mb-3 d-flex align-items-start experience-item">
+                            <i class="fas fa-camera-retro text-primary fa-lg me-3 mt-1"></i>
+                            <div><strong>Photographic Vehicles:</strong> Utilize specialized vehicles with beanbag mounts and charging points (on request).</div>
+                        </li>
+                     </ul>
+                </div>
+            </div>
+
+             <!-- Luxury Inclusions Section -->
+             <div class="row mt-5 wow bounceInUp" data-wow-delay="0.1s">
+                 <div class="col-12">
+                     <h2 class="text-center mb-5">Luxury Safari Inclusions (Examples)</h2> 
+                 </div>
+                
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-car-side text-primary me-2"></i> Private 4x4 Safari Vehicle</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-user-shield text-primary me-2"></i> Expert Private Guide</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-bed text-primary me-2"></i> Premium Lodge/Camp Stays</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-wine-bottle text-primary me-2"></i> All Meals & Select Drinks</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-id-card text-primary me-2"></i> Park & Concession Fees</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-plane-departure text-primary me-2"></i> Internal Flights (as per itinerary)</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-headset text-primary me-2"></i> Dedicated Concierge Support</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-luggage-cart text-primary me-2"></i> Airport Meet & Greet / Transfers</div>
+                 <div class="col-md-4 col-sm-6 mb-3"><i class="fas fa-medkit text-primary me-2"></i> Emergency Evacuation Insurance</div>
+             </div>
+
+        </div>
+    </div>
+    <!-- Luxury Safari Content End -->
+
+
+    <!-- ======================= DETAILED LUXURY INQUIRY FORM START ========================== -->
+    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s" id="inquire-luxury"> 
+        <div class="container">
+            <div class="row g-0">
+                <div class="col-1 d-none d-lg-block">
+                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
+                </div>
+                <div class="col-lg-10 col-md-12">
+                    <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
+                        <div class="text-center">
+                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Begin Your Luxury Journey</small> 
+                            <h1 class="display-5 mb-4">Inquire About Your Luxury Safari</h1> 
+                             <p class="mb-4 mx-auto" style="max-width: 600px;">Provide us with your preferences, and our luxury travel specialists will design a bespoke itinerary and quotation for your ultimate Tanzanian adventure.</p> 
+                        </div>
+                        
+                        <form action="#" method="POST">
+                            <div class="row g-3 form">
+
+                        
+                                <div class="col-md-6">
+                                    <label for="yourName" class="form-label small ms-1">Your Name*</label>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
+                                </div>
+                                <div class="col-md-6">
+                                     <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
+                                </div>
+
+                                <hr class="my-4">
+
+                            
+                               
+                                
+                                 <div class="col-12 mt-3">
+                                     <label for="safariDetails" class="form-label small ms-1">Your Luxury Safari Ideas & Requirements*</label>
+                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="safari_details" rows="6" placeholder="Describe your ideal luxury experience: preferred parks/regions, specific lodges if known, desired activities (ballooning, walking?), pace, special occasions, any preferences or needs." required></textarea>
+                                </div>
+
+                                
+                                <div class="col-12 text-center mt-4">
+                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request Luxury Safari Quote</button> 
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+                <div class="col-1 d-none d-lg-block">
+                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- ======================= DETAILED LUXURY INQUIRY FORM END ========================== -->
+
+
+     <!-- Footer Start -->
+<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+
+                      <!-- Column 1: Logo, Contact Info, Social Icons -->
+                      <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('img/logo.png') }}"
+                                     alt="Golden Memories Safaris Logo"
+                                     class="footer-logo mb-4"
+                                     width="180" height="40">
+                              </a>
+                            <!-- Contact Info Moved Here -->
+                            <div class="d-flex flex-column align-items-start mb-4">
+                                <!-- Added mb-1 to each <p> tag below -->
+                                <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
+                                <p class="mb-1"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273 </p>
+@endsection
