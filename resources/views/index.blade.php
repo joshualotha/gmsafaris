@@ -118,19 +118,30 @@
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
+        display: flex;
+        align-items: center;
+        gap: 8px;
     }
 
     .hero-carousel .owl-dots .owl-dot span {
-        background: #fff !important;
-        width: 12px !important;
-        height: 12px !important;
-        margin: 0 7px !important;
-        opacity: 0.7;
+        background: rgba(255, 255, 255, 0.5) !important;
+        width: 28px !important;
+        height: 4px !important;
+        margin: 0 !important;
+        border-radius: 2px !important;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+        opacity: 1;
     }
 
     .hero-carousel .owl-dots .owl-dot.active span {
         background: #d69c40 !important;
+        width: 48px !important;
         opacity: 1;
+        box-shadow: 0 0 8px rgba(214, 156, 64, 0.5);
+    }
+
+    .hero-carousel .owl-dots .owl-dot:hover span {
+        background: rgba(255, 255, 255, 0.8) !important;
     }
 
 
