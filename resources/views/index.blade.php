@@ -16,38 +16,117 @@
 <style>
     /* Organic Hero Styles */
     .organic-hero-section {
-        background-color: #F2EBE0; /* Terracotta Earth Neutral - Warm Linen */
-        min-height: 90vh;
+        min-height: 95vh;
         position: relative;
         overflow: hidden;
         display: flex;
         align-items: center;
-        padding: 120px 0;
+        padding: 0;
     }
 
-    .organic-hero-section::before {
+    .organic-hero-visual {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+
+    .organic-image-mask {
+        width: 100%;
+        height: 100%;
+        position: relative;
+    }
+
+    .organic-image-mask::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(90deg, rgba(28, 24, 18, 0.4) 0%, rgba(28, 24, 18, 0) 70%);
+        z-index: 2;
+        pointer-events: none;
+    }
+
+    /* Carousel Overrides for Organic Hero */
+    .organic-image-mask .hero-carousel,
+    .organic-image-mask .owl-stage-outer,
+    .organic-image-mask .owl-stage,
+    .organic-image-mask .owl-item,
+    .organic-image-mask .item {
+        height: 100%;
+    }
+
+    .organic-image-mask .item img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .organic-image-mask .owl-dots {
+        position: absolute;
+        bottom: 40px;
+        left: 50%;
+        transform: translateX(-50%);
+        z-index: 10;
+        display: flex;
+        gap: 12px;
+    }
+
+    .organic-image-mask .owl-dots .owl-dot span {
+        background: #F2EBE0 !important;
+        opacity: 0.6;
+        width: 10px !important;
+        height: 10px !important;
+        border-radius: 50% !important;
+        margin: 0 !important;
+        transition: all 0.3s ease;
+    }
+
+    .organic-image-mask .owl-dots .owl-dot.active span {
+        opacity: 1;
+        background: #C4714A !important;
+        transform: scale(1.3);
+    }
+
+    .organic-hero-content-wrapper {
+        position: relative;
+        z-index: 3;
+        width: 100%;
+    }
+
+    .organic-hero-content {
+        background-color: #F2EBE0; /* Warm linen */
+        padding: 4rem 3.5rem;
+        border-radius: 24px;
+        max-width: 600px;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 30px 60px rgba(28, 24, 18, 0.15);
+    }
+
+    .organic-hero-content::before {
         content: "";
         position: absolute;
         top: 0; left: 0; width: 100%; height: 100%;
-        background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+        background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.06"/%3E%3C/svg%3E');
         pointer-events: none;
         z-index: 1;
     }
 
-    .organic-hero-content {
-        position: relative;
-        z-index: 3;
-        padding-right: 5%;
-    }
-
     .organic-h1 {
         font-family: 'Cormorant Garamond', serif;
-        font-size: 5.5rem;
+        font-size: 4.5rem;
         font-weight: 400;
         color: #1C1812; /* Rich Soil */
         line-height: 1.05;
-        letter-spacing: -0.03em;
+        letter-spacing: -0.02em;
         margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 2;
     }
 
     .organic-h1 i {
@@ -61,13 +140,16 @@
         line-height: 1.8;
         color: #3D5A3E; /* Deep Forest */
         margin-bottom: 2.5rem;
-        max-width: 90%;
+        position: relative;
+        z-index: 2;
     }
 
     .organic-hero-actions {
         display: flex;
         gap: 1.5rem;
         align-items: center;
+        position: relative;
+        z-index: 2;
     }
 
     .btn-organic-primary {
@@ -108,103 +190,30 @@
         border-bottom-color: #C4714A;
     }
 
-    .organic-hero-visual {
-        position: absolute;
-        top: 0;
-        right: 0;
-        width: 55%;
-        height: 100%;
-        z-index: 2;
-    }
-
-    .organic-image-mask {
-        width: 100%;
-        height: 100%;
-        border-radius: 200px 0 0 40px;
-        overflow: hidden;
-        position: relative;
-        box-shadow: -20px 20px 60px rgba(28, 24, 18, 0.1);
-    }
-
-    /* Carousel Overrides for Organic Hero */
-    .organic-image-mask .hero-carousel,
-    .organic-image-mask .owl-stage-outer,
-    .organic-image-mask .owl-stage,
-    .organic-image-mask .owl-item,
-    .organic-image-mask .item {
-        height: 100%;
-    }
-
-    .organic-image-mask .item img {
-        width: 100%;
-        height: 100%;
-        object-fit: cover;
-    }
-
-    /* Override owl dots to move them inside the visual area */
-    .organic-image-mask .owl-dots {
-        position: absolute;
-        bottom: 40px;
-        left: 50%;
-        transform: translateX(-50%);
-        z-index: 10;
-        display: flex;
-        gap: 12px;
-    }
-
-    .organic-image-mask .owl-dots .owl-dot span {
-        background: #F2EBE0 !important;
-        opacity: 0.6;
-        width: 10px !important;
-        height: 10px !important;
-        border-radius: 50% !important;
-        margin: 0 !important;
-        transition: all 0.3s ease;
-    }
-
-    .organic-image-mask .owl-dots .owl-dot.active span {
-        opacity: 1;
-        background: #C4714A !important;
-        transform: scale(1.3);
-    }
-
     @media (max-width: 992px) {
-        .organic-hero-section {
-            flex-direction: column;
-            padding: 100px 0 0 0;
-            min-height: auto;
-        }
-
         .organic-hero-content {
-            padding: 0 5%;
-            margin-bottom: 3rem;
-            text-align: center;
-        }
-
-        .organic-p {
-            margin: 0 auto 2rem auto;
-        }
-
-        .organic-hero-actions {
-            justify-content: center;
-        }
-
-        .organic-hero-visual {
-            position: relative;
-            width: 95%;
-            margin-left: auto;
-            height: 500px;
-        }
-
-        .organic-image-mask {
-            border-radius: 120px 0 0 0;
+            padding: 3rem 2.5rem;
+            max-width: 100%;
+            margin-top: 200px;
         }
     }
 
     @media (max-width: 768px) {
-        .organic-h1 {
-            font-size: 3.5rem;
+        .organic-hero-section {
+            align-items: flex-end;
+            padding-bottom: 80px;
         }
+        .organic-hero-content {
+            margin-top: 0;
+            border-radius: 16px;
+        }
+        .organic-h1 {
+            font-size: 3rem;
+        }
+        .organic-image-mask::after {
+            background: linear-gradient(0deg, rgba(28, 24, 18, 0.7) 0%, rgba(28, 24, 18, 0) 100%);
+        }
+    }
         .organic-hero-visual {
             height: 400px;
         }
@@ -581,34 +590,35 @@
 
 <!-- Organic Hero Start -->
 <div class="organic-hero-section">
-    <div class="organic-noise-overlay"></div>
-    <div class="container position-relative h-100 z-index-3">
-        <div class="row h-100 align-items-center">
-            
-            <div class="col-lg-5 col-md-12 organic-hero-content">
-                <h1 class="organic-h1 animated fadeInUp" data-wow-delay="0.1s">Awaken to the <i>Wild</i></h1>
-                <p class="organic-p animated fadeInUp" data-wow-delay="0.3s">
-                    Experience the thrill of encountering the Big Five in their natural habitat, witness the great migration, or immerse yourself in vibrant local cultures. Your Tanzanian adventure begins here.
-                </p>
-                <div class="organic-hero-actions animated fadeInUp" data-wow-delay="0.5s">
-                    <a href="{{ route('booking') }}" class="btn-organic-primary">Book Safari</a>
-                    <a href="{{ route('safaris') }}" class="btn-organic-secondary">Explore Tours</a>
-                </div>
+    
+    <div class="organic-hero-visual">
+        <div class="organic-image-mask animated fadeIn" data-wow-delay="0.1s">
+            <div class="owl-carousel hero-carousel">
+                <div class="item"><img src="{{ asset('img/hero-1.jpg') }}" alt="Tanzania Wildlife Encounter"></div>
+                <div class="item"><img src="{{ asset('img/hero-2.jpg') }}" alt="Maasai People Tanzania"></div>
+                <div class="item"><img src="{{ asset('img/hero-3.jpg') }}" alt="Serengeti Adventure"></div>
+                <div class="item"><img src="{{ asset('img/hero-4.jpg') }}" alt="Ngorongoro Crater Safari"></div>
             </div>
+        </div>
+    </div>
 
-            <div class="col-lg-7 col-md-12 position-relative organic-hero-visual">
-                <div class="organic-image-mask animated fadeInRight" data-wow-delay="0.2s">
-                    <div class="owl-carousel hero-carousel">
-                        <div class="item"><img src="{{ asset('img/hero-1.jpg') }}" alt="Tanzania Wildlife Encounter"></div>
-                        <div class="item"><img src="{{ asset('img/hero-2.jpg') }}" alt="Maasai People Tanzania"></div>
-                        <div class="item"><img src="{{ asset('img/hero-3.jpg') }}" alt="Serengeti Adventure"></div>
-                        <div class="item"><img src="{{ asset('img/hero-4.jpg') }}" alt="Ngorongoro Crater Safari"></div>
+    <div class="container organic-hero-content-wrapper">
+        <div class="row">
+            <div class="col-lg-6 col-md-10">
+                <div class="organic-hero-content animated fadeInUp" data-wow-delay="0.3s">
+                    <h1 class="organic-h1">Awaken to the <i>Wild</i></h1>
+                    <p class="organic-p">
+                        Experience the thrill of encountering the Big Five in their natural habitat, witness the great migration, or immerse yourself in vibrant local cultures. Your Tanzanian adventure begins here.
+                    </p>
+                    <div class="organic-hero-actions">
+                        <a href="{{ route('booking') }}" class="btn-organic-primary">Book Safari</a>
+                        <a href="{{ route('safaris') }}" class="btn-organic-secondary">Explore Tours</a>
                     </div>
                 </div>
             </div>
-
         </div>
     </div>
+
 </div>
 <!-- Organic Hero End -->
 

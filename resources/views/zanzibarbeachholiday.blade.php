@@ -255,35 +255,36 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Dreaming of Zanzibar? Share your preferences, and our island experts will tailor the perfect beach escape or safari combination for you.</p> <!-- Updated Text -->
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form id="zanzibarBeachForm" method="POST">
+                        <form id="zanzibarBeachForm" action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="row g-3 form">
 
                                 <!-- Contact Info -->
                                 <div class="col-md-6">
                                     <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
                                 </div>
 
                                 <hr class="my-4">
 
-                               
+                                <input type="hidden" name="subject" value="Zanzibar Beach Holiday Inquiry">
 
                                 <!-- Detailed Request -->
                                  <div class="col-12 mt-3">
                                      <label for="zanzibarDetails" class="form-label small ms-1">Your Zanzibar Ideas & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="zanzibarDetails" name="zanzibar_details" rows="6" placeholder="Tell us about your ideal Zanzibar holiday: Are you combining with a safari? Which beaches interest you (North, East, South)? Specific activities (diving, spice tour, history)? Any special occasions or needs?" required></textarea>
+                                    <textarea class="form-control border-primary p-2" id="zanzibarDetails" name="message" rows="6" placeholder="Tell us about your ideal Zanzibar holiday: Are you combining with a safari? Which beaches interest you (North, East, South)? Specific activities (diving, spice tour, history)? Any special occasions or needs?" required></textarea>
                                 </div>
 
                                 <!-- Submit Button -->
@@ -306,28 +307,5 @@
 
 @section('extra_scripts')
 <script>
-$(function(){
-  $('#zanzibarBeachForm').on('submit', function(e){
-    e.preventDefault();
-    var form = $(this);
-    $.ajax({
-      url: 'process-form.php',
-      type: 'POST',
-      data: form.serialize(),
-      dataType: 'json',
-      success: function(resp){
-        if(resp.success){
-          alert(resp.message);
-          form[0].reset();
-        } else {
-          alert('Error: ' + resp.message);
-        }
-      },
-      error: function(xhr){
-        alert('There was a problem sending your message.\n' + xhr.responseText);
-      }
-    });
-  });
-});
 </script>
 @endsection
