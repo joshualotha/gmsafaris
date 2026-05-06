@@ -77,100 +77,38 @@
 
     /* Owl Carousel Navigation/Dots */
     .hero-carousel .owl-nav {
-        position: absolute;
-        top: 50%;
-        width: 100%;
-        transform: translateY(-50%);
-        display: flex;
-        justify-content: space-between;
-        padding: 0 20px;
-        z-index: 3;
-        pointer-events: none;
-    }
-
-    .hero-carousel .owl-nav button.owl-prev,
-    .hero-carousel .owl-nav button.owl-next {
-        background: rgba(0, 0, 0, 0.4) !important;
-        color: white !important;
-        font-size: 1.8rem !important;
-        width: 50px !important;
-        height: 50px !important;
-        line-height: 50px !important;
-        padding: 0 !important;
-        text-align: center;
-        border-radius: 50% !important;
-        margin: 0 10px;
-        transition: background-color 0.3s ease;
-        pointer-events: auto;
-        opacity: 0.7;
-    }
-
-    .hero-carousel .owl-nav button.owl-prev:hover,
-    .hero-carousel .owl-nav button.owl-next:hover {
-        background: #d69c40 !important;
-        opacity: 1;
+        display: none !important;
     }
 
 
     .hero-carousel .owl-dots {
         position: absolute;
-        bottom: 35px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
-        display: flex;
-        align-items: center;
-        gap: 6px;
-        counter-reset: dot-num;
-    }
-
-    .hero-carousel .owl-dots .owl-dot {
-        position: relative;
         display: flex;
         align-items: center;
         gap: 10px;
     }
 
     .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.35) !important;
-        width: 40px !important;
-        height: 2px !important;
+        background: rgba(255, 255, 255, 0.5) !important;
+        width: 12px !important;
+        height: 12px !important;
         margin: 0 !important;
-        border-radius: 1px !important;
-        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        position: relative;
-        overflow: hidden;
-    }
-
-    .hero-carousel .owl-dots .owl-dot span::after {
-        content: '';
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 0;
-        height: 100%;
-        background: #d69c40;
-        transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-        border-radius: 1px;
+        border-radius: 50% !important;
+        transition: all 0.3s ease;
     }
 
     .hero-carousel .owl-dots .owl-dot.active span {
-        background: rgba(255, 255, 255, 0.15) !important;
-        width: 60px !important;
-    }
-
-    .hero-carousel .owl-dots .owl-dot.active span::after {
-        width: 100%;
-        animation: dot-progress 7s linear forwards;
-    }
-
-    @keyframes dot-progress {
-        0% { width: 0%; }
-        100% { width: 100%; }
+        background: #d69c40 !important;
+        box-shadow: 0 0 10px rgba(214, 156, 64, 0.6);
+        transform: scale(1.2);
     }
 
     .hero-carousel .owl-dots .owl-dot:hover span {
-        background: rgba(255, 255, 255, 0.6) !important;
+        background: #d69c40 !important;
     }
 
 
