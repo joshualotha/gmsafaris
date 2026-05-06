@@ -23,7 +23,7 @@
             <tr>
                 <td class="summary-item">
                     <span class="summary-label">Contact</span>
-                    <p class="summary-value"><a href="mailto:{{ $booking->email }}" style="color: #C4714A; text-decoration: none;">{{ $booking->email }}</a><br>{{ $booking->phone }}</p>
+                    <p class="summary-value"><a href="mailto:{{ $booking->email }}" style="color: #d69c40; text-decoration: none;">{{ $booking->email }}</a><br>{{ $booking->phone }}</p>
                 </td>
             </tr>
             <tr>
@@ -54,9 +54,9 @@
     </div>
 
     @if($booking->special_requests)
-    <div class="summary-box" style="background-color: #ffffff; border: 1px solid rgba(28,24,18,0.1); border-left: 4px solid #3D5A3E;">
-        <span class="summary-label" style="color: #3D5A3E;">Special Requests</span>
-        <p style="margin: 0; color: #1C1812; font-size: 15px;">{{ $booking->special_requests }}</p>
+    <div class="summary-box" style="background-color: #ffffff; border: 1px solid rgba(0,0,0,0.1); border-left: 4px solid #d69c40;">
+        <span class="summary-label" style="color: #d69c40;">Special Requests</span>
+        <p style="margin: 0; color: #000000; font-size: 15px;">{{ $booking->special_requests }}</p>
     </div>
     @endif
 

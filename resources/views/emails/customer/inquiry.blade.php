@@ -10,24 +10,24 @@
     <div class="divider"></div>
 
     <h3>Your Inquiry Summary</h3>
-    <div class="summary-box" style="background-color: #F2EBE0; border-left-color: #3D5A3E;">
+    <div class="summary-box" style="background-color: #fafafa; border-left-color: #d69c40;">
         <table width="100%" cellpadding="0" cellspacing="0">
             <tr>
                 <td class="summary-item">
-                    <span class="summary-label" style="color: #3D5A3E;">Subject</span>
+                    <span class="summary-label" style="color: #d69c40;">Subject</span>
                     <p class="summary-value">{{ $inquiry->subject ?? 'General Inquiry' }}</p>
                 </td>
             </tr>
             <tr>
                 <td class="summary-item">
-                    <span class="summary-label" style="color: #3D5A3E;">Package of Interest</span>
+                    <span class="summary-label" style="color: #d69c40;">Package of Interest</span>
                     <p class="summary-value">{{ $safariName }}</p>
                 </td>
             </tr>
             <tr>
                 <td class="summary-item">
-                    <span class="summary-label" style="color: #3D5A3E;">Your Message</span>
-                    <p style="margin: 0; color: #1C1812; font-size: 15px; font-style: italic;">"{{ \Illuminate\Support\Str::limit($inquiry->message, 150) }}"</p>
+                    <span class="summary-label" style="color: #d69c40;">Your Message</span>
+                    <p style="margin: 0; color: #000000; font-size: 15px; font-style: italic;">"{{ \Illuminate\Support\Str::limit($inquiry->message, 150) }}"</p>
                 </td>
             </tr>
         </table>
