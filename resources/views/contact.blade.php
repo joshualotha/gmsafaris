@@ -209,7 +209,8 @@
                     <h3 class="mb-4">Send Us a Message</h3>
                     <p class="mb-4">Fill out the form below and our safari experts will get back to you shortly.</p>
                     <div class="card border-0 shadow-sm p-4 contact-form">
-                        <form id="contactForm" action="process-form.php" method="POST">
+                        <form id="contactForm" action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="row g-3">
                                 <div class="col-md-6">
                                     <label for="contactName" class="form-label">Your Name <span class="text-danger">*</span></label>
@@ -218,6 +219,14 @@
                                 <div class="col-md-6">
                                     <label for="contactEmail" class="form-label">Your Email <span class="text-danger">*</span></label>
                                     <input type="email" class="form-control" id="contactEmail" name="email" placeholder="john.doe@example.com" required>
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contactPhone" class="form-label">Phone Number</label>
+                                    <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="(Include country code)">
+                                </div>
+                                <div class="col-md-6">
+                                    <label for="contactCountry" class="form-label">Country of Residence</label>
+                                    <input type="text" class="form-control" id="contactCountry" name="country" placeholder="Your Country">
                                 </div>
                                 <div class="col-12">
                                     <label for="contactSubject" class="form-label">Subject <span class="text-danger">*</span></label>
@@ -255,7 +264,7 @@
         submitBtn.disabled = true;
         submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-2"></i>Sending...';
 
-        fetch('process-form.php', {
+        fetch('{{ route('inquiry.store') }}', {
             method: 'POST',
             body: formData
         })

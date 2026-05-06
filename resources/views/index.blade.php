@@ -14,123 +14,204 @@
 
 @section('extra_styles')
 <style>
-    /* Hero Section Styles */
-    .hero-section {
+    /* Organic Hero Styles */
+    .organic-hero-section {
+        background-color: #F2EBE0; /* Terracotta Earth Neutral - Warm Linen */
+        min-height: 90vh;
         position: relative;
         overflow: hidden;
-        padding: 0;
-        background-color: #333;
+        display: flex;
+        align-items: center;
+        padding: 120px 0;
     }
 
-    .hero-carousel .owl-item {
-        height: 90vh;
-        min-height: 500px;
-        position: relative;
-    }
-
-    .hero-carousel .carousel-image-container {
+    .organic-hero-section::before {
+        content: "";
         position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
+        top: 0; left: 0; width: 100%; height: 100%;
+        background-image: url('data:image/svg+xml,%3Csvg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg"%3E%3Cfilter id="noiseFilter"%3E%3CfeTurbulence type="fractalNoise" baseFrequency="0.65" numOctaves="3" stitchTiles="stitch"/%3E%3C/filter%3E%3Crect width="100%25" height="100%25" filter="url(%23noiseFilter)" opacity="0.05"/%3E%3C/svg%3E');
+        pointer-events: none;
         z-index: 1;
     }
 
-    .hero-carousel .carousel-image-container img {
+    .organic-hero-content {
+        position: relative;
+        z-index: 3;
+        padding-right: 5%;
+    }
+
+    .organic-h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 5.5rem;
+        font-weight: 400;
+        color: #1C1812; /* Rich Soil */
+        line-height: 1.05;
+        letter-spacing: -0.03em;
+        margin-bottom: 1.5rem;
+    }
+
+    .organic-h1 i {
+        font-style: italic;
+        color: #C4714A; /* Fired Clay */
+    }
+
+    .organic-p {
+        font-family: 'DM Sans', sans-serif;
+        font-size: 1.15rem;
+        line-height: 1.8;
+        color: #3D5A3E; /* Deep Forest */
+        margin-bottom: 2.5rem;
+        max-width: 90%;
+    }
+
+    .organic-hero-actions {
+        display: flex;
+        gap: 1.5rem;
+        align-items: center;
+    }
+
+    .btn-organic-primary {
+        background-color: #C4714A;
+        color: #F2EBE0 !important;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        padding: 1rem 2.5rem;
+        border-radius: 999px;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border: none;
+    }
+
+    .btn-organic-primary:hover {
+        background-color: #3D5A3E;
+        transform: translateY(-2px);
+    }
+
+    .btn-organic-secondary {
+        color: #3D5A3E !important;
+        font-family: 'DM Sans', sans-serif;
+        font-weight: 500;
+        font-size: 1rem;
+        letter-spacing: 0.05em;
+        padding: 0.5rem 0;
+        text-transform: uppercase;
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-bottom: 1px solid #3D5A3E;
+    }
+
+    .btn-organic-secondary:hover {
+        color: #C4714A !important;
+        border-bottom-color: #C4714A;
+    }
+
+    .organic-hero-visual {
+        position: absolute;
+        top: 0;
+        right: 0;
+        width: 55%;
+        height: 100%;
+        z-index: 2;
+    }
+
+    .organic-image-mask {
+        width: 100%;
+        height: 100%;
+        border-radius: 200px 0 0 40px;
+        overflow: hidden;
+        position: relative;
+        box-shadow: -20px 20px 60px rgba(28, 24, 18, 0.1);
+    }
+
+    /* Carousel Overrides for Organic Hero */
+    .organic-image-mask .hero-carousel,
+    .organic-image-mask .owl-stage-outer,
+    .organic-image-mask .owl-stage,
+    .organic-image-mask .owl-item,
+    .organic-image-mask .item {
+        height: 100%;
+    }
+
+    .organic-image-mask .item img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.6);
     }
 
-    .hero-carousel .carousel-caption-gms {
+    /* Override owl dots to move them inside the visual area */
+    .organic-image-mask .owl-dots {
         position: absolute;
-        top: 50%;
-        left: 10%;
-        transform: translateY(-50%);
-        text-align: left;
-        color: white;
-        z-index: 2;
-        width: auto;
-        max-width: 60%;
-        padding-right: 20px;
-    }
-
-    .hero-carousel .carousel-caption-gms h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-carousel .carousel-caption-gms .gold-text {
-        color: #d69c40;
-    }
-
-    .hero-carousel .carousel-caption-gms p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Owl Carousel Navigation/Dots */
-    .hero-carousel .owl-nav {
-        display: none !important;
-    }
-
-
-    .hero-carousel .owl-dots {
-        position: absolute;
-        bottom: 30px;
+        bottom: 40px;
         left: 50%;
         transform: translateX(-50%);
-        z-index: 3;
+        z-index: 10;
         display: flex;
-        align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
-    .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.5) !important;
-        width: 12px !important;
-        height: 12px !important;
-        margin: 0 !important;
+    .organic-image-mask .owl-dots .owl-dot span {
+        background: #F2EBE0 !important;
+        opacity: 0.6;
+        width: 10px !important;
+        height: 10px !important;
         border-radius: 50% !important;
+        margin: 0 !important;
         transition: all 0.3s ease;
     }
 
-    .hero-carousel .owl-dots .owl-dot.active span {
-        background: #d69c40 !important;
-        box-shadow: 0 0 10px rgba(214, 156, 64, 0.6);
-        transform: scale(1.2);
+    .organic-image-mask .owl-dots .owl-dot.active span {
+        opacity: 1;
+        background: #C4714A !important;
+        transform: scale(1.3);
     }
-
-    .hero-carousel .owl-dots .owl-dot:hover span {
-        background: #d69c40 !important;
-    }
-
 
     @media (max-width: 992px) {
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.8rem;
+        .organic-hero-section {
+            flex-direction: column;
+            padding: 100px 0 0 0;
+            min-height: auto;
         }
 
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+        .organic-hero-content {
+            padding: 0 5%;
+            margin-bottom: 3rem;
+            text-align: center;
         }
 
-        .hero-carousel .owl-item {
-            height: 75vh;
+        .organic-p {
+            margin: 0 auto 2rem auto;
+        }
+
+        .organic-hero-actions {
+            justify-content: center;
+        }
+
+        .organic-hero-visual {
+            position: relative;
+            width: 95%;
+            margin-left: auto;
+            height: 500px;
+        }
+
+        .organic-image-mask {
+            border-radius: 120px 0 0 0;
         }
     }
 
     @media (max-width: 768px) {
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.2rem;
+        .organic-h1 {
+            font-size: 3.5rem;
         }
+        .organic-hero-visual {
+            height: 400px;
+        }
+        .organic-image-mask {
+            border-radius: 80px 0 0 0;
+        }
+    }
 
         .hero-carousel .carousel-caption-gms p {
             font-size: 0.9rem;
@@ -430,70 +511,8 @@
         }
     }
 
-    /* Inside the <style> block in index.html */
 
-    .hero-carousel .carousel-caption-gms h1 {
-        color: #d69c40;
-        font-size: 4.2rem;
-        font-weight: bold;
-        margin-bottom: 1.5rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
 
-    .hero-carousel .carousel-caption-gms .gold-text {
-        color: #d69c40;
-    }
-
-    .hero-carousel .carousel-caption-gms p {
-        font-size: 1.3rem;
-        line-height: 1.7;
-        margin-bottom: 2.5rem;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Responsive adjustments for carousel text */
-    @media (max-width: 992px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 75%;
-            left: 8%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 3.2rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 75vh;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 90%;
-            left: 5%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.6rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1.0rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 65vh;
-        }
-
-        .hero-carousel .owl-nav {
-            display: none;
-        }
-    }
 </style>
 @endsection
 
@@ -560,96 +579,38 @@
 
 @section('body_content')
 
-<!-- Hero Start - Carousel -->
-<div class="container-fluid hero-section p-0">
-    <div class="owl-carousel hero-carousel">
-        <!-- Slide 1 -->
-        <div class="item">
-            <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-1.jpg') }}" alt="Tanzania Wildlife Encounter" fetchpriority="high">
-            </div>
-            <div class="carousel-caption-gms">
-                <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Golden Memories Safaris. Experience the thrill of encountering the
-                    Big Five in their natural habitat, witness the great wildebeest migration, or immerse yourself
-                    in the vibrant cultures of local tribes. Whatever your dream safari entails, we're here to make
-                    it a reality. Join us and create golden memories that will last a lifetime. Your Tanzanian
-                    adventure starts here.</p>
-                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
-                    <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
-                        Safari</a>
-                    <a href="{{ route('safaris') }}"
-                        class="btn gold-outline-btn border-2 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore
-                        Tours</a>
+<!-- Organic Hero Start -->
+<div class="organic-hero-section">
+    <div class="organic-noise-overlay"></div>
+    <div class="container position-relative h-100 z-index-3">
+        <div class="row h-100 align-items-center">
+            
+            <div class="col-lg-5 col-md-12 organic-hero-content">
+                <h1 class="organic-h1 animated fadeInUp" data-wow-delay="0.1s">Awaken to the <i>Wild</i></h1>
+                <p class="organic-p animated fadeInUp" data-wow-delay="0.3s">
+                    Experience the thrill of encountering the Big Five in their natural habitat, witness the great migration, or immerse yourself in vibrant local cultures. Your Tanzanian adventure begins here.
+                </p>
+                <div class="organic-hero-actions animated fadeInUp" data-wow-delay="0.5s">
+                    <a href="{{ route('booking') }}" class="btn-organic-primary">Book Safari</a>
+                    <a href="{{ route('safaris') }}" class="btn-organic-secondary">Explore Tours</a>
                 </div>
             </div>
-        </div>
-        <!-- Slide 2 -->
-        <div class="item">
-            <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-2.jpg') }}" alt="Maasai People Tanzania" loading="lazy">
-            </div>
-            <div class="carousel-caption-gms">
-                <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">A land of breathtaking landscapes and diverse cultures, welcomes you
-                    with open arms. From the vast Serengeti plains to the majestic Mount Kilimanjaro and the warm
-                    hospitality of the Maasai people, every moment here is unforgettable. Whether you're exploring
-                    the wild savannas, relaxing on pristine beaches, or immersing yourself in rich traditions,
-                    Tanzania promises an experience that will stay with you forever.</p>
-                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
-                    <a href="{{ route('destinations') }}"
-                        class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
-                        Destinations</a>
-                    <a href="{{ route('contact') }}"
-                        class="btn gold-outline-btn border-2 rounded-pill py-2 py-lg-3 px-4 px-md-5">Contact Us</a>
+
+            <div class="col-lg-7 col-md-12 position-relative organic-hero-visual">
+                <div class="organic-image-mask animated fadeInRight" data-wow-delay="0.2s">
+                    <div class="owl-carousel hero-carousel">
+                        <div class="item"><img src="{{ asset('img/hero-1.jpg') }}" alt="Tanzania Wildlife Encounter"></div>
+                        <div class="item"><img src="{{ asset('img/hero-2.jpg') }}" alt="Maasai People Tanzania"></div>
+                        <div class="item"><img src="{{ asset('img/hero-3.jpg') }}" alt="Serengeti Adventure"></div>
+                        <div class="item"><img src="{{ asset('img/hero-4.jpg') }}" alt="Ngorongoro Crater Safari"></div>
+                    </div>
                 </div>
             </div>
-        </div>
-        <!-- Slide 3 -->
-        <div class="item">
-            <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-3.jpg') }}" alt="Serengeti Adventure" loading="lazy">
-            </div>
-            <div class="carousel-caption-gms">
-                <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Golden Memories Safaris takes you on an extraordinary journey into
-                    the heart of Tanzania's wilderness, where nature and adventure come together. Experience
-                    breathtaking landscapes and get closer to wildlife like never before. From the vast plains of
-                    the Serengeti to the hidden gems of Tanzania, we create moments that turn into lifelong
-                    memories. Let us guide you on an unforgettable safari experience.</p>
-                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
-                    <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
-                        Gallery</a>
-                    <a href="{{ route('safaris') }}"
-                        class="btn gold-outline-btn border-2 rounded-pill py-2 py-lg-3 px-4 px-md-5">Our Safaris</a>
-                </div>
-            </div>
-        </div>
-        <!-- Slide 4 -->
-        <div class="item">
-            <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-4.jpg') }}" alt="Ngorongoro Crater Safari Vehicle" loading="lazy">
-            </div>
-            <div class="carousel-caption-gms">
-                <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Experience the wonder of Ngorongoro Crater with Golden Memories
-                    Safaris. From the open roof of your safari vehicle, take in breathtaking views of this natural
-                    wonder, home to diverse wildlife and stunning landscapes. Whether spotting the Big Five or
-                    simply soaking in the beauty of the crater's unique ecosystem, every moment promises an
-                    unforgettable adventure. Let us bring you closer to nature in one of Africa's most spectacular
-                    destinations.</p>
-                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
-                    <a href="{{ url('/ngorongoro') }}"
-                        class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
-                    <a href="{{ route('booking') }}"
-                        class="btn gold-outline-btn border-2 rounded-pill py-2 py-lg-3 px-4 px-md-5">Plan Your
-                        Trip</a>
-                </div>
-            </div>
+
         </div>
     </div>
 </div>
-<!-- Hero End -->
+<!-- Organic Hero End -->
 
 <!-- About Satrt -->
 <div class="container-fluid py-6">
