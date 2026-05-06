@@ -220,35 +220,33 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Fill in the details below, and our specialists will craft a personalized proposal just for you.</p>
                         </div>
                    
-                        <form action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
-                            <div class="row g-3 form">
+                        <form action="#" method="POST">
+                            <div class="row g-3 form"> 
 
                                
                                 <div class="col-md-6">
                                     <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
                                 </div>
 
-                                <hr class="my-4">
+                                <hr class="my-4"> 
 
-                                <input type="hidden" name="subject" value="Tailored Safari Inquiry">
                               
                                  <div class="col-12 mt-3">
                                      <label for="safariDetails" class="form-label small ms-1">Your Ideas & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="message" rows="6" placeholder="Please describe your ideal tailored safari: destinations you want to visit, specific animals or activities, must-haves, pace, any special requirements (dietary, mobility, etc.). The more detail, the better!" required></textarea>
+                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="safari_details" rows="6" placeholder="Please describe your ideal tailored safari: destinations you want to visit, specific animals or activities, must-haves, pace, any special requirements (dietary, mobility, etc.). The more detail, the better!" required></textarea>
                                 </div>
 
                               

@@ -388,36 +388,35 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Fill in your details and preferences, and our team will provide personalized recommendations and answer your questions about climbing Kilimanjaro.</p>
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form id="kiliRoutesForm" action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
+                        <form id="kiliRoutesForm" method="POST">
                              <div class="row g-3 form">
 
                                 <!-- Contact Info -->
                                 <div class="col-md-6">
                                     <label for="yourNameRoute" class="form-label small ms-1">Your Name*</label> <!-- Added suffix to ID -->
-                                    <input type="text" class="form-control border-primary p-2" id="yourNameRoute" name="name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourNameRoute" name="your_name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmailRoute" class="form-label small ms-1">Your Email*</label> <!-- Added suffix to ID -->
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmailRoute" name="email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmailRoute" name="your_email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhoneRoute" class="form-label small ms-1">Phone Number</label> <!-- Added suffix to ID -->
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhoneRoute" name="phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhoneRoute" name="your_phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountryRoute" class="form-label small ms-1">Country of Residence</label> <!-- Added suffix to ID -->
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountryRoute" name="country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountryRoute" name="your_country" placeholder="Your Country">
                                 </div>
 
                                 <hr class="my-4">
 
-                                <input type="hidden" name="subject" value="Kilimanjaro Route Inquiry">
+                               
 
                                 <!-- Detailed Request -->
                                  <div class="col-12 mt-3">
                                      <label for="detailsRoute" class="form-label small ms-1">Priorities & Questions*</label> <!-- Added suffix to ID -->
-                                    <textarea class="form-control border-primary p-2" id="detailsRoute" name="message" rows="6" placeholder="What's most important to you (scenery, success rate, fewer crowds, budget)? What's your fitness level? Any specific concerns or questions about choosing a route or preparing for the climb?" required></textarea>
+                                    <textarea class="form-control border-primary p-2" id="detailsRoute" name="route_questions" rows="6" placeholder="What's most important to you (scenery, success rate, fewer crowds, budget)? What's your fitness level? Any specific concerns or questions about choosing a route or preparing for the climb?" required></textarea>
                                 </div>
 
                                 <!-- Submit Button -->
@@ -438,5 +437,30 @@
 
 
     <!-- Page-specific form handler -->
+    <script>
+$(function(){
+  $('#kiliRoutesForm').on('submit', function(e){
+    e.preventDefault();
+    var form = $(this);
+    $.ajax({
+      url: 'process-form.php',
+      type: 'POST',
+      data: form.serialize(),
+      dataType: 'json',
+      success: function(resp){
+        if(resp.success){
+          alert(resp.message);
+          form[0].reset();
+        } else {
+          alert('Error: ' + resp.message);
+        }
+      },
+      error: function(xhr){
+        alert('There was a problem sending your message.\n' + xhr.responseText);
+      }
+    });
+  });
+});
+    </script>
 
 @endsection

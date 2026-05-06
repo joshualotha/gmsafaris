@@ -132,72 +132,6 @@
             font-size: 2.2rem;
         }
 
-    /* Inside the <style> block in index.html */
-
-    .hero-carousel .carousel-caption-gms h1 {
-        color: #d69c40;
-        font-size: 4.2rem;
-        font-weight: bold;
-        margin-bottom: 1.5rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-carousel .carousel-caption-gms .gold-text {
-        color: #d69c40;
-    }
-
-    .hero-carousel .carousel-caption-gms p {
-        font-size: 1.3rem;
-        line-height: 1.7;
-        margin-bottom: 2.5rem;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Responsive adjustments for carousel text */
-    @media (max-width: 992px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 75%;
-            left: 8%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 3.2rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 75vh;
-        }
-    }
-
-    @media (max-width: 768px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 90%;
-            left: 5%;
-        }
-        .organic-hero-content {
-            margin-top: 0;
-            border-radius: 16px;
-        }
-        .organic-h1 {
-            font-size: 3rem;
-        }
-        .organic-image-mask::after {
-            background: linear-gradient(0deg, rgba(28, 24, 18, 0.7) 0%, rgba(28, 24, 18, 0) 100%);
-        }
-    }
-        .organic-hero-visual {
-            height: 400px;
-        }
-        .organic-image-mask {
-            border-radius: 80px 0 0 0;
-        }
-    }
-
         .hero-carousel .carousel-caption-gms p {
             font-size: 0.9rem;
         }
@@ -496,8 +430,70 @@
         }
     }
 
+    /* Inside the <style> block in index.html */
 
+    .hero-carousel .carousel-caption-gms h1 {
+        color: #d69c40;
+        font-size: 4.2rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+    }
 
+    .hero-carousel .carousel-caption-gms .gold-text {
+        color: #d69c40;
+    }
+
+    .hero-carousel .carousel-caption-gms p {
+        font-size: 1.3rem;
+        line-height: 1.7;
+        margin-bottom: 2.5rem;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Responsive adjustments for carousel text */
+    @media (max-width: 992px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 75%;
+            left: 8%;
+        }
+
+        .hero-carousel .carousel-caption-gms h1 {
+            font-size: 3.2rem;
+        }
+
+        .hero-carousel .carousel-caption-gms p {
+            font-size: 1.15rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .hero-carousel .owl-item {
+            height: 75vh;
+        }
+    }
+
+    @media (max-width: 768px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 90%;
+            left: 5%;
+        }
+
+        .hero-carousel .carousel-caption-gms h1 {
+            font-size: 2.6rem;
+        }
+
+        .hero-carousel .carousel-caption-gms p {
+            font-size: 1.0rem;
+        }
+
+        .hero-carousel .owl-item {
+            height: 65vh;
+        }
+
+        .hero-carousel .owl-nav {
+            display: none;
+        }
+    }
 </style>
 @endsection
 

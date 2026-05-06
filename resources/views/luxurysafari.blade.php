@@ -63,6 +63,11 @@
 
 @section('body_content')
 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal Search End -->
 
     <!-- Page Header Start -->
@@ -235,40 +240,40 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Provide us with your preferences, and our luxury travel specialists will design a bespoke itinerary and quotation for your ultimate Tanzanian adventure.</p> 
                         </div>
                         
-                        <form action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
+                        <form action="#" method="POST">
                             <div class="row g-3 form">
 
                         
                                 <div class="col-md-6">
                                     <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
                                 </div>
 
                                 <hr class="my-4">
 
-                                <input type="hidden" name="subject" value="Luxury Safari Inquiry">
+                            
+                               
                                 
                                  <div class="col-12 mt-3">
                                      <label for="safariDetails" class="form-label small ms-1">Your Luxury Safari Ideas & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="message" rows="6" placeholder="Describe your ideal luxury experience: preferred parks/regions, specific lodges if known, desired activities (ballooning, walking?), pace, special occasions, any preferences or needs." required></textarea>
+                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="safari_details" rows="6" placeholder="Describe your ideal luxury experience: preferred parks/regions, specific lodges if known, desired activities (ballooning, walking?), pace, special occasions, any preferences or needs." required></textarea>
                                 </div>
 
                                 
                                 <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request Luxury Safari Quote</button>
+                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request Luxury Safari Quote</button> 
                                 </div>
                             </div>
                         </form>
@@ -283,4 +288,23 @@
     <!-- ======================= DETAILED LUXURY INQUIRY FORM END ========================== -->
 
 
+     <!-- Footer Start -->
+<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="row">
+
+                      <!-- Column 1: Logo, Contact Info, Social Icons -->
+                      <div class="col-lg-3 col-md-6">
+                        <div class="footer-item">
+                            <a href="{{ route('home') }}">
+                                <img src="{{ asset('img/logo.png') }}"
+                                     alt="Golden Memories Safaris Logo"
+                                     class="footer-logo mb-4"
+                                     width="180" height="40">
+                              </a>
+                            <!-- Contact Info Moved Here -->
+                            <div class="d-flex flex-column align-items-start mb-4">
+                                <!-- Added mb-1 to each <p> tag below -->
+                                <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
+                                <p class="mb-1"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273 </p>
 @endsection
