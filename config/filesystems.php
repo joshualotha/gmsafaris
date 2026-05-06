@@ -28,6 +28,9 @@ return [
         ],
     ],
     'links' => [
-        base_path('storage/app/public') => storage_path('app/public'),
+        // No symlink needed — .htaccess rewrite rule handles /storage/* → storage/app/public/
+        // The public/ directory was removed during cPanel restructure, so the standard
+        // public_path('storage') symlink cannot be created. Instead, Apache mod_rewrite
+        // in .htaccess serves files from storage/app/public/ when URL is /storage/...
     ],
 ];
