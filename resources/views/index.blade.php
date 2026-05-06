@@ -47,14 +47,14 @@
     .hero-carousel .carousel-caption-gms {
         position: absolute;
         top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        text-align: center;
+        left: 10%;
+        transform: translateY(-50%);
+        text-align: left;
         color: white;
         z-index: 2;
-        width: 100%;
-        max-width: 80%;
-        padding: 0 20px;
+        width: auto;
+        max-width: 60%;
+        padding-right: 20px;
     }
 
     .hero-carousel .carousel-caption-gms h1 {
@@ -579,7 +579,7 @@
                     in the vibrant cultures of local tribes. Whatever your dream safari entails, we're here to make
                     it a reality. Join us and create golden memories that will last a lifetime. Your Tanzanian
                     adventure starts here.</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 animated bounceInUp">
+                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
                     <a href="{{ route('safaris') }}"
@@ -600,7 +600,7 @@
                     hospitality of the Maasai people, every moment here is unforgettable. Whether you're exploring
                     the wild savannas, relaxing on pristine beaches, or immersing yourself in rich traditions,
                     Tanzania promises an experience that will stay with you forever.</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 animated bounceInUp">
+                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
                         Destinations</a>
@@ -621,7 +621,7 @@
                     breathtaking landscapes and get closer to wildlife like never before. From the vast plains of
                     the Serengeti to the hidden gems of Tanzania, we create moments that turn into lifelong
                     memories. Let us guide you on an unforgettable safari experience.</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 animated bounceInUp">
+                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
                     <a href="{{ route('safaris') }}"
@@ -642,7 +642,7 @@
                     simply soaking in the beauty of the crater's unique ecosystem, every moment promises an
                     unforgettable adventure. Let us bring you closer to nature in one of Africa's most spectacular
                     destinations.</p>
-                <div class="d-flex flex-wrap justify-content-center gap-3 animated bounceInUp">
+                <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
                     <a href="{{ route('booking') }}"
