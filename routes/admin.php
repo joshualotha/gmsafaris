@@ -30,7 +30,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
     Route::middleware('auth:admin')->group(function () {
         // Dashboard
         Route::get('/', [AdminController::class, 'dashboard'])->name('dashboard');
-        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard');
+        Route::get('/dashboard', [AdminController::class, 'dashboard'])->name('dashboard.index');
 
         // Safaris CRUD
         Route::resource('safaris', SafariController::class)->except(['show']);
