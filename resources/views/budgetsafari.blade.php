@@ -232,34 +232,39 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Ready for an amazing, affordable Tanzanian safari? Provide your details, and we'll send you suitable options and a competitive quote.</p> <!-- Updated Text -->
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form action="#" method="POST">
+                        <form action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="row g-3 form">
 
                                 <!-- Contact Info -->
                                 <div class="col-md-6">
                                     <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
                                 </div>
 
                                 <hr class="my-4">
 
+                                <div class="col-12">
+                                    <label for="budgetSubject" class="form-label small ms-1">Subject</label>
+                                    <input type="text" class="form-control border-primary p-2" id="budgetSubject" name="subject" value="Budget Safari Inquiry" placeholder="Subject">
+                                </div>
 
                                 <!-- Detailed Request -->
                                  <div class="col-12 mt-3">
                                      <label for="budgetDetails" class="form-label small ms-1">Interests & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="budgetDetails" name="budget_details" rows="5" placeholder="Tell us what you'd like to see and do! Any specific parks (Serengeti, Ngorongoro)? Are you comfortable with camping? Any dietary needs or other important details?" required></textarea>
+                                    <textarea class="form-control border-primary p-2" id="budgetDetails" name="message" rows="5" placeholder="Tell us what you'd like to see and do! Any specific parks (Serengeti, Ngorongoro)? Are you comfortable with camping? Any dietary needs or other important details?" required></textarea>
                                 </div>
 
                                 <!-- Submit Button -->

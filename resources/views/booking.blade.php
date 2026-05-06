@@ -165,24 +165,25 @@
                     </div>
 
                     <div class="card shadow-sm border-light p-4 p-md-5 booking-form">
-                        <form id="bookingForm" method="POST">
+                        <form id="bookingForm" action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <h4 class="mb-4 text-primary border-bottom pb-2"><i class="fas fa-user-circle me-2"></i>Your Contact Information</h4>
                             <div class="row g-3 mb-4">
                                 <div class="col-md-6">
                                     <label for="fullName" class="form-label">Full Name <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="fullName" placeholder="Enter your full name" required>
+                                    <input type="text" class="form-control" id="fullName" name="name" placeholder="Enter your full name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="email" class="form-label">Email Address <span class="text-danger">*</span></label>
-                                    <input type="email" class="form-control" id="email" placeholder="Enter your email" required>
+                                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter your email" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="phone" class="form-label">Phone Number (Optional)</label>
-                                    <input type="tel" class="form-control" id="phone" placeholder="Include country code">
+                                    <input type="tel" class="form-control" id="phone" name="phone" placeholder="Include country code">
                                 </div>
                                  <div class="col-md-6">
                                     <label for="country" class="form-label">Country of Residence <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="country" placeholder="Enter your country" required>
+                                    <input type="text" class="form-control" id="country" name="country" placeholder="Enter your country" required>
                                 </div>
                             </div>
 
@@ -190,7 +191,7 @@
                             <div class="row g-3 mb-4">
                                 <div class="col-md-6">
                                     <label for="tripType" class="form-label">Type of Trip <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="tripType" required>
+                                    <select class="form-select" id="tripType" name="trip_type" required>
                                         <option selected disabled value="">Please select...</option>
                                         <option value="Wildlife Safari">Wildlife Safari (Parks)</option>
                                         <option value="Kilimanjaro Trek">Kilimanjaro Trek</option>
@@ -203,17 +204,17 @@
                                 </div>
                                  <div class="col-md-6">
                                     <label for="destinations" class="form-label">Preferred Destinations (Optional)</label>
-                                    <input type="text" class="form-control" id="destinations" placeholder="e.g., Serengeti, Ngorongoro, Tarangire">
+                                    <input type="text" class="form-control" id="destinations" name="destinations" placeholder="e.g., Serengeti, Ngorongoro, Tarangire">
                                      <small class="form-text text-muted">Leave blank if unsure or flexible.</small>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="travelDates" class="form-label">Preferred Travel Dates / Month <span class="text-danger">*</span></label>
-                                    <input type="text" class="form-control" id="travelDates" placeholder="e.g., July 2024, or Mid-September" required>
+                                    <input type="text" class="form-control" id="travelDates" name="travel_dates" placeholder="e.g., July 2024, or Mid-September" required>
                                      <small class="form-text text-muted">Approximate dates are fine if you're flexible.</small>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="duration" class="form-label">Desired Trip Duration <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="duration" required>
+                                    <select class="form-select" id="duration" name="duration" required>
                                          <option selected disabled value="">Please select...</option>
                                          <option value="3-5 Days">3-5 Days</option>
                                          <option value="6-8 Days">6-8 Days</option>
@@ -225,16 +226,16 @@
                                 </div>
                                   <div class="col-md-6">
                                     <label for="adults" class="form-label">Number of Adults (18+) <span class="text-danger">*</span></label>
-                                    <input type="number" class="form-control" id="adults" min="1" value="2" required>
+                                    <input type="number" class="form-control" id="adults" name="adults" min="1" value="2" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="children" class="form-label">Number of Children (0-17)</label>
-                                    <input type="number" class="form-control" id="children" min="0" value="0">
+                                    <input type="number" class="form-control" id="children" name="children" min="0" value="0">
                                     <small class="form-text text-muted">If children are traveling, please provide ages in the comments below.</small>
                                 </div>
                                  <div class="col-md-12">
                                     <label for="accommodation" class="form-label">Preferred Accommodation Style <span class="text-danger">*</span></label>
-                                    <select class="form-select" id="accommodation" required>
+                                    <select class="form-select" id="accommodation" name="accommodation" required>
                                         <option selected disabled value="">Please select...</option>
                                         <option value="Budget Camping">Budget Camping (Basic)</option>
                                         <option value="Mid-Range Lodges/Tented Camps">Mid-Range Lodges / Tented Camps (Comfortable)</option>
@@ -250,11 +251,11 @@
                             <div class="row g-3">
                                  <div class="col-12">
                                     <label for="comments" class="form-label">Specific Interests, Requirements, or Questions</label>
-                                    <textarea class="form-control" id="comments" rows="5" placeholder="Tell us more! e.g., Special occasions (honeymoon, anniversary), specific animals you hope to see, dietary needs, accessibility requirements, children's ages, preferred activities (balloon safari, walking safari), budget ideas (optional), etc."></textarea>
+                                    <textarea class="form-control" id="comments" name="message" rows="5" placeholder="Tell us more! e.g., Special occasions (honeymoon, anniversary), specific animals you hope to see, dietary needs, accessibility requirements, children's ages, preferred activities (balloon safari, walking safari), budget ideas (optional), etc." required></textarea>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="heardAboutUs" class="form-label">How did you hear about us? (Optional)</label>
-                                     <select class="form-select" id="heardAboutUs">
+                                     <select class="form-select" id="heardAboutUs" name="heard_about_us">
                                          <option selected disabled value="">Please select...</option>
                                          <option value="Google Search">Google Search</option>
                                          <option value="Social Media (Facebook, Instagram, etc.)">Social Media (Facebook, Instagram, etc.)</option>
@@ -269,7 +270,7 @@
 
                             <div class="text-center mt-5">
                                 <button type="submit" class="btn btn-primary rounded-pill px-5 py-3"><i class="fas fa-paper-plane me-2"></i>Send My Inquiry</button>
-                                <p class="mt-3 text-muted"><small>By submitting this form, you agree to our <a href="#" target="_blank">Privacy Policy</a>.</small></p>
+                                <p class="mt-3 text-muted"><small>By submitting this form, you agree to our <a href="{{ route('privacypolicy') }}" target="_blank">Privacy Policy</a>.</small></p>
                             </div>
                         </form>
                     </div>
@@ -304,7 +305,7 @@ $(function(){
     e.preventDefault();
     var form = $(this);
     $.ajax({
-      url: 'process-form.php',
+      url: '{{ route('inquiry.store') }}',
       type: 'POST',
       data: form.serialize(),
       dataType: 'json',

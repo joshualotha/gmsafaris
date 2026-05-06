@@ -48,6 +48,15 @@ class InquiryController extends Controller
             // Continue even if email fails
         }
 
+        // Return JSON for AJAX requests (used by contact, kilimanjaroroutes, zanzibarbeachholiday forms)
+        if ($request->expectsJson() || $request->ajax()) {
+            return response()->json([
+                'success' => true,
+                'message' => 'Thank you! Your inquiry has been sent. We will contact you within 24 hours.',
+                'inquiry_name' => $inquiry->name,
+            ]);
+        }
+
         return redirect()->route('inquiry.thank-you')
             ->with('success', 'Thank you! Your inquiry has been sent. We will contact you within 24 hours.')
             ->with('inquiry_name', $inquiry->name);

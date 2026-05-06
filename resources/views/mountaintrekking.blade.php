@@ -237,28 +237,34 @@
                              <p class="mb-4 mx-auto" style="max-width: 600px;">Share your trekking plans and preferences, and our mountain specialists will help you prepare for an incredible adventure.</p> <!-- Updated Text -->
                         </div>
                         <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form id="trekForm" method="POST">
+                        <form action="{{ route('inquiry.store') }}" method="POST">
+                            @csrf
                             <div class="row g-3 form">
 
                                 <!-- Contact Info -->
                                 <div class="col-md-6">
                                     <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="your_name" placeholder="Full Name" required>
+                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="your_email" placeholder="email@example.com" required>
+                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
                                 </div>
                                 <div class="col-md-6">
                                     <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="your_phone" placeholder="(Include country code)">
+                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
                                 </div>
                                 <div class="col-md-6">
                                      <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="your_country" placeholder="Your Country">
+                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
                                 </div>
 
                                 <hr class="my-4">
+
+                                <div class="col-12">
+                                    <label for="trekSubject" class="form-label small ms-1">Subject</label>
+                                    <input type="text" class="form-control border-primary p-2" id="trekSubject" name="subject" value="Mountain Trekking Inquiry" placeholder="Subject">
+                                </div>
 
                                 <!-- Trip Details -->
                                 <div class="col-lg-4 col-md-6">
@@ -287,7 +293,7 @@
                                         <option value="Flexible">Flexible</option>
                                     </select>
                                 </div>
-                                 
+                                  
                                 <div class="col-lg-4 col-md-6">
                                     <label for="accommodation" class="form-label small ms-1">Pre/Post Trek Accommodation</label>
                                     <select class="form-select border-primary p-2" id="accommodation" name="accommodation_level" aria-label="Accommodation Level">

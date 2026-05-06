@@ -18,8 +18,7 @@
     <meta content="@yield('keywords', 'Tanzania safari, Serengeti tours, Kilimanjaro climbs, Zanzibar holidays, wildlife adventures, Golden Memories Safaris')" name="keywords">
     <meta content="@yield('description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')" name="description">
     <link rel="icon" href="{{ asset('img/logo.png') }}" type="image/x-icon">
-
-
+    <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
