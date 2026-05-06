@@ -180,77 +180,24 @@ class BookingController extends Controller
     {
         try {
             $adminEmail = env('MAIL_ADMIN_ADDRESS', 'info@gmsafaris.co.tz');
+            $safariName = $booking->safari ? $booking->safari->title : ($booking->safari_type ?? 'N/A');
 
             // Send notification to admin
-            Mail::html(
-                $this->buildAdminNotificationHtml($booking),
-                function ($message) use ($adminEmail, $booking) {
-                    $message->to($adminEmail)
-                        ->subject('New Booking: ' . $booking->booking_reference)
-                        ->from(env('MAIL_FROM_ADDRESS', 'noreply@gmsafaris.co.tz'), 'Golden Memories Safaris');
-                }
-            );
+            Mail::send('emails.admin.booking', ['booking' => $booking, 'safariName' => $safariName], function ($message) use ($adminEmail, $booking) {
+                $message->to($adminEmail)
+                    ->subject('Action Required: New Booking - ' . $booking->booking_reference)
+                    ->from(env('MAIL_FROM_ADDRESS', 'noreply@gmsafaris.co.tz'), 'Golden Memories Safaris');
+            });
 
             // Send auto-reply to customer
-            Mail::html(
-                $this->buildCustomerConfirmationHtml($booking),
-                function ($message) use ($booking) {
-                    $message->to($booking->email, $booking->full_name)
-                        ->subject('Booking Confirmation - ' . $booking->booking_reference)
-                        ->from(env('MAIL_FROM_ADDRESS', 'noreply@gmsafaris.co.tz'), 'Golden Memories Safaris');
-                }
-            );
+            Mail::send('emails.customer.booking', ['booking' => $booking, 'safariName' => $safariName], function ($message) use ($booking) {
+                $message->to($booking->email, $booking->full_name)
+                    ->subject('Your Journey Begins: Booking Received - ' . $booking->booking_reference)
+                    ->from(env('MAIL_FROM_ADDRESS', 'noreply@gmsafaris.co.tz'), 'Golden Memories Safaris');
+            });
         } catch (\Throwable $e) {
             // Log email error but don't break the booking flow
             \Log::error('Booking email failed: ' . $e->getMessage());
         }
-    }
-
-    /**
-     * Build HTML email for admin notification.
-     */
-    private function buildAdminNotificationHtml(Booking $booking): string
-    {
-        $safariName = $booking->safari ? $booking->safari->title : ($booking->safari_type ?? 'N/A');
-        return "
-            <h2>New Booking Received</h2>
-            <p><strong>Reference:</strong> {$booking->booking_reference}</p>
-            <p><strong>Package:</strong> {$safariName}</p>
-            <p><strong>Customer:</strong> {$booking->full_name}</p>
-            <p><strong>Email:</strong> {$booking->email}</p>
-            <p><strong>Phone:</strong> {$booking->phone}</p>
-            <p><strong>Travel Month:</strong> {$booking->travel_month}</p>
-            <p><strong>Adults:</strong> {$booking->number_of_adults}</p>
-            <p><strong>Children:</strong> {$booking->number_of_children}</p>
-            <p><strong>Accommodation:</strong> {$booking->accommodation_style}</p>
-            <p><strong>Message:</strong> {$booking->special_requests}</p>
-            <p><a href='" . route('admin.bookings.show', $booking) . "'>View in Admin Panel</a></p>
-        ";
-    }
-
-    /**
-     * Build HTML email for customer confirmation.
-     */
-    private function buildCustomerConfirmationHtml(Booking $booking): string
-    {
-        $safariName = $booking->safari ? $booking->safari->title : ($booking->safari_type ?? 'N/A');
-        return "
-            <h2>Thank You for Your Booking Request!</h2>
-            <p>Dear {$booking->full_name},</p>
-            <p>Thank you for choosing Golden Memories Safaris! We have received your booking request and our team will review it shortly.</p>
-            <h3>Booking Summary</h3>
-            <p><strong>Reference:</strong> {$booking->booking_reference}</p>
-            <p><strong>Package:</strong> {$safariName}</p>
-            <p><strong>Travel Month:</strong> {$booking->travel_month}</p>
-            <p><strong>Adults:</strong> {$booking->number_of_adults}</p>
-            <p><strong>Children:</strong> {$booking->number_of_children}</p>
-            <p><strong>Accommodation:</strong> {$booking->accommodation_style}</p>
-            <h3>Next Steps</h3>
-            <p>One of our safari specialists will contact you within 24 hours to discuss your trip, refine details, and provide a personalized quote.</p>
-            <p>If you have any immediate questions, please contact us:</p>
-            <p>Phone: +255 786 383 273</p>
-            <p>Email: info@gmsafaris.co.tz</p>
-            <p>Warm regards,<br>Golden Memories Safaris Team</p>
-        ";
     }
 }
