@@ -114,34 +114,63 @@
 
     .hero-carousel .owl-dots {
         position: absolute;
-        bottom: 30px;
+        bottom: 35px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
         display: flex;
         align-items: center;
-        gap: 8px;
+        gap: 6px;
+        counter-reset: dot-num;
+    }
+
+    .hero-carousel .owl-dots .owl-dot {
+        position: relative;
+        display: flex;
+        align-items: center;
+        gap: 10px;
     }
 
     .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.5) !important;
-        width: 28px !important;
-        height: 4px !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        width: 40px !important;
+        height: 2px !important;
         margin: 0 !important;
-        border-radius: 2px !important;
-        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
-        opacity: 1;
+        border-radius: 1px !important;
+        transition: all 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        position: relative;
+        overflow: hidden;
+    }
+
+    .hero-carousel .owl-dots .owl-dot span::after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 0;
+        height: 100%;
+        background: #d69c40;
+        transition: width 0.6s cubic-bezier(0.22, 1, 0.36, 1);
+        border-radius: 1px;
     }
 
     .hero-carousel .owl-dots .owl-dot.active span {
-        background: #d69c40 !important;
-        width: 48px !important;
-        opacity: 1;
-        box-shadow: 0 0 8px rgba(214, 156, 64, 0.5);
+        background: rgba(255, 255, 255, 0.15) !important;
+        width: 60px !important;
+    }
+
+    .hero-carousel .owl-dots .owl-dot.active span::after {
+        width: 100%;
+        animation: dot-progress 7s linear forwards;
+    }
+
+    @keyframes dot-progress {
+        0% { width: 0%; }
+        100% { width: 100%; }
     }
 
     .hero-carousel .owl-dots .owl-dot:hover span {
-        background: rgba(255, 255, 255, 0.8) !important;
+        background: rgba(255, 255, 255, 0.6) !important;
     }
 
 
