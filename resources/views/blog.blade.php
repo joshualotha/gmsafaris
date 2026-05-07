@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Safari Blog - Golden Memories Safaris')
+@section('title', 'Tanzania Safari Blog | Travel Tips & Wildlife Guides')
 @section('keywords', 'Tanzania safari blog, travel tips Tanzania, wildlife news, Kilimanjaro advice, Zanzibar stories, Golden Memories Safaris blog')
-@section('description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')
+@section('description', 'Read expert Tanzania travel tips, safari guides, and wildlife stories from Golden Memories Safaris. Plan your Serengeti adventure, Kilimanjaro climb & Zanzibar getaway.')
 @section('canonical', 'https://www.gmsafaris.co.tz/blog')
 @section('og_title', 'Travel Blog - Golden Memories Safaris')
 @section('og_description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')

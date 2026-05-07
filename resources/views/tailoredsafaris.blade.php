@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Tailored Safaris - Golden Memories Safaris')
+@section('title', 'Tailored Tanzania Safaris | Custom & Private Safari Packages')
 @section('keywords', 'tailored safaris, custom tanzania safari, personalized safari, private safari tanzania')
-@section('description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")
+@section('description', 'Design your dream Tanzania safari with fully customized itineraries. Private guides, flexible schedules, and personalized experiences. Create your perfect adventure with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/tailoredsafaris')
 @section('og_title', 'Tailored Safaris - Golden Memories Safaris')
 @section('og_description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")

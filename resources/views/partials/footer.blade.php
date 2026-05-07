@@ -16,13 +16,13 @@
                         <p class="mb-1"><i class="fa fa-clock text-primary me-2"></i> Mon-Sun: 8AM - 6PM</p>
                     </div>
                     <div class="footer-icon d-flex">
-                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="#" target="_blank"
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="https://www.facebook.com/gmsafaris" target="_blank"
                             rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="#" target="_blank"
+                        <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="https://www.tiktok.com/@gmsafaris" target="_blank"
                             rel="noopener noreferrer" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
-                        <a href="#" class="btn btn-primary btn-sm-square me-2 rounded-circle" target="_blank"
+                        <a href="https://www.instagram.com/gmsafaris/" class="btn btn-primary btn-sm-square me-2 rounded-circle" target="_blank"
                             rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="btn btn-primary btn-sm-square rounded-circle" target="_blank"
+                        <a href="https://www.youtube.com/@gmsafaris" class="btn btn-primary btn-sm-square rounded-circle" target="_blank"
                             rel="noopener noreferrer" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
                     </div>
                 </div>

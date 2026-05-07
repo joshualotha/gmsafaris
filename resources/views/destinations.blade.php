@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Destinations - Golden Memories Safaris')
+@section('title', 'Tanzania Safari Destinations | Parks, Mountains & Beaches')
 @section('keywords', 'Tanzania destinations, Serengeti, Kilimanjaro, Zanzibar, Ngorongoro, Tarangire, national parks Tanzania, lakes Tanzania, mountains Tanzania')
-@section('description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
+@section('description', 'Explore Tanzania\'s breathtaking safari destinations — Serengeti National Park, Ngorongoro Crater, Kilimanjaro, Zanzibar & more. Plan your adventure with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/destinations')
 @section('og_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('og_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')

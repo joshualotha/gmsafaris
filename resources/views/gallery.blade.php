@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Gallery - Golden Memories Safaris')
+@section('title', 'Tanzania Safari Photo Gallery | Wildlife & Landscape Images')
 @section('keywords', 'Tanzania safari gallery, wildlife photos, Serengeti pictures, Kilimanjaro photos, Zanzibar photos, safari images')
-@section('description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
+@section('description', 'Browse our Tanzania safari photo gallery featuring stunning wildlife, breathtaking landscapes, and luxury lodges. Get inspired for your African adventure with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/gallery')
 @section('og_title', 'Photo Gallery - Golden Memories Safaris')
 @section('og_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
@@ -11,6 +11,19 @@
 @section('twitter_title', 'Photo Gallery - Golden Memories Safaris')
 @section('twitter_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Gallery", "item": "https://www.gmsafaris.co.tz/gallery" }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Terms and Conditions - Golden Memories Safaris')
+@section('title', 'Booking Terms & Conditions | Golden Memories Safaris')
 @section('keywords', 'Golden Memories Safaris terms, Tanzania safari terms and conditions, booking conditions, safari contract, cancellation policy')
-@section('description', 'Read the Terms and Conditions for booking safaris, climbs, and tours with Golden Memories Safaris. Understand our policies regarding bookings, payments, cancellations, and liability.')
+@section('description', 'Review the booking terms and conditions for Golden Memories Safaris. Understand our policies on safari bookings, payments, cancellations, and liability before you travel to Tanzania.')
 @section('canonical', 'https://www.gmsafaris.co.tz/termsandconditions')
 @section('og_title', 'Terms and Conditions - Golden Memories Safaris')
 @section('og_description', 'Read the Terms and Conditions for booking safaris, climbs, and tours with Golden Memories Safaris. Understand our policies regarding bookings, payments, cancellations, and liability.')
@@ -11,6 +11,19 @@
 @section('twitter_title', 'Terms and Conditions - Golden Memories Safaris')
 @section('twitter_description', 'Read the Terms and Conditions for booking safaris, climbs, and tours with Golden Memories Safaris. Understand our policies regarding bookings, payments, cancellations, and liability.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Terms and Conditions", "item": "https://www.gmsafaris.co.tz/termsandconditions" }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

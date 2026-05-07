@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Privacy Policy - Golden Memories Safaris')
-@section('keywords', '')
-@section('description', 'Privacy Policy for Golden Memories Safaris, detailing how we collect, use, and protect your personal data when you use our services or website.')
+@section('title', 'Privacy Policy | Golden Memories Safaris')
+@section('keywords', 'Golden Memories Safaris privacy policy, data protection, personal information, Tanzania tour operator privacy')
+@section('description', 'Read the Privacy Policy for Golden Memories Safaris. Learn how we collect, use, and protect your personal data when you book Tanzania safaris or use our website.')
 @section('canonical', 'https://www.gmsafaris.co.tz/privacypolicy')
 @section('og_title', 'Privacy Policy - Golden Memories Safaris')
 @section('og_description', 'Privacy Policy for Golden Memories Safaris, detailing how we collect, use, and protect your personal data when you use our services or website.')
@@ -11,6 +11,19 @@
 @section('twitter_title', 'Privacy Policy - Golden Memories Safaris')
 @section('twitter_description', 'Privacy Policy for Golden Memories Safaris, detailing how we collect, use, and protect your personal data when you use our services or website.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Privacy Policy", "item": "https://www.gmsafaris.co.tz/privacypolicy" }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

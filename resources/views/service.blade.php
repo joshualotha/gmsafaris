@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Our Services - Golden Memories Safaris')
+@section('title', 'Tanzania Safari Services | Wildlife Tours, Treks & Beach Holidays')
 @section('keywords', 'Tanzania safari services, Kilimanjaro trekking, Zanzibar holidays, wildlife safaris, tour operator Tanzania')
-@section('description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')
+@section('description', 'Discover Golden Memories Safaris\' full range of Tanzania travel services — wildlife safaris, Kilimanjaro & Meru treks, Zanzibar beach holidays, and custom tour packages.')
 @section('canonical', 'https://www.gmsafaris.co.tz/service')
 @section('og_title', 'Our Services - Golden Memories Safaris')
 @section('og_description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')

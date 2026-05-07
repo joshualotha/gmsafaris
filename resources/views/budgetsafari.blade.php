@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
+@section('title', 'Budget Tanzania Safaris | Affordable Wildlife Adventures & Camping')
 @section('keywords', 'budget safari tanzania, affordable safari, tanzania camping safari, cheap safari tanzania, basic lodge safari, group budget safari')
-@section('description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
+@section('description', 'Explore Tanzania on a budget without compromising the experience. Camping safaris, basic lodge tours & group departures in Serengeti, Ngorongoro & Tarangire. Book with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/budgetsafari')
 @section('og_title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
 @section('og_description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
@@ -284,22 +284,4 @@
     <!-- ======================= DETAILED BUDGET INQUIRY FORM END ========================== -->
 
 
-     <!-- Footer Start -->
-<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="row">
-
-                      <!-- Column 1: Logo, Contact Info, Social Icons -->
-                      <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <a href="{{ route('home') }}">
-                                <img src="{{ asset('img/logo.png') }}"
-                                     alt="Golden Memories Safaris Logo"
-                                     class="footer-logo mb-4"
-                                     width="180" height="40">
-                              </a>
-                            <!-- Contact Info Moved Here -->
-                            <div class="d-flex flex-column align-items-start mb-4">
-                                <!-- Added mb-1 to each <p> tag below -->
-                                <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
 @endsection

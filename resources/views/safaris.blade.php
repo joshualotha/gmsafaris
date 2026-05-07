@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Our Safaris - Golden Memories Safaris')
+@section('title', 'Tanzania Safari Packages | Serengeti, Kilimanjaro & Zanzibar Tours')
 @section('keywords', 'Tanzania safari packages, Serengeti safari tours, Kilimanjaro climbs, Zanzibar holidays, luxury safari Tanzania, budget safari Tanzania, family safari')
-@section('description', 'Explore diverse Tanzania safari packages with Golden Memories Safaris. From thrilling wildlife adventures and Kilimanjaro treks to relaxing Zanzibar escapes, find your perfect journey.')
+@section('description', 'Explore our Tanzania safari packages — from Serengeti wildlife adventures and Kilimanjaro treks to Zanzibar beach escapes. Find your perfect tour with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/safaris')
 @section('og_title', 'Safari Packages - Golden Memories Safaris')
 @section('og_description', 'Explore diverse Tanzania safari packages with Golden Memories Safaris. From thrilling wildlife adventures and Kilimanjaro treks to relaxing Zanzibar escapes, find your perfect journey.')

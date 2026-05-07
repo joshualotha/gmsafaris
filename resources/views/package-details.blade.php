@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Great Migration Safari - Golden Memories Safaris')
-@section('keywords', '')
-@section('description', 'Experience the Great Migration in Tanzania with Golden Memories Safaris - 5 day premium wildlife adventure')
+@section('title', 'Great Migration Safari Tanzania | Serengeti Wildebeest Migration Tours')
+@section('keywords', 'great migration tanzania, serengeti wildebeest migration, river crossing safari, migration safari package, golden memories safaris')
+@section('description', 'Witness the Great Migration in Tanzania\'s Serengeti. Book our expert-guided safari to see wildebeest river crossings, predator action, and the circle of life. Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/package-details')
 @section('og_title', 'Great Migration Safari - Golden Memories Safaris')
 @section('og_description', 'Experience the Great Migration in Tanzania with Golden Memories Safaris - 5 day premium wildlife adventure')

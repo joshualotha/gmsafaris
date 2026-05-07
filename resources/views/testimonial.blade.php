@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Testimonials - Golden Memories Safaris')
+@section('title', 'Golden Memories Safaris Reviews | Tanzania Safari Testimonials')
 @section('keywords', 'Golden Memories Safaris reviews, Tanzania safari testimonials, Kilimanjaro trek reviews, Zanzibar holiday reviews, TripAdvisor reviews Tanzania')
-@section('description', 'Read what travelers are saying about their unforgettable experiences with Golden Memories Safaris. See reviews sourced from our TripAdvisor profile.')
+@section('description', 'Read authentic reviews from travelers who experienced Tanzania with Golden Memories Safaris. See why guests rate us 5 stars on TripAdvisor for Serengeti safaris & Kilimanjaro treks.')
 @section('canonical', 'https://www.gmsafaris.co.tz/testimonial')
 @section('og_title', 'Testimonials - Golden Memories Safaris')
 @section('og_description', 'Read what travelers are saying about their unforgettable experiences with Golden Memories Safaris. See reviews sourced from our TripAdvisor profile.')
@@ -11,6 +11,77 @@
 @section('twitter_title', 'Testimonials - Golden Memories Safaris')
 @section('twitter_description', 'Read what travelers are saying about their unforgettable experiences with Golden Memories Safaris. See reviews sourced from our TripAdvisor profile.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Testimonials", "item": "https://www.gmsafaris.co.tz/testimonial" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Golden Memories Safaris - Tanzania Safari Tours",
+    "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "50",
+        "bestRating": "5",
+        "worstRating": "1"
+    },
+    "review": [
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Maurizio E"
+            },
+            "reviewBody": "We had a fantastic time on our safari. The organization was perfect, the guide was very knowledgeable and friendly. Highly recommended!",
+            "datePublished": "2024-09"
+        },
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Erlend G"
+            },
+            "reviewBody": "An absolutely amazing experience. Golden Memories Safaris made our trip unforgettable. The wildlife viewing was incredible!",
+            "datePublished": "2024-09"
+        },
+        {
+            "@type": "Review",
+            "reviewRating": {
+                "@type": "Rating",
+                "ratingValue": "5",
+                "bestRating": "5"
+            },
+            "author": {
+                "@type": "Person",
+                "name": "Raffi V"
+            },
+            "reviewBody": "Unforgettable experience. The guys at Golden Memories are real professionals. We did a really five star Serengeti and Ngorongoro Safari!",
+            "datePublished": "2024-11"
+        }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

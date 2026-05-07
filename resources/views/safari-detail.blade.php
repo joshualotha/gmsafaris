@@ -91,6 +91,33 @@
     }
 }
 </script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "{{ $safari->title }}",
+    "description": "{{ strip_tags($safari->short_description) }}",
+    "image": "{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/logo.png') }}",
+    "brand": {
+        "@type": "Brand",
+        "name": "Golden Memories Safaris"
+    },
+    "offers": {
+        "@type": "AggregateOffer",
+        "priceCurrency": "USD",
+        "lowPrice": "{{ $safari->price_from ?? '0' }}",
+        "highPrice": "{{ $safari->price_to ?? $safari->price_from ?? '0' }}",
+        "offerCount": "{{ is_array($safari->pricing_tiers) ? count($safari->pricing_tiers) : 1 }}",
+        "availability": "https://schema.org/InStock",
+        "url": "https://www.gmsafaris.co.tz/safari/{{ $safari->slug }}",
+        "offeredBy": {
+            "@type": "TravelAgency",
+            "name": "Golden Memories Safaris",
+            "url": "https://www.gmsafaris.co.tz"
+        }
+    }
+}
+</script>
 @endsection
 
 @section('body_content')

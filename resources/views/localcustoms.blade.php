@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
+@section('title', 'Tanzania Local Customs & Etiquette | Cultural Travel Guide')
 @section('keywords', 'tanzania customs, tanzania etiquette, travel etiquette africa, respectful travel tanzania, swahili greetings, tanzania dress code, cultural tips tanzania')
-@section('description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')
+@section('description', 'Learn Tanzania\'s local customs and etiquette before you travel. Guide to Swahili greetings, dress code, photography rules, dining etiquette & respectful travel. From Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/localcustoms')
 @section('og_title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')

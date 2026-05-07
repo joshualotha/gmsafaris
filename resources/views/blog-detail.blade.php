@@ -12,6 +12,47 @@
 @section('twitter_description', $post->seo_description ?? $post->excerpt)
 @section('twitter_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.png')
 
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Blog", "item": "https://www.gmsafaris.co.tz/blog" },
+        { "@type": "ListItem", "position": 3, "name": "{{ $post->title }}", "item": "https://www.gmsafaris.co.tz/blog/{{ $post->slug }}" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ $post->title }}",
+    "description": "{{ $post->seo_description ?? $post->excerpt }}",
+    "image": "{{ $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.png' }}",
+    "author": {
+        "@type": "Person",
+        "name": "{{ $post->author ?? 'Golden Memories Safaris' }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "Golden Memories Safaris",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "https://www.gmsafaris.co.tz/img/logo.png"
+        }
+    },
+    "datePublished": "{{ $post->published_at ?? date('c') }}",
+    "dateModified": "{{ $post->updated_at ?? $post->published_at ?? date('c') }}",
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://www.gmsafaris.co.tz/blog/{{ $post->slug }}"
+    }
+}
+</script>
+@endsection
+
 @section('extra_styles')
 <style>
     .page-header {

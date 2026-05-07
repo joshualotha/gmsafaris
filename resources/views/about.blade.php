@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'About Us - Golden Memories Safaris')
+@section('title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts')
 @section('keywords', 'About Golden Memories Safaris, Tanzania tour operator, local safari company, expert guides, sustainable tourism, Arusha safari company')
-@section('description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
+@section('description', 'Discover Golden Memories Safaris — a passionate local Tanzanian tour operator in Arusha. Meet our expert guides, learn our story, and see why travelers trust us for authentic safari adventures.')
 @section('canonical', 'https://www.gmsafaris.co.tz/about')
 @section('og_title', 'About Us - Golden Memories Safaris')
 @section('og_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
@@ -11,6 +11,43 @@
 @section('twitter_title', 'About Us - Golden Memories Safaris')
 @section('twitter_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.JPG')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "About Us", "item": "https://www.gmsafaris.co.tz/about" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Golden Memories Safaris",
+    "url": "https://www.gmsafaris.co.tz",
+    "logo": "https://www.gmsafaris.co.tz/img/logo.png",
+    "description": "A passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.",
+    "foundingDate": "2023",
+    "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+255786383273",
+        "contactType": "customer service",
+        "email": "info@gmsafaris.co.tz",
+        "availableLanguage": ["English", "Italian", "Polish", "Swedish", "French"]
+    },
+    "sameAs": [
+        "https://www.facebook.com/gmsafaris",
+        "https://www.instagram.com/gmsafaris/",
+        "https://www.tiktok.com/@gmsafaris",
+        "https://www.youtube.com/@gmsafaris"
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

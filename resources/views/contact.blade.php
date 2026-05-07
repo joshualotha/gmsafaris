@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Contact Us - Golden Memories Safaris')
+@section('title', 'Contact Golden Memories Safaris | Tanzania Safari Experts in Arusha')
 @section('keywords', 'Contact Golden Memories Safaris, Tanzania safari contact, Arusha tour operator contact, safari booking inquiry, Kilimanjaro contact')
-@section('description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
+@section('description', 'Ready to plan your Tanzania safari? Contact Golden Memories Safaris in Arusha for expert advice on Serengeti tours, Kilimanjaro climbs & Zanzibar holidays. Get your free custom quote today.')
 @section('canonical', 'https://www.gmsafaris.co.tz/contact')
 @section('og_title', 'Contact Us - Golden Memories Safaris')
 @section('og_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
@@ -11,6 +11,52 @@
 @section('twitter_title', 'Contact Us - Golden Memories Safaris')
 @section('twitter_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Contact Us", "item": "https://www.gmsafaris.co.tz/contact" }
+    ]
+}
+</script>
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Golden Memories Safaris",
+    "image": "https://www.gmsafaris.co.tz/img/logo.png",
+    "url": "https://www.gmsafaris.co.tz",
+    "telephone": "+255786383273",
+    "email": "info@gmsafaris.co.tz",
+    "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Arusha",
+        "addressLocality": "Arusha",
+        "addressRegion": "Arusha",
+        "addressCountry": "TZ"
+    },
+    "openingHoursSpecification": [
+        {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"],
+            "opens": "08:00",
+            "closes": "18:00"
+        }
+    ],
+    "priceRange": "$$",
+    "sameAs": [
+        "https://www.facebook.com/gmsafaris",
+        "https://www.instagram.com/gmsafaris/",
+        "https://www.tiktok.com/@gmsafaris",
+        "https://www.youtube.com/@gmsafaris"
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

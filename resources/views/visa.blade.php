@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
+@section('title', 'Tanzania Visa Guide | eVisa Requirements & Application Process')
 @section('keywords', 'tanzania visa, tanzania evisa, tanzania visa requirements, apply tanzania visa online, tourist visa tanzania, tanzania visa cost, tanzania immigration')
-@section('description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')
+@section('description', 'Complete guide to Tanzania visa requirements and the online eVisa application process. Learn costs, processing times, and required documents for your safari trip. From Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/visa')
 @section('og_title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
 @section('og_description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')

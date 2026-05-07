@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Golden Memories Safaris - Tanzania Tour Operator')
+@section('title', 'Golden Memories Safaris | Premium Tanzania Safari Tours & Wildlife Adventures')
 @section('keywords', 'Tanzania safari, Serengeti tours, Kilimanjaro climbs, Zanzibar holidays, wildlife adventures, Golden Memories Safaris')
-@section('description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')
+@section('description', 'Experience the best Tanzania safari tours with Golden Memories Safaris. Expert-guided Serengeti wildlife adventures, Kilimanjaro treks & Zanzibar beach holidays. Book your dream African safari today.')
 @section('canonical', 'https://www.gmsafaris.co.tz/')
 @section('og_title', 'Golden Memories Safaris | Premium Tanzania Safari Tours')
 @section('og_description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')

@@ -27,6 +27,16 @@
 
     <!-- SEO Meta Tags -->
     <link rel="canonical" href="@yield('canonical', 'https://www.gmsafaris.co.tz/')">
+
+    <!-- Hreflang Tags for International SEO -->
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/" hreflang="en" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/" hreflang="x-default" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/it/" hreflang="it" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/pl/" hreflang="pl" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/sv/" hreflang="sv" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/fr/" hreflang="fr" />
+    <link rel="alternate" href="https://www.gmsafaris.co.tz/de/" hreflang="de" />
+
     <meta property="og:type" content="website">
     <meta property="og:title" content="@yield('og_title', 'Golden Memories Safaris | Premium Tanzania Safari Tours')">
     <meta property="og:description" content="@yield('og_description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')">

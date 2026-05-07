@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
+@section('title', 'Mountain Trekking Tanzania | Kilimanjaro & Meru Climbing Tours')
 @section('keywords', 'kilimanjaro climb, mount kilimanjaro trek, mount meru trek, tanzania mountain trekking, climb kilimanjaro routes, golden memories safaris')
-@section('description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')
+@section('description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, ethical treks, and high success rates. Book your Tanzania trekking adventure today.')
 @section('canonical', 'https://www.gmsafaris.co.tz/mountaintrekking')
 @section('og_title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
 @section('og_description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')

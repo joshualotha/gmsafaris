@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
+@section('title', 'Luxury Tanzania Safaris | Premium Lodges & Exclusive Experiences')
 @section('keywords', 'luxury safari tanzania, tanzania luxury lodges, premium safari, exclusive safari, five star safari, golden memories safaris')
-@section('description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
+@section('description', 'Experience the ultimate luxury Tanzania safari — exclusive lodges, private guides, and bespoke adventures in Serengeti, Ngorongoro & beyond. Book your premium safari with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/luxurysafari')
 @section('og_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
 @section('og_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
@@ -291,23 +291,4 @@
     <!-- ======================= DETAILED LUXURY INQUIRY FORM END ========================== -->
 
 
-     <!-- Footer Start -->
-<div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
-    <div class="container">
-        <div class="row">
-
-                      <!-- Column 1: Logo, Contact Info, Social Icons -->
-                      <div class="col-lg-3 col-md-6">
-                        <div class="footer-item">
-                            <a href="{{ route('home') }}">
-                                <img src="{{ asset('img/logo.png') }}"
-                                     alt="Golden Memories Safaris Logo"
-                                     class="footer-logo mb-4"
-                                     width="180" height="40">
-                              </a>
-                            <!-- Contact Info Moved Here -->
-                            <div class="d-flex flex-column align-items-start mb-4">
-                                <!-- Added mb-1 to each <p> tag below -->
-                                <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
-                                <p class="mb-1"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273 </p>
 @endsection

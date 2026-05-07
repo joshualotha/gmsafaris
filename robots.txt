@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Disallow: /admin/
+Disallow: /storage/
+Disallow: /vendor/
+Disallow: /css/
+Disallow: /js/
+Disallow: /lib/
+Disallow: /img/
+
+Sitemap: https://www.gmsafaris.co.tz/sitemap.xml

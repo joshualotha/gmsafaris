@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
+@section('title', 'Tanzania Health & Safety Guide | Vaccinations, Malaria & Safari Safety')
 @section('keywords', 'tanzania health advice, tanzania safety tips, travel vaccinations tanzania, malaria prevention tanzania, tanzania travel insurance, safari safety')
-@section('description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')
+@section('description', 'Stay safe on your Tanzania safari. Expert health guide covering required vaccinations, malaria prevention, food safety, wildlife encounters & emergency contacts. From Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/healthandsafety')
 @section('og_title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')

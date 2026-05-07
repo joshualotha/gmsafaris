@@ -86,6 +86,26 @@
     }
 }
 </script>
+@if(is_array($destination->faq) && count($destination->faq) > 0)
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+        @foreach($destination->faq as $index => $faq)
+        {
+            "@type": "Question",
+            "name": "{{ $faq['question'] ?? '' }}",
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "{{ strip_tags($faq['answer'] ?? '') }}"
+            }
+        }@if(!$loop->last),@endif
+        @endforeach
+    ]
+}
+</script>
+@endif
 @endsection
 
 @section('body_content')

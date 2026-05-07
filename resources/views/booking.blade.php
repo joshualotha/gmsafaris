@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Book Your Safari - Golden Memories Safaris')
+@section('title', 'Book Your Tanzania Safari | Free Custom Trip Quote')
 @section('keywords', 'Tanzania safari booking, book Kilimanjaro trek, Zanzibar holiday booking, safari inquiry Tanzania, custom safari quote')
-@section('description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
+@section('description', 'Start planning your dream Tanzania safari today. Get a free personalized quote for Serengeti wildlife tours, Kilimanjaro climbs & Zanzibar beach holidays from Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/booking')
 @section('og_title', 'Book Your Safari - Golden Memories Safaris')
 @section('og_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
@@ -11,6 +11,19 @@
 @section('twitter_title', 'Book Your Safari - Golden Memories Safaris')
 @section('twitter_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Book Your Safari", "item": "https://www.gmsafaris.co.tz/booking" }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

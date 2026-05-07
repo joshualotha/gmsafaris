@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
+@section('title', 'Tanzania Travel Insurance & Emergency Guide | Safari Safety')
 @section('keywords', 'tanzania travel insurance, safari insurance, emergency evacuation tanzania, amref flying doctors, kilimanjaro insurance, travel safety tanzania')
-@section('description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
+@section('description', 'Essential travel insurance and emergency information for your Tanzania safari. Learn about required coverage, AMREF evacuation, and safety procedures. From Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/insuarance')
 @section('og_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('og_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
@@ -11,6 +11,19 @@
 @section('twitter_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('twitter_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
+        { "@type": "ListItem", "position": 2, "name": "Travel Insurance & Emergency Info", "item": "https://www.gmsafaris.co.tz/insuarance" }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>

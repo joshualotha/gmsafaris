@@ -1,8 +1,44 @@
 @extends('layouts.app')
 
-@section('title', 'Best Time to Visit Tanzania - Golden Memories Safaris')
+@section('title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
 
-@section('description', 'Learn about the best time to visit Tanzania for safari, Kilimanjaro climbs, and Zanzibar beach holidays.')
+@section('keywords', 'best time to visit tanzania, tanzania safari seasons, tanzania dry season, tanzania wet season, when to go to tanzania, serengeti migration best time, tanzania weather by month')
+
+@section('description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays. Expert seasonal guide from Golden Memories Safaris.')
+
+@section('canonical', 'https://www.gmsafaris.co.tz/besttimetovisit')
+
+@section('og_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
+@section('og_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays. Expert seasonal guide from Golden Memories Safaris.')
+@section('og_url', 'https://www.gmsafaris.co.tz/besttimetovisit')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+
+@section('twitter_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
+@section('twitter_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays.')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+
+@section('structured_data')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+        {
+            "@type": "ListItem",
+            "position": 1,
+            "name": "Home",
+            "item": "https://www.gmsafaris.co.tz/"
+        },
+        {
+            "@type": "ListItem",
+            "position": 2,
+            "name": "Best Time to Visit Tanzania",
+            "item": "https://www.gmsafaris.co.tz/besttimetovisit"
+        }
+    ]
+}
+</script>
+@endsection
 
 @section('extra_styles')
 <style>
@@ -19,7 +55,7 @@
 </style>
 @endsection
 
-@section('content')
+@section('body_content')
 <div class="container-fluid page-header py-6 wow fadeIn" data-wow-delay="0.1s">
     <div class="container text-center py-5">
         <h1 class="display-3 text-white mb-3">Best Time to Visit Tanzania</h1>

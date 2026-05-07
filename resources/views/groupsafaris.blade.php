@@ -1,8 +1,8 @@
 @extends('layouts.app')
 
-@section('title', 'Group Safaris in Tanzania - Scheduled Departures - Golden Memories Safaris')
+@section('title', 'Group Safaris Tanzania | Join Scheduled Safari Departures')
 @section('keywords', 'group safari tanzania, shared safari tanzania, scheduled safari departures, budget safari tanzania, join group safari, affordable safari')
-@section('description', 'Join our scheduled group safaris in Tanzania for an affordable and social adventure! Explore top parks like Serengeti & Ngorongoro with fellow travelers. Check departures with Golden Memories Safaris.')
+@section('description', 'Join scheduled group safaris in Tanzania and explore Serengeti & Ngorongoro with fellow travelers. Affordable shared departures with expert guides. Book with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/groupsafaris')
 @section('og_title', 'Group Safaris in Tanzania - Scheduled Departures - Golden Memories Safaris')
 @section('og_description', 'Join our scheduled group safaris in Tanzania for an affordable and social adventure! Explore top parks like Serengeti & Ngorongoro with fellow travelers. Check departures with Golden Memories Safaris.')
