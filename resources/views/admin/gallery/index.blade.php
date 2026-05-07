@@ -223,9 +223,12 @@
                                 <a href="{{ route('admin.gallery.toggle-active', $image) }}" class="btn btn-{{ $image->is_active ? 'warning' : 'success' }} btn-sm" title="{{ $image->is_active ? 'Deactivate' : 'Activate' }}">
                                     <i class="fas fa-{{ $image->is_active ? 'eye-slash' : 'eye' }}"></i>
                                 </a>
-                                <a href="{{ route('admin.gallery.destroy', $image) }}" class="btn btn-danger btn-sm" title="Delete" onclick="return confirm('Delete this image permanently?')">
-                                    <i class="fas fa-trash"></i>
-                                </a>
+                                <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this image permanently?')">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                        <i class="fas fa-trash"></i>
+                                    </button>
+                                </form>
                             </div>
                         </div>
                     @endforeach
