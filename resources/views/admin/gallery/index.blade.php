@@ -191,52 +191,52 @@
 
         <!-- Gallery Grid -->
         @if($images->count() > 0)
-            <form id="bulk-form" action="{{ route('admin.gallery.bulk-delete') }}" method="POST">
+            <form id="bulk-form" action="{{ route('admin.gallery.bulk-delete') }}" method="POST" style="display:none;">
                 @csrf
-                <div class="gallery-grid" id="gallery-grid">
-                    @foreach($images as $image)
-                        <div class="gallery-card" data-id="{{ $image->id }}">
-                            <div class="checkbox-wrap">
-                                <input type="checkbox" name="ids[]" value="{{ $image->id }}" class="form-check-input select-checkbox" onchange="toggleBulkDelete()">
-                            </div>
-                            <div class="thumb-wrap">
-                                <img src="{{ $image->thumb_url }}" alt="{{ $image->alt_text ?: 'Gallery image' }}" loading="lazy">
-                                @if(!$image->is_active)
-                                    <span class="status-badge bg-secondary text-white">Inactive</span>
-                                @endif
-                            </div>
-                            <div class="card-body">
-                                <div class="caption" title="{{ $image->caption ?: $image->original_name }}">
-                                    {{ $image->caption ?: $image->original_name }}
-                                </div>
-                                <div class="meta">
-                                    #{{ $image->id }} · {{ $image->sort_order }}
-                                </div>
-                                @if($image->category)
-                                    <span class="category-tag">{{ ucfirst($image->category) }}</span>
-                                @endif
-                            </div>
-                            <div class="card-actions">
-                                <button type="button" class="btn btn-light btn-sm" title="Edit" onclick="editImage({{ $image->id }}, '{{ addslashes($image->caption) }}', '{{ addslashes($image->alt_text) }}', '{{ $image->category }}')">
-                                    <i class="fas fa-edit"></i>
-                                </button>
-                                <form action="{{ route('admin.gallery.toggle-active', $image) }}" method="POST" class="d-inline">
-                                    @csrf @method('PATCH')
-                                    <button type="submit" class="btn btn-{{ $image->is_active ? 'warning' : 'success' }} btn-sm" title="{{ $image->is_active ? 'Deactivate' : 'Activate' }}">
-                                        <i class="fas fa-{{ $image->is_active ? 'eye-slash' : 'eye' }}"></i>
-                                    </button>
-                                </form>
-                                <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this image permanently?')">
-                                    @csrf @method('DELETE')
-                                    <button type="submit" class="btn btn-danger btn-sm" title="Delete">
-                                        <i class="fas fa-trash"></i>
-                                    </button>
-                                </form>
-                            </div>
-                        </div>
-                    @endforeach
-                </div>
             </form>
+            <div class="gallery-grid" id="gallery-grid">
+                @foreach($images as $image)
+                    <div class="gallery-card" data-id="{{ $image->id }}">
+                        <div class="checkbox-wrap">
+                            <input type="checkbox" name="ids[]" value="{{ $image->id }}" class="form-check-input select-checkbox" onchange="toggleBulkDelete()" form="bulk-form">
+                        </div>
+                        <div class="thumb-wrap">
+                            <img src="{{ $image->thumb_url }}" alt="{{ $image->alt_text ?: 'Gallery image' }}" loading="lazy">
+                            @if(!$image->is_active)
+                                <span class="status-badge bg-secondary text-white">Inactive</span>
+                            @endif
+                        </div>
+                        <div class="card-body">
+                            <div class="caption" title="{{ $image->caption ?: $image->original_name }}">
+                                {{ $image->caption ?: $image->original_name }}
+                            </div>
+                            <div class="meta">
+                                #{{ $image->id }} · {{ $image->sort_order }}
+                            </div>
+                            @if($image->category)
+                                <span class="category-tag">{{ ucfirst($image->category) }}</span>
+                            @endif
+                        </div>
+                        <div class="card-actions">
+                            <button type="button" class="btn btn-light btn-sm" title="Edit" onclick="editImage({{ $image->id }}, '{{ addslashes($image->caption) }}', '{{ addslashes($image->alt_text) }}', '{{ $image->category }}')">
+                                <i class="fas fa-edit"></i>
+                            </button>
+                            <form action="{{ route('admin.gallery.toggle-active', $image) }}" method="POST" class="d-inline">
+                                @csrf @method('PATCH')
+                                <button type="submit" class="btn btn-{{ $image->is_active ? 'warning' : 'success' }} btn-sm" title="{{ $image->is_active ? 'Deactivate' : 'Activate' }}">
+                                    <i class="fas fa-{{ $image->is_active ? 'eye-slash' : 'eye' }}"></i>
+                                </button>
+                            </form>
+                            <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this image permanently?')">
+                                @csrf @method('DELETE')
+                                <button type="submit" class="btn btn-danger btn-sm" title="Delete">
+                                    <i class="fas fa-trash"></i>
+                                </button>
+                            </form>
+                        </div>
+                    </div>
+                @endforeach
+            </div>
 
             <!-- Pagination -->
             <div class="mt-4">
