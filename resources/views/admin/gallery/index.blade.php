@@ -220,9 +220,12 @@
                                 <button type="button" class="btn btn-light btn-sm" title="Edit" onclick="editImage({{ $image->id }}, '{{ addslashes($image->caption) }}', '{{ addslashes($image->alt_text) }}', '{{ $image->category }}')">
                                     <i class="fas fa-edit"></i>
                                 </button>
-                                <a href="{{ route('admin.gallery.toggle-active', $image) }}" class="btn btn-{{ $image->is_active ? 'warning' : 'success' }} btn-sm" title="{{ $image->is_active ? 'Deactivate' : 'Activate' }}">
-                                    <i class="fas fa-{{ $image->is_active ? 'eye-slash' : 'eye' }}"></i>
-                                </a>
+                                <form action="{{ route('admin.gallery.toggle-active', $image) }}" method="POST" class="d-inline">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="btn btn-{{ $image->is_active ? 'warning' : 'success' }} btn-sm" title="{{ $image->is_active ? 'Deactivate' : 'Activate' }}">
+                                        <i class="fas fa-{{ $image->is_active ? 'eye-slash' : 'eye' }}"></i>
+                                    </button>
+                                </form>
                                 <form action="{{ route('admin.gallery.destroy', $image) }}" method="POST" class="d-inline" onsubmit="return confirm('Delete this image permanently?')">
                                     @csrf @method('DELETE')
                                     <button type="submit" class="btn btn-danger btn-sm" title="Delete">
