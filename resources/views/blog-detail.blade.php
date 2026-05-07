@@ -7,10 +7,10 @@
 @section('og_title', $post->seo_title ?? $post->title . ' - Golden Memories Safaris Blog')
 @section('og_description', $post->seo_description ?? $post->excerpt)
 @section('og_url', 'https://www.gmsafaris.co.tz/blog/' . $post->slug)
-@section('og_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', $post->seo_title ?? $post->title . ' - Golden Memories Safaris Blog')
 @section('twitter_description', $post->seo_description ?? $post->excerpt)
-@section('twitter_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -40,7 +40,7 @@
         "name": "Golden Memories Safaris",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://www.gmsafaris.co.tz/img/logo.png"
+            "url": "https://www.gmsafaris.co.tz/img/logo.webp"
         }
     },
     "datePublished": "{{ $post->published_at ?? date('c') }}",
@@ -207,6 +207,53 @@
                         <a href="{{ route('booking') }}" class="btn btn-primary rounded-pill w-100">Plan Your Safari</a>
                     </div>
 
+                    {{-- INTERNAL LINKING: Related Safaris --}}
+                    @if(isset($relatedSafaris) && $relatedSafaris->count() > 0)
+                    <div class="widget">
+                        <h4 class="widget-title">Recommended Safaris</h4>
+                        <ul>
+                            @foreach($relatedSafaris as $safari)
+                            <li class="mb-3">
+                                <a href="{{ route('safari.show', $safari->slug) }}" class="d-flex align-items-start">
+                                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}"
+                                         alt="{{ $safari->title }}"
+                                         loading="lazy"
+                                         style="width: 60px; height: 60px; object-fit: cover; border-radius: 0.25rem; margin-right: 0.75rem; flex-shrink: 0;">
+                                    <div>
+                                        <strong class="d-block small">{{ $safari->title }}</strong>
+                                        @if($safari->duration)
+                                            <small class="text-muted"><i class="fas fa-calendar-alt me-1"></i>{{ $safari->duration }}</small>
+                                        @endif
+                                    </div>
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="{{ route('safaris') }}" class="btn btn-outline-primary btn-sm rounded-pill">View All Safaris</a>
+                        </div>
+                    </div>
+                    @endif
+
+                    {{-- INTERNAL LINKING: Related Destinations --}}
+                    @if(isset($relatedDestinations) && $relatedDestinations->count() > 0)
+                    <div class="widget">
+                        <h4 class="widget-title">Explore Destinations</h4>
+                        <ul>
+                            @foreach($relatedDestinations as $dest)
+                            <li>
+                                <a href="{{ route('destination.show', $dest->slug) }}">
+                                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>{{ $dest->name }}
+                                </a>
+                            </li>
+                            @endforeach
+                        </ul>
+                        <div class="text-center mt-3">
+                            <a href="{{ route('destinations') }}" class="btn btn-outline-primary btn-sm rounded-pill">View All Destinations</a>
+                        </div>
+                    </div>
+                    @endif
+
                 </div>
             </div>
 
@@ -214,5 +261,79 @@
     </div>
 </div>
 <!-- Blog Detail Content End -->
+
+{{-- INTERNAL LINKING: Bottom Cross-Link Section (Safaris + Destinations) --}}
+@if((isset($relatedSafaris) && $relatedSafaris->count() > 0) || (isset($relatedDestinations) && $relatedDestinations->count() > 0))
+<div class="container-fluid bg-light py-6">
+    <div class="container">
+        @if(isset($relatedSafaris) && $relatedSafaris->count() > 0)
+        <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <h2 class="mb-3">Plan Your Safari</h2>
+            <p class="lead text-muted">Turn your Tanzania travel dreams into reality with these safari packages</p>
+        </div>
+        <div class="row g-4 justify-content-center mb-5">
+            @foreach($relatedSafaris as $safari)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
+                <div class="related-card card h-100 shadow-sm">
+                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    @if($safari->duration)
+                        <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $safari->duration }}</div>
+                    @endif
+                    <div class="card-body d-flex flex-column">
+                        <h4 class="card-title mb-2">
+                            <a href="{{ route('safari.show', $safari->slug) }}" class="text-dark text-decoration-none">{{ $safari->title }}</a>
+                        </h4>
+                        @if($safari->short_description)
+                            <p class="card-text text-muted flex-grow-1">{{ Str::limit(strip_tags($safari->short_description), 120) }}</p>
+                        @endif
+                        <div class="d-flex justify-content-between mt-auto">
+                            <a href="{{ route('safari.show', $safari->slug) }}" class="btn btn-outline-primary btn-sm px-3">View Details</a>
+                            <a href="{{ route('booking.create', $safari->slug) }}" class="btn btn-primary btn-sm px-3">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+
+        @if(isset($relatedDestinations) && $relatedDestinations->count() > 0)
+        <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+            <h2 class="mb-3">Explore These Destinations</h2>
+            <p class="lead text-muted">Discover more about Tanzania's incredible destinations</p>
+        </div>
+        <div class="row g-4 justify-content-center">
+            @foreach($relatedDestinations as $dest)
+            <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
+                <div class="related-card card h-100 shadow-sm">
+                    <img src="{{ $dest->hero_image ? \App\Models\Destination::resolveImageUrl($dest->hero_image) : asset('img/hero-3.jpg') }}" class="card-img-top" alt="{{ $dest->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    @if($dest->badge_text)
+                        <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $dest->badge_text }}</div>
+                    @endif
+                    <div class="card-body d-flex flex-column">
+                        <h4 class="card-title mb-2">
+                            <a href="{{ route('destination.show', $dest->slug) }}" class="text-dark text-decoration-none">{{ $dest->name }}</a>
+                        </h4>
+                        @if($dest->short_description)
+                            <p class="card-text text-muted flex-grow-1">{{ Str::limit(strip_tags($dest->short_description), 120) }}</p>
+                        @endif
+                        <div class="d-flex justify-content-between mt-auto">
+                            <a href="{{ route('destination.show', $dest->slug) }}" class="btn btn-outline-primary btn-sm px-3">Explore</a>
+                            <a href="{{ route('booking') }}" class="btn btn-primary btn-sm px-3">Book Safari</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            @endforeach
+        </div>
+        @endif
+
+        <div class="text-center mt-5">
+            <a href="{{ route('safaris') }}" class="btn btn-primary rounded-pill px-5 py-3 me-3">View All Safaris</a>
+            <a href="{{ route('destinations') }}" class="btn btn-outline-primary rounded-pill px-5 py-3">View All Destinations</a>
+        </div>
+    </div>
+</div>
+@endif
 
 @endsection

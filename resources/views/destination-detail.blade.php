@@ -7,10 +7,10 @@
 @section('og_title', $destination->seo_title ?? $destination->name . ' | Golden Memories Safaris')
 @section('og_description', $destination->seo_description ?? strip_tags($destination->short_description))
 @section('og_url', 'https://www.gmsafaris.co.tz/destination/' . $destination->slug)
-@section('og_image', $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/logo.png'))
+@section('og_image', $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/logo.webp'))
 @section('twitter_title', $destination->seo_title ?? $destination->name . ' | Golden Memories Safaris')
 @section('twitter_description', $destination->seo_description ?? strip_tags($destination->short_description))
-@section('twitter_image', $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/logo.png'))
+@section('twitter_image', $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/logo.webp'))
 
 @section('extra_styles')
 <style>
@@ -361,6 +361,88 @@
         </div>
     </section>
     <!-- Gallery Section End -->
+    @endif
+
+    {{-- INTERNAL LINKING: Safaris Visiting This Destination --}}
+    @if(isset($relatedSafaris) && $relatedSafaris->count() > 0)
+    <div class="container-fluid py-6">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-3">Safaris in {{ $destination->name }}</h2>
+                <p class="lead text-muted">Explore our safari packages that visit {{ $destination->name }}</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                @foreach($relatedSafaris as $safari)
+                <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
+                    <div class="related-card card h-100 shadow-sm">
+                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 180px; object-fit: cover;">
+                        @if($safari->duration)
+                            <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $safari->duration }}</div>
+                        @endif
+                        <div class="card-body d-flex flex-column">
+                            <h5 class="card-title mb-2">
+                                <a href="{{ route('safari.show', $safari->slug) }}" class="text-dark text-decoration-none">{{ $safari->title }}</a>
+                            </h5>
+                            @if($safari->short_description)
+                                <p class="card-text text-muted small flex-grow-1">{{ Str::limit(strip_tags($safari->short_description), 100) }}</p>
+                            @endif
+                            <div class="d-flex justify-content-between mt-auto">
+                                <a href="{{ route('safari.show', $safari->slug) }}" class="btn btn-outline-primary btn-sm px-3">View Safari</a>
+                                <a href="{{ route('booking.create', $safari->slug) }}" class="btn btn-primary btn-sm px-3">Book Now</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ route('safaris') }}" class="btn btn-primary rounded-pill px-5 py-3">View All Safaris</a>
+            </div>
+        </div>
+    </div>
+    @endif
+
+    {{-- INTERNAL LINKING: Related Blog Posts --}}
+    @if(isset($relatedBlogPosts) && $relatedBlogPosts->count() > 0)
+    <div class="container-fluid bg-light py-6">
+        <div class="container">
+            <div class="text-center mb-5 wow fadeInUp" data-wow-delay="0.1s">
+                <h2 class="mb-3">Articles About {{ $destination->name }}</h2>
+                <p class="lead text-muted">Read more about this incredible destination</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+                @foreach($relatedBlogPosts as $blogPost)
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
+                    <div class="related-card card h-100 shadow-sm">
+                        <img src="{{ $blogPost->hero_image_url ?? asset('img/blog-hero.jpg') }}" class="card-img-top" alt="{{ $blogPost->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                        <div class="card-body d-flex flex-column">
+                            <h4 class="card-title mb-2">
+                                <a href="{{ route('blog.show', $blogPost->slug) }}" class="text-dark text-decoration-none">{{ $blogPost->title }}</a>
+                            </h4>
+                            @if($blogPost->excerpt)
+                                <p class="card-text text-muted flex-grow-1">{{ Str::limit(strip_tags($blogPost->excerpt), 120) }}</p>
+                            @endif
+                            <div class="d-flex align-items-center mt-auto">
+                                <small class="text-muted">
+                                    @if($blogPost->published_at)
+                                        <i class="fas fa-calendar-alt me-1"></i>{{ $blogPost->published_at->format('M d, Y') }}
+                                    @endif
+                                    @if($blogPost->reading_time)
+                                        <span class="ms-2"><i class="fas fa-clock me-1"></i>{{ $blogPost->reading_time }}</span>
+                                    @endif
+                                </small>
+                                <a href="{{ route('blog.show', $blogPost->slug) }}" class="btn btn-outline-primary btn-sm px-3 ms-auto">Read More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                @endforeach
+            </div>
+            <div class="text-center mt-5">
+                <a href="{{ route('blog') }}" class="btn btn-primary rounded-pill px-5 py-3">View All Articles</a>
+            </div>
+        </div>
+    </div>
     @endif
 
     @if($relatedDestinations->count() > 0)
