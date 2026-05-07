@@ -106,7 +106,7 @@
                         <div class="mb-3">
                             <label class="form-label">Hero Image (Page Header Background)</label>
                             @if($destination->hero_image)
-                                <div class="mb-2"><img src="{{ Storage::url($destination->hero_image) }}" class="img-preview"></div>
+                                <div class="mb-2"><img src="{{ \App\Models\Destination::resolveImageUrl($destination->hero_image) }}" class="img-preview"></div>
                             @endif
                             <input type="file" name="hero_image" class="form-control" accept="image/*">
                             <small class="text-muted">Large header background image</small>
@@ -116,7 +116,7 @@
                         <div class="mb-3">
                             <label class="form-label">Thumbnail Image</label>
                             @if($destination->thumbnail_image)
-                                <div class="mb-2"><img src="{{ Storage::url($destination->thumbnail_image) }}" class="img-preview"></div>
+                                <div class="mb-2"><img src="{{ \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) }}" class="img-preview"></div>
                             @endif
                             <input type="file" name="thumbnail_image" class="form-control" accept="image/*">
                             <small class="text-muted">Small card thumbnail for listing pages</small>
@@ -130,7 +130,7 @@
                     @if($destination->gallery_images)
                         <div class="mt-2 d-flex gap-2 flex-wrap">
                             @foreach($destination->gallery_images as $img)
-                                <img src="{{ Storage::url($img) }}" class="img-preview" style="width:100px;height:75px;">
+                                <img src="{{ \App\Models\Destination::resolveImageUrl($img) }}" class="img-preview" style="width:100px;height:75px;">
                             @endforeach
                         </div>
                     @endif

@@ -175,7 +175,7 @@
                                             <input class="form-check-input" type="checkbox" name="delete_gallery_images[]" value="{{ $index }}" id="del_gallery_{{ $index }}">
                                         </div>
                                         <label for="del_gallery_{{ $index }}" style="cursor:pointer;">
-                                            <img src="{{ Storage::url($imgPath) }}" class="img-preview border" style="width:100px;height:75px;object-fit:cover;">
+                                            <img src="{{ \App\Models\Safari::resolveImageUrl($imgPath) }}" class="img-preview border" style="width:100px;height:75px;object-fit:cover;">
                                         </label>
                                     </div>
                                 @endif
