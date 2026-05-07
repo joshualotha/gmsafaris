@@ -97,7 +97,21 @@ class Destination extends Model
         }
         // Paths starting with 'img/' are in public/img/ — use asset() directly
         if (str_starts_with($path, 'img/')) {
-            return asset($path);
+            $url = asset($path);
+            // DIAGNOSTIC: Log missing Serengeti images to verify if files exist on server
+            $missingImages = ['serengeti-header.jpg', 'serengeti-golden-hour.jpg', 'serengeti-migration.jpg', 'Great-Migration-From-Serengeti.jpg'];
+            $filename = basename($path);
+            if (in_array($filename, $missingImages)) {
+                $filePath = public_path($path);
+                \Log::debug('[IMG_DIAG] Destination::resolveImageUrl called', [
+                    'path' => $path,
+                    'url' => $url,
+                    'file_exists' => file_exists($filePath),
+                    'file_path' => $filePath,
+                    'public_path' => public_path(),
+                ]);
+            }
+            return $url;
         }
         // Paths starting with 'destinations/' are in storage/app/public/destinations/ — use Storage::url()
         if (str_starts_with($path, 'destinations/')) {

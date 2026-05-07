@@ -118,3 +118,25 @@ Route::post('/join-safari/{slug}/join', [JoinSafariController::class, 'join'])->
 
 // Gallery API (for frontend)
 Route::get('/api/gallery', [GalleryController::class, 'apiImages'])->name('api.gallery');
+
+// DIAGNOSTIC: Check if missing Serengeti images exist on the server
+Route::get('/_diag/images', function () {
+    $images = [
+        'img/serengeti-migration.jpg',
+        'img/Great-Migration-From-Serengeti.jpg',
+        'img/serengeti-header.jpg',
+        'img/serengeti-golden-hour.jpg',
+    ];
+    $results = [];
+    foreach ($images as $img) {
+        $fullPath = public_path($img);
+        $results[$img] = [
+            'exists' => file_exists($fullPath),
+            'full_path' => $fullPath,
+            'url' => asset($img),
+            'public_path' => public_path(),
+            'base_path' => base_path(),
+        ];
+    }
+    return response()->json($results);
+});
