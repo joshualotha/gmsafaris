@@ -6,7 +6,7 @@
 @section('content')
     <style>
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ asset('img/group-safari-header.jpg') }}") center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ asset('img/group-safari-header.webp') }}") center center no-repeat;
             background-size: cover;
         }
         .safari-img { position: relative; overflow: hidden; }
@@ -39,7 +39,7 @@
                             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
                                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                                     <div class="safari-img position-relative">
-                                        <img src="{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.jpg') }}"
+                                        <img src="{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.webp') }}"
                                              class="img-fluid w-100" alt="{{ $joinSafari->title }}" style="height: 220px; object-fit: cover;">
                                         <div class="position-absolute top-0 start-0 m-3">
                                             <span class="badge bg-warning text-dark px-3 py-2">
@@ -132,7 +132,7 @@
                         <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
                             <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                                 <div class="safari-img position-relative">
-                                    <img src="{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.jpg') }}"
+                                    <img src="{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.webp') }}"
                                          class="img-fluid w-100" alt="{{ $joinSafari->title }}" style="height: 200px; object-fit: cover;">
                                     <div class="position-absolute top-0 end-0 m-3">
                                         @php

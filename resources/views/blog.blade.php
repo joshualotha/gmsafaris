@@ -153,7 +153,7 @@
             <div class="col-lg-6 mb-4 wow fadeInUp" data-wow-delay="{{ $loop->index % 2 == 0 ? '0.1s' : '0.2s' }}">
                 <div class="card blog-post-item h-100 border-0 shadow-sm overflow-hidden">
                     <a href="{{ route('blog.show', $post->slug) }}">
-                        <img src="{{ $post->hero_image_url ?? asset('img/blog-hero.jpg') }}" class="card-img-top" alt="{{ $post->title }}" loading="lazy">
+                        <img src="{{ $post->hero_image_url ?? asset('img/blog-hero.webp') }}" class="card-img-top" alt="{{ $post->title }}" loading="lazy">
                     </a>
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3 blog-post-meta">

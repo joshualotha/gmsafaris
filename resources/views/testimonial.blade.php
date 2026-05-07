@@ -221,7 +221,7 @@
                    We're thrilled to share feedback from our guests! Below are some reviews kindly shared by travelers on TripAdvisor after their adventures with Golden Memories Safaris. We value authentic feedback and encourage you to read more reviews directly on our official TripAdvisor profile.
                 </p>
                 <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-tripadvisor rounded-pill px-4 py-2 shadow-sm">
-                    <img src="{{ asset('img/trip.png') }}" alt="TripAdvisor Logo">
+                    <img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor Logo">
                     Read More Reviews on TripAdvisor
                 </a>
             </div>
@@ -247,7 +247,7 @@
                          </p>
                          <p class="reviewer-name mb-0">Maurizio E</p>
                          <p class="reviewer-meta mb-0">Italy | Reviewed November 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.png') }}" alt="TripAdvisor Logo"></a></p>
+                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor Logo"></a></p>
                      </div>
                  </div>
 
@@ -265,7 +265,7 @@
                          </p>
                          <p class="reviewer-name mb-0">Monika U</p>
                           <p class="reviewer-meta mb-0">United Kingdom | Reviewed January 2025</p>
-                          <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.png') }}" alt="TripAdvisor Logo"></a></p>
+                          <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor Logo"></a></p>
                      </div>
                  </div>
 
@@ -283,7 +283,7 @@
                          </p>
                          <p class="reviewer-name mb-0">Erlend G</p>
                          <p class="reviewer-meta mb-0">Italy | Reviewed September 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.png') }}" alt="TripAdvisor Logo"></a></p>
+                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor Logo"></a></p>
                      </div>
                  </div>
 
@@ -300,7 +300,7 @@
                          </p>
                          <p class="reviewer-name mb-0">Raffi V</p>
                          <p class="reviewer-meta mb-0">Germany | Reviewed November 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.png') }}" alt="TripAdvisor Logo"></a></p>
+                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor Logo"></a></p>
                      </div>
                  </div>
 

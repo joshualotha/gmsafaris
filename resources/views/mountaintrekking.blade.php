@@ -96,7 +96,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/trekking-main.jpg') }}" class="img-fluid rounded" alt="Hikers approaching Kilimanjaro summit" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/trekking-main.webp') }}" class="img-fluid rounded" alt="Hikers approaching Kilimanjaro summit" loading="lazy">
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                      <h2 class="mb-5">Popular Kilimanjaro Routes</h2>
                  </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/trekking-routes.jpg') }}" class="img-fluid rounded" alt="Map or scenic view of Kilimanjaro routes" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/trekking-routes.webp') }}" class="img-fluid rounded" alt="Map or scenic view of Kilimanjaro routes" loading="lazy">
                      <p class="mt-3 fst-italic small">We also offer guided treks on Mount Meru (typically 4 days), an excellent acclimatization climb or a challenging adventure in its own right.</p>
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
@@ -227,7 +227,7 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
@@ -322,7 +322,7 @@
                     </div>
                 </div>
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
                 </div>
             </div>
         </div>

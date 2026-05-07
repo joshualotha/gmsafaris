@@ -165,7 +165,7 @@
                      </ul>
                  </div>
                  <div class="col-lg-6">
-                    <img src="{{ asset('img/insurance-doc.jpg') }}" class="img-fluid rounded" alt="Travel insurance policy document and passport" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ asset('img/insurance-doc.webp') }}" class="img-fluid rounded" alt="Travel insurance policy document and passport" loading="lazy">
                      <div class="alert alert-warning mt-4" role="alert">
                         <strong>Choosing a Policy:</strong> Compare different providers. Read the policy wording (PDS/policy document) carefully, especially exclusions and coverage limits. Ensure the emergency assistance contact number is easily accessible. Keep a copy of your policy details with you and leave one with family/friends at home.
                      </div>
@@ -192,7 +192,7 @@
                      <p class="small"><em>Note: Access to advanced medical facilities in remote park areas is limited. Evacuation to a major town (Arusha, Nairobi) or your home country may be necessary for serious incidents. This highlights the critical importance of evacuation coverage.</em></p>
                  </div>
                   <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/amref-plane.jpeg') }}" class="img-fluid rounded" alt="AMREF Flying Doctors aircraft on a bush airstrip" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ asset('img/amref-plane.webp') }}" class="img-fluid rounded" alt="AMREF Flying Doctors aircraft on a bush airstrip" loading="lazy">
                 </div>
             </div>
              <div class="row g-5 my-6 align-items-center wow bounceInUp" data-wow-delay="0.1s"> <!-- Adjusted margin -->

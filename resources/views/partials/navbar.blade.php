@@ -3,7 +3,7 @@
     <div class="container">
         <nav class="navbar navbar-light navbar-expand-lg py-3">
             <a href="{{ route('home') }}" class="navbar-brand">
-                <img src="{{ asset('img/logo.png') }}" alt="Golden Memories Safaris Logo" class="img-fluid"
+                <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="img-fluid"
                     width="180" height="50" style="max-height: 50px; width: auto;">
             </a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"

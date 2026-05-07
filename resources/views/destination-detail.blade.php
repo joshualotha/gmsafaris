@@ -111,7 +111,7 @@
 @section('body_content')
 
     <!-- Destination Hero Section -->
-    <div class="destination-hero" style="background-image: url('{{ $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/hero-3.jpg') }}');">
+    <div class="destination-hero" style="background-image: url('{{ $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/hero-3.webp') }}');">
         <div class="destination-hero-overlay"></div>
         <div class="container destination-hero-content">
             <div class="row">
@@ -375,7 +375,7 @@
                 @foreach($relatedSafaris as $safari)
                 <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                     <div class="related-card card h-100 shadow-sm">
-                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 180px; object-fit: cover;">
+                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.webp') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 180px; object-fit: cover;">
                         @if($safari->duration)
                             <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $safari->duration }}</div>
                         @endif
@@ -414,7 +414,7 @@
                 @foreach($relatedBlogPosts as $blogPost)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                     <div class="related-card card h-100 shadow-sm">
-                        <img src="{{ $blogPost->hero_image_url ?? asset('img/blog-hero.jpg') }}" class="card-img-top" alt="{{ $blogPost->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                        <img src="{{ $blogPost->hero_image_url ?? asset('img/blog-hero.webp') }}" class="card-img-top" alt="{{ $blogPost->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
                         <div class="card-body d-flex flex-column">
                             <h4 class="card-title mb-2">
                                 <a href="{{ route('blog.show', $blogPost->slug) }}" class="text-dark text-decoration-none">{{ $blogPost->title }}</a>
@@ -457,7 +457,7 @@
                 @foreach($relatedDestinations as $related)
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                     <div class="related-card card h-100 shadow-sm">
-                        <img src="{{ $related->hero_image ? \App\Models\Destination::resolveImageUrl($related->hero_image) : asset('img/hero-3.jpg') }}" class="card-img-top" alt="{{ $related->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                        <img src="{{ $related->hero_image ? \App\Models\Destination::resolveImageUrl($related->hero_image) : asset('img/hero-3.webp') }}" class="card-img-top" alt="{{ $related->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
                         @if($related->badge_text)
                             <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $related->badge_text }}</div>
                         @endif

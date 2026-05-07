@@ -99,7 +99,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/luxury-main.jpg') }}" class="img-fluid rounded" alt="Luxury safari lodge view" loading="lazy"> 
+                    <img src="{{ asset('img/luxury-main.webp') }}" class="img-fluid rounded" alt="Luxury safari lodge view" loading="lazy">
                     
                 </div>
             </div>
@@ -169,7 +169,7 @@
              <!-- Signature Experiences Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/luxury-experiences.jpg') }}" class="img-fluid rounded" alt="Hot air balloon over Serengeti" loading="lazy"> 
+                    <img src="{{ asset('img/luxury-experiences.webp') }}" class="img-fluid rounded" alt="Hot air balloon over Serengeti" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">Signature Luxury Experiences</h2>
@@ -230,7 +230,7 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
@@ -283,7 +283,7 @@
                     </div>
                 </div>
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
                 </div>
             </div>
         </div>

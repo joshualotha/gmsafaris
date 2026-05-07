@@ -566,7 +566,7 @@
         <!-- Slide 1 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-1.jpg') }}" alt="Tanzania Wildlife Encounter" width="1920" height="900" fetchpriority="high">
+                <img src="{{ asset('img/hero-1.webp') }}" alt="Tanzania Wildlife Encounter" width="1920" height="900" fetchpriority="high">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
@@ -587,7 +587,7 @@
         <!-- Slide 2 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-2.jpg') }}" alt="Maasai People Tanzania" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/hero-2.webp') }}" alt="Maasai People Tanzania" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
@@ -608,7 +608,7 @@
         <!-- Slide 3 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-3.jpg') }}" alt="Serengeti Adventure" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/hero-3.webp') }}" alt="Serengeti Adventure" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
@@ -628,7 +628,7 @@
         <!-- Slide 4 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-4.jpg') }}" alt="Ngorongoro Crater Safari Vehicle" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/hero-4.webp') }}" alt="Ngorongoro Crater Safari Vehicle" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
@@ -656,7 +656,7 @@
     <div class="container">
         <div class="row g-5 align-items-center">
             <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s">
-                <img src="{{ asset('img/about.JPG') }}" class="img-fluid rounded" alt="About Golden Memories Safaris"
+                <img src="{{ asset('img/about.webp') }}" class="img-fluid rounded" alt="About Golden Memories Safaris"
                     width="600" height="400" loading="lazy">
             </div>
             <div class="col-lg-7 wow bounceInUp" data-wow-delay="0.3s">
@@ -758,7 +758,7 @@
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ asset('img/Great-Migration-From-Serengeti.jpg') }}" class="img-fluid w-100"
+                        <img src="{{ asset('img/Great-Migration-From-Serengeti.webp') }}" class="img-fluid w-100"
                             alt="The Great Migration in the Serengeti, a highlight of the Ultimate Tanzanian Escape"
                             width="400" height="300" loading="lazy">
                         <div class="safari-days badge bg-primary">6 Days</div>
@@ -793,7 +793,7 @@
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.3s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ asset('img/Ngorongoro-Crater-in-Tanzania.jpg') }}" class="img-fluid w-100"
+                        <img src="{{ asset('img/Ngorongoro-Crater-in-Tanzania.webp') }}" class="img-fluid w-100"
                             alt="Scenic view of the Ngorongoro Crater, part of A Taste of Tanzania safari"
                             width="400" height="300" loading="lazy">
                         <div class="safari-days badge bg-primary">3 Days</div>
@@ -827,7 +827,7 @@
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.5s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ asset('img/zanzibar-flight.jpg') }}" class="img-fluid w-100"
+                        <img src="{{ asset('img/zanzibar-flight.webp') }}" class="img-fluid w-100"
                             alt="Flight from Zanzibar, representing the Tanzanian Express fly-in safari"
                             width="400" height="300" loading="lazy">
                         <div class="safari-days badge bg-primary">2 Days Fly-In</div>
@@ -860,7 +860,7 @@
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.7s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ asset('img/serval-lion.JPG') }}" class="img-fluid w-100"
+                        <img src="{{ asset('img/serval-lion.webp') }}" class="img-fluid w-100"
                             alt="Close encounter with a lion at Serval Wildlife, part of the Selfie with White Lion day trip"
                             width="400" height="300" loading="lazy">
                         <div class="safari-days badge bg-primary">1 Day Fly-In</div>
@@ -1027,7 +1027,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
                 <a href="{{ url('/serengeti') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-serengeti.jpg') }}" class="card-img" alt="Serengeti National Park"
+                        <img src="{{ asset('img/home-serengeti.webp') }}" class="card-img" alt="Serengeti National Park"
                             width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
@@ -1044,7 +1044,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.2s">
                 <a href="{{ url('/ngorongoro') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-ngorongoro.jpg') }}" class="card-img" alt="Ngorongoro Crater" width="600" height="400" loading="lazy">
+                        <img src="{{ asset('img/home-ngorongoro.webp') }}" class="card-img" alt="Ngorongoro Crater" width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
                         <h4 class="card-title">Ngorongoro</h4>
@@ -1061,7 +1061,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.3s">
                 <a href="{{ url('/tarangire') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-tarangire.jpg') }}" class="card-img" alt="Tarangire National Park"
+                        <img src="{{ asset('img/home-tarangire.webp') }}" class="card-img" alt="Tarangire National Park"
                             width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
@@ -1078,7 +1078,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.4s">
                 <a href="{{ url('/manyara') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-manyara.jpg') }}" class="card-img" alt="Lake Manyara National Park"
+                        <img src="{{ asset('img/home-manyara.webp') }}" class="card-img" alt="Lake Manyara National Park"
                             width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
@@ -1096,7 +1096,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.5s">
                 <a href="{{ url('/mtkilimanjaro') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-kilimanjaro.jpg') }}" class="card-img" alt="Mount Kilimanjaro" width="600" height="400" loading="lazy">
+                        <img src="{{ asset('img/home-kilimanjaro.webp') }}" class="card-img" alt="Mount Kilimanjaro" width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
                         <h4 class="card-title">Kilimanjaro</h4>
@@ -1112,7 +1112,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.6s">
                 <a href="{{ url('/zanzibar-archipelago') }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ asset('img/home-zanzibar.jpg') }}" class="card-img" alt="Zanzibar Beach" width="600" height="400" loading="lazy">
+                        <img src="{{ asset('img/home-zanzibar.webp') }}" class="card-img" alt="Zanzibar Beach" width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
                         <h4 class="card-title">Zanzibar</h4>
@@ -1138,7 +1138,7 @@
     <div class="container">
         <div class="row g-0">
             <div class="col-1">
-                <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-start"
+                <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start"
                     style="object-fit: cover; opacity: 0.7;" alt="Tanzania safari booking" width="150" height="600" loading="lazy">
             </div>
             <div class="col-10">
@@ -1216,7 +1216,7 @@
                 </div>
             </div>
             <div class="col-1">
-                <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-end"
+                <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end"
                     style="object-fit: cover; opacity: 0.7;" alt="Tanzania safari booking" width="150" height="600" loading="lazy">
             </div>
         </div>
@@ -1237,7 +1237,7 @@
             data-wow-delay="0.1s">
             <div class="testimonial-item rounded bg-light">
                 <div class="d-flex mb-3">
-                    <img src="{{ asset('img/Erlend G.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Erlend G from USA"
+                    <img src="{{ asset('img/Erlend G.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Erlend G from USA"
                         width="80" height="80" loading="lazy">
                     <div class="position-absolute" style="top: 15px; right: 20px;">
                         <i class="fa fa-quote-right fa-2x"></i>
@@ -1262,7 +1262,7 @@
             </div>
             <div class="testimonial-item rounded bg-light">
                 <div class="d-flex mb-3">
-                    <img src="{{ asset('img/misssunshine.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Miss Sunshine from Germany"
+                    <img src="{{ asset('img/misssunshine.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Miss Sunshine from Germany"
                         width="80" height="80" loading="lazy">
                     <div class="position-absolute" style="top: 15px; right: 20px;">
                         <i class="fa fa-quote-right fa-2x"></i>
@@ -1289,7 +1289,7 @@
             </div>
             <div class="testimonial-item rounded bg-light">
                 <div class="d-flex mb-3">
-                    <img src="{{ asset('img/Monika U.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Monika U from Italy"
+                    <img src="{{ asset('img/Monika U.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler Monika U from Italy"
                         width="80" height="80" loading="lazy">
                     <div class="position-absolute" style="top: 15px; right: 20px;">
                         <i class="fa fa-quote-right fa-2x"></i>
@@ -1333,7 +1333,7 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="blog-item">
                     <div class="overflow-hidden rounded">
-                        <img src="{{ asset('img/home-blog-1.jpg') }}" class="img-fluid w-100" alt="Great Migration Serengeti" width="400" height="250" loading="lazy">
+                        <img src="{{ asset('img/home-blog-1.webp') }}" class="img-fluid w-100" alt="Great Migration Serengeti" width="400" height="250" loading="lazy">
                     </div>
                     <div class="blog-content mx-4 d-flex rounded bg-light">
                         <div class="text-dark bg-primary rounded-start">
@@ -1350,7 +1350,7 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
                 <div class="blog-item">
                     <div class="overflow-hidden rounded">
-                        <img src="{{ asset('img/home-blog-2.jpg') }}" class="img-fluid w-100" alt="Kilimanjaro trek preparation" width="400" height="250" loading="lazy">
+                        <img src="{{ asset('img/home-blog-2.webp') }}" class="img-fluid w-100" alt="Kilimanjaro trek preparation" width="400" height="250" loading="lazy">
                     </div>
                     <div class="blog-content mx-4 d-flex rounded bg-light">
                         <div class="text-dark bg-primary rounded-start">
@@ -1367,7 +1367,7 @@
             <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
                 <div class="blog-item">
                     <div class="overflow-hidden rounded">
-                        <img src="{{ asset('img/home-blog-3.jpg') }}" class="img-fluid w-100" alt="Safari photography tips"
+                        <img src="{{ asset('img/home-blog-3.webp') }}" class="img-fluid w-100" alt="Safari photography tips"
                             width="400" height="250" loading="lazy">
                     </div>
                     <div class="blog-content mx-4 d-flex rounded bg-light">

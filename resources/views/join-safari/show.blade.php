@@ -6,7 +6,7 @@
 @section('content')
     <style>
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.jpg') }}") center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ $joinSafari->hero_image ? asset('storage/' . $joinSafari->hero_image) : asset('img/group-safari-header.webp') }}") center center no-repeat;
             background-size: cover;
         }
     </style>

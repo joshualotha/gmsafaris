@@ -11,7 +11,7 @@
 @section('extra_styles')
 <style>
     .page-header-inquiry {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset("img/hero-1.jpg") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset("img/hero-1.webp") }}') center center no-repeat;
         background-size: cover;
     }
     .inquiry-form .form-label {

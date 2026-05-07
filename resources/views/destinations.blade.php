@@ -15,7 +15,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset("img/destinations-hero.jpg") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset("img/destinations-hero.webp") }}') center center no-repeat;
         background-size: cover;
     }
     .destination-card {
@@ -151,7 +151,7 @@
                             @foreach($destinations as $destination)
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ min($loop->iteration + 1, 9) }}s">
                                 <div class="destination-card card h-100 shadow-sm border-0 overflow-hidden">
-                                    <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : ($destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/hero-3.jpg')) }}" class="card-img-top" alt="{{ $destination->name }}" loading="lazy">
+                                    <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : ($destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/hero-3.webp')) }}" class="card-img-top" alt="{{ $destination->name }}" loading="lazy">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">{{ $destination->name }}</h5>
                                         <p class="card-text small text-muted flex-grow-1">{{ $destination->short_description ? Str::limit(strip_tags($destination->short_description), 150) : '' }}</p>

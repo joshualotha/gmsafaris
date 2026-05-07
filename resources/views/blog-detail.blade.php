@@ -215,7 +215,7 @@
                             @foreach($relatedSafaris as $safari)
                             <li class="mb-3">
                                 <a href="{{ route('safari.show', $safari->slug) }}" class="d-flex align-items-start">
-                                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}"
+                                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.webp') }}"
                                          alt="{{ $safari->title }}"
                                          loading="lazy"
                                          style="width: 60px; height: 60px; object-fit: cover; border-radius: 0.25rem; margin-right: 0.75rem; flex-shrink: 0;">
@@ -275,7 +275,7 @@
             @foreach($relatedSafaris as $safari)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                 <div class="related-card card h-100 shadow-sm">
-                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.jpeg') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.webp') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
                     @if($safari->duration)
                         <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $safari->duration }}</div>
                     @endif
@@ -306,7 +306,7 @@
             @foreach($relatedDestinations as $dest)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                 <div class="related-card card h-100 shadow-sm">
-                    <img src="{{ $dest->hero_image ? \App\Models\Destination::resolveImageUrl($dest->hero_image) : asset('img/hero-3.jpg') }}" class="card-img-top" alt="{{ $dest->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    <img src="{{ $dest->hero_image ? \App\Models\Destination::resolveImageUrl($dest->hero_image) : asset('img/hero-3.webp') }}" class="card-img-top" alt="{{ $dest->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
                     @if($dest->badge_text)
                         <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $dest->badge_text }}</div>
                     @endif

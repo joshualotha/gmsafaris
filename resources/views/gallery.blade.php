@@ -28,7 +28,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('img/gallery-hero.jpg') }}) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('img/gallery-hero.webp') }}) center center no-repeat;
         background-size: cover;
     }
     .gallery-item-inner { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; background-color: #f8f9fa; padding: 1rem; height: 100%; }

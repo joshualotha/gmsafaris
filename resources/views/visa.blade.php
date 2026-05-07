@@ -163,7 +163,7 @@
                      <p class="small"><strong>Embassy Application:</strong> Applying through a Tanzanian embassy or consulate in your country is also possible but usually takes longer.</p>
                  </div>
                  <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/evisa-process.png') }}" class="img-fluid rounded" alt="Laptop showing online visa application process" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ asset('img/evisa-process.webp') }}" class="img-fluid rounded" alt="Laptop showing online visa application process" loading="lazy">
                 </div>
             </div>
 

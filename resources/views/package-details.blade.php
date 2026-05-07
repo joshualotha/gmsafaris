@@ -557,22 +557,22 @@
             <div class="row">
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ asset('img/imggreatmigration1.jpg') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-1.jpg') }}" alt="Wildebeest migration" class="img-fluid" loading="lazy">
+                        <img src="{{ asset('img/great-migration-1.webp') }}" alt="Wildebeest migration" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ asset('img/imggreatmigration2.jpg') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-2.jpg') }}" alt="River crossing" class="img-fluid" loading="lazy">
+                        <img src="{{ asset('img/great-migration-2.webp') }}" alt="River crossing" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ asset('img/imggreatmigration3.jpg') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-3.jpg') }}" alt="Luxury tented camp" class="img-fluid" loading="lazy">
+                        <img src="{{ asset('img/great-migration-3.webp') }}" alt="Luxury tented camp" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
                     <a href="{{ asset('img/imggreatmigration4.jpg') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-4.jpg') }}" alt="Serengeti landscape" class="img-fluid" loading="lazy">
+                        <img src="{{ asset('img/great-migration-4.webp') }}" alt="Serengeti landscape" class="img-fluid" loading="lazy">
                     </a>
                 </div>
             </div>
@@ -669,7 +669,7 @@
             <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/Erlend G.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
+                        <img src="{{ asset('img/Erlend G.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -691,7 +691,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/misssunshine.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
+                        <img src="{{ asset('img/misssunshine.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -713,7 +713,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/Monika U.jpg') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
+                        <img src="{{ asset('img/Monika U.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Traveler" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>

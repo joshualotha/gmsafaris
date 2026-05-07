@@ -14,7 +14,7 @@
         <div class="safari-package-card card h-100 border-0 shadow-sm">
             <!-- Image Section -->
             <div class="safari-card-image-wrapper position-relative overflow-hidden">
-                <img src="{{ $thumbImage ? \App\Models\Safari::resolveImageUrl($thumbImage) : asset('img/hero-1.jpg') }}" class="card-img-top safari-image" alt="{{ $safari->title }}" loading="lazy">
+                <img src="{{ $thumbImage ? \App\Models\Safari::resolveImageUrl($thumbImage) : asset('img/hero-1.webp') }}" class="card-img-top safari-image" alt="{{ $safari->title }}" loading="lazy">
                 <div class="safari-card-image-overlay"></div>
                 <div class="safari-card-badge-top">
                     <span class="safari-badge-duration">{{ $safari->duration }}</span>

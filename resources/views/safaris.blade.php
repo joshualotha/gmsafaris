@@ -16,7 +16,7 @@
 <style>
     /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset("img/top.jpg") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset("img/top.webp") }}') center center no-repeat;
         background-size: cover;
     }
 

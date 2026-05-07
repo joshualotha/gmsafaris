@@ -154,7 +154,7 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow bounceInLeft" data-wow-delay="0.1s">
-                     <img src="{{ asset('img/about-1.jpg') }}" class="img-fluid rounded shadow-lg" alt="Founders or team members of Golden Memories Safaris in Tanzania" loading="lazy">
+                     <img src="{{ asset('img/about-1.webp') }}" class="img-fluid rounded shadow-lg" alt="Founders or team members of Golden Memories Safaris in Tanzania" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInRight" data-wow-delay="0.3s">
                     <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Story</small>

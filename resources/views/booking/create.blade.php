@@ -7,7 +7,7 @@
 @section('og_title', 'Book Your Safari - Golden Memories Safaris')
 @section('og_description', 'Book your dream Tanzania safari in 4 easy steps.')
 @section('og_url', 'https://www.gmsafaris.co.tz/booking')
-@section('og_image', asset('img/logo.png'))
+@section('og_image', asset('img/logo.webp'))
 @section('twitter_title', 'Book Your Safari - Golden Memories Safaris')
 @section('twitter_description', 'Book your dream Tanzania safari in 4 easy steps.')
 
@@ -36,7 +36,7 @@
     .summary-row .value { font-weight: 600; }
 
     .page-header-booking {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset("img/hero-1.jpg") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset("img/hero-1.webp") }}') center center no-repeat;
         background-size: cover;
     }
 </style>

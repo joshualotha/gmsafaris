@@ -252,7 +252,7 @@
                       <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('img/logo.png') }}"
+                                <img src="{{ asset('img/logo.webp') }}"
                                      alt="Golden Memories Safaris Logo"
                                      class="footer-logo mb-4"
                                      width="180" height="40">

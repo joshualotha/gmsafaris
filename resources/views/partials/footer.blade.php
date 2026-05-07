@@ -6,7 +6,7 @@
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('img/logo.png') }}" alt="Golden Memories Safaris Logo" class="footer-logo mb-4"
+                        <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="footer-logo mb-4"
                             width="180" height="40">
                     </a>
                     <div class="d-flex flex-column align-items-start mb-4">

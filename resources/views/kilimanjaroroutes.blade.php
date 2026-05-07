@@ -127,7 +127,7 @@
                     <div class="route-card wow bounceInUp" data-wow-delay="0.1s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-machame.jpg') }}" class="img-fluid rounded" alt="Scenic view from the Machame Route" loading="lazy"> <!-- CHANGE IMAGE -->
+                                <img src="{{ asset('img/kili-machame.webp') }}" class="img-fluid rounded" alt="Scenic view from the Machame Route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Machame Route ("Whiskey Route")</h3>
@@ -160,7 +160,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.2s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-lemosho.jpg') }}" class="img-fluid rounded" alt="View from the Lemosho Route across the Shira Plateau" loading="lazy"> <!-- CHANGE IMAGE -->
+                                <img src="{{ asset('img/kili-lemosho.webp') }}" class="img-fluid rounded" alt="View from the Lemosho Route across the Shira Plateau" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Lemosho Route</h3>
@@ -193,7 +193,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.3s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-marangu.jpg') }}" class="img-fluid rounded" alt="Sleeping huts along the Marangu Route" loading="lazy"> <!-- CHANGE IMAGE -->
+                                <img src="{{ asset('img/kili-marangu.webp') }}" class="img-fluid rounded" alt="Sleeping huts along the Marangu Route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Marangu Route ("Coca-Cola Route")</h3>
@@ -227,7 +227,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.4s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-rongai.jpg') }}" class="img-fluid rounded" alt="View from the Rongai Route approaching from the north" loading="lazy"> <!-- CHANGE IMAGE -->
+                                <img src="{{ asset('img/kili-rongai.webp') }}" class="img-fluid rounded" alt="View from the Rongai Route approaching from the north" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Rongai Route</h3>
@@ -260,7 +260,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.5s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-northern.jpg') }}" class="img-fluid rounded" alt="Panoramic view from the Northern Circuit route" loading="lazy"> <!-- CHANGE IMAGE -->
+                                <img src="{{ asset('img/kili-northern.webp') }}" class="img-fluid rounded" alt="Panoramic view from the Northern Circuit route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Northern Circuit Route</h3>
@@ -378,7 +378,7 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/kilimanjaro-trekking-group.jpg') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ asset('img/kilimanjaro-trekking-group.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy">
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
@@ -432,7 +432,7 @@
                     </div>
                 </div>
                 <div class="col-1 d-none d-lg-block">
-                     <img src="{{ asset('img/kilimanjaro-trekking-group.jpg') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy"> <!-- CHANGE IMAGE -->
+                     <img src="{{ asset('img/kilimanjaro-trekking-group.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy">
                 </div>
             </div>
         </div>

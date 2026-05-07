@@ -95,7 +95,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/budget-safari-main.jpg') }}" class="img-fluid rounded" alt="Travelers enjoying a budget safari in Tanzania" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/budget-safari-main.webp') }}" class="img-fluid rounded" alt="Travelers enjoying a budget safari in Tanzania" loading="lazy">
                 </div>
             </div>
 
@@ -164,7 +164,7 @@
              <!-- What to Expect Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/budget-camping.jpg') }}" class="img-fluid rounded" alt="Budget safari campsite setup in Tanzania" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/budget-camping.webp') }}" class="img-fluid rounded" alt="Budget safari campsite setup in Tanzania" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">Understanding Budget Safaris</h2> <!-- Heading Updated -->
@@ -222,7 +222,7 @@
         <div class="container">
             <div class="row g-0">
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Budget Safari" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Budget Safari" loading="lazy">
                 </div>
                 <div class="col-lg-10 col-md-12">
                     <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
@@ -276,7 +276,7 @@
                     </div>
                 </div>
                 <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.jpg') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Budget Safari" loading="lazy">
+                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Budget Safari" loading="lazy">
                 </div>
             </div>
         </div>
