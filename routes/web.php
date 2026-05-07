@@ -118,4 +118,3 @@ Route::post('/join-safari/{slug}/join', [JoinSafariController::class, 'join'])->
 
 // Gallery API (for frontend)
 Route::get('/api/gallery', [GalleryController::class, 'apiImages'])->name('api.gallery');
-
