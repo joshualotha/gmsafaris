@@ -15,7 +15,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/blog-hero.jpg) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/blog-hero.webp) center center no-repeat;
         background-size: cover;
     }
     .blog-post-item .card-img-top {

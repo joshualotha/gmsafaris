@@ -154,7 +154,7 @@
         <div class="error-content">
             <div class="error-logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" width="180" height="50">
+                    <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" width="180" height="50" loading="lazy">
                 </a>
             </div>
 

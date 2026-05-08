@@ -7,16 +7,16 @@
 @section('og_title', 'Kilimanjaro Route Comparison - Choose Your Climb - Golden Memories Safaris')
 @section('og_description', 'Compare Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai, Northern Circuit. Understand scenery, difficulty, acclimatization & success rates to choose the best trek with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/kilimanjaroroutes')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Kilimanjaro Route Comparison - Choose Your Climb - Golden Memories Safaris')
 @section('twitter_description', 'Compare Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai, Northern Circuit. Understand scenery, difficulty, acclimatization & success rates to choose the best trek with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kili-route-header.jpg) center center no-repeat; /* Use a relevant route comparison background */
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kilimanjaro-header.webp) center center no-repeat;
             background-size: cover;
         }
         .route-card {

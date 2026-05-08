@@ -7,16 +7,16 @@
 @section('og_title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
 @section('og_description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/budgetsafari')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
 @section('twitter_description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/budget-safari-header.jpg) center center no-repeat; /* Use a relevant budget safari background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/budget-safari-header.webp) center center no-repeat;
             background-size: cover;
         }
         .feature-item i {

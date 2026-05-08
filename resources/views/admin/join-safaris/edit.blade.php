@@ -109,7 +109,7 @@
             <h6 class="fw-bold mb-3">Hero Image</h6>
             @if($joinSafari->hero_image)
                 <div class="mb-2">
-                    <img src="{{ asset('storage/' . $joinSafari->hero_image) }}" class="img-preview" alt="Current hero image">
+                    <img src="{{ asset('storage/' . $joinSafari->hero_image) }}" class="img-preview" alt="{{ $joinSafari->title }} hero image" loading="lazy">
                     <br><small class="text-muted">Current image. Upload a new one to replace it.</small>
                 </div>
             @endif

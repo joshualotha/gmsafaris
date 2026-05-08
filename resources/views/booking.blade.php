@@ -29,7 +29,7 @@
 <style>
      /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/booking-hero.jpg') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/booking-hero.webp') center center no-repeat;
         background-size: cover;
     }
 

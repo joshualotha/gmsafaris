@@ -7,10 +7,10 @@
 @section('og_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('og_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/insurance')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('twitter_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('structured_data')
 <script type="application/ld+json">

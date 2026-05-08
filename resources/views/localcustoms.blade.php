@@ -7,16 +7,16 @@
 @section('og_title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/localcustoms')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
 @section('twitter_description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/customs-header.jpg) center center no-repeat; /* Use a relevant customs/culture background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/customs-header.webp) center center no-repeat;
             background-size: cover;
         }
         .list-check li, .list-bullet li {

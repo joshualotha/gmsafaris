@@ -7,16 +7,16 @@
 @section('og_title', 'Tailored Safaris - Golden Memories Safaris')
 @section('og_description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")
 @section('og_url', 'https://www.gmsafaris.co.tz/tailoredsafaris')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Tailored Safaris - Golden Memories Safaris')
 @section('twitter_description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/service-tailored.jpg) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/service-tailored.webp) center center no-repeat;
             background-size: cover;
         }
         .benefit-item i {

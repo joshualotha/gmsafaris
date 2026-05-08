@@ -7,16 +7,16 @@
 @section('og_title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
 @section('og_description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/visa')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
 @section('twitter_description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/visa-header.jpg) center center no-repeat; /* Use a relevant visa/travel background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/visa-header.webp) center center no-repeat;
             background-size: cover;
         }
         .list-check li {

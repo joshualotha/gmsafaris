@@ -30,7 +30,7 @@
     "@type": "Article",
     "headline": "{{ $post->title }}",
     "description": "{{ $post->seo_description ?? $post->excerpt }}",
-    "image": "{{ $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.png' }}",
+    "image": "{{ $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp' }}",
     "author": {
         "@type": "Person",
         "name": "{{ $post->author ?? 'Golden Memories Safaris' }}"
@@ -56,7 +56,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ $post->hero_image_url ?? 'img/blog-hero.jpg' }}) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ $post->hero_image_url ?? 'img/blog-hero.webp' }}) center center no-repeat;
         background-size: cover;
     }
     .blog-content img {

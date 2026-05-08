@@ -7,16 +7,16 @@
 @section('og_title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
 @section('og_description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')
 @section('og_url', 'https://www.gmsafaris.co.tz/mountaintrekking')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
 @section('twitter_description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kilimanjaro-header.jpg) center center no-repeat; /* Use a relevant trekking background */
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kilimanjaro-header.webp) center center no-repeat;
             background-size: cover;
         }
         .feature-item i { /* Renamed from benefit-item for clarity */

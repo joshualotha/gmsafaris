@@ -53,7 +53,7 @@
 <style>
      /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/about-hero.jpg) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/about-hero.webp) center center no-repeat;
         background-size: cover;
     }
     /* Why Choose Us Icons */

@@ -284,7 +284,7 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <img src="{{ asset('img/logo.webp') }}" alt="GM Safaris">
+            <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Admin" loading="lazy">
             <span>GM Safaris Admin</span>
         </div>
         <div class="sidebar-menu">

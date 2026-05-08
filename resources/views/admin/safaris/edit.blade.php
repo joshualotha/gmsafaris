@@ -134,7 +134,7 @@
                         <label class="form-label">Hero Image</label>
                         @if($safari->hero_image)
                             <div class="mb-2">
-                                <img src="{{ \App\Models\Safari::resolveImageUrl($safari->hero_image) }}" class="img-preview">
+                                <img src="{{ \App\Models\Safari::resolveImageUrl($safari->hero_image) }}" class="img-preview" alt="{{ $safari->title }} hero image" loading="lazy">
                                 <small class="text-muted d-block">Current image. Upload a new one to replace.</small>
                             </div>
                         @endif
@@ -147,7 +147,7 @@
                         <label class="form-label">Thumbnail Image</label>
                         @if($safari->thumbnail_image)
                             <div class="mb-2">
-                                <img src="{{ \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) }}" class="img-preview">
+                                <img src="{{ \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) }}" class="img-preview" alt="{{ $safari->title }} thumbnail" loading="lazy">
                                 <small class="text-muted d-block">Current image. Upload a new one to replace.</small>
                             </div>
                         @endif
@@ -175,7 +175,7 @@
                                             <input class="form-check-input" type="checkbox" name="delete_gallery_images[]" value="{{ $index }}" id="del_gallery_{{ $index }}">
                                         </div>
                                         <label for="del_gallery_{{ $index }}" style="cursor:pointer;">
-                                            <img src="{{ \App\Models\Safari::resolveImageUrl($imgPath) }}" class="img-preview border" style="width:100px;height:75px;object-fit:cover;">
+                                            <img src="{{ \App\Models\Safari::resolveImageUrl($imgPath) }}" class="img-preview border" style="width:100px;height:75px;object-fit:cover;" alt="{{ $safari->title }} gallery image" loading="lazy">
                                         </label>
                                     </div>
                                 @endif

@@ -62,7 +62,7 @@
 <style>
     /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(img/contact-hero.jpg) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(img/contact-hero.webp) center center no-repeat;
         background-size: cover;
     }
 

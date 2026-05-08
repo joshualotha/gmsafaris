@@ -7,16 +7,16 @@
 @section('og_title', 'Group Safaris in Tanzania - Scheduled Departures - Golden Memories Safaris')
 @section('og_description', 'Join our scheduled group safaris in Tanzania for an affordable and social adventure! Explore top parks like Serengeti & Ngorongoro with fellow travelers. Check departures with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/groupsafaris')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Group Safaris in Tanzania - Scheduled Departures - Golden Memories Safaris')
 @section('twitter_description', 'Join our scheduled group safaris in Tanzania for an affordable and social adventure! Explore top parks like Serengeti & Ngorongoro with fellow travelers. Check departures with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/group-safari-header.jpg) center center no-repeat; /* Use a relevant group safari background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/group-safari-header.webp) center center no-repeat;
             background-size: cover;
         }
         .feature-item i {
@@ -88,7 +88,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/group-safari-main.JPG') }}" class="img-fluid rounded" alt="Group of travelers enjoying a safari game drive" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/group-safari-main.webp') }}" class="img-fluid rounded" alt="Group of travelers enjoying a safari game drive" loading="lazy">
                 </div>
             </div>
 
@@ -157,7 +157,7 @@
              <!-- What to Expect Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/group-safari-vehicle.JPG') }}" class="img-fluid rounded" alt="Open-top safari vehicle with group inside" loading="lazy"> <!-- CHANGE IMAGE & ALT -->
+                    <img src="{{ asset('img/group-safari-vehicle.webp') }}" class="img-fluid rounded" alt="Open-top safari vehicle with group inside" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">What to Expect on a Group Safari</h2> <!-- Heading Updated -->

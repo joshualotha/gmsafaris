@@ -201,7 +201,7 @@
                             <input type="checkbox" name="ids[]" value="{{ $image->id }}" class="form-check-input select-checkbox" onchange="toggleBulkDelete()" form="bulk-form">
                         </div>
                         <div class="thumb-wrap">
-                            <img src="{{ $image->thumb_url }}" alt="{{ $image->alt_text ?: 'Gallery image' }}" loading="lazy">
+                            <img src="{{ $image->thumb_url }}" alt="{{ $image->alt_text ?: $image->caption ?: 'Gallery image' }}" loading="lazy">
                             @if(!$image->is_active)
                                 <span class="status-badge bg-secondary text-white">Inactive</span>
                             @endif

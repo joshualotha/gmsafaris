@@ -7,16 +7,16 @@
 @section('og_title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/healthandsafety')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
 @section('twitter_description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/health-header.jpg) center center no-repeat; /* Use a relevant health/safety background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/health-header.webp) center center no-repeat;
             background-size: cover;
         }
         .list-check li, .list-bullet li {
@@ -216,7 +216,7 @@
                     </ul>
                  </div>
                   <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/safari-safety.JPG') }}" class="img-fluid rounded" alt="Safari guide explaining safety rules to tourists in vehicle" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ asset('img/safari-safety.webp') }}" class="img-fluid rounded" alt="Safari guide explaining safety rules to tourists in vehicle" loading="lazy">
                 </div>
             </div>
              <div class="row g-4 my-6 wow bounceInUp" data-wow-delay="0.1s"> <!-- Adjusted margin -->

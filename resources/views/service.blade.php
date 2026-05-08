@@ -7,10 +7,10 @@
 @section('og_title', 'Our Services - Golden Memories Safaris')
 @section('og_description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')
 @section('og_url', 'https://www.gmsafaris.co.tz/service')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Our Services - Golden Memories Safaris')
 @section('twitter_description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('structured_data')
 <script type="application/ld+json">

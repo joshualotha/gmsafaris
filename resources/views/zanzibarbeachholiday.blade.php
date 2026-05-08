@@ -7,16 +7,16 @@
 @section('og_title', 'Zanzibar Beach Holidays & Tours - Golden Memories Safaris')
 @section('og_description', 'Relax on pristine beaches, explore historic Stone Town, and discover the Spice Island. Plan your perfect Zanzibar beach holiday or safari add-on with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/zanzibarbeachholiday')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Zanzibar Beach Holidays & Tours - Golden Memories Safaris')
 @section('twitter_description', 'Relax on pristine beaches, explore historic Stone Town, and discover the Spice Island. Plan your perfect Zanzibar beach holiday or safari add-on with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/zanzibar-header.jpg) center center no-repeat; /* Use a relevant Zanzibar background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/zanzibar-header.webp) center center no-repeat;
             background-size: cover;
         }
         .feature-item i {

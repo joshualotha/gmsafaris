@@ -147,7 +147,7 @@
                     <label class="form-label">Featured Image</label>
                     @if($blogPost->featured_image)
                         <div class="mb-2">
-                            <img src="{{ Storage::url($blogPost->featured_image) }}" class="img-preview" alt="Featured image">
+                            <img src="{{ Storage::url($blogPost->featured_image) }}" class="img-preview" alt="{{ $blogPost->title }} featured image" loading="lazy">
                         </div>
                     @endif
                     <input type="file" name="featured_image" class="form-control" accept="image/*">
