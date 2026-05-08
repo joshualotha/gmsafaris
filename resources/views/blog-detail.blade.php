@@ -164,6 +164,37 @@
 
                     {!! $post->content !!}
 
+                    <!-- Author Bio Section (E-E-A-T Signal) -->
+                    @if($post->author)
+                    <div class="author-bio d-flex align-items-start p-4 mt-5 bg-light rounded-3 border-start border-primary border-4">
+                        <div class="author-avatar me-4 flex-shrink-0">
+                            <img src="{{ asset('img/logo.webp') }}"
+                                 alt="{{ $post->author }} - Golden Memories Safaris"
+                                 class="rounded-circle"
+                                 width="80" height="80"
+                                 loading="lazy"
+                                 style="object-fit: cover; border: 3px solid #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.1);">
+                        </div>
+                        <div class="author-info">
+                            <h5 class="mb-1 fw-bold">{{ $post->author }}</h5>
+                            <p class="text-muted small mb-2">
+                                <i class="fas fa-map-pin text-primary me-1"></i>Arusha, Tanzania
+                            </p>
+                            <p class="mb-2 small lh-sm">
+                                {{ $post->author === 'Golden Memories Safaris' ? 'Golden Memories Safaris is a locally owned and operated Tanzanian tour operator based in Arusha. We specialize in crafting authentic, responsible, and unforgettable safari adventures across Tanzania\'s most iconic destinations — from the Serengeti and Ngorongoro Crater to Kilimanjaro and Zanzibar. Our team of expert guides brings decades of combined experience and a deep passion for East African wildlife and culture.' : $post->author . ' is a contributor to the Golden Memories Safaris blog, sharing expert insights about Tanzania travel, safari adventures, and East African culture.' }}
+                            </p>
+                            <div class="d-flex gap-3">
+                                <a href="{{ route('about') }}" class="btn btn-outline-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-user me-1"></i>About the Author
+                                </a>
+                                <a href="{{ route('booking') }}" class="btn btn-primary btn-sm rounded-pill px-3">
+                                    <i class="fas fa-paper-plane me-1"></i>Plan Your Safari
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    @endif
+
                 </div>
             </div>
 

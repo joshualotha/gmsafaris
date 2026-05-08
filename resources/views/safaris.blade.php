@@ -7,10 +7,10 @@
 @section('og_title', 'Safari Packages - Golden Memories Safaris')
 @section('og_description', 'Explore diverse Tanzania safari packages with Golden Memories Safaris. From thrilling wildlife adventures and Kilimanjaro treks to relaxing Zanzibar escapes, find your perfect journey.')
 @section('og_url', 'https://www.gmsafaris.co.tz/safaris')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 @section('twitter_title', 'Safari Packages - Golden Memories Safaris')
 @section('twitter_description', 'Explore diverse Tanzania safari packages with Golden Memories Safaris. From thrilling wildlife adventures and Kilimanjaro treks to relaxing Zanzibar escapes, find your perfect journey.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('extra_styles')
 <style>

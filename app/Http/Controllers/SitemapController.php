@@ -48,7 +48,7 @@ class SitemapController extends Controller
             'localcustoms'            => ['0.5', 'monthly'],
             'healthandsafety'         => ['0.5', 'monthly'],
             'visa'                    => ['0.5', 'monthly'],
-            'insuarance'              => ['0.5', 'monthly'],
+            'insurance'               => ['0.5', 'monthly'],
             'kilimanjaroroutes'       => ['0.6', 'monthly'],
             'package-details'         => ['0.5', 'monthly'],
             'privacypolicy'           => ['0.3', 'yearly'],

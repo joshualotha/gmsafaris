@@ -7,10 +7,10 @@
 @section('og_title', 'Contact Us - Golden Memories Safaris')
 @section('og_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
 @section('og_url', 'https://www.gmsafaris.co.tz/contact')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 @section('twitter_title', 'Contact Us - Golden Memories Safaris')
 @section('twitter_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.png')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Golden Memories Safaris",
-    "image": "https://www.gmsafaris.co.tz/img/logo.png",
+    "image": "https://www.gmsafaris.co.tz/img/logo.webp",
     "url": "https://www.gmsafaris.co.tz",
     "telephone": "+255786383273",
     "email": "info@gmsafaris.co.tz",

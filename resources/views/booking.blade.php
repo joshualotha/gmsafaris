@@ -7,10 +7,10 @@
 @section('og_title', 'Book Your Safari - Golden Memories Safaris')
 @section('og_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/booking')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 @section('twitter_title', 'Book Your Safari - Golden Memories Safaris')
 @section('twitter_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('structured_data')
 <script type="application/ld+json">

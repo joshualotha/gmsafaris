@@ -3,10 +3,10 @@
 @section('title', 'Tanzania Travel Insurance & Emergency Guide | Safari Safety')
 @section('keywords', 'tanzania travel insurance, safari insurance, emergency evacuation tanzania, amref flying doctors, kilimanjaro insurance, travel safety tanzania')
 @section('description', 'Essential travel insurance and emergency information for your Tanzania safari. Learn about required coverage, AMREF evacuation, and safety procedures. From Golden Memories Safaris.')
-@section('canonical', 'https://www.gmsafaris.co.tz/insuarance')
+@section('canonical', 'https://www.gmsafaris.co.tz/insurance')
 @section('og_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('og_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
-@section('og_url', 'https://www.gmsafaris.co.tz/insuarance')
+@section('og_url', 'https://www.gmsafaris.co.tz/insurance')
 @section('og_image', 'https://www.gmsafaris.co.tz/img/logo.png')
 @section('twitter_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('twitter_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
@@ -19,7 +19,7 @@
     "@type": "BreadcrumbList",
     "itemListElement": [
         { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://www.gmsafaris.co.tz/" },
-        { "@type": "ListItem", "position": 2, "name": "Travel Insurance & Emergency Info", "item": "https://www.gmsafaris.co.tz/insuarance" }
+        { "@type": "ListItem", "position": 2, "name": "Travel Insurance & Emergency Info", "item": "https://www.gmsafaris.co.tz/insurance" }
     ]
 }
 </script>
@@ -96,7 +96,7 @@
           "@type": "ListItem",
           "position": 2,
           "name": "Travel Insurance & Emergency Info",
-          "item": "https://www.gmsafaris.co.tz/insuarance"
+          "item": "https://www.gmsafaris.co.tz/insurance"
         }
       ]
     }

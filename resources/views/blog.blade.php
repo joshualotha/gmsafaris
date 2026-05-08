@@ -7,10 +7,10 @@
 @section('og_title', 'Travel Blog - Golden Memories Safaris')
 @section('og_description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')
 @section('og_url', 'https://www.gmsafaris.co.tz/blog')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 @section('twitter_title', 'Travel Blog - Golden Memories Safaris')
 @section('twitter_description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('extra_styles')
 <style>

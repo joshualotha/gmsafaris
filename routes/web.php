@@ -109,7 +109,7 @@ Route::view('/besttimetovisit', 'besttimetovisit')->name('besttimetovisit');
 Route::view('/localcustoms', 'localcustoms')->name('localcustoms');
 Route::view('/healthandsafety', 'healthandsafety')->name('healthandsafety');
 Route::view('/visa', 'visa')->name('visa');
-Route::view('/insuarance', 'insuarance')->name('insuarance');
+Route::view('/insurance', 'insurance')->name('insurance');
 Route::view('/kilimanjaroroutes', 'kilimanjaroroutes')->name('kilimanjaroroutes');
 Route::view('/privacypolicy', 'privacypolicy')->name('privacypolicy');
 Route::view('/termsandconditions', 'termsandconditions')->name('termsandconditions');

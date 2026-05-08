@@ -7,10 +7,10 @@
 @section('og_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('og_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
 @section('og_url', 'https://www.gmsafaris.co.tz/destinations')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-3.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-3.webp')
 @section('twitter_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('twitter_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-3.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-3.webp')
 
 @section('extra_styles')
 <style>

@@ -60,7 +60,7 @@
                                 class="fa fa-check text-primary me-2"></i>Health & Safety Guide</a>
                         <a class="text-body mb-2" href="{{ route('visa') }}"><i
                                 class="fa fa-check text-primary me-2"></i>Visa Information</a>
-                        <a class="text-body mb-2" href="{{ route('insuarance') }}"><i
+                        <a class="text-body mb-2" href="{{ route('insurance') }}"><i
                                 class="fa fa-check text-primary me-2"></i>Insurance & Emergency</a>
                     </div>
                 </div>

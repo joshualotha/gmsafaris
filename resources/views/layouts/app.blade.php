@@ -104,7 +104,7 @@
 
     <!-- GTranslate Widget (deferred) -->
     <div class="gtranslate_wrapper"></div>
-    <script>window.gtranslateSettings = {"default_language":"en","languages":["en","it","pl","sv","fr"],"wrapper_selector":".gtranslate_wrapper"}</script>
+    <script>window.gtranslateSettings = {"default_language":"en","languages":["en","de","it","pl","sv","fr"],"wrapper_selector":".gtranslate_wrapper"}</script>
     <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
 
     <!--Start of Tawk.to Script (loaded after page is fully interactive to avoid blocking LCP)-->

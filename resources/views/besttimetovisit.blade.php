@@ -11,11 +11,11 @@
 @section('og_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
 @section('og_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays. Expert seasonal guide from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/besttimetovisit')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('twitter_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
 @section('twitter_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('structured_data')
 <script type="application/ld+json">

@@ -7,10 +7,10 @@
 @section('og_title', 'About Us - Golden Memories Safaris')
 @section('og_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
 @section('og_url', 'https://www.gmsafaris.co.tz/about')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/about.JPG')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/about.webp')
 @section('twitter_title', 'About Us - Golden Memories Safaris')
 @section('twitter_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.JPG')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.webp')
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -29,7 +29,7 @@
     "@type": "Organization",
     "name": "Golden Memories Safaris",
     "url": "https://www.gmsafaris.co.tz",
-    "logo": "https://www.gmsafaris.co.tz/img/logo.png",
+    "logo": "https://www.gmsafaris.co.tz/img/logo.webp",
     "description": "A passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.",
     "foundingDate": "2023",
     "contactPoint": {

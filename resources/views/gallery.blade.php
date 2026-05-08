@@ -7,10 +7,10 @@
 @section('og_title', 'Photo Gallery - Golden Memories Safaris')
 @section('og_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
 @section('og_url', 'https://www.gmsafaris.co.tz/gallery')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 @section('twitter_title', 'Photo Gallery - Golden Memories Safaris')
 @section('twitter_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.jpg')
+@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
 
 @section('structured_data')
 <script type="application/ld+json">
