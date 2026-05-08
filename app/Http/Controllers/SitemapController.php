@@ -105,7 +105,7 @@ class SitemapController extends Controller
         foreach ($blogPosts as $post) {
             $url = $baseUrl . '/blog/' . $post->slug;
             $lastmod = ($post->updated_at ?? $post->published_at)->toIso8601String();
-            $xml .= $this->urlElement($url, $lastmod, 'monthly', '0.6');
+            $xml .= $this->urlElement($url, $lastmod, 'weekly', '0.7');
         }
 
         // Join Safari detail pages

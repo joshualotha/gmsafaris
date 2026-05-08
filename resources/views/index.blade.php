@@ -1342,7 +1342,7 @@
                                 <p class="fw-bold mb-0">Jun</p>
                             </div>
                         </div>
-                        <a href="{{ url('/blog-detail-migration') }}" class="h5 lh-base my-auto h-100 p-3">Best Time to See the
+                        <a href="{{ route('blog.show', 'best-time-to-see-great-migration-serengeti') }}" class="h5 lh-base my-auto h-100 p-3">Best Time to See the
                             Great Migration in Serengeti</a>
                     </div>
                 </div>
@@ -1359,7 +1359,7 @@
                                 <p class="fw-bold mb-0">Jul</p>
                             </div>
                         </div>
-                        <a href="{{ url('/blog-detail-kilimanjaro-prep') }}" class="h5 lh-base my-auto h-100 p-3">Preparing for
+                        <a href="{{ route('blog.show', 'preparing-for-kilimanjaro-trek-essential-guide') }}" class="h5 lh-base my-auto h-100 p-3">Preparing for
                             Your Kilimanjaro Trek: Essential Guide</a>
                     </div>
                 </div>
@@ -1377,7 +1377,7 @@
                                 <p class="fw-bold mb-0">Jul</p>
                             </div>
                         </div>
-                        <a href="{{ url('/blog-detail-photo-tips') }}" class="h5 lh-base my-auto h-100 p-3">Wildlife Photography
+                        <a href="{{ route('blog.show', 'top-10-wildlife-photography-tips-tanzania-safari') }}" class="h5 lh-base my-auto h-100 p-3">Wildlife Photography
                             Tips for Your Safari</a>
                     </div>
                 </div>
