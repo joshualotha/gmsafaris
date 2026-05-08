@@ -108,6 +108,39 @@
     </div>
     <!-- Page Header End -->
 
+    <!-- Destinations Intro Start -->
+    <div class="container-fluid bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
+        <div class="container">
+            <div class="text-center">
+                <h2 class="mb-3">Explore Tanzania's Finest Destinations</h2>
+                <p class="lead text-muted mx-auto" style="max-width: 800px;">
+                    Tanzania is home to some of Africa's most iconic landscapes and wildlife reserves. From the endless plains of the Serengeti and the ancient Ngorongoro Crater to the snow-capped peak of Kilimanjaro and the turquoise waters of Zanzibar, each destination offers a unique chapter in your Tanzanian adventure. Browse our destinations below and discover what makes each one extraordinary.
+                </p>
+            </div>
+        </div>
+    </div>
+    <!-- Destinations Intro End -->
+
+    <!-- Why Visit Tanzania Start -->
+    <div class="container-fluid py-5">
+        <div class="container">
+            <div class="row g-4 align-items-center">
+                <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
+                    <img src="{{ asset('img/ngorongoro-viewpoint.webp') }}" class="img-fluid rounded shadow-lg" alt="Ngorongoro Crater viewpoint — one of Tanzania's most spectacular safari destinations" loading="lazy">
+                </div>
+                <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
+                    <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Why Tanzania?</small>
+                    <h2 class="mb-4">A Safari Destination Like No Other</h2>
+                    <p class="mb-3">Tanzania is widely regarded as Africa's premier safari destination — and for good reason. It is home to the <strong>Serengeti National Park</strong>, a UNESCO World Heritage Site and the stage for the Great Migration, where over 1.5 million wildebeest and hundreds of thousands of zebras traverse the plains in an endless cycle of life.</p>
+                    <p class="mb-3">Beyond the Serengeti, Tanzania boasts the <strong>Ngorongoro Crater</strong> — the world's largest intact volcanic caldera and a natural amphitheater for wildlife. The <strong>Mount Kilimanjaro</strong> massif, Africa's highest peak, draws trekkers from around the globe, while the <strong>Zanzibar Archipelago</strong> offers some of the Indian Ocean's most beautiful beaches.</p>
+                    <p class="mb-4">With over 25% of its land area protected for conservation, Tanzania offers unparalleled wildlife viewing, diverse ecosystems ranging from savannah to rainforest to alpine desert, and a rich cultural heritage spanning more than 120 ethnic groups. Whether you're a first-time visitor or a seasoned Africa traveler, Tanzania never fails to inspire.</p>
+                    <a href="{{ url('/safaris') }}" class="btn btn-primary rounded-pill px-4 py-2">View Safari Packages <i class="fas fa-arrow-right ms-2"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Why Visit Tanzania End -->
+
     <!-- Destinations Content Start -->
     <div class="container-fluid py-6">
         <div class="container">

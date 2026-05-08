@@ -8,8 +8,8 @@
 <script defer src="{{ asset('lib/lightbox/js/lightbox.min.js') }}"></script>
 <script defer src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js"></script>
 
-<!-- Template Javascript -->
-<script defer src="{{ asset('js/main.js') }}"></script>
+<!-- Template Javascript (minified for production) -->
+<script defer src="{{ asset('js/main.min.js') }}"></script>
 <script>
     document.addEventListener('DOMContentLoaded', function() {
         // Initialize lightbox

@@ -203,6 +203,152 @@
             </div>
         </div>
 
+        <!-- Month-by-Month Quick Reference Table -->
+        <div class="row my-6 wow bounceInUp" data-wow-delay="0.1s">
+            <div class="col-12">
+                <h2 class="text-center mb-5">Month-by-Month Quick Reference</h2>
+                <div class="table-responsive">
+                    <table class="table table-bordered table-hover text-center small">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>Month</th>
+                                <th>Season</th>
+                                <th>Avg. Temp (°C)</th>
+                                <th>Rainfall</th>
+                                <th>Wildlife Viewing</th>
+                                <th>Migration Location</th>
+                                <th>Crowds</th>
+                                <th>Prices</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr class="table-warning">
+                                <td><strong>Jan</strong></td>
+                                <td>Short Dry</td>
+                                <td>25-30°C</td>
+                                <td>Low</td>
+                                <td>Excellent</td>
+                                <td>Southern Serengeti / Ndutu</td>
+                                <td>Moderate</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr class="table-warning">
+                                <td><strong>Feb</strong></td>
+                                <td>Short Dry</td>
+                                <td>25-30°C</td>
+                                <td>Low</td>
+                                <td>Excellent ★</td>
+                                <td>Ndutu (Peak Calving)</td>
+                                <td>High</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>Mar</strong></td>
+                                <td>Short Rains</td>
+                                <td>25-29°C</td>
+                                <td>Moderate</td>
+                                <td>Good</td>
+                                <td>Southern / Central Serengeti</td>
+                                <td>Moderate</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>Apr</strong></td>
+                                <td>Long Rains</td>
+                                <td>23-28°C</td>
+                                <td>High</td>
+                                <td>Fair</td>
+                                <td>Central / Western Serengeti</td>
+                                <td>Low</td>
+                                <td>Low ★</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>May</strong></td>
+                                <td>Long Rains</td>
+                                <td>22-27°C</td>
+                                <td>High</td>
+                                <td>Fair</td>
+                                <td>Western Corridor</td>
+                                <td>Low</td>
+                                <td>Low ★</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Jun</strong></td>
+                                <td>Dry Season</td>
+                                <td>20-26°C</td>
+                                <td>Very Low</td>
+                                <td>Very Good</td>
+                                <td>Western / Northern Serengeti</td>
+                                <td>Moderate</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Jul</strong></td>
+                                <td>Dry Season</td>
+                                <td>20-25°C</td>
+                                <td>Very Low</td>
+                                <td>Excellent</td>
+                                <td>Northern Serengeti (Grumeti)</td>
+                                <td>High</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Aug</strong></td>
+                                <td>Dry Season</td>
+                                <td>20-26°C</td>
+                                <td>Very Low</td>
+                                <td>Excellent ★</td>
+                                <td>Northern Serengeti (Mara)</td>
+                                <td>High</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Sep</strong></td>
+                                <td>Dry Season</td>
+                                <td>21-27°C</td>
+                                <td>Very Low</td>
+                                <td>Excellent ★</td>
+                                <td>Northern Serengeti (Mara)</td>
+                                <td>High</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="table-success">
+                                <td><strong>Oct</strong></td>
+                                <td>Dry Season</td>
+                                <td>22-28°C</td>
+                                <td>Low</td>
+                                <td>Excellent</td>
+                                <td>Northern / Central Serengeti</td>
+                                <td>High</td>
+                                <td>High</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>Nov</strong></td>
+                                <td>Short Rains</td>
+                                <td>23-29°C</td>
+                                <td>Moderate</td>
+                                <td>Good</td>
+                                <td>Central / Eastern Serengeti</td>
+                                <td>Low-Moderate</td>
+                                <td>Moderate</td>
+                            </tr>
+                            <tr class="table-info">
+                                <td><strong>Dec</strong></td>
+                                <td>Short Rains</td>
+                                <td>24-30°C</td>
+                                <td>Moderate</td>
+                                <td>Good</td>
+                                <td>Eastern / Southern Serengeti</td>
+                                <td>Moderate</td>
+                                <td>Moderate</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <p class="small text-muted text-center mt-2"><i class="fas fa-star text-warning me-1"></i> Peak months for specific activities. ★ = Best value for budget travelers.</p>
+            </div>
+        </div>
+
         <!-- Activity-Specific Timing -->
         <div class="row my-6 wow bounceInUp" data-wow-delay="0.1s">
             <div class="col-12 text-center">
@@ -232,6 +378,62 @@
                     <li><strong>Shoulder Seasons:</strong> Nov, March (potential showers, fewer crowds).</li>
                     <li><strong>Avoid:</strong> April - May (heavy rains).</li>
                 </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5><i class="fas fa-camera text-primary me-2"></i>Wildlife Photography</h5>
+                <ul class="list-times small">
+                    <li><strong>Dry Season (Jun-Oct):</strong> Best for action shots at waterholes, dramatic dust, golden light.</li>
+                    <li><strong>Green Season (Nov-May):</strong> Lush landscapes, baby animals, dramatic storm skies.</li>
+                    <li><strong>Calving Season (Jan-Feb):</strong> Predator action, newborn wildebeest, intimate moments.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5><i class="fas fa-dove text-primary me-2"></i>Bird Watching</h5>
+                <ul class="list-times small">
+                    <li><strong>Peak Season (Nov-Apr):</strong> Migratory species from Europe and North Africa present.</li>
+                    <li><strong>Resident Birds:</strong> Year-round viewing of over 1,100 species across Tanzania.</li>
+                    <li><strong>Best Parks:</strong> Lake Manyara, Ngorongoro, Tarangire, and Zanzibar forests.</li>
+                </ul>
+            </div>
+            <div class="col-lg-4 mb-4">
+                <h5><i class="fas fa-hiking text-primary me-2"></i>Budget Travel</h5>
+                <ul class="list-times small">
+                    <li><strong>Green Season (Mar-May, Nov):</strong> Lowest prices, fewer crowds, lush scenery.</li>
+                    <li><strong>Shoulder Months (Jun, Oct, Dec):</strong> Good balance of weather and value.</li>
+                    <li><strong>Peak Season (Jul-Sep, Feb):</strong> Highest prices — book 6+ months ahead.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Regional Weather Comparison -->
+        <div class="row my-6 wow bounceInUp" data-wow-delay="0.1s">
+            <div class="col-12 text-center">
+                <h2 class="mb-4">Weather by Region</h2>
+                <p class="text-muted mb-5 mx-auto" style="max-width: 700px;">Tanzania's diverse geography means weather varies significantly by region. Here's what to expect in key areas throughout the year.</p>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded border bg-light h-100">
+                    <h4 class="mb-3"><i class="fas fa-tree text-success me-2"></i>Serengeti & Northern Circuit</h4>
+                    <p class="small">The Serengeti ecosystem experiences warm days and cool nights year-round. The dry season (June-October) offers the best wildlife viewing with temperatures of 20-28°C. The green season (November-May) brings rain but transforms the landscape into a lush paradise with temperatures of 22-30°C. Mornings and evenings can be cool, especially June-August when temperatures can drop to 12-15°C.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded border bg-light h-100">
+                    <h4 class="mb-3"><i class="fas fa-mountain text-primary me-2"></i>Kilimanjaro & Highlands</h4>
+                    <p class="small">Kilimanjaro's climate varies dramatically by altitude. At the base (800m), temperatures average 25-30°C. At the summit (5,895m), temperatures can drop to -20°C at night. The best climbing conditions are during the drier months (June-October, January-February). The long rains (March-May) make trails slippery and summit success rates lower.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded border bg-light h-100">
+                    <h4 class="mb-3"><i class="fas fa-umbrella-beach text-info me-2"></i>Zanzibar & Coast</h4>
+                    <p class="small">Zanzibar has a tropical climate with warm temperatures year-round (25-32°C). The best beach weather is during the dry seasons (June-October, December-February). The long rains (March-May) bring high humidity and frequent downpours, while the short rains (November) are lighter and shorter. The trade winds (June-September) make conditions pleasant and less humid.</p>
+                </div>
+            </div>
+            <div class="col-md-6 mb-4">
+                <div class="p-4 rounded border bg-light h-100">
+                    <h4 class="mb-3"><i class="fas fa-water text-primary me-2"></i>Southern & Western Parks</h4>
+                    <p class="small">Parks like Ruaha, Nyerere (Selous), and Mahale have a more concentrated rainy season (December-April) and a longer dry season (May-November). The dry season offers exceptional wildlife viewing along the Rufiji River and Great Ruaha River. These parks are less visited than the Northern Circuit, offering a more exclusive safari experience.</p>
+                </div>
             </div>
         </div>
 

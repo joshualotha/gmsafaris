@@ -25,6 +25,10 @@
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://use.fontawesome.com">
 
+    <!-- Preload hero image with responsive media queries for LCP optimization -->
+    <link rel="preload" as="image" href="{{ asset('img/serengeti-wildlife-safari-480w.webp') }}" media="(max-width: 480px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ asset('img/serengeti-wildlife-safari-768w.webp') }}" media="(min-width: 481px) and (max-width: 768px)" fetchpriority="high">
+    <link rel="preload" as="image" href="{{ asset('img/serengeti-wildlife-safari.webp') }}" media="(min-width: 769px)" fetchpriority="high">
 
     <!-- SEO Meta Tags -->
     <link rel="canonical" href="@yield('canonical', 'https://www.gmsafaris.co.tz/')">
@@ -42,13 +46,13 @@
     <meta property="og:title" content="@yield('og_title', 'Golden Memories Safaris | Premium Tanzania Safari Tours')">
     <meta property="og:description" content="@yield('og_description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')">
     <meta property="og:url" content="@yield('og_url', 'https://www.gmsafaris.co.tz/')">
-    <meta property="og:image" content="@yield('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')">
+    <meta property="og:image" content="@yield('og_image', 'https://www.gmsafaris.co.tz/img/serengeti-wildlife-safari.webp')">
     <meta property="og:site_name" content="Golden Memories Safaris">
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary_large_image">
     <meta name="twitter:title" content="@yield('twitter_title', 'Golden Memories Safaris | Premium Tanzania Safari Tours')">
     <meta name="twitter:description" content="@yield('twitter_description', 'Golden Memories Safaris - Premium Tanzania safari tours, wildlife adventures, Kilimanjaro treks, and Zanzibar escapes. Create lifelong memories.')">
-    <meta name="twitter:image" content="@yield('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')">
+    <meta name="twitter:image" content="@yield('twitter_image', 'https://www.gmsafaris.co.tz/img/serengeti-wildlife-safari.webp')">
     <meta name="robots" content="index, follow">
     <meta name="author" content="Golden Memories Safaris">
     <meta name="geo.region" content="TZ-01">
@@ -75,8 +79,8 @@
     <link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet"></noscript>
 
-    <!-- Template Stylesheet -->
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
+    <!-- Template Stylesheet (minified for production) -->
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @yield('extra_styles')
 
     <!-- Structured Data (JSON-LD) -->

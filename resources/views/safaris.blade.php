@@ -501,6 +501,140 @@
 </div>
 <!-- Safaris Intro End -->
 
+<!-- Safari Types Overview Start -->
+<div class="container-fluid py-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-12 text-center mb-3">
+                <h2 class="mb-2">Types of Tanzania Safaris</h2>
+                <p class="text-muted">From luxury lodges to budget camping, find the safari style that suits you.</p>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.1s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-crown fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Luxury Safaris</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Experience Tanzania in ultimate comfort with stays at premium lodges and tented camps. Enjoy gourmet dining, private guides, spa treatments, and exclusive game drives. Ideal for honeymoons, anniversaries, and travelers who appreciate the finer things.</p>
+                    <a href="{{ url('/luxurysafari') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Luxury Safaris <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.2s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-campground fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Budget Safaris</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Affordable Tanzania safaris without compromising the experience. Stay in comfortable budget lodges or participate in camping safaris. Perfect for backpackers, students, and cost-conscious travelers seeking authentic wildlife encounters.</p>
+                    <a href="{{ url('/budgetsafari') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Budget Safaris <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.3s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-users fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Group & Join Safaris</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Share the adventure with like-minded travelers on our scheduled group departures. Lower costs through shared safari vehicles, great for solo travelers who want to meet new people while exploring Tanzania's top destinations.</p>
+                    <a href="{{ url('/groupsafaris') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Group Safaris <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.4s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-route fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Tailor-Made Safaris</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Design your dream itinerary from scratch. Choose your destinations, accommodation style, activities, and pace. Our expert team crafts a personalized safari that matches your interests, budget, and schedule perfectly.</p>
+                    <a href="{{ url('/tailoredsafaris') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Design Your Safari <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.5s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-mountain fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Mountain Trekking</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Conquer Africa's highest peak or explore the lush trails of Mount Meru. Our Kilimanjaro trekking packages include expert guides, quality equipment, and full support. Also offering hiking adventures in the Usambara and Pare Mountains.</p>
+                    <a href="{{ url('/mountaintrekking') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Trekking <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 wow fadeInUp" data-wow-delay="0.6s">
+                <div class="p-4 rounded border bg-white h-100 shadow-sm">
+                    <div class="d-flex align-items-center mb-3">
+                        <i class="fas fa-umbrella-beach fa-2x text-primary me-3"></i>
+                        <h5 class="mb-0">Safari & Beach Combos</h5>
+                    </div>
+                    <p class="small text-muted mb-0">Combine the thrill of a wildlife safari with the relaxation of Zanzibar's pristine beaches. Our safari and beach holiday packages offer the best of both worlds — game drives in Serengeti followed by sunsets on Zanzibar's white sands.</p>
+                    <a href="{{ url('/zanzibarbeachholiday') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Combos <i class="fas fa-arrow-right ms-1"></i></a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Safari Types Overview End -->
+
+<!-- Popular Destinations Quick Links Start -->
+<div class="container-fluid bg-light py-5 wow fadeInUp" data-wow-delay="0.1s">
+    <div class="container">
+        <div class="text-center mb-4">
+            <h2 class="mb-2">Popular Safari Destinations</h2>
+            <p class="text-muted">Our safaris visit Tanzania's most iconic parks and attractions.</p>
+        </div>
+        <div class="row g-3 justify-content-center">
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/serengeti') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-paw fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Serengeti</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/ngorongoro') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-mountain fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Ngorongoro</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/kilimanjaro') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-snowflake fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Kilimanjaro</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/tarangire') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-tree fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Tarangire</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/zanzibar') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-umbrella-beach fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Zanzibar</h6>
+                    </div>
+                </a>
+            </div>
+            <div class="col-6 col-md-4 col-lg-2 text-center">
+                <a href="{{ url('/destination/lake-manyara') }}" class="text-decoration-none">
+                    <div class="p-3 rounded bg-white shadow-sm border">
+                        <i class="fas fa-water fa-2x text-primary mb-2"></i>
+                        <h6 class="mb-0 small">Lake Manyara</h6>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Popular Destinations Quick Links End -->
+
 <!-- Search & Filter Bar Start -->
 <div class="container-fluid premium-filter-bar">
     <div class="container">

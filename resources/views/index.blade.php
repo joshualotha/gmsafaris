@@ -505,7 +505,7 @@
   "name": "Golden Memories Safaris",
   "url": "https://www.gmsafaris.co.tz",
   "logo": "https://www.gmsafaris.co.tz/img/logo.webp",
-  "image": "https://www.gmsafaris.co.tz/img/hero-1.webp",
+  "image": "https://www.gmsafaris.co.tz/img/serengeti-wildlife-safari.webp",
   "description": "Golden Memories Safaris is a premier tour operator based in Arusha, Tanzania, specializing in wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and cultural tours.",
   "telephone": "+255786383273",
   "email": "info@gmsafaris.co.tz",
@@ -566,7 +566,12 @@
         <!-- Slide 1 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-1.webp') }}" alt="Tanzania Wildlife Encounter" width="1920" height="900" fetchpriority="high">
+                <img src="{{ asset('img/serengeti-wildlife-safari.webp') }}"
+                     srcset="{{ asset('img/serengeti-wildlife-safari-480w.webp') }} 480w,
+                             {{ asset('img/serengeti-wildlife-safari-768w.webp') }} 768w,
+                             {{ asset('img/serengeti-wildlife-safari.webp') }} 1920w"
+                     sizes="100vw"
+                     alt="Tanzania Wildlife Safari Encounter in Serengeti National Park" width="1920" height="900" fetchpriority="high">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
@@ -587,7 +592,12 @@
         <!-- Slide 2 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-2.webp') }}" alt="Maasai People Tanzania" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/maasai-people-tanzania.webp') }}"
+                     srcset="{{ asset('img/maasai-people-tanzania-480w.webp') }} 480w,
+                             {{ asset('img/maasai-people-tanzania-768w.webp') }} 768w,
+                             {{ asset('img/maasai-people-tanzania.webp') }} 1920w"
+                     sizes="100vw"
+                     alt="Maasai People Tanzania Cultural Experience" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
@@ -608,7 +618,12 @@
         <!-- Slide 3 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-3.webp') }}" alt="Serengeti Adventure" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/serengeti-adventure-safari.webp') }}"
+                     srcset="{{ asset('img/serengeti-adventure-safari-480w.webp') }} 480w,
+                             {{ asset('img/serengeti-adventure-safari-768w.webp') }} 768w,
+                             {{ asset('img/serengeti-adventure-safari.webp') }} 1920w"
+                     sizes="100vw"
+                     alt="Serengeti Safari Adventure Wildlife Viewing" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
@@ -628,7 +643,12 @@
         <!-- Slide 4 -->
         <div class="item">
             <div class="carousel-image-container">
-                <img src="{{ asset('img/hero-4.webp') }}" alt="Ngorongoro Crater Safari Vehicle" width="1920" height="900" loading="lazy">
+                <img src="{{ asset('img/ngorongoro-crater-safari.webp') }}"
+                     srcset="{{ asset('img/ngorongoro-crater-safari-480w.webp') }} 480w,
+                             {{ asset('img/ngorongoro-crater-safari-768w.webp') }} 768w,
+                             {{ asset('img/ngorongoro-crater-safari.webp') }} 1920w"
+                     sizes="100vw"
+                     alt="Ngorongoro Crater Safari Vehicle Wildlife Viewing" width="1920" height="900" loading="lazy">
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>

@@ -1,15 +1,15 @@
 @extends('layouts.app')
 
-@section('title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts')
-@section('keywords', 'About Golden Memories Safaris, Tanzania tour operator, local safari company, expert guides, sustainable tourism, Arusha safari company')
-@section('description', 'Discover Golden Memories Safaris — a passionate local Tanzanian tour operator in Arusha. Meet our expert guides, learn our story, and see why travelers trust us for authentic safari adventures.')
+@section('title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
+@section('keywords', 'About Golden Memories Safaris, Tanzania tour operator, local safari company, expert guides, sustainable tourism, Arusha safari company, TATO registered, TANAPA partner')
+@section('description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('canonical', 'https://www.gmsafaris.co.tz/about')
-@section('og_title', 'About Us - Golden Memories Safaris')
-@section('og_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
+@section('og_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
+@section('og_description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('og_url', 'https://www.gmsafaris.co.tz/about')
 @section('og_image', 'https://www.gmsafaris.co.tz/img/about.webp')
-@section('twitter_title', 'About Us - Golden Memories Safaris')
-@section('twitter_description', 'Learn about Golden Memories Safaris, a passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.')
+@section('twitter_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
+@section('twitter_description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.webp')
 
 @section('structured_data')
@@ -252,6 +252,123 @@
     </div>
     <!-- Why Choose Us End -->
 
+    <!-- Meet Our Team Start -->
+    <div class="container-fluid py-6 bg-light">
+        <div class="container">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-white border border-primary rounded-pill px-4 py-1 mb-3">Meet Our Team</small>
+                <h1 class="display-5 mb-3">The Faces Behind Your Safari</h1>
+                <p class="lead text-muted mb-5 mx-auto" style="max-width: 700px;">Our team of passionate Tanzanian travel experts brings decades of combined experience in wildlife, hospitality, and safari logistics. Every member shares one mission: creating your perfect African adventure.</p>
+            </div>
+            <div class="row g-4 justify-content-center">
+
+                <!-- Team Member 1 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="team-item card border-0 shadow-sm h-100">
+                        <img src="{{ asset('img/Erlend G.webp') }}" class="card-img-top" alt="Erlend G. — Founder & Lead Safari Guide at Golden Memories Safaris" loading="lazy">
+                        <div class="team-content card-body text-center">
+                            <h4 class="mb-1">Erlend G.</h4>
+                            <p class="text-primary fw-semibold mb-2">Founder & Lead Safari Guide</p>
+                            <p class="small text-muted mb-3">With years of experience exploring Tanzania's national parks, Erlend founded Golden Memories Safaris to share his deep love for the wild. A certified guide with expert knowledge of the Serengeti ecosystem, Ngorongoro Crater, and off-the-beaten-path destinations, he personally ensures every safari exceeds expectations.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <span class="badge bg-light text-dark border"><i class="fas fa-certificate text-primary me-1"></i>Certified Safari Guide</span>
+                                <span class="badge bg-light text-dark border"><i class="fas fa-map-pin text-primary me-1"></i>Serengeti Specialist</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 2 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="team-item card border-0 shadow-sm h-100">
+                        <img src="{{ asset('img/about-1.webp') }}" class="card-img-top" alt="Golden Memories Safaris operations and guest relations team in Arusha" loading="lazy">
+                        <div class="team-content card-body text-center">
+                            <h4 class="mb-1">Operations & Guest Relations Team</h4>
+                            <p class="text-primary fw-semibold mb-2">Safari Planning & Logistics</p>
+                            <p class="small text-muted mb-3">Our dedicated operations team handles every detail of your safari — from accommodation bookings and park permits to airport transfers and dietary requirements. Fluent in English, Italian, French, and Swedish, they ensure seamless communication from your first inquiry to your farewell.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <span class="badge bg-light text-dark border"><i class="fas fa-language text-primary me-1"></i>Multilingual Support</span>
+                                <span class="badge bg-light text-dark border"><i class="fas fa-clock text-primary me-1"></i>24/7 Availability</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Team Member 3 -->
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="team-item card border-0 shadow-sm h-100">
+                        <img src="{{ asset('img/serval-eland.webp') }}" class="card-img-top" alt="Professional safari driver-guides at Golden Memories Safaris" loading="lazy">
+                        <div class="team-content card-body text-center">
+                            <h4 class="mb-1">Professional Driver-Guides</h4>
+                            <p class="text-primary fw-semibold mb-2">Wildlife & Wilderness Experts</p>
+                            <p class="small text-muted mb-3">Our driver-guides are the heart of the safari experience. Each holds professional guiding certifications, with specialized knowledge in animal behavior, bird identification, and Tanzania's ecology. Many have grown up in communities surrounding the national parks, offering authentic insights no guidebook can provide.</p>
+                            <div class="d-flex justify-content-center gap-2">
+                                <span class="badge bg-light text-dark border"><i class="fas fa-binoculars text-primary me-1"></i>Wildlife Tracking</span>
+                                <span class="badge bg-light text-dark border"><i class="fas fa-star text-primary me-1"></i>5-Star Rated</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+    <!-- Meet Our Team End -->
+
+    <!-- Certifications & Affiliations Start -->
+    <div class="container-fluid py-6">
+        <div class="container">
+            <div class="text-center wow bounceInUp" data-wow-delay="0.1s">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Trust & Credentials</small>
+                <h1 class="display-5 mb-5">Our Certifications & Affiliations</h1>
+            </div>
+            <div class="row g-4 justify-content-center">
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-shield-alt fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">TATO Registered</h4>
+                        <p class="small text-muted mb-0">Registered with the Tanzania Association of Tour Operators, ensuring compliance with industry standards, safety protocols, and ethical business practices.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.2s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-tree fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">TANAPA Partner</h4>
+                        <p class="small text-muted mb-0">Authorized partner of Tanzania National Parks, with direct access to park fees, permits, and up-to-date information on park conditions and wildlife movements.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-hand-holding-heart fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">Responsible Tourism</h4>
+                        <p class="small text-muted mb-0">Committed to sustainable travel practices including wildlife conservation support, community engagement, plastic reduction, and cultural respect initiatives.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.4s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-star fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">TripAdvisor Listed</h4>
+                        <p class="small text-muted mb-0">Featured on TripAdvisor with genuine traveler reviews. We encourage all guests to share their experiences, helping future travelers make informed decisions.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-briefcase fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">Licensed & Insured</h4>
+                        <p class="small text-muted mb-0">Fully licensed tour operator with comprehensive liability insurance and emergency evacuation coverage, ensuring your safety and peace of mind throughout your journey.</p>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.6s">
+                    <div class="text-center p-4 shadow-sm rounded border h-100 bg-white">
+                        <i class="fas fa-globe-africa fa-3x text-primary mb-3"></i>
+                        <h4 class="mb-2">Local & Authentic</h4>
+                        <p class="small text-muted mb-0">100% Tanzanian-owned and operated. Your safari directly supports local families, guides, lodges, and conservation efforts across Tanzania.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Certifications & Affiliations End -->
 
     <!-- Call to Action Start -->
     <div class="container-fluid py-6 wow fadeInUp" data-wow-delay="0.1s" style="background: var(--bs-primary-light-subtle);">
