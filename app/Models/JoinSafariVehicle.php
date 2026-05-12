@@ -27,36 +27,6 @@ class JoinSafariVehicle extends Model
         return $this->belongsTo(JoinSafari::class);
     }
 
-    // ─── Accessors (computed from parent distribution, NOT participant FK) ────
-
-    /**
-     * Seats filled is computed by distributing total confirmed people
-     * across vehicles. No participant-to-vehicle assignment exists.
-     * Pure math on loaded relations — no DB queries, no N+1 risk.
-     */
-    public function getSeatsFilledAttribute(): int
-    {
-        if (!$this->relationLoaded('joinSafari')) {
-            $this->load('joinSafari');
-        }
-        return $this->joinSafari->computeVehicleDistribution()[$this->id] ?? 0;
-    }
-
-    public function getSeatsAvailableAttribute(): int
-    {
-        return max(0, $this->capacity - $this->seats_filled);
-    }
-
-    public function getIsFullAttribute(): bool
-    {
-        return $this->seats_available <= 0;
-    }
-
-    public function getMeetsMinimumAttribute(): bool
-    {
-        return $this->seats_filled >= $this->min_required;
-    }
-
     // ─── Scopes ────────────────────────────────────────────────
 
     public function scopeOpen($query)

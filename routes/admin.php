@@ -80,9 +80,8 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::patch('/join-safaris/{joinSafari}/toggle-active', [JoinSafariController::class, 'toggleActive'])->name('join-safaris.toggle-active');
         Route::patch('/join-safaris/{joinSafari}/status', [JoinSafariController::class, 'updateStatus'])->name('join-safaris.update-status');
 
-        // Join Safari Vehicle Management
-        Route::patch('/join-safaris/{joinSafari}/check-vehicles', [JoinSafariController::class, 'checkVehicles'])->name('join-safaris.check-vehicles');
-        Route::patch('/join-safari-vehicles/{vehicle}/cancel', [JoinSafariController::class, 'cancelVehicle'])->name('join-safari-vehicles.cancel');
+        // Update vehicle status
+        Route::patch('/join-safari-vehicles/{vehicle}/status', [JoinSafariController::class, 'updateVehicleStatus'])->name('join-safari-vehicles.update-status');
 
         // Join Safari Participants
         Route::patch('/join-safari-participants/{participant}/confirm', [JoinSafariController::class, 'confirmParticipant'])->name('join-safari-participants.confirm');

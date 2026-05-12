@@ -116,32 +116,6 @@ class JoinSafari extends Model
         return $this->vehicles->where('status', 'open')->count();
     }
 
-    /**
-     * Distribute total confirmed people across vehicles for display.
-     * Vehicles are NOT physical assignments — this is purely for visual
-     * representation of how many seats are filled in each logical bucket.
-     *
-     * @return array<int, int>  [vehicle_id => computed_seats_filled]
-     */
-    public function computeVehicleDistribution(): array
-    {
-        $total = $this->spots_filled;
-        $distribution = [];
-        $remaining = $total;
-
-        foreach ($this->vehicles as $vehicle) {
-            if ($vehicle->status === 'cancelled') {
-                $distribution[$vehicle->id] = 0;
-                continue;
-            }
-            $fill = min($remaining, $vehicle->capacity);
-            $distribution[$vehicle->id] = $fill;
-            $remaining -= $fill;
-        }
-
-        return $distribution;
-    }
-
     public function scopeOpen($query)
     {
         return $query->where('status', 'open')->where('is_active', true);

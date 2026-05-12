@@ -7,7 +7,6 @@ use App\Models\JoinSafari;
 use App\Models\JoinSafariParticipant;
 use App\Models\JoinSafariVehicle;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
@@ -177,113 +176,17 @@ class JoinSafariController extends Controller
     // ─── Vehicle Management ──────────────────────────────────────────────────
 
     /**
-     * Check all open vehicles for a join safari.
-     * Auto-confirms vehicles meeting minimum, auto-cancels those that don't,
-     * and sends cancellation emails to affected participants.
+     * Update a vehicle's status manually.
      */
-    public function checkVehicles(JoinSafari $joinSafari)
+    public function updateVehicleStatus(Request $request, JoinSafariVehicle $vehicle)
     {
-        $joinSafari->load('vehicles');
-        $totalConfirmed = $joinSafari->spots_filled;
+        $validated = $request->validate([
+            'status' => 'required|in:open,confirmed,cancelled',
+        ]);
 
-        $confirmedCount = 0;
-        $cancelledCount = 0;
+        $vehicle->update($validated);
 
-        // Distribute confirmed people across vehicles for display
-        $distribution = $joinSafari->computeVehicleDistribution();
-        $minPerVehicle = $joinSafari->min_participants ?? 5;
-        $capacityPerVehicle = 7;
-
-        // Calculate how many vehicles are needed for the current total
-        $neededVehicles = $totalConfirmed > 0
-            ? (int) ceil($totalConfirmed / $capacityPerVehicle)
-            : 0;
-
-        // Ensure we have at least enough vehicles
-        $currentCount = $joinSafari->vehicles()->count();
-        while ($currentCount < max($neededVehicles, 1)) {
-            $nextNumber = $joinSafari->vehicles()->max('vehicle_number') + 1;
-            $joinSafari->vehicles()->create([
-                'vehicle_number' => $nextNumber,
-                'capacity' => 7,
-                'min_required' => $minPerVehicle,
-                'status' => 'open',
-            ]);
-            $currentCount++;
-        }
-
-        // Re-load and re-distribute
-        $joinSafari->load('vehicles');
-        $distribution = $joinSafari->computeVehicleDistribution();
-
-        // Now evaluate each vehicle
-        foreach ($joinSafari->vehicles as $vehicle) {
-            $filled = $distribution[$vehicle->id] ?? 0;
-
-            if ($filled >= $minPerVehicle) {
-                if ($vehicle->status !== 'cancelled') {
-                    $vehicle->update(['status' => 'confirmed']);
-                    $confirmedCount++;
-                }
-            } elseif ($filled > 0 && $filled < $minPerVehicle) {
-                // Has some people but not enough — cancel this vehicle
-                if ($vehicle->status === 'open') {
-                    $this->cancelVehicle($vehicle);
-                    $cancelledCount++;
-                }
-            } elseif ($filled === 0 && $vehicle->status === 'open') {
-                // Empty vehicle — just leave it open
-            }
-        }
-
-        // Determine overall safari status
-        $joinSafari->refresh();
-        $remainingOpen = $joinSafari->vehicles()->open()->count();
-        $hasConfirmed = $joinSafari->vehicles()->confirmed()->count() > 0;
-
-        if ($hasConfirmed && $remainingOpen === 0) {
-            $joinSafari->update(['status' => 'confirmed']);
-        } elseif (!$hasConfirmed && $remainingOpen === 0) {
-            $joinSafari->update(['status' => 'cancelled']);
-        }
-
-        $message = "Vehicles checked: {$confirmedCount} confirmed, {$cancelledCount} cancelled.";
-        return back()->with('success', $message);
-    }
-
-    /**
-     * Cancel a specific vehicle and notify ALL confirmed participants of this safari
-     * (since vehicles are display-only, participants aren't assigned to one vehicle).
-     */
-    public function cancelVehicle(JoinSafariVehicle $vehicle)
-    {
-        $vehicle->update(['status' => 'cancelled']);
-
-        // Since vehicles are display-only, notify ALL confirmed participants
-        $joinSafari = $vehicle->joinSafari()->first();
-        $participants = $joinSafari->confirmedParticipants()->get();
-
-        foreach ($participants as $participant) {
-            try {
-                Mail::send(
-                    'emails.join-safari.vehicle-cancelled',
-                    [
-                        'participant' => $participant,
-                        'vehicle' => $vehicle,
-                        'joinSafari' => $vehicle->joinSafari,
-                    ],
-                    function ($message) use ($participant, $vehicle) {
-                        $message->to($participant->email, $participant->name)
-                            ->subject('Vehicle Cancellation Notice — ' . $vehicle->joinSafari->title);
-                    }
-                );
-            } catch (\Exception $e) {
-                \Illuminate\Support\Facades\Log::error(
-                    'Failed to send vehicle cancellation email to ' . $participant->email,
-                    ['error' => $e->getMessage()]
-                );
-            }
-        }
+        return back()->with('success', 'Vehicle #' . $vehicle->vehicle_number . ' status updated to ' . $validated['status'] . '.');
     }
 
     // ─── Participant Management ───────────────────────────────────────────────
