@@ -14,12 +14,12 @@ class JoinSafariController extends Controller
     public function index()
     {
         $joinSafaris = JoinSafari::open()
-            ->upcoming()
+            ->orderBy('start_date')
             ->paginate(12);
 
         $featured = JoinSafari::open()
             ->featured()
-            ->upcoming()
+            ->orderBy('start_date')
             ->take(3)
             ->get();
 
