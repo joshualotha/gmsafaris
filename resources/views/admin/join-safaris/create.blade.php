@@ -58,17 +58,9 @@
             <div class="row g-4">
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label">Max People *</label>
-                        <input type="number" name="max_participants" class="form-control @error('max_participants') is-invalid @enderror" value="{{ old('max_participants', 10) }}" min="1" required>
-                        <small class="text-muted">Total spots available</small>
-                        @error('max_participants') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                    </div>
-                </div>
-                <div class="col-md-4">
-                    <div class="mb-3">
-                        <label class="form-label">Min People *</label>
-                        <input type="number" name="min_participants" class="form-control @error('min_participants') is-invalid @enderror" value="{{ old('min_participants', 4) }}" min="1" required>
-                        <small class="text-muted">Minimum to run the safari</small>
+                        <label class="form-label">Min People Per Vehicle</label>
+                        <input type="number" name="min_participants" class="form-control @error('min_participants') is-invalid @enderror" value="{{ old('min_participants', 5) }}" min="1">
+                        <small class="text-muted">Minimum to run each vehicle (default: 5)</small>
                         @error('min_participants') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
@@ -78,6 +70,11 @@
                         <input type="number" step="0.01" name="price_per_person" class="form-control" value="{{ old('price_per_person') }}">
                     </div>
                 </div>
+            </div>
+
+            <div class="alert alert-info mb-3">
+                <i class="fas fa-info-circle me-2"></i>
+                Each safari vehicle carries <strong>7 people</strong>. Additional vehicles are created automatically when one fills up. No maximum limit — as many vehicles as needed!
             </div>
 
             <div class="row g-4">

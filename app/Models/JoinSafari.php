@@ -69,19 +69,43 @@ class JoinSafari extends Model
         return $this->hasMany(JoinSafariParticipant::class)->where('is_confirmed', true);
     }
 
+    public function vehicles()
+    {
+        return $this->hasMany(JoinSafariVehicle::class)->orderBy('vehicle_number');
+    }
+
+    public function openVehicles()
+    {
+        return $this->hasMany(JoinSafariVehicle::class)->where('status', 'open')->orderBy('vehicle_number');
+    }
+
     public function getSpotsFilledAttribute()
     {
-        return $this->confirmedParticipants()->sum('number_of_people');
+        return $this->vehicles->sum(fn($v) => $v->seats_filled);
     }
 
     public function getSpotsRemainingAttribute()
     {
-        return $this->max_participants - $this->spots_filled;
+        return $this->vehicles
+            ->where('status', 'open')
+            ->sum(fn($v) => $v->seats_available);
     }
 
     public function getIsJoinableAttribute()
     {
-        return $this->is_active && $this->status === 'open' && $this->spots_remaining > 0;
+        return $this->is_active
+            && $this->status === 'open'
+            && $this->vehicles()->where('status', 'open')->exists();
+    }
+
+    public function getTotalVehiclesAttribute()
+    {
+        return $this->vehicles->count();
+    }
+
+    public function getOpenVehiclesCountAttribute()
+    {
+        return $this->vehicles->where('status', 'open')->count();
     }
 
     public function scopeOpen($query)

@@ -51,9 +51,8 @@
                                 <small class="text-muted">joined</small>
                             </td>
                             <td>
-                                <span class="badge bg-warning text-dark">{{ $joinSafari->min_participants }}</span>
-                                <i class="fas fa-arrow-right mx-1 text-muted"></i>
-                                <span class="badge bg-success">{{ $joinSafari->max_participants }}</span>
+                                <span class="badge bg-primary">{{ $joinSafari->total_vehicles ?? 0 }}</span>
+                                <small class="text-muted">vehicles</small>
                             </td>
                             <td>
                                 @if($joinSafari->price_per_person)

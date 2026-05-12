@@ -65,22 +65,17 @@
             <!-- Participants -->
             <hr>
             <h6 class="fw-bold mb-3">Participant Limits</h6>
+            <div class="alert alert-info mb-3">
+                <i class="fas fa-car me-2"></i>
+                Vehicles carry <strong>7 people</strong> each. Additional vehicles are created automatically. No maximum.
+            </div>
             <div class="row g-4">
                 <div class="col-md-6">
                     <div class="mb-3">
-                        <label class="form-label">Maximum Participants *</label>
-                        <input type="number" name="max_participants" class="form-control @error('max_participants') is-invalid @enderror"
-                               value="{{ old('max_participants', $joinSafari->max_participants) }}" min="1" required>
-                        <small class="text-muted">Total number of spots available</small>
-                        @error('max_participants') <div class="invalid-feedback">{{ $message }}</div> @enderror
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="mb-3">
-                        <label class="form-label">Minimum Participants Required *</label>
+                        <label class="form-label">Minimum People Per Vehicle *</label>
                         <input type="number" name="min_participants" class="form-control @error('min_participants') is-invalid @enderror"
                                value="{{ old('min_participants', $joinSafari->min_participants) }}" min="1" required>
-                        <small class="text-muted">If this minimum is not met, the safari will be unsuccessful/cancelled</small>
+                        <small class="text-muted">Minimum required for each vehicle to run (default: 5)</small>
                         @error('min_participants') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>

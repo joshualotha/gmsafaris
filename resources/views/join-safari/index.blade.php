@@ -85,17 +85,9 @@
                                                 @endif
                                             </div>
                                         </div>
-                                        <div class="progress mb-3" style="height: 8px;">
-                                            @php
-                                                $pct = $joinSafari->max_participants > 0
-                                                    ? round(($joinSafari->spots_filled / $joinSafari->max_participants) * 100)
-                                                    : 0;
-                                            @endphp
-                                            <div class="progress-bar bg-success" style="width: {{ min($pct, 100) }}%"></div>
-                                        </div>
                                         <div class="d-flex justify-content-between align-items-center mt-auto">
                                             <small class="text-muted">
-                                                <i class="fas fa-users me-1"></i> Min {{ $joinSafari->min_participants }} people
+                                                <i class="fas fa-car me-1"></i> {{ $joinSafari->vehicles_count ?? 0 }} vehicle(s)
                                             </small>
                                             <div class="d-flex gap-2">
                                                 <a href="{{ route('join-safari.show', $joinSafari->slug) }}" class="btn btn-outline-primary btn-sm rounded-pill px-3">
@@ -173,17 +165,9 @@
                                             @endif
                                         </div>
                                     </div>
-                                    <div class="progress mb-3" style="height: 8px;">
-                                        @php
-                                            $pct = $joinSafari->max_participants > 0
-                                                ? round(($joinSafari->spots_filled / $joinSafari->max_participants) * 100)
-                                                : 0;
-                                        @endphp
-                                        <div class="progress-bar bg-success" style="width: {{ min($pct, 100) }}%"></div>
-                                    </div>
                                     <div class="d-flex justify-content-between align-items-center mt-auto">
                                         <small class="text-muted">
-                                            <i class="fas fa-users me-1"></i> Min {{ $joinSafari->min_participants }} people
+                                            <i class="fas fa-car me-1"></i> {{ $joinSafari->vehicles_count ?? 0 }} vehicle(s)
                                         </small>
                                         <div class="d-flex gap-2">
                                             <a href="{{ route('join-safari.show', $joinSafari->slug) }}" class="btn btn-outline-primary btn-sm rounded-pill px-3">

@@ -163,42 +163,59 @@
                             <p class="text-muted small mb-3">{{ $joinSafari->price_label }}</p>
                         @endif
 
-                        <!-- Progress -->
-                        <div class="mb-3">
-                            <div class="d-flex justify-content-between mb-1">
-                                <small class="text-muted">Spots Filled</small>
-                                <small class="text-muted">{{ $joinSafari->spots_filled }} / {{ $joinSafari->max_participants }}</small>
-                            </div>
-                            <div class="progress" style="height: 12px;">
-                                @php
-                                    $pct = $joinSafari->max_participants > 0
-                                        ? round(($joinSafari->spots_filled / $joinSafari->max_participants) * 100)
-                                        : 0;
-                                @endphp
-                                <div class="progress-bar bg-success" style="width: {{ min($pct, 100) }}%"></div>
-                            </div>
-                        </div>
-
-                        <div class="d-flex justify-content-between mb-4">
+                        <!-- Overall Stats -->
+                        <div class="d-flex justify-content-between mb-3">
                             <div class="text-center">
                                 <strong class="d-block fs-4">{{ $joinSafari->spots_filled }}</strong>
                                 <small class="text-muted">Joined</small>
                             </div>
                             <div class="text-center">
                                 <strong class="d-block fs-4">{{ $joinSafari->spots_remaining }}</strong>
-                                <small class="text-muted">Left</small>
+                                <small class="text-muted">Seats Left</small>
                             </div>
                             <div class="text-center">
-                                <strong class="d-block fs-4">{{ $joinSafari->min_participants }}</strong>
-                                <small class="text-muted">Minimum</small>
+                                <strong class="d-block fs-4">{{ $joinSafari->total_vehicles }}</strong>
+                                <small class="text-muted">Vehicles</small>
                             </div>
                         </div>
 
-                        @if($joinSafari->is_joinable)
-                            <!-- Join Form -->
-                            <hr>
-                            <h5 class="fw-bold mb-3">Join This Safari</h5>
-                        @endif
+                        <!-- Vehicle Cards -->
+                        <div class="mb-3">
+                            <h6 class="fw-bold mb-2"><i class="fas fa-car me-2 text-primary"></i>Vehicle Status</h6>
+                            @forelse($joinSafari->vehicles as $vehicle)
+                                @php
+                                    $vPercent = $vehicle->capacity > 0
+                                        ? round(($vehicle->seats_filled / $vehicle->capacity) * 100)
+                                        : 0;
+                                    $vBarClass = $vehicle->meets_minimum
+                                        ? 'bg-success'
+                                        : ($vPercent > 0 ? 'bg-warning' : 'bg-secondary');
+                                    $vBadgeClass = match($vehicle->status) {
+                                        'open' => 'bg-primary',
+                                        'confirmed' => 'bg-success',
+                                        'cancelled' => 'bg-danger',
+                                        default => 'bg-secondary'
+                                    };
+                                @endphp
+                                <div class="card mb-2 {{ $vehicle->status === 'cancelled' ? 'border-danger opacity-50' : '' }}">
+                                    <div class="card-body py-2 px-3">
+                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                            <small class="fw-bold">Vehicle #{{ $vehicle->vehicle_number }}</small>
+                                            <span class="badge {{ $vBadgeClass }}">{{ ucfirst($vehicle->status) }}</span>
+                                        </div>
+                                        <div class="d-flex justify-content-between align-items-center">
+                                            <small>{{ $vehicle->seats_filled }}/{{ $vehicle->capacity }} seats</small>
+                                            <small class="text-muted">Min {{ $vehicle->min_required }}</small>
+                                        </div>
+                                        <div class="progress mt-1" style="height: 6px;">
+                                            <div class="progress-bar {{ $vBarClass }}" style="width: {{ min($vPercent, 100) }}%"></div>
+                                        </div>
+                                    </div>
+                                </div>
+                            @empty
+                                <p class="text-muted small mb-0">No vehicles assigned yet.</p>
+                            @endforelse
+                        </div>
 
                         @if(session('success'))
                             <div class="alert alert-success">
@@ -206,7 +223,16 @@
                             </div>
                         @endif
 
+                        @if(session('warning'))
+                            <div class="alert alert-warning">
+                                <i class="fas fa-exclamation-triangle me-2"></i>{{ session('warning') }}
+                            </div>
+                        @endif
+
                         @if($joinSafari->is_joinable)
+                            <!-- Join Form -->
+                            <hr>
+                            <h5 class="fw-bold mb-3">Join This Safari</h5>
                             <form action="{{ route('join-safari.join', $joinSafari->slug) }}" method="POST">
                                 @csrf
                                 <div class="mb-3">
@@ -233,12 +259,15 @@
                                     <label class="form-label">Number of People *</label>
                                     <input type="number" name="number_of_people" class="form-control @error('number_of_people') is-invalid @enderror"
                                            value="{{ old('number_of_people', 1) }}" min="1" max="{{ $joinSafari->spots_remaining }}" required>
-                                    <small class="text-muted">Max {{ $joinSafari->spots_remaining }} spots available</small>
+                                    <small class="text-muted">{{ $joinSafari->spots_remaining }} seats available across all vehicles</small>
                                     @error('number_of_people') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-3">
                                     <label class="form-label">Special Requests</label>
                                     <textarea name="special_requests" class="form-control" rows="3">{{ old('special_requests') }}</textarea>
+                                </div>
+                                <div class="alert alert-info small mb-3">
+                                    <i class="fas fa-info-circle me-1"></i> You'll be assigned to an available vehicle. Large parties may be split across vehicles if needed.
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
                                     <i class="fas fa-user-plus me-2"></i> Join Now

@@ -87,28 +87,6 @@
                     </span>
                 </div>
 
-                <!-- Progress Bar -->
-                <div class="mb-3">
-                    <div class="d-flex justify-content-between mb-1">
-                        <small class="text-muted">Spots Filled</small>
-                        <small class="text-muted">{{ $joinSafari->spots_filled }} / {{ $joinSafari->max_participants }}</small>
-                    </div>
-                    <div class="progress" style="height: 20px;">
-                        @php
-                            $percent = $joinSafari->max_participants > 0
-                                ? round(($joinSafari->spots_filled / $joinSafari->max_participants) * 100)
-                                : 0;
-                            $progressClass = $percent >= 100 ? 'bg-success' : ($percent >= 50 ? 'bg-info' : 'bg-warning');
-                        @endphp
-                        <div class="progress-bar {{ $progressClass }}" role="progressbar"
-                             style="width: {{ min($percent, 100) }}%;"
-                             aria-valuenow="{{ $joinSafari->spots_filled }}" aria-valuemin="0"
-                             aria-valuemax="{{ $joinSafari->max_participants }}">
-                            {{ $percent }}%
-                        </div>
-                    </div>
-                </div>
-
                 <div class="d-flex justify-content-between mb-3">
                     <div class="text-center">
                         <strong class="d-block fs-4">{{ $joinSafari->spots_filled }}</strong>
@@ -119,8 +97,8 @@
                         <small class="text-muted">Remaining</small>
                     </div>
                     <div class="text-center">
-                        <strong class="d-block fs-4">{{ $joinSafari->min_participants }}</strong>
-                        <small class="text-muted">Minimum</small>
+                        <strong class="d-block fs-4">{{ $joinSafari->total_vehicles }}</strong>
+                        <small class="text-muted">Vehicles</small>
                     </div>
                 </div>
 
@@ -158,6 +136,96 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+
+    <!-- Vehicles Section -->
+    <div class="table-container mb-4">
+        <div class="table-header">
+            <h5><i class="fas fa-car me-2 text-primary"></i>Vehicles ({{ $joinSafari->vehicles->count() }})</h5>
+            <form action="{{ route('admin.join-safaris.check-vehicles', $joinSafari) }}" method="POST" class="d-inline">
+                @csrf @method('PATCH')
+                <button type="submit" class="btn btn-sm btn-gold"
+                        onclick="return confirm('Check all open vehicles? This will confirm vehicles meeting their minimum and cancel those that don\\'t. Cancellation emails will be sent.')">
+                    <i class="fas fa-check-double me-1"></i> Check Vehicles
+                </button>
+            </form>
+        </div>
+        <div class="table-responsive">
+            <table class="table table-hover mb-0">
+                <thead>
+                    <tr>
+                        <th>Vehicle #</th>
+                        <th>Status</th>
+                        <th>Seats Filled</th>
+                        <th>Capacity</th>
+                        <th>Min Required</th>
+                        <th>Progress</th>
+                        <th>Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @forelse($joinSafari->vehicles as $vehicle)
+                        @php
+                            $vPercent = $vehicle->capacity > 0
+                                ? round(($vehicle->seats_filled / $vehicle->capacity) * 100)
+                                : 0;
+                            $vBarClass = $vehicle->meets_minimum
+                                ? 'bg-success'
+                                : ($vPercent > 0 ? 'bg-warning' : 'bg-secondary');
+                        @endphp
+                        <tr>
+                            <td><strong>Vehicle #{{ $vehicle->vehicle_number }}</strong></td>
+                            <td>
+                                @php
+                                    $vStatusClasses = [
+                                        'open' => 'badge bg-primary',
+                                        'confirmed' => 'badge bg-success',
+                                        'cancelled' => 'badge bg-danger',
+                                    ];
+                                @endphp
+                                <span class="{{ $vStatusClasses[$vehicle->status] ?? 'badge bg-secondary' }}">
+                                    {{ ucfirst($vehicle->status) }}
+                                </span>
+                                @if($vehicle->status === 'open' && $vehicle->meets_minimum)
+                                    <span class="badge bg-success ms-1" title="Meets minimum — ready to confirm">
+                                        <i class="fas fa-check"></i>
+                                    </span>
+                                @endif
+                            </td>
+                            <td><strong>{{ $vehicle->seats_filled }}</strong></td>
+                            <td>{{ $vehicle->capacity }}</td>
+                            <td>{{ $vehicle->min_required }}</td>
+                            <td style="width: 150px;">
+                                <div class="progress" style="height: 20px;">
+                                    <div class="progress-bar {{ $vBarClass }}" role="progressbar"
+                                         style="width: {{ min($vPercent, 100) }}%;">
+                                        {{ $vPercent }}%
+                                    </div>
+                                </div>
+                            </td>
+                            <td>
+                                @if($vehicle->status === 'open')
+                                    <form action="{{ route('admin.join-safari-vehicles.cancel', $vehicle) }}" method="POST"
+                                          onsubmit="return confirm('Cancel Vehicle #{{ $vehicle->vehicle_number }}? This will send cancellation emails to all confirmed participants.')">
+                                        @csrf @method('PATCH')
+                                        <button type="submit" class="btn btn-sm btn-outline-danger" title="Cancel this vehicle">
+                                            <i class="fas fa-ban"></i> Cancel
+                                        </button>
+                                    </form>
+                                @endif
+                            </td>
+                        </tr>
+                    @empty
+                        <tr>
+                            <td colspan="7" class="text-center py-3 text-muted">
+                                <i class="fas fa-car fa-2x mb-2 d-block"></i>
+                                No vehicles created yet.
+                            </td>
+                        </tr>
+                    @endforelse
+                </tbody>
+            </table>
         </div>
     </div>
 
