@@ -74,8 +74,8 @@
                                             <div>
                                                 <small class="text-muted">Spots:</small>
                                                 <div class="d-flex align-items-center gap-2 mt-1">
-                                                    <span class="badge bg-success">{{ $joinSafari->spots_filled }} filled</span>
-                                                    <span class="badge bg-warning text-dark">{{ $joinSafari->spots_remaining }} left</span>
+                                                    <span class="badge bg-success">{{ $joinSafari->spots_filled }} joined</span>
+                                                    <span class="badge bg-info">Unlimited capacity</span>
                                                 </div>
                                             </div>
                                             <div class="text-end">
@@ -154,8 +154,8 @@
                                         <div>
                                             <small class="text-muted">Spots:</small>
                                             <div class="d-flex align-items-center gap-2 mt-1">
-                                                <span class="badge bg-success">{{ $joinSafari->spots_filled }} filled</span>
-                                                <span class="badge bg-warning text-dark">{{ $joinSafari->spots_remaining }} left</span>
+                                                <span class="badge bg-success">{{ $joinSafari->spots_filled }} joined</span>
+                                                <span class="badge bg-info">Unlimited capacity</span>
                                             </div>
                                         </div>
                                         <div class="text-end">

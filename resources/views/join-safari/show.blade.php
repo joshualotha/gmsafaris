@@ -170,8 +170,8 @@
                                 <small class="text-muted">Joined</small>
                             </div>
                             <div class="text-center">
-                                <strong class="d-block fs-4">{{ $joinSafari->spots_remaining }}</strong>
-                                <small class="text-muted">Seats Left</small>
+                                <strong class="d-block fs-4 text-success">Unlimited</strong>
+                                <small class="text-muted">Capacity</small>
                             </div>
                             <div class="text-center">
                                 <strong class="d-block fs-4">{{ $joinSafari->total_vehicles }}</strong>
@@ -184,12 +184,6 @@
                             <h6 class="fw-bold mb-2"><i class="fas fa-car me-2 text-primary"></i>Vehicle Status</h6>
                             @forelse($joinSafari->vehicles as $vehicle)
                                 @php
-                                    $vPercent = $vehicle->capacity > 0
-                                        ? round(($vehicle->seats_filled / $vehicle->capacity) * 100)
-                                        : 0;
-                                    $vBarClass = $vehicle->meets_minimum
-                                        ? 'bg-success'
-                                        : ($vPercent > 0 ? 'bg-warning' : 'bg-secondary');
                                     $vBadgeClass = match($vehicle->status) {
                                         'open' => 'bg-primary',
                                         'confirmed' => 'bg-success',
@@ -199,17 +193,11 @@
                                 @endphp
                                 <div class="card mb-2 {{ $vehicle->status === 'cancelled' ? 'border-danger opacity-50' : '' }}">
                                     <div class="card-body py-2 px-3">
-                                        <div class="d-flex justify-content-between align-items-center mb-1">
+                                        <div class="d-flex justify-content-between align-items-center">
                                             <small class="fw-bold">Vehicle #{{ $vehicle->vehicle_number }}</small>
                                             <span class="badge {{ $vBadgeClass }}">{{ ucfirst($vehicle->status) }}</span>
                                         </div>
-                                        <div class="d-flex justify-content-between align-items-center">
-                                            <small>{{ $vehicle->seats_filled }}/{{ $vehicle->capacity }} seats</small>
-                                            <small class="text-muted">Min {{ $vehicle->min_required }}</small>
-                                        </div>
-                                        <div class="progress mt-1" style="height: 6px;">
-                                            <div class="progress-bar {{ $vBarClass }}" style="width: {{ min($vPercent, 100) }}%"></div>
-                                        </div>
+                                        <small class="text-muted">Min {{ $vehicle->min_required }} to confirm</small>
                                     </div>
                                 </div>
                             @empty
@@ -258,8 +246,8 @@
                                 <div class="mb-3">
                                     <label class="form-label">Number of People *</label>
                                     <input type="number" name="number_of_people" class="form-control @error('number_of_people') is-invalid @enderror"
-                                           value="{{ old('number_of_people', 1) }}" min="1" max="{{ $joinSafari->spots_remaining }}" required>
-                                    <small class="text-muted">{{ $joinSafari->spots_remaining }} seats available across all vehicles</small>
+                                           value="{{ old('number_of_people', 1) }}" min="1" required>
+                                    <small class="text-muted">More vehicles are added automatically — there's always room!</small>
                                     @error('number_of_people') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-3">
@@ -267,7 +255,7 @@
                                     <textarea name="special_requests" class="form-control" rows="3">{{ old('special_requests') }}</textarea>
                                 </div>
                                 <div class="alert alert-info small mb-3">
-                                    <i class="fas fa-info-circle me-1"></i> You'll be assigned to an available vehicle. Large parties may be split across vehicles if needed.
+                                    <i class="fas fa-info-circle me-1"></i> We add vehicles as the group grows. Join with confidence — capacity is never an issue. Large parties may be split across vehicles.
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
                                     <i class="fas fa-user-plus me-2"></i> Join Now

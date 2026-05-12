@@ -79,33 +79,67 @@ class JoinSafari extends Model
         return $this->hasMany(JoinSafariVehicle::class)->where('status', 'open')->orderBy('vehicle_number');
     }
 
-    public function getSpotsFilledAttribute()
+    /**
+     * Total confirmed people (direct from participants, not vehicle FK).
+     */
+    public function getSpotsFilledAttribute(): int
     {
-        return $this->vehicles->sum(fn($v) => $v->seats_filled);
+        return (int) $this->confirmedParticipants()->sum('number_of_people');
     }
 
-    public function getSpotsRemainingAttribute()
+    /**
+     * Open seats across all open vehicles, minus spots already filled.
+     */
+    public function getSpotsRemainingAttribute(): int
     {
-        return $this->vehicles
+        $totalOpenCapacity = $this->vehicles
             ->where('status', 'open')
-            ->sum(fn($v) => $v->seats_available);
+            ->sum('capacity');
+        return max(0, $totalOpenCapacity - $this->spots_filled);
     }
 
-    public function getIsJoinableAttribute()
+    /**
+     * Always joinable if active and open (vehicles auto-expand).
+     */
+    public function getIsJoinableAttribute(): bool
     {
-        return $this->is_active
-            && $this->status === 'open'
-            && $this->vehicles()->where('status', 'open')->exists();
+        return $this->is_active && $this->status === 'open';
     }
 
-    public function getTotalVehiclesAttribute()
+    public function getTotalVehiclesAttribute(): int
     {
         return $this->vehicles->count();
     }
 
-    public function getOpenVehiclesCountAttribute()
+    public function getOpenVehiclesCountAttribute(): int
     {
         return $this->vehicles->where('status', 'open')->count();
+    }
+
+    /**
+     * Distribute total confirmed people across vehicles for display.
+     * Vehicles are NOT physical assignments — this is purely for visual
+     * representation of how many seats are filled in each logical bucket.
+     *
+     * @return array<int, int>  [vehicle_id => computed_seats_filled]
+     */
+    public function computeVehicleDistribution(): array
+    {
+        $total = $this->spots_filled;
+        $distribution = [];
+        $remaining = $total;
+
+        foreach ($this->vehicles as $vehicle) {
+            if ($vehicle->status === 'cancelled') {
+                $distribution[$vehicle->id] = 0;
+                continue;
+            }
+            $fill = min($remaining, $vehicle->capacity);
+            $distribution[$vehicle->id] = $fill;
+            $remaining -= $fill;
+        }
+
+        return $distribution;
     }
 
     public function scopeOpen($query)

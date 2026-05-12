@@ -45,28 +45,36 @@ class JoinSafariController extends Controller
 
     /**
      * Store a new participant joining a safari.
-     * Vehicle-aware: assigns to an open vehicle, auto-creates new vehicles when needed,
-     * and splits large parties across vehicles if necessary.
+     * No vehicle assignment — participants go into a shared pool.
+     * Vehicles auto-expand when total confirmed exceeds open capacity.
      */
     public function join(Request $request, $slug)
     {
         $joinSafari = JoinSafari::where('slug', $slug)
             ->where('is_active', true)
             ->where('status', 'open')
-            ->with(['vehicles' => function ($q) {
-                $q->orderBy('vehicle_number');
-            }])
             ->firstOrFail();
 
         $requestedPeople = (int) $request->input('number_of_people', 1);
 
-        // Total available seats across all open vehicles
-        $totalOpenSeats = $joinSafari->spots_remaining;
+        // Check if there's still room (auto-expand always true while open)
+        $currentFilled = $joinSafari->spots_filled;
+        $openCapacity = $joinSafari->vehicles()->open()->sum('capacity');
+        $remainingOpen = max(0, $openCapacity - $currentFilled);
 
-        if ($requestedPeople > $totalOpenSeats) {
-            return back()->withErrors([
-                'number_of_people' => 'Sorry, only ' . $totalOpenSeats . ' total seat(s) remaining across all vehicles.'
-            ])->withInput();
+        // Auto-expand: if not enough room, create more vehicles
+        $newTotal = $currentFilled + $requestedPeople;
+        $totalCapacity = $joinSafari->vehicles()->sum('capacity');
+
+        while ($newTotal > $totalCapacity) {
+            $nextNumber = $joinSafari->vehicles()->max('vehicle_number') + 1;
+            $joinSafari->vehicles()->create([
+                'vehicle_number' => $nextNumber,
+                'capacity' => 7,
+                'min_required' => $joinSafari->min_participants ?? 5,
+                'status' => 'open',
+            ]);
+            $totalCapacity += 7;
         }
 
         $validated = $request->validate([
@@ -74,94 +82,22 @@ class JoinSafariController extends Controller
             'email' => 'required|email|max:255',
             'phone' => 'nullable|string|max:50',
             'country' => 'nullable|string|max:255',
-            'number_of_people' => 'required|integer|min:1|max:' . $totalOpenSeats,
+            'number_of_people' => 'required|integer|min:1',
             'special_requests' => 'nullable|string|max:2000',
         ]);
 
-        $baseData = [
+        JoinSafariParticipant::create([
             'join_safari_id' => $joinSafari->id,
             'name' => $validated['name'],
             'email' => $validated['email'],
             'phone' => $validated['phone'] ?? null,
             'country' => $validated['country'] ?? null,
+            'number_of_people' => $validated['number_of_people'],
             'special_requests' => $validated['special_requests'] ?? null,
             'is_confirmed' => true,
-        ];
-
-        $remaining = $requestedPeople;
-        $warnings = [];
-        $assignmentMessages = [];
-
-        // Get open vehicles, sorted by number
-        $openVehicles = $joinSafari->vehicles->where('status', 'open');
-
-        foreach ($openVehicles as $vehicle) {
-            if ($remaining <= 0) break;
-
-            $seatsAvailable = $vehicle->seats_available;
-            if ($seatsAvailable <= 0) continue;
-
-            $toAssign = min($remaining, $seatsAvailable);
-
-            if ($toAssign > 0) {
-                // Create participant record for this vehicle
-                JoinSafariParticipant::create(array_merge($baseData, [
-                    'number_of_people' => $toAssign,
-                    'join_safari_vehicle_id' => $vehicle->id,
-                ]));
-
-                $assignmentMessages[] = "{$toAssign} in Vehicle #{$vehicle->vehicle_number}";
-                $remaining -= $toAssign;
-
-                // Auto-confirm vehicle if it now meets its minimum
-                // Reload to get fresh seat counts
-                $vehicle->refresh();
-                if ($vehicle->status === 'open' && $vehicle->seats_filled >= $vehicle->min_required) {
-                    $vehicle->update(['status' => 'confirmed']);
-                }
-            }
-        }
-
-        // If still remaining people, create new vehicles
-        while ($remaining > 0) {
-            $nextNumber = $joinSafari->vehicles()->max('vehicle_number') + 1;
-
-            $newVehicle = $joinSafari->vehicles()->create([
-                'vehicle_number' => $nextNumber,
-                'capacity' => 7,
-                'min_required' => $joinSafari->min_participants ?? 5,
-                'status' => 'open',
-            ]);
-
-            $toAssign = min($remaining, 7);
-
-            JoinSafariParticipant::create(array_merge($baseData, [
-                'number_of_people' => $toAssign,
-                'join_safari_vehicle_id' => $newVehicle->id,
-            ]));
-
-            $assignmentMessages[] = "{$toAssign} in Vehicle #{$newVehicle->vehicle_number} (new)";
-            $remaining -= $toAssign;
-
-            if ($toAssign >= ($joinSafari->min_participants ?? 5)) {
-                $newVehicle->update(['status' => 'confirmed']);
-            }
-        }
-
-        // Build warning message if party was split
-        if (count($assignmentMessages) > 1) {
-            $warnings[] = 'Your party of ' . $requestedPeople . ' was split across vehicles: ' . implode(', ', $assignmentMessages) . '.';
-        }
-
-        $message = 'You have successfully joined this safari! ' . implode(' ', $assignmentMessages) . '. We will contact you shortly with more details.';
-
-        if (!empty($warnings)) {
-            return redirect()->route('join-safari.show', $joinSafari->slug)
-                ->with('success', $message)
-                ->with('warning', implode(' ', $warnings));
-        }
+        ]);
 
         return redirect()->route('join-safari.show', $joinSafari->slug)
-            ->with('success', $message);
+            ->with('success', 'You have successfully joined this safari! We will contact you shortly with more details.');
     }
 }

@@ -8,7 +8,6 @@ class JoinSafariParticipant extends Model
 {
     protected $fillable = [
         'join_safari_id',
-        'join_safari_vehicle_id',
         'name',
         'email',
         'phone',
@@ -26,10 +25,5 @@ class JoinSafariParticipant extends Model
     public function joinSafari()
     {
         return $this->belongsTo(JoinSafari::class);
-    }
-
-    public function vehicle()
-    {
-        return $this->belongsTo(JoinSafariVehicle::class, 'join_safari_vehicle_id');
     }
 }
