@@ -21,6 +21,7 @@
                         <th>Location</th>
                         <th>Featured</th>
                         <th>Active</th>
+                        <th>Published</th>
                         <th>Order</th>
                         <th>Actions</th>
                     </tr>
@@ -53,6 +54,15 @@
                                     </button>
                                 </form>
                             </td>
+                            <td>
+                                <form action="{{ route('admin.safaris.toggle-publish', $safari) }}" method="POST" class="d-inline">
+                                    @csrf @method('PATCH')
+                                    <button type="submit" class="btn btn-sm {{ $safari->is_published ? 'btn-success' : 'btn-secondary' }}">
+                                        <i class="fas {{ $safari->is_published ? 'fa-check-circle' : 'fa-times-circle' }}"></i>
+                                        {{ $safari->is_published ? 'Published' : 'Draft' }}
+                                    </button>
+                                </form>
+                            </td>
                             <td>{{ $safari->sort_order }}</td>
                             <td>
                                 <div class="action-group">
@@ -71,7 +81,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="8" class="text-center py-4 text-muted">
+                            <td colspan="9" class="text-center py-4 text-muted">
                                 <i class="fas fa-paw fa-2x mb-2 d-block"></i>
                                 No safaris found. <a href="{{ route('admin.safaris.create') }}">Create your first safari</a>.
                             </td>

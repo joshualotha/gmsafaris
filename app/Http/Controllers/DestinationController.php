@@ -53,7 +53,7 @@ class DestinationController extends Controller
         // Match destination name/slug to safari locations
         $destName = Str::lower($destination->name);
         $destSlug = Str::lower($destination->slug);
-        $allSafaris = Safari::active()->get();
+        $allSafaris = Safari::active()->published()->get();
         $relatedSafaris = $allSafaris->filter(function ($safari) use ($destName, $destSlug) {
             $safariLocation = $safari->location ? Str::lower($safari->location) : '';
             // Check main location field

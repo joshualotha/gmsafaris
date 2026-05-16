@@ -36,6 +36,7 @@ Route::prefix('admin')->name('admin.')->group(function () {
         Route::resource('safaris', SafariController::class)->except(['show']);
         Route::patch('/safaris/{safari}/toggle-featured', [SafariController::class, 'toggleFeatured'])->name('safaris.toggle-featured');
         Route::patch('/safaris/{safari}/toggle-active', [SafariController::class, 'toggleActive'])->name('safaris.toggle-active');
+        Route::patch('/safaris/{safari}/toggle-publish', [SafariController::class, 'togglePublish'])->name('safaris.toggle-publish');
 
         // Destinations CRUD
         Route::resource('destinations', DestinationController::class)->except(['show']);

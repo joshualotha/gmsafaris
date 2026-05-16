@@ -16,11 +16,11 @@ class BookingController extends Controller
      */
     public function create($slug = null)
     {
-        $safaris = Safari::active()->ordered()->get();
+        $safaris = Safari::active()->published()->ordered()->get();
         $selectedSafari = null;
 
         if ($slug) {
-            $selectedSafari = Safari::where('slug', $slug)->active()->first();
+            $selectedSafari = Safari::where('slug', $slug)->active()->published()->first();
         }
 
         // Retrieve any existing session data to resume a partial booking

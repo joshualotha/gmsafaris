@@ -36,6 +36,8 @@ class Safari extends Model
         'important_notes',
         'is_featured',
         'is_active',
+        'is_published',
+        'published_at',
         'sort_order',
         'seo_title',
         'seo_description',
@@ -53,6 +55,8 @@ class Safari extends Model
         'pricing_tiers' => 'array',
         'is_featured' => 'boolean',
         'is_active' => 'boolean',
+        'is_published' => 'boolean',
+        'published_at' => 'datetime',
         'price_from' => 'decimal:2',
     ];
 
@@ -79,6 +83,11 @@ class Safari extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
+    }
+
+    public function scopePublished($query)
+    {
+        return $query->where('is_published', true);
     }
 
     public function scopeOrdered($query)

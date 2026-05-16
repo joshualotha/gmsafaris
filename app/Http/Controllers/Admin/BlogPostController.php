@@ -120,6 +120,10 @@ class BlogPostController extends Controller
             $validated['featured_image'] = $request->file('featured_image')->store('blog', 'public');
         }
 
+        if ($request->boolean('is_published') && empty($validated['published_at'])) {
+            $validated['published_at'] = now();
+        }
+
         $blogPost->update($validated);
 
         return redirect()->route('admin.blog.index')

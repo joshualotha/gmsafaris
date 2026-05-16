@@ -386,19 +386,26 @@
             <!-- Status -->
             <hr>
             <div class="row g-4">
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-check mb-3">
                         <input type="checkbox" name="is_featured" class="form-check-input" value="1" id="is_featured" @checked(old('is_featured', $safari->is_featured))>
                         <label class="form-check-label" for="is_featured">Featured Safari</label>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
                     <div class="form-check mb-3">
                         <input type="checkbox" name="is_active" class="form-check-input" value="1" id="is_active" @checked(old('is_active', $safari->is_active))>
                         <label class="form-check-label" for="is_active">Active</label>
                     </div>
                 </div>
-                <div class="col-md-4">
+                <div class="col-md-3">
+                    <div class="form-check mb-3">
+                        <input type="checkbox" name="is_published" class="form-check-input" value="1" id="is_published" @checked(old('is_published', $safari->is_published))>
+                        <label class="form-check-label fw-bold" for="is_published">Published</label>
+                        <br><small class="text-muted">Uncheck to save as draft</small>
+                    </div>
+                </div>
+                <div class="col-md-3">
                     <div class="mb-3">
                         <label class="form-label">Sort Order</label>
                         <input type="number" name="sort_order" class="form-control" value="{{ old('sort_order', $safari->sort_order) }}" min="0">

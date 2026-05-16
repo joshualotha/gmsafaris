@@ -58,7 +58,7 @@ class SitemapController extends Controller
         // ──────────────────────────────────────────────
         // 2. Dynamic content — query active/published records
         // ──────────────────────────────────────────────
-        $safaris = Safari::active()->ordered()->get(['slug', 'updated_at']);
+        $safaris = Safari::active()->published()->ordered()->get(['slug', 'updated_at']);
         $destinations = Destination::active()->ordered()->get(['slug', 'updated_at']);
         $blogPosts = BlogPost::published()->recent()->get(['slug', 'updated_at', 'published_at']);
         $joinSafaris = JoinSafari::open()->upcoming()->get(['slug', 'updated_at']);

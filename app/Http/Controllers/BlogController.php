@@ -62,7 +62,7 @@ class BlogController extends Controller
 
         $relatedSafaris = collect();
         if ($postKeywords->isNotEmpty()) {
-            $allSafaris = Safari::active()->get();
+            $allSafaris = Safari::active()->published()->get();
             $relatedSafaris = $allSafaris->filter(function ($safari) use ($postKeywords) {
                 $safariText = Str::lower($safari->title . ' ' . ($safari->location ?? '') . ' ' . ($safari->type ?? '') . ' ' . ($safari->category ?? ''));
                 // Also check itinerary locations

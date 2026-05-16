@@ -15,7 +15,7 @@ class SafariController extends Controller
      */
     public function index(Request $request)
     {
-        $query = Safari::active()->ordered();
+        $query = Safari::active()->published()->ordered();
 
         // Search by keyword (title, short_description, location)
         if ($search = $request->input('search')) {
@@ -35,7 +35,7 @@ class SafariController extends Controller
         $safaris = $query->paginate(12)->withQueryString();
 
         // Get distinct duration options for the filter dropdown
-        $durations = Safari::active()->select('duration')->distinct()->whereNotNull('duration')->orderBy('duration')->pluck('duration');
+        $durations = Safari::active()->published()->select('duration')->distinct()->whereNotNull('duration')->orderBy('duration')->pluck('duration');
 
         return view('safaris', compact('safaris', 'durations'));
     }
@@ -45,7 +45,7 @@ class SafariController extends Controller
      */
     public function search(Request $request)
     {
-        $query = Safari::active()->ordered();
+        $query = Safari::active()->published()->ordered();
 
         if ($search = $request->input('search')) {
             $query->where(function ($q) use ($search) {
@@ -73,11 +73,12 @@ class SafariController extends Controller
      */
     public function show($slug)
     {
-        $safari = Safari::where('slug', $slug)->active()->firstOrFail();
+        $safari = Safari::where('slug', $slug)->active()->published()->firstOrFail();
         
         // Get related safaris (same category, excluding current)
         $relatedSafaris = Safari::where('id', '!=', $safari->id)
             ->active()
+            ->published()
             ->inRandomOrder()
             ->take(3)
             ->get();

@@ -59,6 +59,8 @@ class SafariController extends Controller
             'important_notes' => 'nullable|array',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'is_published' => 'boolean',
+            'published_at' => 'nullable|date',
             'sort_order' => 'integer|min:0',
             'seo_title' => 'nullable|max:255',
             'seo_description' => 'nullable',
@@ -82,6 +84,10 @@ class SafariController extends Controller
                 $gallery[] = $image->store('safaris/gallery', 'public');
             }
             $validated['gallery_images'] = $gallery;
+        }
+
+        if ($request->boolean('is_published') && empty($validated['published_at'])) {
+            $validated['published_at'] = now();
         }
 
         Safari::create($validated);
@@ -135,6 +141,8 @@ class SafariController extends Controller
             'important_notes' => 'nullable|array',
             'is_featured' => 'boolean',
             'is_active' => 'boolean',
+            'is_published' => 'boolean',
+            'published_at' => 'nullable|date',
             'sort_order' => 'integer|min:0',
             'seo_title' => 'nullable|max:255',
             'seo_description' => 'nullable',
@@ -183,6 +191,10 @@ class SafariController extends Controller
 
         $validated['gallery_images'] = $gallery;
 
+        if ($request->boolean('is_published') && empty($validated['published_at'])) {
+            $validated['published_at'] = now();
+        }
+
         $safari->update($validated);
 
         return redirect()->route('admin.safaris.index')
@@ -223,5 +235,14 @@ class SafariController extends Controller
     {
         $safari->update(['is_active' => !$safari->is_active]);
         return back()->with('success', 'Active status updated.');
+    }
+
+    public function togglePublish(Safari $safari)
+    {
+        $safari->update([
+            'is_published' => !$safari->is_published,
+            'published_at' => !$safari->is_published ? now() : $safari->published_at,
+        ]);
+        return back()->with('success', 'Publication status updated.');
     }
 }

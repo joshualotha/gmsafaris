@@ -15,11 +15,11 @@ class InquiryController extends Controller
      */
     public function create($slug = null)
     {
-        $safaris = Safari::active()->ordered()->get();
+        $safaris = Safari::active()->published()->ordered()->get();
         $selectedSafari = null;
 
         if ($slug) {
-            $selectedSafari = Safari::where('slug', $slug)->active()->first();
+            $selectedSafari = Safari::where('slug', $slug)->active()->published()->first();
         }
 
         return view('inquiry.create', compact('safaris', 'selectedSafari'));
