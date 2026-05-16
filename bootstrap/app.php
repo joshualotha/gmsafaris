@@ -4,11 +4,18 @@
 |--------------------------------------------------------------------------
 | Create The Application
 |--------------------------------------------------------------------------
+|
+| The public/ directory was removed during cPanel restructure. Apache serves
+| from the project root. usePublicPath() tells Laravel that the "public"
+| directory IS the project root, so public_path() returns base_path().
 */
 
 $app = new Illuminate\Foundation\Application(
     $_ENV['APP_BASE_PATH'] ?? dirname(__DIR__)
 );
+
+// Serve from project root (no public/ directory — cPanel restructure)
+$app->usePublicPath($app->basePath());
 
 /*
 |--------------------------------------------------------------------------
