@@ -2,7 +2,7 @@
 
 @section('title', 'Tanzania Safari Destinations | Parks, Mountains & Beaches')
 @section('keywords', 'Tanzania destinations, Serengeti, Kilimanjaro, Zanzibar, Ngorongoro, Tarangire, national parks Tanzania, lakes Tanzania, mountains Tanzania')
-@section('description', 'Explore Tanzania\'s breathtaking safari destinations — Serengeti National Park, Ngorongoro Crater, Kilimanjaro, Zanzibar & more. Plan your adventure with Golden Memories Safaris.')
+@section('description', 'Explore Tanzania\'s breathtaking safari destinations: Serengeti National Park, Ngorongoro Crater, Kilimanjaro, Zanzibar & more. Plan your adventure with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/destinations')
 @section('og_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('og_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
@@ -126,13 +126,13 @@
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/ngorongoro-viewpoint.webp') }}" class="img-fluid rounded shadow-lg" alt="Ngorongoro Crater viewpoint — one of Tanzania's most spectacular safari destinations" loading="lazy">
+                    <img src="{{ asset('img/ngorongoro-viewpoint.webp') }}" class="img-fluid rounded shadow-lg" alt="Ngorongoro Crater viewpoint, one of Tanzania's most spectacular safari destinations" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
                     <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Why Tanzania?</small>
                     <h2 class="mb-4">A Safari Destination Like No Other</h2>
-                    <p class="mb-3">Tanzania is widely regarded as Africa's premier safari destination — and for good reason. It is home to the <strong>Serengeti National Park</strong>, a UNESCO World Heritage Site and the stage for the Great Migration, where over 1.5 million wildebeest and hundreds of thousands of zebras traverse the plains in an endless cycle of life.</p>
-                    <p class="mb-3">Beyond the Serengeti, Tanzania boasts the <strong>Ngorongoro Crater</strong> — the world's largest intact volcanic caldera and a natural amphitheater for wildlife. The <strong>Mount Kilimanjaro</strong> massif, Africa's highest peak, draws trekkers from around the globe, while the <strong>Zanzibar Archipelago</strong> offers some of the Indian Ocean's most beautiful beaches.</p>
+                    <p class="mb-3">Tanzania is widely regarded as Africa's premier safari destination, and for good reason. It is home to the <strong>Serengeti National Park</strong>, a UNESCO World Heritage Site and the stage for the Great Migration, where over 1.5 million wildebeest and hundreds of thousands of zebras traverse the plains in an endless cycle of life.</p>
+                    <p class="mb-3">Beyond the Serengeti, Tanzania boasts the <strong>Ngorongoro Crater</strong>, the world's largest intact volcanic caldera and a natural amphitheater for wildlife. The <strong>Mount Kilimanjaro</strong> massif, Africa's highest peak, draws trekkers from around the globe, while the <strong>Zanzibar Archipelago</strong> offers some of the Indian Ocean's most beautiful beaches.</p>
                     <p class="mb-4">With over 25% of its land area protected for conservation, Tanzania offers unparalleled wildlife viewing, diverse ecosystems ranging from savannah to rainforest to alpine desert, and a rich cultural heritage spanning more than 120 ethnic groups. Whether you're a first-time visitor or a seasoned Africa traveler, Tanzania never fails to inspire.</p>
                     <a href="{{ url('/safaris') }}" class="btn btn-primary rounded-pill px-4 py-2">View Safari Packages <i class="fas fa-arrow-right ms-2"></i></a>
                 </div>

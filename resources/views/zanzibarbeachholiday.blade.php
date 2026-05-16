@@ -2,7 +2,7 @@
 
 @section('title', 'Zanzibar Beach Holidays | Tours, Resorts & Safari Add-Ons')
 @section('keywords', 'zanzibar holiday, zanzibar beach vacation, stone town tour, spice island, tanzania beach holiday, nungwi beach, kendwa beach, mnemba atoll')
-@section('description', 'Plan your perfect Zanzibar beach holiday — pristine beaches, historic Stone Town, spice tours & water sports. The ideal Tanzania safari add-on. Book with Golden Memories Safaris.')
+@section('description', 'Plan your perfect Zanzibar beach holiday: pristine beaches, historic Stone Town, spice tours & water sports. The ideal Tanzania safari add-on. Book with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/zanzibarbeachholiday')
 @section('og_title', 'Zanzibar Beach Holidays & Tours - Golden Memories Safaris')
 @section('og_description', 'Relax on pristine beaches, explore historic Stone Town, and discover the Spice Island. Plan your perfect Zanzibar beach holiday or safari add-on with Golden Memories Safaris.')

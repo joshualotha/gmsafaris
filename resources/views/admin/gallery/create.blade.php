@@ -82,7 +82,7 @@
                 <div class="upload-zone" id="upload-zone" onclick="document.getElementById('file-input').click()">
                     <i class="fas fa-cloud-upload-alt"></i>
                     <p><strong>Click to select images</strong> or drag & drop them here</p>
-                    <p class="text-muted small">Supports JPG, PNG, GIF, WebP — Max 10MB per image</p>
+                    <p class="text-muted small">Supports JPG, PNG, GIF, WebP. Max 10MB per image</p>
                     <input type="file" name="images[]" id="file-input" accept="image/*" multiple class="d-none" onchange="handleFiles(this.files)">
                 </div>
                 <div class="file-list" id="file-list"></div>

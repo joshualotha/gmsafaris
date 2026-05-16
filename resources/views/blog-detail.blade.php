@@ -181,7 +181,7 @@
                                 <i class="fas fa-map-pin text-primary me-1"></i>Arusha, Tanzania
                             </p>
                             <p class="mb-2 small lh-sm">
-                                {{ $post->author === 'Golden Memories Safaris' ? 'Golden Memories Safaris is a locally owned and operated Tanzanian tour operator based in Arusha. We specialize in crafting authentic, responsible, and unforgettable safari adventures across Tanzania\'s most iconic destinations — from the Serengeti and Ngorongoro Crater to Kilimanjaro and Zanzibar. Our team of expert guides brings decades of combined experience and a deep passion for East African wildlife and culture.' : $post->author . ' is a contributor to the Golden Memories Safaris blog, sharing expert insights about Tanzania travel, safari adventures, and East African culture.' }}
+                                {{ $post->author === 'Golden Memories Safaris' ? 'Golden Memories Safaris is a locally owned and operated Tanzanian tour operator based in Arusha. We specialize in crafting authentic, responsible, and unforgettable safari adventures across Tanzania\'s most iconic destinations, from the Serengeti and Ngorongoro Crater to Kilimanjaro and Zanzibar. Our team of expert guides brings decades of combined experience and a deep passion for East African wildlife and culture.' : $post->author . ' is a contributor to the Golden Memories Safaris blog, sharing expert insights about Tanzania travel, safari adventures, and East African culture.' }}
                             </p>
                             <div class="d-flex gap-3">
                                 <a href="{{ route('about') }}" class="btn btn-outline-primary btn-sm rounded-pill px-3">

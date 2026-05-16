@@ -1,7 +1,7 @@
 @extends('emails.layout')
 
 @section('content')
-    <div class="alert">Action Required — New Booking</div>
+    <div class="alert">Action Required: New Booking</div>
 
     <h1>New Booking Received</h1>
     <p>A new safari booking request has been submitted. Please review the details below and respond within 24 hours.</p>

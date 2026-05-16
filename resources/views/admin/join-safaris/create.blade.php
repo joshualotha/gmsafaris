@@ -74,7 +74,7 @@
 
             <div class="alert alert-info mb-3">
                 <i class="fas fa-info-circle me-2"></i>
-                Each safari vehicle carries <strong>7 people</strong>. Additional vehicles are created automatically when one fills up. No maximum limit — as many vehicles as needed!
+                Each safari vehicle carries <strong>7 people</strong>. Additional vehicles are created automatically when one fills up. No maximum limit; as many vehicles as needed.
             </div>
 
             <div class="row g-4">

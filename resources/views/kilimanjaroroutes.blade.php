@@ -2,7 +2,7 @@
 
 @section('title', 'Kilimanjaro Routes Compared | Machame, Lemosho, Marangu & More')
 @section('keywords', 'kilimanjaro routes comparison, machame route, lemosho route, marangu route, rongai route, northern circuit kilimanjaro, best kilimanjaro route')
-@section('description', 'Compare all Kilimanjaro climbing routes — Machame, Lemosho, Marangu, Rongai & Northern Circuit. Find the best route for your trek based on difficulty, scenery & success rates.')
+@section('description', 'Compare all Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai & Northern Circuit. Find the best route for your trek based on difficulty, scenery & success rates.')
 @section('canonical', 'https://www.gmsafaris.co.tz/kilimanjaroroutes')
 @section('og_title', 'Kilimanjaro Route Comparison - Choose Your Climb - Golden Memories Safaris')
 @section('og_description', 'Compare Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai, Northern Circuit. Understand scenery, difficulty, acclimatization & success rates to choose the best trek with Golden Memories Safaris.')

@@ -258,8 +258,8 @@
                             <tbody>
                                 <tr>
                                     <td><strong>Cost</strong></td>
-                                    <td class="text-center"><span class="text-danger">Higher</span> — you pay for the entire vehicle and guide</td>
-                                    <td class="text-center bg-light"><span class="text-success fw-bold">Lower</span> — costs shared among the group</td>
+                                    <td class="text-center"><span class="text-danger">Higher</span>; you pay for the entire vehicle and guide</td>
+                                    <td class="text-center bg-light"><span class="text-success fw-bold">Lower</span>; costs shared among the group</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Group Size</strong></td>
@@ -268,18 +268,18 @@
                                 </tr>
                                 <tr>
                                     <td><strong>Flexibility</strong></td>
-                                    <td class="text-center"><span class="text-success fw-bold">High</span> — customize your itinerary</td>
-                                    <td class="text-center bg-light"><span class="text-warning fw-bold">Moderate</span> — fixed itinerary, but well-planned</td>
+                                    <td class="text-center"><span class="text-success fw-bold">High</span>; customize your itinerary</td>
+                                    <td class="text-center bg-light"><span class="text-warning fw-bold">Moderate</span>; fixed itinerary, but well-planned</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Social Experience</strong></td>
-                                    <td class="text-center">Private — just your travel companions</td>
-                                    <td class="text-center bg-light"><span class="text-success fw-bold">Shared</span> — meet and travel with others</td>
+                                    <td class="text-center">Private; just your travel companions</td>
+                                    <td class="text-center bg-light"><span class="text-success fw-bold">Shared</span>; meet and travel with others</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Departure Guarantee</strong></td>
-                                    <td class="text-center"><span class="text-success fw-bold">Guaranteed</span> — runs on your schedule</td>
-                                    <td class="text-center bg-light">Conditional — requires minimum participants</td>
+                                    <td class="text-center"><span class="text-success fw-bold">Guaranteed</span>; runs on your schedule</td>
+                                    <td class="text-center bg-light">Conditional; requires minimum participants</td>
                                 </tr>
                                 <tr>
                                     <td><strong>Best For</strong></td>

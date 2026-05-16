@@ -64,7 +64,7 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Bootstrap CSS (synchronous — required for site layout/styling) -->
+    <!-- Bootstrap CSS (synchronous; required for site layout/styling) -->
     <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
     <!-- Deferred Non-Critical Stylesheets -->

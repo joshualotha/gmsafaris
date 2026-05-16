@@ -2,7 +2,7 @@
 
 @section('title', 'Luxury Tanzania Safaris | Premium Lodges & Exclusive Experiences')
 @section('keywords', 'luxury safari tanzania, tanzania luxury lodges, premium safari, exclusive safari, five star safari, golden memories safaris')
-@section('description', 'Experience the ultimate luxury Tanzania safari — exclusive lodges, private guides, and bespoke adventures in Serengeti, Ngorongoro & beyond. Book your premium safari with Golden Memories Safaris.')
+@section('description', 'Experience the ultimate luxury Tanzania safari: exclusive lodges, private guides, and bespoke adventures in Serengeti, Ngorongoro & beyond. Book your premium safari with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/luxurysafari')
 @section('og_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
 @section('og_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')

@@ -400,7 +400,7 @@
                 <ul class="list-times small">
                     <li><strong>Green Season (Mar-May, Nov):</strong> Lowest prices, fewer crowds, lush scenery.</li>
                     <li><strong>Shoulder Months (Jun, Oct, Dec):</strong> Good balance of weather and value.</li>
-                    <li><strong>Peak Season (Jul-Sep, Feb):</strong> Highest prices — book 6+ months ahead.</li>
+                    <li><strong>Peak Season (Jul-Sep, Feb):</strong> Highest prices. Book 6+ months ahead.</li>
                 </ul>
             </div>
         </div>

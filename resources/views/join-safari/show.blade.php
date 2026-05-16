@@ -247,7 +247,7 @@
                                     <label class="form-label">Number of People *</label>
                                     <input type="number" name="number_of_people" class="form-control @error('number_of_people') is-invalid @enderror"
                                            value="{{ old('number_of_people', 1) }}" min="1" required>
-                                    <small class="text-muted">More vehicles are added automatically — there's always room!</small>
+                                    <small class="text-muted">More vehicles are added automatically. There's always room!</small>
                                     @error('number_of_people') <div class="invalid-feedback">{{ $message }}</div> @enderror
                                 </div>
                                 <div class="mb-3">
@@ -255,7 +255,7 @@
                                     <textarea name="special_requests" class="form-control" rows="3">{{ old('special_requests') }}</textarea>
                                 </div>
                                 <div class="alert alert-info small mb-3">
-                                    <i class="fas fa-info-circle me-1"></i> We add vehicles as the group grows. Join with confidence — capacity is never an issue. Large parties may be split across vehicles.
+                                    <i class="fas fa-info-circle me-1"></i> We add vehicles as the group grows. Join with confidence; capacity is never an issue. Large parties may be split across vehicles.
                                 </div>
                                 <button type="submit" class="btn btn-primary w-100 rounded-pill py-2">
                                     <i class="fas fa-user-plus me-2"></i> Join Now

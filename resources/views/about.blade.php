@@ -2,14 +2,14 @@
 
 @section('title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
 @section('keywords', 'About Golden Memories Safaris, Tanzania tour operator, local safari company, expert guides, sustainable tourism, Arusha safari company, TATO registered, TANAPA partner')
-@section('description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
+@section('description', 'Meet Golden Memories Safaris, a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('canonical', 'https://www.gmsafaris.co.tz/about')
 @section('og_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
-@section('og_description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
+@section('og_description', 'Meet Golden Memories Safaris, a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('og_url', 'https://www.gmsafaris.co.tz/about')
 @section('og_image', 'https://www.gmsafaris.co.tz/img/about.webp')
 @section('twitter_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
-@section('twitter_description', 'Meet Golden Memories Safaris — a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
+@section('twitter_description', 'Meet Golden Memories Safaris, a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.webp')
 
 @section('structured_data')
@@ -265,7 +265,7 @@
                 <!-- Team Member 1 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item card border-0 shadow-sm h-100">
-                        <img src="{{ asset('img/Erlend G.webp') }}" class="card-img-top" alt="Erlend G. — Founder & Lead Safari Guide at Golden Memories Safaris" loading="lazy">
+                        <img src="{{ asset('img/Erlend G.webp') }}" class="card-img-top" alt="Erlend G., Founder & Lead Safari Guide at Golden Memories Safaris" loading="lazy">
                         <div class="team-content card-body text-center">
                             <h4 class="mb-1">Erlend G.</h4>
                             <p class="text-primary fw-semibold mb-2">Founder & Lead Safari Guide</p>
@@ -285,7 +285,7 @@
                         <div class="team-content card-body text-center">
                             <h4 class="mb-1">Operations & Guest Relations Team</h4>
                             <p class="text-primary fw-semibold mb-2">Safari Planning & Logistics</p>
-                            <p class="small text-muted mb-3">Our dedicated operations team handles every detail of your safari — from accommodation bookings and park permits to airport transfers and dietary requirements. Fluent in English, Italian, French, and Swedish, they ensure seamless communication from your first inquiry to your farewell.</p>
+                            <p class="small text-muted mb-3">Our dedicated operations team handles every detail of your safari, from accommodation bookings and park permits to airport transfers and dietary requirements. Fluent in English, Italian, French, and Swedish, they ensure seamless communication from your first inquiry to your farewell.</p>
                             <div class="d-flex justify-content-center gap-2">
                                 <span class="badge bg-light text-dark border"><i class="fas fa-language text-primary me-1"></i>Multilingual Support</span>
                                 <span class="badge bg-light text-dark border"><i class="fas fa-clock text-primary me-1"></i>24/7 Availability</span>

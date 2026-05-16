@@ -2,7 +2,7 @@
 
 @section('title', 'Tanzania Safari Packages | Serengeti, Kilimanjaro & Zanzibar Tours')
 @section('keywords', 'Tanzania safari packages, Serengeti safari tours, Kilimanjaro climbs, Zanzibar holidays, luxury safari Tanzania, budget safari Tanzania, family safari')
-@section('description', 'Explore our Tanzania safari packages — from Serengeti wildlife adventures and Kilimanjaro treks to Zanzibar beach escapes. Find your perfect tour with Golden Memories Safaris.')
+@section('description', 'Explore our Tanzania safari packages: from Serengeti wildlife adventures and Kilimanjaro treks to Zanzibar beach escapes. Find your perfect tour with Golden Memories Safaris.')
 @section('canonical', 'https://www.gmsafaris.co.tz/safaris')
 @section('og_title', 'Safari Packages - Golden Memories Safaris')
 @section('og_description', 'Explore diverse Tanzania safari packages with Golden Memories Safaris. From thrilling wildlife adventures and Kilimanjaro treks to relaxing Zanzibar escapes, find your perfect journey.')
@@ -565,7 +565,7 @@
                         <i class="fas fa-umbrella-beach fa-2x text-primary me-3"></i>
                         <h5 class="mb-0">Safari & Beach Combos</h5>
                     </div>
-                    <p class="small text-muted mb-0">Combine the thrill of a wildlife safari with the relaxation of Zanzibar's pristine beaches. Our safari and beach holiday packages offer the best of both worlds — game drives in Serengeti followed by sunsets on Zanzibar's white sands.</p>
+                    <p class="small text-muted mb-0">Combine the thrill of a wildlife safari with the relaxation of Zanzibar's pristine beaches. Our safari and beach holiday packages offer the best of both worlds: game drives in Serengeti followed by sunsets on Zanzibar's white sands.</p>
                     <a href="{{ url('/zanzibarbeachholiday') }}" class="btn btn-sm btn-outline-primary mt-3 rounded-pill">Explore Combos <i class="fas fa-arrow-right ms-1"></i></a>
                 </div>
             </div>

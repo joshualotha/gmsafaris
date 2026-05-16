@@ -133,7 +133,7 @@
 
             <!-- Content - Quill Rich Text Editor -->
             <div class="section-card">
-                <div class="section-title"><i class="fas fa-edit me-2"></i>Content <span class="text-muted fw-normal text-lowercase" style="font-size:0.75rem;">(Rich text editor — free, no API key needed)</span></div>
+                <div class="section-title"><i class="fas fa-edit me-2"></i>Content <span class="text-muted fw-normal text-lowercase" style="font-size:0.75rem;">(Rich text editor; free, no API key needed)</span></div>
                 <div class="mb-3">
                     <!-- Quill editor container - will be populated by JS -->
                     <div id="quill-editor">{!! old('content', $blogPost->content) !!}</div>
