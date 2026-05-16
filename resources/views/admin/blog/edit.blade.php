@@ -161,15 +161,18 @@
                 <div class="row g-4">
                     <div class="col-md-4">
                         <div class="form-check mb-2">
+                            <input type="hidden" name="is_published" value="0">
                             <input type="checkbox" name="is_published" class="form-check-input" value="1" id="is_published" @checked(old('is_published', $blogPost->is_published))>
                             <label class="form-check-label fw-bold" for="is_published">Published</label>
                         </div>
                         <div class="form-check mb-2">
+                            <input type="hidden" name="is_featured" value="0">
                             <input type="checkbox" name="is_featured" class="form-check-input" value="1" id="is_featured" @checked(old('is_featured', $blogPost->is_featured))>
                             <label class="form-check-label fw-bold" for="is_featured">Featured Post</label>
                             <br><small class="text-muted">Shown prominently on the blog page</small>
                         </div>
                         <div class="form-check mb-2">
+                            <input type="hidden" name="is_trending" value="0">
                             <input type="checkbox" name="is_trending" class="form-check-input" value="1" id="is_trending" @checked(old('is_trending', $blogPost->is_trending))>
                             <label class="form-check-label fw-bold" for="is_trending">Trending</label>
                             <br><small class="text-muted">Mark as trending/popular</small>
