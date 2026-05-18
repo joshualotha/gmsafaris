@@ -64,19 +64,17 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Preload critical CSS (starts download early, doesn't block render) -->
-    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" fetchpriority="high">
+    <!-- Preload critical CSS (starts download early) -->
     <link rel="preload" href="{{ asset('css/style.min.css') }}" as="style">
 
-    <!-- Bootstrap CSS (deferred via media-swap to avoid render-blocking) -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
+    <!-- Bootstrap CSS (synchronous — required to prevent CLS from layout shifts) -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- Template Stylesheet (deferred the same way) -->
+    <!-- Template Stylesheet (deferred to avoid render-blocking) -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
     <noscript><link href="{{ asset('css/style.min.css') }}" rel="stylesheet"></noscript>
 
-    <!-- Critical inline styles — applied immediately to prevent FOUC on hero + layout -->
+    <!-- Critical inline styles — applied immediately to prevent FOUC -->
     <style>
         /* Base reset so page is usable while CSS loads */
         body { font-family: 'Open Sans', sans-serif; color: #333; background: #fff; margin: 0; padding: 0; }

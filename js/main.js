@@ -50,7 +50,24 @@
                 smartSpeed: 1000,
                 mouseDrag: true,
                 touchDrag: true,
-                lazyLoad: true
+                lazyLoad: true,
+                onInitialized: function() {
+                    // Add accessible names to Owl Carousel buttons
+                    $('.hero-carousel .owl-dot').each(function(i) {
+                        $(this).attr('aria-label', 'Go to slide ' + (i + 1));
+                    });
+                    $('.hero-carousel .owl-prev').attr('aria-label', 'Previous slide');
+                    $('.hero-carousel .owl-next').attr('aria-label', 'Next slide');
+                },
+                onChanged: function() {
+                    // Update active state for screen readers
+                    $('.hero-carousel .owl-dot').each(function(i) {
+                        var label = $(this).hasClass('active') 
+                            ? 'Slide ' + (i + 1) + ' (current)' 
+                            : 'Go to slide ' + (i + 1);
+                        $(this).attr('aria-label', label);
+                    });
+                }
             });
         } catch (error) { }
     });

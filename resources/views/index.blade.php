@@ -743,7 +743,7 @@
             <div class="col-lg-5 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="video">
                     <button type="button" class="btn btn-play" data-bs-toggle="modal"
-                        data-src="https://www.youtube.com/embed/2UYle8RwhR0" data-bs-target="#videoModal">
+                        data-src="https://www.youtube.com/embed/2UYle8RwhR0" data-bs-target="#videoModal" aria-label="Play promotional safari video">
                         <span></span>
                     </button>
                 </div>

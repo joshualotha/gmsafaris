@@ -65,7 +65,7 @@ h6,
 
 .btn.btn-primary:hover {
     background: var(--bs-dark) !important;
-    color: var(--bs-primary) !important;
+    color: var(--bs-white) !important;
 }
 
 .btn {
