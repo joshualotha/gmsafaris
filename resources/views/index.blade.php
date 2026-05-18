@@ -156,12 +156,27 @@
     .hero-wave svg {
         display: block;
         width: 100%;
-        height: 130px;
+        height: 200px;
+        animation: waveSway 12s ease-in-out infinite alternate;
+    }
+
+    @keyframes waveSway {
+        0%   { transform: translateX(0) scaleY(1); }
+        33%  { transform: translateX(-6px) scaleY(1.03); }
+        66%  { transform: translateX(4px) scaleY(0.97); }
+        100% { transform: translateX(0) scaleY(1); }
+    }
+
+    @media (max-width: 992px) {
+        .hero-wave svg {
+            height: 120px;
+        }
     }
 
     @media (max-width: 768px) {
         .hero-wave svg {
             height: 70px;
+            animation: none;
         }
     }
 
@@ -700,8 +715,16 @@
     </div>
     <!-- Hero → About Dramatic Wave Transition -->
     <div class="hero-wave" aria-hidden="true">
-        <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
-            <path d="M0,40 C280,110 460,5 720,45 C980,85 1160,15 1440,50 L1440,140 L0,140 Z" fill="#ffffff"/>
+        <svg viewBox="0 0 1440 220" preserveAspectRatio="none">
+            <defs>
+                <linearGradient id="waveGlow" x1="0" y1="0" x2="0" y2="1">
+                    <stop offset="0%" stop-color="#d69c40" stop-opacity="0.3"/>
+                    <stop offset="25%" stop-color="#e8c97a" stop-opacity="0.55"/>
+                    <stop offset="55%" stop-color="#f5edd6" stop-opacity="0.85"/>
+                    <stop offset="100%" stop-color="#ffffff" stop-opacity="1"/>
+                </linearGradient>
+            </defs>
+            <path d="M0,55 C240,150 420,2 720,50 C1020,98 1180,8 1440,50 L1440,220 L0,220 Z" fill="url(#waveGlow)"/>
         </svg>
     </div>
 </div>
