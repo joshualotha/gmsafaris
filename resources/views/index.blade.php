@@ -657,7 +657,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Descend into Ngorongoro Crater &mdash; a UNESCO World Heritage site teeming with wildlife unlike anywhere on Earth. Every turn reveals something extraordinary.</p>
+                <p class="animated bounceInUp">Descend into Ngorongoro Crater, a UNESCO World Heritage site teeming with wildlife unlike anywhere on Earth. Every turn reveals something extraordinary.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
