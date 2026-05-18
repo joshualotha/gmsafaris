@@ -127,6 +127,8 @@
 @section('extra_scripts')
 <script>
     var selectedFiles = [];
+    var compressedFiles = [];
+    var filesBeingCompressed = 0;
 
     // Drag & drop support
     var zone = document.getElementById('upload-zone');
@@ -148,11 +150,39 @@
         for (var i = 0; i < files.length; i++) {
             if (files[i].type.startsWith('image/')) {
                 selectedFiles.push(files[i]);
+                compressFile(files[i], selectedFiles.length - 1);
             }
         }
         updateFileList();
-        updatePreviews();
-        document.getElementById('submit-btn').disabled = selectedFiles.length === 0;
+        document.getElementById('submit-btn').disabled = true;
+    }
+
+    function compressFile(file, index) {
+        filesBeingCompressed++;
+        new Compressor(file, {
+            quality: 0.75,
+            mimeType: 'image/webp',
+            convertSize: 0,
+            success(result) {
+                compressedFiles[index] = result;
+                filesBeingCompressed--;
+                updateFileList();
+                updatePreviews();
+                if (filesBeingCompressed === 0) {
+                    document.getElementById('submit-btn').disabled = compressedFiles.length === 0;
+                }
+            },
+            error(err) {
+                console.error('Compression failed for', file.name, err.message);
+                compressedFiles[index] = file;
+                filesBeingCompressed--;
+                updateFileList();
+                updatePreviews();
+                if (filesBeingCompressed === 0) {
+                    document.getElementById('submit-btn').disabled = compressedFiles.length === 0;
+                }
+            }
+        });
     }
 
     function updateFileList() {
@@ -165,9 +195,17 @@
         var html = '<div class="fw-bold small mb-2">' + selectedFiles.length + ' file(s) selected</div>';
         selectedFiles.forEach(function(file, index) {
             var size = (file.size / 1024 / 1024).toFixed(2) + ' MB';
+            var compressed = compressedFiles[index];
+            var status = '';
+            if (compressed) {
+                var saved = ((1 - compressed.size / file.size) * 100).toFixed(0);
+                status = '<span class="text-success small ms-2">WebP (' + saved + '% smaller)</span>';
+            } else if (filesBeingCompressed > 0) {
+                status = '<span class="text-muted small ms-2"><i class="fas fa-spinner fa-spin"></i> compressing...</span>';
+            }
             html += '<div class="file-item">' +
                 '<i class="fas fa-image"></i>' +
-                '<span class="file-name">' + file.name + '</span>' +
+                '<span class="file-name">' + file.name.replace(/\.[^.]+$/, '.webp') + status + '</span>' +
                 '<span class="file-size">' + size + '</span>' +
                 '<button type="button" class="btn btn-sm btn-outline-danger" onclick="removeFile(' + index + ')"><i class="fas fa-times"></i></button>' +
                 '</div>';
@@ -179,43 +217,67 @@
         var grid = document.getElementById('preview-grid');
         grid.innerHTML = '';
         var maxPreview = Math.min(selectedFiles.length, 12);
-        for (var i = 0; i < maxPreview; i++) {
+        var shown = 0;
+        for (var i = 0; i < selectedFiles.length && shown < maxPreview; i++) {
+            var file = compressedFiles[i] || selectedFiles[i];
+            if (!file) continue;
+            shown++;
             var reader = new FileReader();
-            reader.onload = (function(idx) {
+            reader.onload = (function(f) {
                 return function(e) {
                     var img = document.createElement('img');
                     img.src = e.target.result;
                     img.className = 'preview-item';
-                    img.title = selectedFiles[idx].name;
                     grid.appendChild(img);
                 };
-            })(i);
-            reader.readAsDataURL(selectedFiles[i]);
+            })(file);
+            reader.readAsDataURL(file);
         }
-        if (selectedFiles.length > 12) {
+        if (selectedFiles.length > maxPreview) {
             var more = document.createElement('div');
             more.className = 'preview-item d-flex align-items-center justify-content-center bg-light';
             more.style.cssText = 'height:80px;border-radius:4px;border:1px solid #dee2e6;font-size:0.8rem;color:#888;';
-            more.textContent = '+' + (selectedFiles.length - 12) + ' more';
+            more.textContent = '+' + (selectedFiles.length - maxPreview) + ' more';
             grid.appendChild(more);
         }
     }
 
     function removeFile(index) {
         selectedFiles.splice(index, 1);
+        compressedFiles.splice(index, 1);
         updateFileList();
         updatePreviews();
         document.getElementById('submit-btn').disabled = selectedFiles.length === 0;
     }
 
-    // On form submit, append all files to the input
+    // On form submit, send compressed files
     document.getElementById('upload-form').addEventListener('submit', function(e) {
-        var input = document.getElementById('file-input');
-        var dt = new DataTransfer();
-        selectedFiles.forEach(function(file) {
-            dt.items.add(file);
+        e.preventDefault();
+        var formData = new FormData(this);
+        // Remove the original files input
+        formData.delete('images[]');
+        // Add compressed versions
+        compressedFiles.forEach(function(file, index) {
+            if (file) {
+                var name = selectedFiles[index].name.replace(/\.[^.]+$/, '.webp');
+                formData.append('images[]', file, name);
+            }
         });
-        input.files = dt.files;
+        var btn = document.getElementById('submit-btn');
+        btn.disabled = true;
+        btn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Uploading...';
+        fetch(this.action, {
+            method: 'POST',
+            headers: { 'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content },
+            body: formData
+        }).then(function(res) {
+            if (res.redirected) { window.location.href = res.url; }
+            else { window.location.reload(); }
+        }).catch(function() {
+            btn.disabled = false;
+            btn.innerHTML = '<i class="fas fa-upload me-1"></i> Upload Images';
+            alert('Upload failed. Please try again.');
+        });
     });
 </script>
 @endsection

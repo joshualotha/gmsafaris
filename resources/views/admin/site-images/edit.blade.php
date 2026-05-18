@@ -87,18 +87,80 @@
 
 @section('extra_scripts')
 <script>
-    // Show image preview on file selection
+    var compressedFile = null;
+
     document.getElementById('image')?.addEventListener('change', function(e) {
         var file = e.target.files[0];
-        if (file) {
-            var reader = new FileReader();
-            reader.onload = function(e) {
-                var preview = document.querySelector('.border.rounded img');
-                if (preview) {
-                    preview.src = e.target.result;
+        if (!file) return;
+
+        // Show original file size
+        var originalSize = (file.size / 1024).toFixed(1);
+        var sizeText = document.querySelector('.form-text');
+        if (sizeText) {
+            sizeText.textContent = 'Original: ' + originalSize + 'KB — compressing...';
+        }
+
+        new Compressor(file, {
+            quality: 0.75,
+            mimeType: 'image/webp',
+            convertSize: 0,
+
+            success(result) {
+                compressedFile = result;
+                var compressedSize = (result.size / 1024).toFixed(1);
+                var percent = ((1 - result.size / file.size) * 100).toFixed(1);
+
+                if (sizeText) {
+                    sizeText.textContent = 'Original: ' + originalSize + 'KB → Compressed WebP: ' + compressedSize + 'KB (' + percent + '% smaller)';
                 }
-            };
-            reader.readAsDataURL(file);
+
+                // Preview the compressed image
+                var reader = new FileReader();
+                reader.onload = function(ev) {
+                    var preview = document.querySelector('.border.rounded img');
+                    if (preview) preview.src = ev.target.result;
+                };
+                reader.readAsDataURL(result);
+            },
+            error(err) {
+                console.error('Compression failed:', err.message);
+                if (sizeText) {
+                    sizeText.textContent = 'Compression failed, uploading original.';
+                }
+                compressedFile = file;
+            }
+        });
+    });
+
+    // Intercept form submit to send the compressed file
+    document.querySelector('form')?.addEventListener('submit', function(e) {
+        if (compressedFile) {
+            e.preventDefault();
+            var formData = new FormData(this);
+            formData.set('image', compressedFile, '{{ $siteImage->key }}.webp');
+
+            var submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Uploading...';
+
+            fetch(this.action, {
+                method: 'POST',
+                headers: {
+                    'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').content,
+                    'X-HTTP-Method-Override': 'PUT'
+                },
+                body: formData
+            }).then(function(res) {
+                if (res.redirected) {
+                    window.location.href = res.url;
+                } else {
+                    window.location.reload();
+                }
+            }).catch(function() {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-save me-1"></i> Save Changes';
+                alert('Upload failed. Please try again.');
+            });
         }
     });
 </script>
