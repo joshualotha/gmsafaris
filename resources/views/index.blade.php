@@ -638,11 +638,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Golden Memories Safaris. Experience the thrill of encountering the
-                    Big Five in their natural habitat, witness the great wildebeest migration, or immerse yourself
-                    in the vibrant cultures of local tribes. Whatever your dream safari entails, we're here to make
-                    it a reality. Join us and create golden memories that will last a lifetime. Your Tanzanian
-                    adventure starts here.</p>
+                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro &amp; beyond.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
@@ -664,11 +660,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">A land of breathtaking landscapes and diverse cultures, welcomes you
-                    with open arms. From the vast Serengeti plains to the majestic Mount Kilimanjaro and the warm
-                    hospitality of the Maasai people, every moment here is unforgettable. Whether you're exploring
-                    the wild savannas, relaxing on pristine beaches, or immersing yourself in rich traditions,
-                    Tanzania promises an experience that will stay with you forever.</p>
+                <p class="animated bounceInUp">From the wild savannas to the shores of Zanzibar &mdash; adventure awaits.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
@@ -690,11 +682,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Golden Memories Safaris takes you on an extraordinary journey into
-                    the heart of Tanzania's wilderness, where nature and adventure come together. Experience
-                    breathtaking landscapes and get closer to wildlife like never before. From the vast plains of
-                    the Serengeti to the hidden gems of Tanzania, we create moments that turn into lifelong
-                    memories. Let us guide you on an unforgettable safari experience.</p>
+                <p class="animated bounceInUp">Get closer to wildlife than ever before. Create memories that last a lifetime.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
@@ -715,12 +703,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Experience the wonder of Ngorongoro Crater with Golden Memories
-                    Safaris. From the open roof of your safari vehicle, take in breathtaking views of this natural
-                    wonder, home to diverse wildlife and stunning landscapes. Whether spotting the Big Five or
-                    simply soaking in the beauty of the crater's unique ecosystem, every moment promises an
-                    unforgettable adventure. Let us bring you closer to nature in one of Africa's most spectacular
-                    destinations.</p>
+                <p class="animated bounceInUp">Descend into the world's largest intact caldera &mdash; teeming with wildlife.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
