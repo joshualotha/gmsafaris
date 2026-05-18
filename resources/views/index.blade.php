@@ -143,6 +143,34 @@
         background: rgba(214, 156, 64, 0.7) !important;
     }
 
+    /* ── Hero → About Dramatic Wave Transition ── */
+    .hero-wave {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 2;
+        line-height: 0;
+        pointer-events: none;
+    }
+    .hero-wave svg {
+        display: block;
+        width: 100%;
+        height: 130px;
+    }
+
+    @media (max-width: 768px) {
+        .hero-wave svg {
+            height: 70px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-wave svg {
+            height: 45px;
+        }
+    }
+
     /* ── Tablet (≤992px) ── */
     @media (max-width: 992px) {
         .hero-carousel .carousel-caption-gms {
@@ -669,6 +697,12 @@
                 </div>
             </div>
         </div>
+    </div>
+    <!-- Hero → About Dramatic Wave Transition -->
+    <div class="hero-wave" aria-hidden="true">
+        <svg viewBox="0 0 1440 140" preserveAspectRatio="none">
+            <path d="M0,40 C280,110 460,5 720,45 C980,85 1160,15 1440,50 L1440,140 L0,140 Z" fill="#ffffff"/>
+        </svg>
     </div>
 </div>
 <!-- Hero End -->
