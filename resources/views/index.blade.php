@@ -778,7 +778,7 @@
             <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="{{ (($index % 4) * 0.2 + 0.1) }}s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : $safari->thumbnail_image ? \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) : site_image('hero_fallback_1') }}"
+                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : ($safari->thumbnail_image ? \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) : site_image('hero_fallback_1')) }}"
                             class="img-fluid w-100"
                             alt="{{ $safari->title }}"
                             width="400" height="300" loading="lazy">
