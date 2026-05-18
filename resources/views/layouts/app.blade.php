@@ -188,6 +188,19 @@
             min-height: 32px;
             min-width: 32px;
         }
+
+        /* ── Composited animation override ──
+           Replaces animate.css bounceInUp (non-composited) with a GPU-friendly
+           fade+slide that only uses transform & opacity (no layout thrashing). */
+        .animated.bounceInUp,
+        .wow.bounceInUp {
+            animation-name: bounceInUpFade !important;
+            will-change: transform, opacity;
+        }
+        @keyframes bounceInUpFade {
+            0%   { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
     </style>
 
     <!-- Structured Data (JSON-LD) -->

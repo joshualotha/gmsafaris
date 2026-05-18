@@ -19,9 +19,12 @@
                 'wrapAround': true
             });
         }
-        // Initialize WOW.js
-        if (typeof WOW !== 'undefined') {
-            new WOW().init();
+        // Initialize WOW.js — disabled on mobile to reduce main-thread blocking
+        if (typeof WOW !== 'undefined' && window.innerWidth >= 768) {
+            new WOW({
+                offset: 80,
+                mobile: false
+            }).init();
         }
     });
 </script>
