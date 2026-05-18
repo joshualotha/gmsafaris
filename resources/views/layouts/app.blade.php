@@ -92,6 +92,7 @@
     </div>
     <!-- Spinner End -->
 
+    @include('partials.topbar')
     @include('partials.navbar')
     @include('partials.search-modal')
 

@@ -31,10 +31,6 @@
                     </div>
                     <a href="{{ route('contact') }}" class="nav-item nav-link @if(Route::currentRouteNamed('contact')) active @endif">Contact</a>
                 </div>
-                <!-- Phone Number (visible on tablet+) -->
-                <a href="tel:+255786383273" class="text-decoration-none me-3 d-none d-lg-inline-block" aria-label="Call us">
-                    <small class="text-dark fw-semibold"><i class="fas fa-phone-alt text-primary me-1"></i>+255 786 383 273</small>
-                </a>
                 <!-- Search Toggle -->
                 <button class="btn-search btn btn-primary btn-md-square me-2 rounded-circle d-none d-lg-inline-flex"
                     data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
