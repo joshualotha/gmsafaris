@@ -7,7 +7,7 @@
                     width="180" height="50" style="max-height: 50px; width: auto;">
             </a>
             <button class="navbar-toggler py-2 px-3" type="button" data-bs-toggle="collapse"
-                data-bs-target="#navbarCollapse">
+                data-bs-target="#navbarCollapse" aria-label="Toggle navigation menu">
                 <span class="fa fa-bars text-primary"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarCollapse">
@@ -33,7 +33,7 @@
                 </div>
                 <!-- Search Toggle -->
                 <button class="btn-search btn btn-primary btn-md-square me-2 rounded-circle d-none d-lg-inline-flex"
-                    data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
+                    data-bs-toggle="modal" data-bs-target="#searchModal" aria-label="Open search"><i class="fas fa-search"></i></button>
                 <!-- Book Now CTA — visible on all screen sizes where navbar is expanded -->
                 <a href="{{ route('booking') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block rounded-pill fw-bold">Book Now</a>
             </div>

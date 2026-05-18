@@ -22,8 +22,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://use.fontawesome.com">
+    <link rel="preconnect" href="https://cdn.gtranslate.net">
+    <link rel="preconnect" href="https://www.google-analytics.com">
 
     <!-- Preload hero image with responsive media queries for LCP optimization -->
     <link rel="preload" as="image" href="{{ asset('img/serengeti-wildlife-safari-480w.webp') }}" media="(max-width: 480px)" fetchpriority="high">
@@ -132,6 +135,21 @@
         @media (max-width: 575px) {
             .filter-bar .btn { font-size: 0.8rem; padding: 4px 10px; }
         }
+
+        /* Touch target sizing — accessible minimum without breaking design */
+        .navbar-toggler,
+        .btn-search,
+        .btn-close {
+            min-height: 44px;
+            min-width: 44px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .owl-dot {
+            min-height: 32px;
+            min-width: 32px;
+        }
     </style>
 
     <!-- Structured Data (JSON-LD) -->
@@ -151,7 +169,9 @@
     @include('partials.search-modal')
 
     @yield('content')
-    @yield('body_content')
+    <main id="main-content">
+        @yield('body_content')
+    </main>
 
     @include('partials.footer')
     @include('partials.scripts')
