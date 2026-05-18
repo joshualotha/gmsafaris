@@ -23,6 +23,90 @@
     RewriteRule ^ %1 [L,R=301]
 
     # Serve storage files from storage/app/public/ when URL is /storage/...
+    RewriteCond %{REQUEST_URI} ^/storage/(.+)$
+    RewriteCond %{DOCUMENT_ROOT}/storage/app/public/%1 -f
+    RewriteRule ^storage/(.+)$ storage/app/public/$1 [L]
+
+    # Send Requests To Front Controller...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
+    RewriteRule ^ index.php [L]
+</IfModule>
+
+# ─── Far-Future Cache Headers for Static Assets ─────────────────────────────
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresDefault "access plus 0 seconds"
+
+    # Images (cache for 1 year)
+    ExpiresByType image/webp "access plus 1 year"
+    ExpiresByType image/avif "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/x-icon "access plus 1 year"
+    ExpiresByType image/vnd.microsoft.icon "access plus 1 year"
+
+    # CSS & JavaScript (cache for 1 year — versioned via filename/mix)
+    ExpiresByType text/css "access plus 1 year"
+    ExpiresByType text/javascript "access plus 1 year"
+    ExpiresByType application/javascript "access plus 1 year"
+    ExpiresByType application/x-javascript "access plus 1 year"
+
+    # Fonts (cache for 1 year)
+    ExpiresByType font/ttf "access plus 1 year"
+    ExpiresByType font/otf "access plus 1 year"
+    ExpiresByType font/woff "access plus 1 year"
+    ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType application/font-woff "access plus 1 year"
+    ExpiresByType application/font-woff2 "access plus 1 year"
+
+    # PDFs (cache for 1 month)
+    ExpiresByType application/pdf "access plus 1 month"
+
+    # HTML — no cache (dynamic content)
+    ExpiresByType text/html "access plus 0 seconds"
+</IfModule>
+
+<IfModule mod_headers.c>
+    # 1-year cache for versioned static assets
+    <FilesMatch "\.(webp|avif|jpe?g|png|gif|svg|ico|css|js|woff2?|ttf|otf)$">
+        Header set Cache-Control "public, max-age=31536000, immutable"
+    </FilesMatch>
+
+    # 1-month cache for PDFs
+    <FilesMatch "\.(pdf)$">
+        Header set Cache-Control "public, max-age=2592000"
+    </FilesMatch>
+
+    # No cache for HTML
+    <FilesMatch "\.(html|htm)$">
+        Header set Cache-Control "private, no-cache, no-store, must-revalidate"
+    </FilesMatch>
+
+    # Enable ETags for cache validation
+    FileETag MTime Size
+</IfModule>
+
+<IfModule mod_rewrite.c>
+    <IfModule mod_negotiation.c>
+        Options -MultiViews -Indexes
+    </IfModule>
+
+    RewriteEngine On
+
+    # Handle Authorization Header
+    RewriteCond %{HTTP:Authorization} .
+    RewriteRule .* - [E=HTTP_AUTHORIZATION:%{HTTP:Authorization}]
+
+    # Redirect Trailing Slashes If Not A Folder...
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_URI} (.+)/$
+    RewriteRule ^ %1 [L,R=301]
+
+    # Serve storage files from storage/app/public/ when URL is /storage/...
     # This replaces the need for a public/storage symlink since public/ was removed
     RewriteCond %{REQUEST_URI} ^/storage/(.+)$
     RewriteCond %{DOCUMENT_ROOT}/storage/app/public/%1 -f
