@@ -234,9 +234,50 @@
 
 @section('extra_scripts')
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize Quill editor
-        var quill = new Quill('#quill-editor', {
+    var compressedFiles = {};
+
+    document.querySelectorAll('#blog-form input[type="file"]').forEach(function(input) {
+        input.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var helpText = this.closest('.mb-3')?.querySelector('small');
+            if (helpText) helpText.textContent = 'Compressing...';
+            new Compressor(file, {
+                quality: 0.75, mimeType: 'image/webp', convertSize: 0,
+                success(result) {
+                    compressedFiles[input.name] = result;
+                    if (helpText) {
+                        var saved = ((1 - result.size / file.size) * 100).toFixed(0);
+                        helpText.textContent = 'WebP (' + saved + '% smaller)';
+                    }
+                },
+                error() {
+                    compressedFiles[input.name] = file;
+                    if (helpText) helpText.textContent = 'Compression unavailable, using original.';
+                }
+            });
+        });
+    });
+
+    // Override submit to send compressed files + Quill content
+    document.getElementById('blog-form').addEventListener('submit', function(e) {
+        e.preventDefault();
+        var content = document.querySelector('#quill-editor .ql-editor').innerHTML;
+        document.getElementById('content-hidden').value = content;
+        var formData = new FormData(this);
+        Object.keys(compressedFiles).forEach(function(key) {
+            formData.delete(key);
+            formData.append(key, compressedFiles[key]);
+        });
+        var btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Saving...';
+        fetch(this.action, { method: this.method, headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }, body: formData })
+            .then(function(r) { if (r.redirected) window.location.href = r.url; else window.location.reload(); })
+            .catch(function() { btn.disabled = false; btn.innerHTML = '<i class="fas fa-save me-1"></i> Update Post'; });
+    });
+
+    // Initialize Quill editor
+    var quill = new Quill('#quill-editor', {
             theme: 'snow',
             modules: {
                 toolbar: [

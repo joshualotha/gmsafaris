@@ -230,6 +230,46 @@
 
 @section('extra_scripts')
 <script>
+    var compressedFiles = {};
+
+    document.querySelectorAll('input[type="file"]').forEach(function(input) {
+        input.addEventListener('change', function(e) {
+            var file = e.target.files[0];
+            if (!file) return;
+            var help = this.closest('.mb-4, .mb-3')?.querySelector('small');
+            if (help) help.textContent = 'Compressing...';
+            new Compressor(file, {
+                quality: 0.75, mimeType: 'image/webp', convertSize: 0,
+                success(result) {
+                    compressedFiles[input.name] = result;
+                    if (help) {
+                        var saved = ((1 - result.size / file.size) * 100).toFixed(0);
+                        help.textContent = 'WebP (' + saved + '% smaller)';
+                    }
+                },
+                error() {
+                    compressedFiles[input.name] = file;
+                    if (help) help.textContent = 'Compression unavailable, using original.';
+                }
+            });
+        });
+    });
+
+    document.querySelector('form')?.addEventListener('submit', function(e) {
+        if (Object.keys(compressedFiles).length === 0) return;
+        e.preventDefault();
+        var formData = new FormData(this);
+        Object.keys(compressedFiles).forEach(function(key) {
+            formData.delete(key);
+            formData.append(key, compressedFiles[key]);
+        });
+        var btn = this.querySelector('button[type="submit"]');
+        btn.disabled = true; btn.innerHTML = '<i class="fas fa-spinner fa-spin me-1"></i> Saving...';
+        fetch(this.action, { method: this.method, headers: { 'X-CSRF-TOKEN': '{{ csrf_token() }}' }, body: formData })
+            .then(function(r) { if (r.redirected) window.location.href = r.url; else window.location.reload(); })
+            .catch(function() { btn.disabled = false; btn.innerHTML = '<i class="fas fa-save me-1"></i> Create Join Safari'; });
+    });
+
     function addHighlight() {
         const container = document.getElementById('highlights-container');
         const div = document.createElement('div');
