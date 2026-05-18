@@ -594,7 +594,7 @@
                     </div>
                     
                     <div class="card shadow">
-                        <div class="card-body p-5">
+                        <div class="card-body p-4 p-md-5">
                             <form>
                                 <div class="row g-4">
                                     <div class="col-md-6">

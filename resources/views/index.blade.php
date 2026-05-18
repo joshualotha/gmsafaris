@@ -472,26 +472,70 @@
         }
     }
 
+    /* Booking section images visible only on desktop */
+    @media (max-width: 767px) {
+        .booking-side-image { display: none !important; }
+    }
+    @media (min-width: 768px) {
+        .booking-side-image { display: block; }
+    }
+
     @media (max-width: 768px) {
         .hero-carousel .carousel-caption-gms {
-            max-width: 90%;
-            left: 5%;
+            max-width: 92%;
+            left: 4%;
         }
 
         .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.6rem;
+            font-size: 2.2rem;
+            margin-bottom: 0.6rem;
         }
 
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1.0rem;
+            font-size: 0.88rem;
+            line-height: 1.5;
+            margin-bottom: 1rem;
+            display: -webkit-box;
+            -webkit-line-clamp: 4;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
         }
 
         .hero-carousel .owl-item {
-            height: 65vh;
+            height: 60vh;
+            min-height: 400px;
         }
 
         .hero-carousel .owl-nav {
             display: none;
+        }
+
+        .hero-carousel .carousel-caption-gms .btn {
+            font-size: 0.85rem;
+            padding: 8px 16px !important;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 95%;
+            left: 2.5%;
+            top: 45%;
+        }
+
+        .hero-carousel .carousel-caption-gms h1 {
+            font-size: 1.7rem;
+        }
+
+        .hero-carousel .carousel-caption-gms p {
+            font-size: 0.8rem;
+            -webkit-line-clamp: 3;
+            margin-bottom: 0.7rem;
+        }
+
+        .hero-carousel .owl-item {
+            height: 55vh;
+            min-height: 350px;
         }
     }
 </style>
@@ -1162,11 +1206,11 @@
 <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s">
     <div class="container">
         <div class="row g-0">
-            <div class="col-1">
+            <div class="col-1 booking-side-image">
                 <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start"
                     style="object-fit: cover; opacity: 0.7;" alt="Tanzania safari booking" width="150" height="600" loading="lazy">
             </div>
-            <div class="col-10">
+            <div class="col-md-10 col-12">
                 <div class="border-bottom border-top border-primary bg-light py-5 px-4">
                     <div class="text-center">
                         <small
@@ -1240,7 +1284,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-1">
+            <div class="col-1 booking-side-image">
                 <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end"
                     style="object-fit: cover; opacity: 0.7;" alt="Tanzania safari booking" width="150" height="600" loading="lazy">
             </div>

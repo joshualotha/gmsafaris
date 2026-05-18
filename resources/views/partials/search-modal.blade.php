@@ -7,7 +7,7 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body d-flex align-items-center">
-                <form action="{{ route('safaris') }}" method="GET" class="w-75 mx-auto d-flex" role="search">
+                <form action="{{ route('safaris') }}" method="GET" class="w-75 mx-auto d-flex search-modal-form" role="search">
                     <div class="input-group">
                         <input type="search" name="search" class="form-control bg-transparent p-3"
                             placeholder="Search safaris, destinations, or experiences..."

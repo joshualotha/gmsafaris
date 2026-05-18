@@ -80,6 +80,60 @@
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     @yield('extra_styles')
 
+    <!-- Global Mobile Optimizations -->
+    <style>
+        /* Reduce giant vertical padding on mobile */
+        @media (max-width: 575px) {
+            .py-6 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
+            .my-6 { margin-top: 3rem !important; margin-bottom: 3rem !important; }
+            .display-5 { font-size: 2rem !important; }
+            .display-3 { font-size: 2.2rem !important; }
+        }
+        @media (max-width: 767px) {
+            .py-6 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
+        }
+
+        /* Ensure images never overflow on mobile */
+        img { max-width: 100%; height: auto; }
+
+        /* Fix testimonial quote icon positioning */
+        .testimonial-item { position: relative; }
+
+        /* Breadcrumb text wrap fix */
+        .breadcrumb-item { white-space: normal !important; }
+
+        /* Search modal — full width on mobile */
+        @media (max-width: 575px) {
+            .search-modal-form { width: 100% !important; }
+        }
+
+        /* Better tap targets for mobile nav links */
+        @media (max-width: 991.98px) {
+            .navbar-nav .nav-link {
+                padding: 12px 16px !important;
+                font-size: 1rem;
+            }
+            .dropdown-item {
+                padding: 10px 24px !important;
+            }
+            /* Smaller brand logo on mobile */
+            .navbar-brand img {
+                max-height: 38px !important;
+                width: auto;
+            }
+        }
+        @media (max-width: 575px) {
+            .navbar-brand img {
+                max-height: 32px !important;
+            }
+        }
+
+        /* Fix filter bar on safaris page for mobile */
+        @media (max-width: 575px) {
+            .filter-bar .btn { font-size: 0.8rem; padding: 4px 10px; }
+        }
+    </style>
+
     <!-- Structured Data (JSON-LD) -->
     @yield('structured_data')
 </head>
