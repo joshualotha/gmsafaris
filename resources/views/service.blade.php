@@ -7,10 +7,10 @@
 @section('og_title', 'Our Services - Golden Memories Safaris')
 @section('og_description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')
 @section('og_url', 'https://www.gmsafaris.co.tz/service')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('og_default'))
 @section('twitter_title', 'Our Services - Golden Memories Safaris')
 @section('twitter_description', 'Explore our comprehensive range of Tanzania safari services including wildlife safaris, Kilimanjaro treks, Zanzibar holidays, and custom tour packages.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('og_default'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -171,7 +171,7 @@
             <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-1.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_1') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -193,7 +193,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-2.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Tanzania safari client review - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_2') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Tanzania safari client review - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -215,7 +215,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-3.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Golden Memories Safaris customer testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_3') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Golden Memories Safaris customer testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -237,7 +237,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-4.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Happy safari traveler testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_4') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Happy safari traveler testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -261,7 +261,7 @@
             <div class="owl-carousel testimonial-carousel testimonial-carousel-2 wow bounceInUp" data-wow-delay="0.3s">
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-1.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_1') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -283,7 +283,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-2.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Tanzania safari client review - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_2') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Tanzania safari client review - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -305,7 +305,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-3.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Golden Memories Safaris customer testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_3') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Golden Memories Safaris customer testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -327,7 +327,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/testimonial-4.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Happy safari traveler testimonial - Person Name" loading="lazy">
+                        <img src="{{ site_image('testimonial_4') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Happy safari traveler testimonial - Person Name" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>

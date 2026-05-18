@@ -7,10 +7,10 @@
 @section('og_title', 'Photo Gallery - Golden Memories Safaris')
 @section('og_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
 @section('og_url', 'https://www.gmsafaris.co.tz/gallery')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('og_image', site_image('gallery_hero'))
 @section('twitter_title', 'Photo Gallery - Golden Memories Safaris')
 @section('twitter_description', 'Explore stunning photos from Golden Memories Safaris adventures across Tanzania. Get inspired by incredible wildlife, breathtaking landscapes, vibrant cultures, and beautiful lodges.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('twitter_image', site_image('gallery_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -28,7 +28,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('img/gallery-hero.webp') }}) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ site_image('gallery_hero') }}) center center no-repeat;
         background-size: cover;
     }
     .gallery-container { column-count: 3; column-gap: 1.5rem; }

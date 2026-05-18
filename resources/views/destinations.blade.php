@@ -7,15 +7,15 @@
 @section('og_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('og_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
 @section('og_url', 'https://www.gmsafaris.co.tz/destinations')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-3.webp')
+@section('og_image', site_image('destinations_hero'))
 @section('twitter_title', 'Tanzania Destinations - Golden Memories Safaris')
 @section('twitter_description', 'Explore the breathtaking destinations of Tanzania with Golden Memories Safaris. Discover iconic national parks, stunning lakes, majestic mountains, and unique attractions.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-3.webp')
+@section('twitter_image', site_image('destinations_hero'))
 
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ asset("img/destinations-hero.webp") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('{{ site_image("destinations_hero") }}') center center no-repeat;
         background-size: cover;
     }
     .destination-card {
@@ -126,7 +126,7 @@
         <div class="container">
             <div class="row g-4 align-items-center">
                 <div class="col-lg-6 wow fadeInLeft" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/ngorongoro-viewpoint.webp') }}" class="img-fluid rounded shadow-lg" alt="Ngorongoro Crater viewpoint, one of Tanzania's most spectacular safari destinations" loading="lazy">
+                    <img src="{{ site_image('destinations_ngorongoro_view') }}" class="img-fluid rounded shadow-lg" alt="Ngorongoro Crater viewpoint, one of Tanzania's most spectacular safari destinations" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow fadeInRight" data-wow-delay="0.3s">
                     <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Why Tanzania?</small>
@@ -184,7 +184,7 @@
                             @foreach($destinations as $destination)
                             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ min($loop->iteration + 1, 9) }}s">
                                 <div class="destination-card card h-100 shadow-sm border-0 overflow-hidden">
-                                    <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : ($destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : asset('img/hero-3.webp')) }}" class="card-img-top" alt="{{ $destination->name }}" loading="lazy">
+                                    <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : ($destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : site_image('hero_fallback_3')) }}" class="card-img-top" alt="{{ $destination->name }}" loading="lazy">
                                     <div class="card-body d-flex flex-column">
                                         <h5 class="card-title">{{ $destination->name }}</h5>
                                         <p class="card-text small text-muted flex-grow-1">{{ $destination->short_description ? Str::limit(strip_tags($destination->short_description), 150) : '' }}</p>

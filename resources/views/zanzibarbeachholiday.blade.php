@@ -7,16 +7,16 @@
 @section('og_title', 'Zanzibar Beach Holidays & Tours - Golden Memories Safaris')
 @section('og_description', 'Relax on pristine beaches, explore historic Stone Town, and discover the Spice Island. Plan your perfect Zanzibar beach holiday or safari add-on with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/zanzibarbeachholiday')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('zanzibar_hero'))
 @section('twitter_title', 'Zanzibar Beach Holidays & Tours - Golden Memories Safaris')
 @section('twitter_description', 'Relax on pristine beaches, explore historic Stone Town, and discover the Spice Island. Plan your perfect Zanzibar beach holiday or safari add-on with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('zanzibar_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/zanzibar-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('zanzibar_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .feature-item i {
@@ -110,7 +110,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/zanzibar-main.webp') }}" class="img-fluid rounded" alt="Stunning beach scene in Zanzibar" loading="lazy">
+                    <img src="{{ site_image('zanzibar_main') }}" class="img-fluid rounded" alt="Stunning beach scene in Zanzibar" loading="lazy">
                 </div>
             </div>
 
@@ -183,10 +183,10 @@
                  </div>
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s" style="position: relative;">
                     <!-- Base Image (Background) -->
-                    <img src="{{ asset('img/927136034.webp') }}" class="img-fluid rounded" alt="Narrow street in Stone Town, Zanzibar" style="width: 100%;" loading="lazy">
+                    <img src="{{ site_image('zanzibar_scuba') }}" class="img-fluid rounded" alt="Narrow street in Stone Town, Zanzibar" style="width: 100%;" loading="lazy">
                     
                     <!-- Overlapping Image (Bottom Right) -->
-                    <img src="{{ asset('img/Scubadiving-in-Zanzibar3.webp') }}" class="overlap-img" alt="Snorkeling or diving in Zanzibar" loading="lazy">
+                    <img src="{{ site_image('zanzibar_diving') }}" class="overlap-img" alt="Snorkeling or diving in Zanzibar" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <!-- Activities List -->

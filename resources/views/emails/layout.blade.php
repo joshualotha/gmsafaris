@@ -41,7 +41,7 @@
                     <tr>
                         <td class="email-header" style="background-color: #ffffff; padding: 40px 30px; text-align: center; border-bottom: 2px solid #d69c40;">
                             <a href="{{ url('/') }}">
-                                <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris" style="max-width: 180px; height: auto;">
+                                <img src="{{ site_image('logo') }}" alt="Golden Memories Safaris" style="max-width: 180px; height: auto;">
                             </a>
                         </td>
                     </tr>

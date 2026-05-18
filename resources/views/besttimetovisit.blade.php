@@ -11,11 +11,11 @@
 @section('og_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
 @section('og_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays. Expert seasonal guide from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/besttimetovisit')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('og_image', site_image('og_default'))
 
 @section('twitter_title', 'Best Time to Visit Tanzania - Safari & Beach Seasons | Golden Memories Safaris')
 @section('twitter_description', 'Plan your Tanzania safari at the perfect time. Discover the best months for wildlife viewing, Kilimanjaro climbing, and Zanzibar beach holidays.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('twitter_image', site_image('og_default'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -42,7 +42,7 @@
 
 @section('extra_styles')
 <style>
-.page-header { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ asset('img/hero-1.webp') }}") center center no-repeat; background-size: cover; }
+.page-header { background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url("{{ site_image('hero_fallback_1') }}") center center no-repeat; background-size: cover; }
 .season-card { padding: 1.5rem; background-color: #f8f9fa; border-radius: 0.5rem; border: 1px solid #eee; }
 .season-card h4 { color: #d69c40; margin-bottom: 1rem; }
 .season-card h6 { font-weight: 600; margin-top: 0.75rem; margin-bottom: 0.5rem; }

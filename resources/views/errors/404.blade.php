@@ -16,8 +16,8 @@
     <meta content="width=device-width, initial-scale=1.0" name="viewport">
     <meta name="robots" content="noindex, follow">
     <meta name="description" content="The page you are looking for is not available. Explore our Tanzania safari tours, Serengeti wildlife adventures, Kilimanjaro treks, and Zanzibar beach holidays.">
-    <link rel="icon" href="{{ asset('img/logo.webp') }}" type="image/webp">
-    <link rel="alternate icon" href="{{ asset('img/logo.png') }}" type="image/png">
+    <link rel="icon" href="{{ site_image('favicon') }}" type="image/webp">
+    <link rel="alternate icon" href="{{ site_image('logo_png') }}" type="image/png">
 
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
@@ -154,7 +154,7 @@
         <div class="error-content">
             <div class="error-logo">
                 <a href="{{ route('home') }}">
-                    <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" width="180" height="50" loading="lazy">
+                    <img src="{{ site_image('logo') }}" alt="Golden Memories Safaris Logo" width="180" height="50" loading="lazy">
                 </a>
             </div>
 

@@ -11,6 +11,7 @@ use App\Http\Controllers\Admin\InquiryController;
 use App\Http\Controllers\Admin\ContactMessageController;
 use App\Http\Controllers\Admin\GalleryController;
 use App\Http\Controllers\Admin\JoinSafariController;
+use App\Http\Controllers\Admin\SiteImageController;
 
 /*
 |--------------------------------------------------------------------------
@@ -87,6 +88,12 @@ Route::prefix('admin')->name('admin.')->group(function () {
         // Join Safari Participants
         Route::patch('/join-safari-participants/{participant}/confirm', [JoinSafariController::class, 'confirmParticipant'])->name('join-safari-participants.confirm');
         Route::delete('/join-safari-participants/{participant}', [JoinSafariController::class, 'destroyParticipant'])->name('join-safari-participants.destroy');
+
+        // Site Images Management
+        Route::get('/site-images', [SiteImageController::class, 'index'])->name('site-images.index');
+        Route::get('/site-images/{siteImage}/edit', [SiteImageController::class, 'edit'])->name('site-images.edit');
+        Route::put('/site-images/{siteImage}', [SiteImageController::class, 'update'])->name('site-images.update');
+        Route::get('/site-images/flush-cache', [SiteImageController::class, 'flushCache'])->name('site-images.flush-cache');
 
         // Logout
         Route::post('/logout', [AuthController::class, 'logout'])->name('logout');

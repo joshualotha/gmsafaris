@@ -7,10 +7,10 @@
 @section('og_title', 'Terms and Conditions - Golden Memories Safaris')
 @section('og_description', 'Read the Terms and Conditions for booking safaris, climbs, and tours with Golden Memories Safaris. Understand our policies regarding bookings, payments, cancellations, and liability.')
 @section('og_url', 'https://www.gmsafaris.co.tz/termsandconditions')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('terms_hero'))
 @section('twitter_title', 'Terms and Conditions - Golden Memories Safaris')
 @section('twitter_description', 'Read the Terms and Conditions for booking safaris, climbs, and tours with Golden Memories Safaris. Understand our policies regarding bookings, payments, cancellations, and liability.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('terms_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -31,7 +31,7 @@
              /* Page Header Style */
             .page-header {
                 /* *** REPLACE 'img/terms-hero.jpg' with your actual hero image *** */
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/1659143707.webp) center center no-repeat;
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ site_image('terms_hero') }}) center center no-repeat;
                 background-size: cover;
             }
 

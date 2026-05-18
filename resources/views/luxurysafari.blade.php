@@ -7,16 +7,16 @@
 @section('og_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
 @section('og_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/luxurysafari')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('luxury_safari_hero'))
 @section('twitter_title', 'Luxury Safaris in Tanzania - Golden Memories Safaris')
 @section('twitter_description', 'Experience the ultimate Tanzania safari in unparalleled comfort and style. Discover exclusive lodges, private guides, and bespoke luxury adventures with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('luxury_safari_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/luxury-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('luxury_safari_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .benefit-item i {
@@ -99,7 +99,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/luxury-main.webp') }}" class="img-fluid rounded" alt="Luxury safari lodge view" loading="lazy">
+                    <img src="{{ site_image('luxury_main') }}" class="img-fluid rounded" alt="Luxury safari lodge view" loading="lazy">
                     
                 </div>
             </div>
@@ -169,7 +169,7 @@
              <!-- Signature Experiences Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/luxury-experiences.webp') }}" class="img-fluid rounded" alt="Hot air balloon over Serengeti" loading="lazy">
+                    <img src="{{ site_image('luxury_experiences') }}" class="img-fluid rounded" alt="Hot air balloon over Serengeti" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">Signature Luxury Experiences</h2>

@@ -7,16 +7,16 @@
 @section('og_title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
 @section('og_description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/visa')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('visa_hero'))
 @section('twitter_title', 'Tanzania Visa Information - Requirements & Application Guide - Golden Memories Safaris')
 @section('twitter_description', 'Detailed guide on Tanzania visa requirements and the online eVisa application process for tourists visiting Tanzania. Information provided by Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('visa_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/visa-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('visa_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .list-check li {
@@ -122,7 +122,7 @@
                      <a href="https://www.immigration.go.tz/index.php/countries-which-are-not-required-to-apply-for-visa" target="_blank" rel="noopener noreferrer" class="btn btn-outline-primary rounded-pill">Check Official Exemptions List <i class="fas fa-external-link-alt ms-1"></i></a> <!-- ** REPLACE LINK ** -->
                  </div>
                  <div class="col-lg-6">
-                    <img src="{{ asset('img/Tanzania-Visa-Requirements-for-Tourists.webp') }}" class="img-fluid rounded" alt="Passport with Tanzanian entry stamp" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ site_image('visa_requirements') }}" class="img-fluid rounded" alt="Passport with Tanzanian entry stamp" loading="lazy"> <!-- CHANGE IMAGE -->
                  </div>
             </div>
 
@@ -163,7 +163,7 @@
                      <p class="small"><strong>Embassy Application:</strong> Applying through a Tanzanian embassy or consulate in your country is also possible but usually takes longer.</p>
                  </div>
                  <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/evisa-process.webp') }}" class="img-fluid rounded" alt="Laptop showing online visa application process" loading="lazy">
+                    <img src="{{ site_image('visa_process') }}" class="img-fluid rounded" alt="Laptop showing online visa application process" loading="lazy">
                 </div>
             </div>
 

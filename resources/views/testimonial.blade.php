@@ -7,10 +7,10 @@
 @section('og_title', 'Testimonials - Golden Memories Safaris')
 @section('og_description', 'Read what travelers are saying about their unforgettable experiences with Golden Memories Safaris. See reviews sourced from our TripAdvisor profile.')
 @section('og_url', 'https://www.gmsafaris.co.tz/testimonial')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('testimonial_hero'))
 @section('twitter_title', 'Testimonials - Golden Memories Safaris')
 @section('twitter_description', 'Read what travelers are saying about their unforgettable experiences with Golden Memories Safaris. See reviews sourced from our TripAdvisor profile.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('testimonial_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -87,7 +87,7 @@
 <style>
      /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/testimonial-hero.webp) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ site_image('testimonial_hero') }}) center center no-repeat;
         background-size: cover;
     }
 
@@ -198,7 +198,7 @@
                    We're thrilled to share feedback from our guests! Below are some reviews kindly shared by travelers on TripAdvisor after their adventures with Golden Memories Safaris. We value authentic feedback and encourage you to read more reviews directly on our official TripAdvisor profile.
                 </p>
                 <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="btn btn-lg btn-tripadvisor rounded-pill px-4 py-2 shadow-sm">
-                    <img src="{{ asset('img/trip.webp') }}" alt="Golden Memories Safaris TripAdvisor Reviews" loading="lazy">
+                    <img src="{{ site_image('tripadvisor_badge') }}" alt="Golden Memories Safaris TripAdvisor Reviews" loading="lazy">
                     Read More Reviews on TripAdvisor
                 </a>
             </div>

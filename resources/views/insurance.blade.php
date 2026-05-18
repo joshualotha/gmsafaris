@@ -7,10 +7,10 @@
 @section('og_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('og_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/insurance')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('insurance_hero'))
 @section('twitter_title', 'Travel Insurance & Emergency Info - Tanzania Safaris - Golden Memories Safaris')
 @section('twitter_description', 'Essential information on required travel insurance coverage and emergency procedures for your safari or trek in Tanzania with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('insurance_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -29,7 +29,7 @@
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/premium_photo-1672759455710-70c879daf721.avif) center center no-repeat; /* Use a relevant background */
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('insurance_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .list-check li, .list-bullet li {
@@ -141,7 +141,7 @@
                      </ul>
                  </div>
                  <div class="col-lg-6">
-                    <img src="{{ asset('img/insurance-doc.webp') }}" class="img-fluid rounded" alt="Travel insurance policy document and passport" loading="lazy">
+                    <img src="{{ site_image('insurance_doc') }}" class="img-fluid rounded" alt="Travel insurance policy document and passport" loading="lazy">
                      <div class="alert alert-warning mt-4" role="alert">
                         <strong>Choosing a Policy:</strong> Compare different providers. Read the policy wording (PDS/policy document) carefully, especially exclusions and coverage limits. Ensure the emergency assistance contact number is easily accessible. Keep a copy of your policy details with you and leave one with family/friends at home.
                      </div>
@@ -168,7 +168,7 @@
                      <p class="small"><em>Note: Access to advanced medical facilities in remote park areas is limited. Evacuation to a major town (Arusha, Nairobi) or your home country may be necessary for serious incidents. This highlights the critical importance of evacuation coverage.</em></p>
                  </div>
                   <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/amref-plane.webp') }}" class="img-fluid rounded" alt="AMREF Flying Doctors aircraft on a bush airstrip" loading="lazy">
+                    <img src="{{ site_image('insurance_plane') }}" class="img-fluid rounded" alt="AMREF Flying Doctors aircraft on a bush airstrip" loading="lazy">
                 </div>
             </div>
              <div class="row g-5 my-6 align-items-center wow bounceInUp" data-wow-delay="0.1s"> <!-- Adjusted margin -->
@@ -182,7 +182,7 @@
                      </ul>
                  </div>
                  <div class="col-lg-6">
-                    <img src="{{ asset('img/pexels-gustavo-fring-7155794-scaled.webp') }}" class="img-fluid rounded" alt="Person using a satellite phone or guide using radio" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ site_image('insurance_medical') }}" class="img-fluid rounded" alt="Person using a satellite phone or guide using radio" loading="lazy"> <!-- CHANGE IMAGE -->
                      <h4 class="mt-4 mb-3"><i class="fas fa-satellite-dish text-primary me-2"></i>Communication</h4>
                      <p class="small">Our safari vehicles are equipped with VHF radios for communication between guides and our base in Arusha. Mobile phone network coverage is good in towns and along main routes but can be patchy or non-existent in remote park areas and on mountain climbs. Satellite phones may be carried by guides on some treks or remote trips.</p>
                  </div>

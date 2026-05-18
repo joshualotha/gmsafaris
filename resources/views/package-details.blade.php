@@ -7,10 +7,10 @@
 @section('og_title', 'Great Migration Safari - Golden Memories Safaris')
 @section('og_description', 'Experience the Great Migration in Tanzania with Golden Memories Safaris - 5 day premium wildlife adventure')
 @section('og_url', 'https://www.gmsafaris.co.tz/package-details')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('package_hero'))
 @section('twitter_title', 'Great Migration Safari - Golden Memories Safaris')
 @section('twitter_description', 'Experience the Great Migration in Tanzania with Golden Memories Safaris - 5 day premium wildlife adventure')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('package_hero'))
 
 @section('extra_styles')
 <style>
@@ -281,7 +281,7 @@
 @section('body_content')
 
     <!-- Package Hero Section -->
-    <div class="package-hero" style="background-image: url('img/Great-Migration-From-Serengeti.webp');">
+    <div class="package-hero" style="background-image: url('{{ site_image('package_hero') }}');">
         <div class="package-hero-overlay"></div>
         <div class="container package-hero-content">
             <div class="row">
@@ -556,23 +556,23 @@
             
             <div class="row">
                 <div class="col-lg-3 col-md-6">
-                    <a href="{{ asset('img/great-migration-1.webp') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-1.webp') }}" alt="Wildebeest migration" class="img-fluid" loading="lazy">
+                    <a href="{{ site_image('package_gallery_1') }}" data-lightbox="gallery" class="gallery-item">
+                        <img src="{{ site_image('package_gallery_1') }}" alt="Wildebeest migration" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="{{ asset('img/great-migration-2.webp') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-2.webp') }}" alt="River crossing" class="img-fluid" loading="lazy">
+                    <a href="{{ site_image('package_gallery_2') }}" data-lightbox="gallery" class="gallery-item">
+                        <img src="{{ site_image('package_gallery_2') }}" alt="River crossing" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="{{ asset('img/great-migration-3.webp') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-3.webp') }}" alt="Luxury tented camp" class="img-fluid" loading="lazy">
+                    <a href="{{ site_image('package_gallery_3') }}" data-lightbox="gallery" class="gallery-item">
+                        <img src="{{ site_image('package_gallery_3') }}" alt="Luxury tented camp" class="img-fluid" loading="lazy">
                     </a>
                 </div>
                 <div class="col-lg-3 col-md-6">
-                    <a href="{{ asset('img/great-migration-4.webp') }}" data-lightbox="gallery" class="gallery-item">
-                        <img src="{{ asset('img/great-migration-4.webp') }}" alt="Serengeti landscape" class="img-fluid" loading="lazy">
+                    <a href="{{ site_image('package_gallery_4') }}" data-lightbox="gallery" class="gallery-item">
+                        <img src="{{ site_image('package_gallery_4') }}" alt="Serengeti landscape" class="img-fluid" loading="lazy">
                     </a>
                 </div>
             </div>
@@ -671,7 +671,7 @@
             <div class="owl-carousel owl-theme testimonial-carousel testimonial-carousel-1 mb-4 wow bounceInUp" data-wow-delay="0.1s">
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/Erlend G.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Erlend G" loading="lazy">
+                        <img src="{{ site_image('testimonial_erlend') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Erlend G" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -693,7 +693,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/misssunshine.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Miss Sunshine" loading="lazy">
+                        <img src="{{ site_image('testimonial_sunshine') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Miss Sunshine" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>
@@ -715,7 +715,7 @@
                 </div>
                 <div class="testimonial-item rounded bg-light">
                     <div class="d-flex mb-3">
-                        <img src="{{ asset('img/Monika U.webp') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Monika U" loading="lazy">
+                        <img src="{{ site_image('testimonial_monika') }}" class="img-fluid rounded-circle flex-shrink-0" alt="Safari customer testimonial from Monika U" loading="lazy">
                         <div class="position-absolute" style="top: 15px; right: 20px;">
                             <i class="fa fa-quote-right fa-2x"></i>
                         </div>

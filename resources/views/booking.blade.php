@@ -7,10 +7,10 @@
 @section('og_title', 'Book Your Safari - Golden Memories Safaris')
 @section('og_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/booking')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('og_image', site_image('booking_hero'))
 @section('twitter_title', 'Book Your Safari - Golden Memories Safaris')
 @section('twitter_description', 'Start planning your dream Tanzania adventure! Fill out our inquiry form for a personalized safari, Kilimanjaro climb, or Zanzibar holiday quote from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('twitter_image', site_image('booking_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -29,7 +29,7 @@
 <style>
      /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('img/booking-hero.webp') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ site_image('booking_hero') }}') center center no-repeat;
         background-size: cover;
     }
 

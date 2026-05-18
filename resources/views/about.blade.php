@@ -7,10 +7,10 @@
 @section('og_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
 @section('og_description', 'Meet Golden Memories Safaris, a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
 @section('og_url', 'https://www.gmsafaris.co.tz/about')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/about.webp')
+@section('og_image', site_image('about_hero'))
 @section('twitter_title', 'About Golden Memories Safaris | Local Tanzanian Safari Experts Since 2023')
 @section('twitter_description', 'Meet Golden Memories Safaris, a trusted local Tanzanian tour operator in Arusha since 2023. TATO-registered, expert guides, 24/7 support. Read reviews, meet our team, and start planning your authentic safari.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/about.webp')
+@section('twitter_image', site_image('about_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -29,7 +29,7 @@
     "@type": "Organization",
     "name": "Golden Memories Safaris",
     "url": "https://www.gmsafaris.co.tz",
-    "logo": "https://www.gmsafaris.co.tz/img/logo.webp",
+    "logo": "{{ site_image('logo') }}",
     "description": "A passionate local Tanzanian tour operator based in Arusha, dedicated to creating authentic, responsible, and unforgettable safari adventures.",
     "foundingDate": "2023",
     "contactPoint": {
@@ -53,7 +53,7 @@
 <style>
      /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/about-hero.webp) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ site_image('about_hero') }}) center center no-repeat;
         background-size: cover;
     }
     /* Why Choose Us Icons */
@@ -131,7 +131,7 @@
         <div class="container">
             <div class="row g-5 align-items-center">
                 <div class="col-lg-6 wow bounceInLeft" data-wow-delay="0.1s">
-                     <img src="{{ asset('img/about-1.webp') }}" class="img-fluid rounded shadow-lg" alt="Founders or team members of Golden Memories Safaris in Tanzania" loading="lazy">
+                     <img src="{{ site_image('about_story') }}" class="img-fluid rounded shadow-lg" alt="{{ site_image_attr('about_story', 'alt_text', 'Founders or team members of Golden Memories Safaris in Tanzania') }}" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInRight" data-wow-delay="0.3s">
                     <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Our Story</small>
@@ -242,7 +242,7 @@
                 <!-- Team Member 1 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
                     <div class="team-item card border-0 shadow-sm h-100">
-                        <img src="{{ asset('img/Erlend G.webp') }}" class="card-img-top" alt="Erlend G., Founder & Lead Safari Guide at Golden Memories Safaris" loading="lazy">
+                        <img src="{{ site_image('team_erlend') }}" class="card-img-top" alt="Erlend G., Founder & Lead Safari Guide at Golden Memories Safaris" loading="lazy">
                         <div class="team-content card-body text-center">
                             <h4 class="mb-1">Erlend G.</h4>
                             <p class="text-primary fw-semibold mb-2">Founder & Lead Safari Guide</p>
@@ -258,7 +258,7 @@
                 <!-- Team Member 2 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.3s">
                     <div class="team-item card border-0 shadow-sm h-100">
-                        <img src="{{ asset('img/about-1.webp') }}" class="card-img-top" alt="Golden Memories Safaris operations and guest relations team in Arusha" loading="lazy">
+                        <img src="{{ site_image('team_operations') }}" class="card-img-top" alt="Golden Memories Safaris operations and guest relations team in Arusha" loading="lazy">
                         <div class="team-content card-body text-center">
                             <h4 class="mb-1">Operations & Guest Relations Team</h4>
                             <p class="text-primary fw-semibold mb-2">Safari Planning & Logistics</p>
@@ -274,7 +274,7 @@
                 <!-- Team Member 3 -->
                 <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.5s">
                     <div class="team-item card border-0 shadow-sm h-100">
-                        <img src="{{ asset('img/serval-eland.webp') }}" class="card-img-top" alt="Professional safari driver-guides at Golden Memories Safaris" loading="lazy">
+                        <img src="{{ site_image('team_driver_guides') }}" class="card-img-top" alt="Professional safari driver-guides at Golden Memories Safaris" loading="lazy">
                         <div class="team-content card-body text-center">
                             <h4 class="mb-1">Professional Driver-Guides</h4>
                             <p class="text-primary fw-semibold mb-2">Wildlife & Wilderness Experts</p>

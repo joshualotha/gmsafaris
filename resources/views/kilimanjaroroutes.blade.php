@@ -7,16 +7,16 @@
 @section('og_title', 'Kilimanjaro Route Comparison - Choose Your Climb - Golden Memories Safaris')
 @section('og_description', 'Compare Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai, Northern Circuit. Understand scenery, difficulty, acclimatization & success rates to choose the best trek with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/kilimanjaroroutes')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('kilimanjaro_hero'))
 @section('twitter_title', 'Kilimanjaro Route Comparison - Choose Your Climb - Golden Memories Safaris')
 @section('twitter_description', 'Compare Kilimanjaro climbing routes: Machame, Lemosho, Marangu, Rongai, Northern Circuit. Understand scenery, difficulty, acclimatization & success rates to choose the best trek with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('kilimanjaro_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kilimanjaro-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ site_image('kilimanjaro_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .route-card {
@@ -127,7 +127,7 @@
                     <div class="route-card wow bounceInUp" data-wow-delay="0.1s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-machame.webp') }}" class="img-fluid rounded" alt="Scenic view from the Machame Route" loading="lazy">
+                                <img src="{{ site_image('route_machame') }}" class="img-fluid rounded" alt="Scenic view from the Machame Route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Machame Route ("Whiskey Route")</h3>
@@ -160,7 +160,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.2s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-lemosho.webp') }}" class="img-fluid rounded" alt="View from the Lemosho Route across the Shira Plateau" loading="lazy">
+                                <img src="{{ site_image('route_lemosho') }}" class="img-fluid rounded" alt="View from the Lemosho Route across the Shira Plateau" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Lemosho Route</h3>
@@ -193,7 +193,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.3s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-marangu.webp') }}" class="img-fluid rounded" alt="Sleeping huts along the Marangu Route" loading="lazy">
+                                <img src="{{ site_image('route_marangu') }}" class="img-fluid rounded" alt="Sleeping huts along the Marangu Route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Marangu Route ("Coca-Cola Route")</h3>
@@ -227,7 +227,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.4s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-rongai.webp') }}" class="img-fluid rounded" alt="View from the Rongai Route approaching from the north" loading="lazy">
+                                <img src="{{ site_image('route_rongai') }}" class="img-fluid rounded" alt="View from the Rongai Route approaching from the north" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Rongai Route</h3>
@@ -260,7 +260,7 @@
                      <div class="route-card wow bounceInUp" data-wow-delay="0.5s">
                         <div class="row align-items-center">
                             <div class="col-md-4 mb-3 mb-md-0">
-                                <img src="{{ asset('img/kili-northern.webp') }}" class="img-fluid rounded" alt="Panoramic view from the Northern Circuit route" loading="lazy">
+                                <img src="{{ site_image('route_northern') }}" class="img-fluid rounded" alt="Panoramic view from the Northern Circuit route" loading="lazy">
                             </div>
                             <div class="col-md-8">
                                 <h3>Northern Circuit Route</h3>

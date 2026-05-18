@@ -7,10 +7,10 @@
 @section('og_title', $post->seo_title ?? $post->title . ' - Golden Memories Safaris Blog')
 @section('og_description', $post->seo_description ?? $post->excerpt)
 @section('og_url', 'https://www.gmsafaris.co.tz/blog/' . $post->slug)
-@section('og_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', $post->hero_image_url ?? site_image('logo'))
 @section('twitter_title', $post->seo_title ?? $post->title . ' - Golden Memories Safaris Blog')
 @section('twitter_description', $post->seo_description ?? $post->excerpt)
-@section('twitter_image', $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', $post->hero_image_url ?? site_image('logo'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -30,7 +30,7 @@
     "@type": "Article",
     "headline": "{{ $post->title }}",
     "description": "{{ $post->seo_description ?? $post->excerpt }}",
-    "image": "{{ $post->hero_image_url ?? 'https://www.gmsafaris.co.tz/img/logo.webp' }}",
+    "image": "{{ $post->hero_image_url ?? site_image('logo') }}",
     "author": {
         "@type": "Person",
         "name": "{{ $post->author ?? 'Golden Memories Safaris' }}"
@@ -40,7 +40,7 @@
         "name": "Golden Memories Safaris",
         "logo": {
             "@type": "ImageObject",
-            "url": "https://www.gmsafaris.co.tz/img/logo.webp"
+            "url": "{{ site_image('logo') }}"
         }
     },
     "datePublished": "{{ $post->published_at ?? date('c') }}",
@@ -56,7 +56,7 @@
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ $post->hero_image_url ?? 'img/blog-hero.webp' }}) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ $post->hero_image_url ?? site_image('blog_hero_fallback') }}) center center no-repeat;
         background-size: cover;
     }
     .blog-content img {
@@ -139,7 +139,7 @@
                     @if($post->author)
                     <div class="author-bio d-flex align-items-start p-4 mt-5 bg-light rounded-3 border-start border-primary border-4">
                         <div class="author-avatar me-4 flex-shrink-0">
-                            <img src="{{ asset('img/logo.webp') }}"
+                            <img src="{{ site_image('logo') }}"
                                  alt="{{ $post->author }} - Golden Memories Safaris"
                                  class="rounded-circle"
                                  width="80" height="80"
@@ -217,7 +217,7 @@
                             @foreach($relatedSafaris as $safari)
                             <li class="mb-3">
                                 <a href="{{ route('safari.show', $safari->slug) }}" class="d-flex align-items-start">
-                                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.webp') }}"
+                                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : site_image('hero_fallback_1') }}"
                                          alt="{{ $safari->title }}"
                                          loading="lazy"
                                          style="width: 60px; height: 60px; object-fit: cover; border-radius: 0.25rem; margin-right: 0.75rem; flex-shrink: 0;">
@@ -277,7 +277,7 @@
             @foreach($relatedSafaris as $safari)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                 <div class="related-card card h-100 shadow-sm">
-                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : asset('img/hero-1.webp') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : site_image('hero_fallback_1') }}" class="card-img-top" alt="{{ $safari->title }}" loading="lazy" style="height: 200px; object-fit: cover;">
                     @if($safari->duration)
                         <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $safari->duration }}</div>
                     @endif
@@ -308,7 +308,7 @@
             @foreach($relatedDestinations as $dest)
             <div class="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.{{ $loop->iteration }}s">
                 <div class="related-card card h-100 shadow-sm">
-                    <img src="{{ $dest->hero_image ? \App\Models\Destination::resolveImageUrl($dest->hero_image) : asset('img/hero-3.webp') }}" class="card-img-top" alt="{{ $dest->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
+                    <img src="{{ $dest->hero_image ? \App\Models\Destination::resolveImageUrl($dest->hero_image) : site_image('hero_fallback_3') }}" class="card-img-top" alt="{{ $dest->name }}" loading="lazy" style="height: 200px; object-fit: cover;">
                     @if($dest->badge_text)
                         <div class="badge bg-primary position-absolute top-0 start-0 m-3 py-2 px-3">{{ $dest->badge_text }}</div>
                     @endif

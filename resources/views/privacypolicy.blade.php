@@ -7,10 +7,10 @@
 @section('og_title', 'Privacy Policy - Golden Memories Safaris')
 @section('og_description', 'Privacy Policy for Golden Memories Safaris, detailing how we collect, use, and protect your personal data when you use our services or website.')
 @section('og_url', 'https://www.gmsafaris.co.tz/privacypolicy')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('privacy_hero'))
 @section('twitter_title', 'Privacy Policy - Golden Memories Safaris')
 @section('twitter_description', 'Privacy Policy for Golden Memories Safaris, detailing how we collect, use, and protect your personal data when you use our services or website.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('privacy_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -72,7 +72,7 @@
                          /* Page Header Style */
             .page-header {
                 /* Page header background image */
-                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url(img/bhavani-privacy-policy-banner.webp) center center no-repeat;
+                background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url({{ site_image('privacy_hero') }}) center center no-repeat;
                 background-size: cover;
             }
 

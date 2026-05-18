@@ -7,16 +7,16 @@
 @section('og_title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/healthandsafety')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('health_hero'))
 @section('twitter_title', 'Tanzania Health & Safety Information - Travel Guide - Golden Memories Safaris')
 @section('twitter_description', 'Essential health and safety information for your trip to Tanzania. Guide on vaccinations, malaria, food safety, wildlife encounters, and travel insurance from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('health_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/health-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('health_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .list-check li, .list-bullet li {
@@ -131,7 +131,7 @@
             </div>
             <div class="row g-5 align-items-center mb-5 wow bounceInUp" data-wow-delay="0.1s">
                  <div class="col-lg-6">
-                     <img src="{{ asset('img/Amani tavel clinic  Salmon Arm.webp') }}" class="img-fluid rounded" alt="Doctor consulting with a patient about travel health" loading="lazy"> <!-- CHANGE IMAGE -->
+                     <img src="{{ site_image('health_safety') }}" class="img-fluid rounded" alt="Doctor consulting with a patient about travel health" loading="lazy"> <!-- CHANGE IMAGE -->
                  </div>
                   <div class="col-lg-6">
                     <h4 class="mb-3"><i class="fas fa-user-md text-primary me-2"></i>Consult Your Doctor / Travel Clinic</h4>
@@ -216,7 +216,7 @@
                     </ul>
                  </div>
                   <div class="col-lg-6 order-lg-1"> <!-- Image on left -->
-                    <img src="{{ asset('img/safari-safety.webp') }}" class="img-fluid rounded" alt="Safari guide explaining safety rules to tourists in vehicle" loading="lazy">
+                    <img src="{{ site_image('safari_safety') }}" class="img-fluid rounded" alt="Safari guide explaining safety rules to tourists in vehicle" loading="lazy">
                 </div>
             </div>
              <div class="row g-4 my-6 wow bounceInUp" data-wow-delay="0.1s"> <!-- Adjusted margin -->

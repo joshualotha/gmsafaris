@@ -7,10 +7,10 @@
 @section('og_title', 'Contact Us - Golden Memories Safaris')
 @section('og_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
 @section('og_url', 'https://www.gmsafaris.co.tz/contact')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('contact_hero'))
 @section('twitter_title', 'Contact Us - Golden Memories Safaris')
 @section('twitter_description', 'Get in touch with Golden Memories Safaris. Contact us for safari inquiries, Kilimanjaro climbs, Zanzibar holidays, or any questions about traveling to Tanzania.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('contact_hero'))
 
 @section('structured_data')
 <script type="application/ld+json">
@@ -28,7 +28,7 @@
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
     "name": "Golden Memories Safaris",
-    "image": "https://www.gmsafaris.co.tz/img/logo.webp",
+    "image": "{{ site_image('logo') }}",
     "url": "https://www.gmsafaris.co.tz",
     "telephone": "+255786383273",
     "email": "info@gmsafaris.co.tz",
@@ -62,7 +62,7 @@
 <style>
     /* Page Header Style */
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url(img/contact-hero.webp) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0.55)), url({{ site_image('contact_hero') }}) center center no-repeat;
         background-size: cover;
     }
 

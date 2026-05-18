@@ -7,15 +7,15 @@
 @section('og_title', 'Travel Blog - Golden Memories Safaris')
 @section('og_description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')
 @section('og_url', 'https://www.gmsafaris.co.tz/blog')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('og_image', site_image('blog_hero'))
 @section('twitter_title', 'Travel Blog - Golden Memories Safaris')
 @section('twitter_description', 'Read the latest safari stories, travel tips, wildlife news, and adventure advice from the experts at Golden Memories Safaris Blog.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/hero-1.webp')
+@section('twitter_image', site_image('blog_hero'))
 
 @section('extra_styles')
 <style>
     .page-header {
-        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url(img/blog-hero.webp) center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ site_image('blog_hero') }}) center center no-repeat;
         background-size: cover;
     }
     .blog-post-item .card-img-top {
@@ -153,7 +153,7 @@
             <div class="col-lg-6 mb-4 wow fadeInUp" data-wow-delay="{{ $loop->index % 2 == 0 ? '0.1s' : '0.2s' }}">
                 <div class="card blog-post-item h-100 border-0 shadow-sm overflow-hidden">
                     <a href="{{ route('blog.show', $post->slug) }}">
-                        <img src="{{ $post->hero_image_url ?? asset('img/blog-hero.webp') }}" class="card-img-top" alt="{{ $post->title }}" loading="lazy">
+                        <img src="{{ $post->hero_image_url ?? site_image('blog_hero_fallback') }}" class="card-img-top" alt="{{ $post->title }}" loading="lazy">
                     </a>
                     <div class="card-body d-flex flex-column">
                         <div class="mb-3 blog-post-meta">

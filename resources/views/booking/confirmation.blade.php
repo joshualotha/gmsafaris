@@ -10,7 +10,7 @@
 @section('extra_styles')
 <style>
     .page-header-confirmation {
-        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ asset("img/hero-1.webp") }}') center center no-repeat;
+        background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), url('{{ site_image('hero_fallback_1') }}') center center no-repeat;
         background-size: cover;
     }
     .confirmation-icon {

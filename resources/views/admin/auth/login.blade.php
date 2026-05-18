@@ -70,7 +70,7 @@
 <body>
     <div class="login-card">
         <div class="login-logo">
-            <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Admin Login" loading="lazy">
+            <img src="{{ site_image('logo') }}" alt="Golden Memories Safaris Admin Login" loading="lazy">
             <h4>Admin Login</h4>
             <p>Golden Memories Safaris CMS</p>
         </div>

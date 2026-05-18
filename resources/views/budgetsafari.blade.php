@@ -7,16 +7,16 @@
 @section('og_title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
 @section('og_description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/budgetsafari')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('budget_safari_hero'))
 @section('twitter_title', 'Budget Safaris in Tanzania - Affordable Adventures - Golden Memories Safaris')
 @section('twitter_description', 'Explore Tanzania affordably! Discover our budget safari options, including camping and basic lodge tours. Experience incredible wildlife without breaking the bank with Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('budget_safari_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/budget-safari-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('budget_safari_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .feature-item i {
@@ -95,7 +95,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/budget-safari-main.webp') }}" class="img-fluid rounded" alt="Travelers enjoying a budget safari in Tanzania" loading="lazy">
+                    <img src="{{ site_image('budget_safari_main') }}" class="img-fluid rounded" alt="Travelers enjoying a budget safari in Tanzania" loading="lazy">
                 </div>
             </div>
 
@@ -164,7 +164,7 @@
              <!-- What to Expect Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/budget-camping.webp') }}" class="img-fluid rounded" alt="Budget safari campsite setup in Tanzania" loading="lazy">
+                    <img src="{{ site_image('budget_camping') }}" class="img-fluid rounded" alt="Budget safari campsite setup in Tanzania" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">Understanding Budget Safaris</h2> <!-- Heading Updated -->

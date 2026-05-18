@@ -7,16 +7,16 @@
 @section('og_title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
 @section('og_description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')
 @section('og_url', 'https://www.gmsafaris.co.tz/mountaintrekking')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('trekking_hero'))
 @section('twitter_title', 'Mountain Trekking in Tanzania (Kilimanjaro & Meru) - Golden Memories Safaris')
 @section('twitter_description', 'Conquer Mount Kilimanjaro or Mount Meru with Golden Memories Safaris. Expert guides, safety focus, ethical treks. Discover routes and plan your Tanzania trekking adventure.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('trekking_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url(img/kilimanjaro-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .6), rgba(0, 0, 0, .6)), url({{ site_image('trekking_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .feature-item i { /* Renamed from benefit-item for clarity */
@@ -96,7 +96,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/trekking-main.webp') }}" class="img-fluid rounded" alt="Hikers approaching Kilimanjaro summit" loading="lazy">
+                    <img src="{{ site_image('trekking_main') }}" class="img-fluid rounded" alt="Hikers approaching Kilimanjaro summit" loading="lazy">
                 </div>
             </div>
 
@@ -168,7 +168,7 @@
                      <h2 class="mb-5">Popular Kilimanjaro Routes</h2>
                  </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/trekking-routes.webp') }}" class="img-fluid rounded" alt="Map or scenic view of Kilimanjaro routes" loading="lazy">
+                    <img src="{{ site_image('trekking_routes') }}" class="img-fluid rounded" alt="Map or scenic view of Kilimanjaro routes" loading="lazy">
                      <p class="mt-3 fst-italic small">We also offer guided treks on Mount Meru (typically 4 days), an excellent acclimatization climb or a challenging adventure in its own right.</p>
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">

@@ -7,16 +7,16 @@
 @section('og_title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
 @section('og_description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')
 @section('og_url', 'https://www.gmsafaris.co.tz/localcustoms')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('customs_hero'))
 @section('twitter_title', 'Local Customs & Etiquette in Tanzania - Travel Guide - Golden Memories Safaris')
 @section('twitter_description', 'Understand local customs and etiquette for respectful travel in Tanzania. Guide covering greetings, dress code, photography, dining, and more from Golden Memories Safaris.')
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('customs_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/customs-header.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('customs_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .list-check li, .list-bullet li {
@@ -144,7 +144,7 @@
             <!-- Main Customs Section -->
             <div class="row g-5 customs-section">
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/pexels-photo-8069744.webp') }}" class="img-fluid rounded" alt="People greeting each other warmly in Tanzania" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ site_image('customs_main') }}" class="img-fluid rounded" alt="People greeting each other warmly in Tanzania" loading="lazy"> <!-- CHANGE IMAGE -->
                     <h4><i class="fas fa-handshake"></i>Greetings</h4>
                     <ul>
                         <li>Greetings are very important and expected. Always greet people before starting a conversation or asking for help.</li>
@@ -170,7 +170,7 @@
                 </div>
 
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/photo-1687422808366-c5b2800c6e98.avif') }}" class="img-fluid rounded" alt="Tourists dressed modestly while visiting a town or village" loading="lazy"> <!-- CHANGE IMAGE -->
+                    <img src="{{ site_image('customs_culture') }}" class="img-fluid rounded" alt="Tourists dressed modestly while visiting a town or village" loading="lazy"> <!-- CHANGE IMAGE -->
                     <h4><i class="fas fa-user-tie"></i>Dress Code</h4>
                      <ul>
                         <li>Tanzania is generally conservative, especially outside major cities, tourist lodges, and particularly in coastal areas and Zanzibar (which has a large Muslim population).</li>
@@ -252,7 +252,7 @@
                       <div class="col-lg-3 col-md-6">
                         <div class="footer-item">
                             <a href="{{ route('home') }}">
-                                <img src="{{ asset('img/logo.webp') }}"
+                                <img src="{{ asset('{{ site_image('logo') }}') }}"
                                      alt="Golden Memories Safaris Logo"
                                      class="footer-logo mb-4"
                                      width="180" height="40">

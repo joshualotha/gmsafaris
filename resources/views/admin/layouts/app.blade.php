@@ -284,7 +284,7 @@
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
         <div class="sidebar-brand">
-            <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Admin" loading="lazy">
+            <img src="{{ site_image('logo') }}" alt="Golden Memories Safaris Admin" loading="lazy">
             <span>GM Safaris Admin</span>
         </div>
         <div class="sidebar-menu">
@@ -305,6 +305,9 @@
             </a>
             <a href="{{ route('admin.gallery.index') }}" class="{{ request()->routeIs('admin.gallery.*') ? 'active' : '' }}">
                 <i class="fas fa-images"></i> Gallery
+            </a>
+            <a href="{{ route('admin.site-images.index') }}" class="{{ request()->routeIs('admin.site-images.*') ? 'active' : '' }}">
+                <i class="fas fa-paint-brush"></i> Site Images
             </a>
 
             <div class="menu-label">Management</div>

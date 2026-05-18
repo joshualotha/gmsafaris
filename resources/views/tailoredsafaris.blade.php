@@ -7,16 +7,16 @@
 @section('og_title', 'Tailored Safaris - Golden Memories Safaris')
 @section('og_description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")
 @section('og_url', 'https://www.gmsafaris.co.tz/tailoredsafaris')
-@section('og_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('og_image', site_image('tailored_safari_hero'))
 @section('twitter_title', 'Tailored Safaris - Golden Memories Safaris')
 @section('twitter_description', "Design your dream Tanzania adventure with Golden Memories Safaris' fully tailored and personalized safari experiences.")
-@section('twitter_image', 'https://www.gmsafaris.co.tz/img/logo.webp')
+@section('twitter_image', site_image('tailored_safari_hero'))
 
 @section('extra_styles')
 <style>
 
         .page-header {
-            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url(img/service-tailored.webp) center center no-repeat;
+            background: linear-gradient(rgba(0, 0, 0, .5), rgba(0, 0, 0, .5)), url({{ site_image('tailored_safari_hero') }}) center center no-repeat;
             background-size: cover;
         }
         .benefit-item i {
@@ -87,7 +87,7 @@
                 </div>
                  <!-- Image -->
                  <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
-                    <img src="{{ asset('img/tailored-main.webp') }}" class="img-fluid rounded" alt="Couple planning a tailored safari" loading="lazy">
+                    <img src="{{ site_image('tailored_main') }}" class="img-fluid rounded" alt="Couple planning a tailored safari" loading="lazy">
                 </div>
             </div>
 
@@ -155,7 +155,7 @@
              <!-- How It Works Section -->
              <div class="row g-5 mt-5 align-items-center">
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.1s">
-                    <img src="{{ asset('img/tailored-process.webp') }}" class="img-fluid rounded" alt="Safari guide discussing plans" loading="lazy">
+                    <img src="{{ site_image('tailored_process') }}" class="img-fluid rounded" alt="Safari guide discussing plans" loading="lazy">
                 </div>
                 <div class="col-lg-6 wow bounceInUp" data-wow-delay="0.3s">
                      <h2 class="mb-4">Our Tailoring Process</h2>
