@@ -76,30 +76,36 @@
                 </div>
             </div>
 
-            <!-- Column 4: Trust & Reviews (Minimal) -->
+            <!-- Column 4: Reviews & Trust -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="mb-3">Book With Confidence</h4>
-                    <p class="text-muted small mb-3">
-                        TATO-licensed Tanzanian safari operator with excellent reviews on
-                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">TripAdvisor</a>
-                        &amp;
-                        <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">GetYourGuide</a>.
-                    </p>
-                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                    <h4 class="mb-3">Our Reviews</h4>
+                    <ul class="list-unstyled d-flex flex-column gap-3 mb-0">
                         <li>
-                            <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start" style="font-size: 0.75rem;">
-                                <i class="fas fa-shield-alt text-primary me-1"></i>TATO Licensed
-                            </span>
-                        </li>
-                        <li>
-                            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start text-decoration-none" style="font-size: 0.75rem;">
-                                <i class="fas fa-star text-warning me-1"></i>TripAdvisor
+                            <a href="https://www.safaribookings.com/p6202" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="text-warning" style="font-size: 0.85rem; letter-spacing: 1px;">★★★★★</span>
+                                    <strong class="text-dark small">5.0</strong>
+                                </div>
+                                <span class="text-muted" style="font-size: 0.7rem;">SafariBookings — 31 reviews</span>
                             </a>
                         </li>
                         <li>
-                            <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start text-decoration-none" style="font-size: 0.75rem;">
-                                <i class="fas fa-route text-primary me-1"></i>GetYourGuide
+                            <a href="https://www.google.com/maps?cid=16212065552752872733" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span style="font-size: 0.85rem; letter-spacing: 1px; color: #4285F4;">★★★★★</span>
+                                    <strong class="text-dark small">5.0</strong>
+                                </div>
+                                <span class="text-muted" style="font-size: 0.7rem;">Google — 10+ reviews</span>
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
+                                <div class="d-flex align-items-center gap-2">
+                                    <span class="text-success" style="font-size: 0.85rem; letter-spacing: 1px;">★★★★★</span>
+                                    <strong class="text-dark small">5.0</strong>
+                                </div>
+                                <span class="text-muted" style="font-size: 0.7rem;">TripAdvisor — 9 reviews</span>
                             </a>
                         </li>
                     </ul>
