@@ -1443,5 +1443,60 @@
         //     smartSpeed: 1000
         // });
     });
+
+    // Force hero dot styling — runs after everything loads
+    (function forceHeroDots() {
+        var style = document.createElement('style');
+        style.textContent = `
+            .owl-carousel.hero-carousel .owl-dots button.owl-dot {
+                background: none !important;
+                border: none !important;
+                padding: 0 !important;
+                margin: 0 3px !important;
+                outline: none !important;
+                box-shadow: none !important;
+                display: inline-flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+            }
+            .owl-carousel.hero-carousel .owl-dots button.owl-dot span {
+                display: block !important;
+                background: rgba(255, 255, 255, 0.35) !important;
+                width: 18px !important;
+                height: 3px !important;
+                margin: 0 !important;
+                border-radius: 2px !important;
+                border: none !important;
+                padding: 0 !important;
+                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+            }
+            .owl-carousel.hero-carousel .owl-dots button.owl-dot.active span {
+                background: #d69c40 !important;
+                width: 36px !important;
+                height: 3px !important;
+                box-shadow: 0 0 8px rgba(214, 156, 64, 0.5) !important;
+            }
+            .owl-carousel.hero-carousel .owl-dots button.owl-dot:hover span {
+                background: rgba(214, 156, 64, 0.7) !important;
+            }
+            .owl-carousel.hero-carousel .owl-dots {
+                display: flex !important;
+                align-items: center !important;
+                justify-content: center !important;
+                gap: 5px !important;
+                position: absolute !important;
+                bottom: 30px !important;
+                left: 50% !important;
+                transform: translateX(-50%) !important;
+                z-index: 3 !important;
+                margin: 0 !important;
+                padding: 0 !important;
+            }
+            .owl-carousel.hero-carousel .owl-nav {
+                display: none !important;
+            }
+        `;
+        document.head.appendChild(style);
+    })();
 </script>
 @endsection
