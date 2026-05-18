@@ -592,7 +592,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro, and Tanzania&#039;s most iconic parks. Your African adventure starts here.</p>
+                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro, and Tanzania&#039;s most iconic parks. Your African adventure starts here with guides who know every trail.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
@@ -614,7 +614,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">From the wild savannas to the shores of Zanzibar &mdash; every corner of Tanzania promises a new discovery.</p>
+                <p class="animated bounceInUp">From the wild savannas to the shores of Zanzibar &mdash; every corner of Tanzania promises new discoveries in culture and wildlife.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
@@ -636,7 +636,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Encounter the Big Five and witness the Great Migration up close. Moments you&#039;ll treasure for a lifetime.</p>
+                <p class="animated bounceInUp">Encounter the Big Five and witness the Great Migration up close. Moments you&#039;ll treasure for a lifetime and photos you&#039;ll never forget.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
@@ -657,7 +657,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Descend into Ngorongoro Crater &mdash; a UNESCO World Heritage site teeming with wildlife unlike anywhere on Earth.</p>
+                <p class="animated bounceInUp">Descend into Ngorongoro Crater &mdash; a UNESCO World Heritage site teeming with wildlife unlike anywhere on Earth. Every turn reveals something extraordinary.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
