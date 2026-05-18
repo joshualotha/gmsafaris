@@ -40,18 +40,27 @@
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label">Type</label>
-                        <input type="text" name="type" class="form-control" value="{{ old('type') }}" placeholder="e.g. Comprehensive">
+                        <label class="form-label">Safari Type <span class="text-danger">*</span></label>
+                        <select name="type" class="form-select @error('type') is-invalid @enderror" required>
+                            <option value="">Select type...</option>
+                            <option value="Wildlife Safari" @selected(old('type') == 'Wildlife Safari')>Wildlife Safari</option>
+                            <option value="Luxury Safari" @selected(old('type') == 'Luxury Safari')>Luxury Safari</option>
+                            <option value="Mid-Range Safari" @selected(old('type') == 'Mid-Range Safari')>Mid-Range Safari</option>
+                            <option value="Mountain Trekking" @selected(old('type') == 'Mountain Trekking')>Mountain Trekking</option>
+                            <option value="Beach Holiday" @selected(old('type') == 'Beach Holiday')>Beach Holiday</option>
+                            <option value="Group Joining" @selected(old('type') == 'Group Joining')>Group Joining</option>
+                        </select>
+                        @error('type') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label">Category</label>
-                        <select name="category" class="form-select">
+                        <label class="form-label">Price Tier</label>
+                        <select name="price_tier" class="form-select">
                             <option value="">Select...</option>
-                            <option value="featured" @selected(old('category') == 'featured')>Featured</option>
-                            <option value="standard" @selected(old('category') == 'standard')>Standard</option>
-                            <option value="add-on" @selected(old('category') == 'add-on')>Add-on</option>
+                            <option value="Budget" @selected(old('price_tier') == 'Budget')>Budget</option>
+                            <option value="Mid Range" @selected(old('price_tier') == 'Mid Range')>Mid Range</option>
+                            <option value="Luxury" @selected(old('price_tier') == 'Luxury')>Luxury</option>
                         </select>
                     </div>
                 </div>

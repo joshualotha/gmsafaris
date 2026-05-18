@@ -40,18 +40,27 @@
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label">Type</label>
-                        <input type="text" name="type" class="form-control" value="{{ old('type', $safari->type) }}" placeholder="e.g. Comprehensive">
+                        <label class="form-label">Safari Type <span class="text-danger">*</span></label>
+                        <select name="type" class="form-select @error('type') is-invalid @enderror" required>
+                            <option value="">Select type...</option>
+                            <option value="Wildlife Safari" @selected(old('type', $safari->type) == 'Wildlife Safari')>Wildlife Safari</option>
+                            <option value="Luxury Safari" @selected(old('type', $safari->type) == 'Luxury Safari')>Luxury Safari</option>
+                            <option value="Mid-Range Safari" @selected(old('type', $safari->type) == 'Mid-Range Safari')>Mid-Range Safari</option>
+                            <option value="Mountain Trekking" @selected(old('type', $safari->type) == 'Mountain Trekking')>Mountain Trekking</option>
+                            <option value="Beach Holiday" @selected(old('type', $safari->type) == 'Beach Holiday')>Beach Holiday</option>
+                            <option value="Group Joining" @selected(old('type', $safari->type) == 'Group Joining')>Group Joining</option>
+                        </select>
+                        @error('type') <div class="invalid-feedback">{{ $message }}</div> @enderror
                     </div>
                 </div>
                 <div class="col-md-4">
                     <div class="mb-3">
-                        <label class="form-label">Category</label>
-                        <select name="category" class="form-select">
+                        <label class="form-label">Price Tier</label>
+                        <select name="price_tier" class="form-select">
                             <option value="">Select...</option>
-                            <option value="featured" @selected(old('category', $safari->category) == 'featured')>Featured</option>
-                            <option value="standard" @selected(old('category', $safari->category) == 'standard')>Standard</option>
-                            <option value="add-on" @selected(old('category', $safari->category) == 'add-on')>Add-on</option>
+                            <option value="Budget" @selected(old('price_tier', $safari->price_tier) == 'Budget')>Budget</option>
+                            <option value="Mid Range" @selected(old('price_tier', $safari->price_tier) == 'Mid Range')>Mid Range</option>
+                            <option value="Luxury" @selected(old('price_tier', $safari->price_tier) == 'Luxury')>Luxury</option>
                         </select>
                     </div>
                 </div>

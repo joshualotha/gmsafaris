@@ -24,6 +24,7 @@ class Safari extends Model
         'badge_text',
         'price_from',
         'price_label',
+        'price_tier',
         'pricing_tiers',
         'hero_image',
         'thumbnail_image',
