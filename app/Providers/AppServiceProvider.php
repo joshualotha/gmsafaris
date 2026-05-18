@@ -11,6 +11,9 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
+        // Load global helper functions (safe guard prevents double-definition)
+        require_once app_path('helpers.php');
+
         // Override public_path() to return base_path() since this project
         // was restructured for cPanel: the public/ directory was removed and
         // index.php + .htaccess serve directly from the project root.
