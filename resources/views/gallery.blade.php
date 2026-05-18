@@ -31,12 +31,16 @@
         background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url({{ asset('img/gallery-hero.webp') }}) center center no-repeat;
         background-size: cover;
     }
-    .gallery-item-inner { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; background-color: #f8f9fa; padding: 1rem; height: 100%; }
+    .gallery-container { column-count: 3; column-gap: 1.5rem; }
+    .gallery-container .gallery-item { break-inside: avoid; display: inline-block; width: 100%; margin-bottom: 1.5rem; }
+    .gallery-item-inner { position: relative; overflow: hidden; border-radius: 8px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); transition: transform 0.3s ease; background-color: #f8f9fa; padding: 0; }
     .gallery-item-inner:hover { transform: translateY(-5px); box-shadow: 0 8px 16px rgba(0,0,0,0.15); }
-    .gallery-item-inner img { display: block; width: 100%; height: 280px; object-fit: cover; border-radius: 4px; }
-    .gallery-item-inner .gallery-overlay { position: absolute; top: 1rem; left: 1rem; right: 1rem; bottom: 1rem; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; border-radius: 4px; }
+    .gallery-item-inner img { display: block; width: 100%; height: auto; border-radius: 8px; }
+    .gallery-item-inner .gallery-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0; background: rgba(0, 0, 0, 0.5); display: flex; justify-content: center; align-items: center; opacity: 0; transition: opacity 0.3s ease; border-radius: 8px; }
     .gallery-item-inner:hover .gallery-overlay { opacity: 1; }
     .gallery-item-inner .gallery-overlay i { color: white; font-size: 2rem; }
+    @media (max-width: 991px) { .gallery-container { column-count: 2; } }
+    @media (max-width: 575px) { .gallery-container { column-count: 1; } }
     .footer-logo { max-width: 100%; height: auto; filter: drop-shadow(0 2px 4px rgba(0,0,0,0.1)); }
     .py-6 { padding-top: 6rem; padding-bottom: 6rem; }
 </style>
@@ -70,7 +74,7 @@
 
     <div class="container-fluid gallery-main-content pb-6">
         <div class="container">
-            <div class="row g-4 gallery-container">
+            <div class="gallery-container">
                 <div id="gallery-items-placeholder" style="display:contents;"></div> 
             </div>
         </div>
@@ -110,10 +114,10 @@
                     var delay = ((index % 10) + 1) * 0.1;
                     var title = image.caption || 'Golden Memories Safari - Tanzania';
                     var alt = image.alt_text || 'Tanzania Safari Gallery Image';
-                    galleryHtml += '<div class="col-lg-4 col-md-6 wow fadeInUp gallery-item" data-wow-delay="' + delay.toFixed(1) + 's">' +
+                    galleryHtml += '<div class="wow fadeInUp gallery-item" data-wow-delay="' + delay.toFixed(1) + 's">' +
                         '<div class="gallery-item-inner">' +
                         '<a href="' + image.full_url + '" data-lightbox="gallery" data-title="' + title.replace(/"/g, '"') + '">' +
-                        '<img src="' + image.thumb_url + '" class="img-fluid w-100" alt="' + alt.replace(/"/g, '"') + '" loading="lazy">' +
+                        '<img src="' + image.thumb_url + '" alt="' + alt.replace(/"/g, '"') + '" loading="lazy">' +
                         '<div class="gallery-overlay"><i class="fas fa-search-plus"></i></div>' +
                         '</a>' +
                         '</div></div>';
