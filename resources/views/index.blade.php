@@ -154,8 +154,9 @@
             letter-spacing: 1px;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1.3rem;
+            font-size: 1.1rem;
             margin-bottom: 1.8rem;
+            max-width: 100%;
         }
         .hero-carousel .owl-item {
             height: 100vh;
