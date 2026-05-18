@@ -180,7 +180,8 @@
             margin-bottom: 1.5rem;
         }
         .hero-carousel .owl-item {
-            height: 100vh;
+            height: 70vh;
+            min-height: 400px;
         }
         .hero-carousel .carousel-caption-gms .btn {
             font-size: 0.9rem;
@@ -193,7 +194,7 @@
         .hero-carousel .carousel-caption-gms {
             max-width: 94%;
             left: 3%;
-            top: 48%;
+            top: 46%;
         }
         .hero-carousel .carousel-caption-gms h1 {
             font-size: 2.6rem;
@@ -206,8 +207,8 @@
             margin-bottom: 1rem;
         }
         .hero-carousel .owl-item {
-            height: 100vh;
-            min-height: 500px;
+            height: 60vh;
+            min-height: 380px;
         }
         .hero-carousel .carousel-caption-gms .btn {
             font-size: 0.85rem;
