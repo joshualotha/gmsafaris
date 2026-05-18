@@ -69,10 +69,10 @@
     }
 
     .hero-carousel .carousel-caption-gms h1 {
+        color: #fff;
         font-size: 4.2rem;
         font-weight: 800;
-        letter-spacing: 3px;
-        text-transform: uppercase;
+        letter-spacing: 1px;
         margin-bottom: 1.2rem;
         text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
