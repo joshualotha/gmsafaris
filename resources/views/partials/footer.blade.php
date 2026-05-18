@@ -86,17 +86,23 @@
                         &amp;
                         <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">GetYourGuide</a>.
                     </p>
-                    <div class="d-flex flex-wrap gap-2">
-                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
-                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO Licensed
-                        </span>
-                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm text-decoration-none" style="font-size: 0.75rem;">
-                            <i class="fas fa-star text-warning me-1"></i>TripAdvisor
-                        </a>
-                        <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm text-decoration-none" style="font-size: 0.75rem;">
-                            <i class="fas fa-route text-primary me-1"></i>GetYourGuide
-                        </a>
-                    </div>
+                    <ul class="list-unstyled d-flex flex-column gap-2 mb-0">
+                        <li>
+                            <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start" style="font-size: 0.75rem;">
+                                <i class="fas fa-shield-alt text-primary me-1"></i>TATO Licensed
+                            </span>
+                        </li>
+                        <li>
+                            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start text-decoration-none" style="font-size: 0.75rem;">
+                                <i class="fas fa-star text-warning me-1"></i>TripAdvisor
+                            </a>
+                        </li>
+                        <li>
+                            <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm d-block text-start text-decoration-none" style="font-size: 0.75rem;">
+                                <i class="fas fa-route text-primary me-1"></i>GetYourGuide
+                            </a>
+                        </li>
+                    </ul>
                 </div>
             </div>
 
