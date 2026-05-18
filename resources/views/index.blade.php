@@ -774,142 +774,53 @@
             <h1 class="display-5 mb-5">Explore Our Signature Tanzania Tours</h1>
         </div>
         <div class="row g-4">
-
-            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
+            @forelse($featuredSafaris as $index => $safari)
+            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="{{ (($index % 4) * 0.2 + 0.1) }}s">
                 <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
                     <div class="safari-img position-relative">
-                        <img src="{{ site_image('home_package_1') }}" class="img-fluid w-100"
-                            alt="The Great Migration in the Serengeti, a highlight of the Ultimate Tanzanian Escape"
+                        <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : $safari->thumbnail_image ? \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) : site_image('hero_fallback_1') }}"
+                            class="img-fluid w-100"
+                            alt="{{ $safari->title }}"
                             width="400" height="300" loading="lazy">
-                        <div class="safari-days badge bg-primary">6 Days</div>
+                        @if($safari->duration)
+                        <div class="safari-days badge bg-primary">{{ $safari->duration }}</div>
+                        @endif
                     </div>
                     <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="mb-3">Ultimate Tanzanian Escape</h4>
+                        <h4 class="mb-3">{{ $safari->title }}</h4>
+                        @if($safari->location || $safari->category)
                         <div class="d-flex mb-3">
-                            <span class="me-3"><i
-                                    class="fas fa-map-marked-alt text-primary me-2"></i>Multi-Park</span>
-                            <span><i class="fas fa-star text-primary me-2"></i>Comprehensive</span>
+                            @if($safari->location)
+                            <span class="me-3"><i class="fas fa-map-marked-alt text-primary me-2"></i>{{ $safari->location }}</span>
+                            @endif
+                            @if($safari->category)
+                            <span><i class="fas fa-tag text-primary me-2"></i>{{ $safari->category }}</span>
+                            @endif
                         </div>
-                        <p class="mb-4 flex-grow-1">A complete 6-day journey through Tarangire, Serengeti,
-                            Ngorongoro, plus Arusha culture & nature experiences.</p>
+                        @endif
+                        <p class="mb-4 flex-grow-1">{{ $safari->short_description ?: Str::limit(strip_tags($safari->description), 150) }}</p>
+                        @if($safari->highlights && count($safari->highlights) > 0)
                         <div class="safari-features mb-4">
                             <h6 class="mb-2">Highlights:</h6>
                             <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-primary me-2"></i>Major National Parks</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Cultural Immersion</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>High-Tier Lodges</li>
+                                @foreach(array_slice($safari->highlights, 0, 3) as $highlight)
+                                <li><i class="fas fa-check text-primary me-2"></i>{{ is_array($highlight) ? ($highlight['title'] ?? $highlight['description'] ?? '') : $highlight }}</li>
+                                @endforeach
                             </ul>
                         </div>
+                        @endif
                         <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <a href="{{ route('inquiry.create', 'ultimate-tanzanian-escape') }}"
-                                class="btn btn-primary px-4 rounded-pill">Inquire</a>
-                            <a href="{{ url('/ultimate-tanzanian-escape') }}" class="text-primary">Details <i
-                                    class="fas fa-arrow-right ms-2"></i></a>
+                            <a href="{{ route('inquiry.create', $safari->slug) }}" class="btn btn-primary px-4 rounded-pill">Inquire</a>
+                            <a href="{{ route('safari.show', $safari->slug) }}" class="text-primary">Details <i class="fas fa-arrow-right ms-2"></i></a>
                         </div>
                     </div>
                 </div>
             </div>
-
-            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.3s">
-                <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
-                    <div class="safari-img position-relative">
-                        <img src="{{ site_image('home_package_2') }}" class="img-fluid w-100"
-                            alt="Scenic view of the Ngorongoro Crater, part of A Taste of Tanzania safari"
-                            width="400" height="300" loading="lazy">
-                        <div class="safari-days badge bg-primary">3 Days</div>
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="mb-3">A Taste of Tanzania</h4>
-                        <div class="d-flex mb-3">
-                            <span class="me-3"><i class="fas fa-map-marker-alt text-primary me-2"></i>Arusha &
-                                Ngorongoro</span>
-                            <span><i class="fas fa-seedling text-primary me-2"></i>Nature & Culture</span>
-                        </div>
-                        <p class="mb-4 flex-grow-1">A whirlwind 3-day tour featuring Ngorongoro Crater, Arusha
-                            culture, Kili foothills, and Serval Wildlife.</p>
-                        <div class="safari-features mb-4">
-                            <h6 class="mb-2">Highlights:</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-primary me-2"></i>Ngorongoro Day Trip</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Cultural Experiences</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Waterfall & Coffee Tour</li>
-                            </ul>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <a href="{{ route('inquiry.create', 'taste-of-tanzania') }}" class="btn btn-primary px-4 rounded-pill">Inquire</a>
-                            <a href="{{ url('/taste-of-tanzania') }}" class="text-primary">Details <i
-                                    class="fas fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
+            @empty
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">No safari packages available at the moment.</p>
             </div>
-
-            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.5s">
-                <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
-                    <div class="safari-img position-relative">
-                        <img src="{{ site_image('home_package_3') }}" class="img-fluid w-100"
-                            alt="Flight from Zanzibar, representing the Tanzanian Express fly-in safari"
-                            width="400" height="300" loading="lazy">
-                        <div class="safari-days badge bg-primary">2 Days Fly-In</div>
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="mb-3">Tanzanian Express</h4>
-                        <div class="d-flex mb-3">
-                            <span class="me-3"><i class="fas fa-plane text-primary me-2"></i>From Zanzibar</span>
-                            <span><i class="fas fa-map-marker-alt text-primary me-2"></i>Ngorongoro</span>
-                        </div>
-                        <p class="mb-4 flex-grow-1">A quick 2-day safari add-on from Zanzibar including flights,
-                            Ngorongoro Crater, culture, and wildlife encounters.</p>
-                        <div class="safari-features mb-4">
-                            <h6 class="mb-2">Highlights:</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-primary me-2"></i>Return Flights Incl.</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Ngorongoro Safari</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Perfect Zanzibar Add-on</li>
-                            </ul>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <a href="{{ route('inquiry.create', 'tanzanian-express') }}" class="btn btn-primary px-4 rounded-pill">Inquire</a>
-                            <a href="{{ url('/tanzanian-express') }}" class="text-primary">Details <i
-                                    class="fas fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="0.7s">
-                <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
-                    <div class="safari-img position-relative">
-                        <img src="{{ site_image('home_package_4') }}" class="img-fluid w-100"
-                            alt="Close encounter with a lion at Serval Wildlife, part of the Selfie with White Lion day trip"
-                            width="400" height="300" loading="lazy">
-                        <div class="safari-days badge bg-primary">1 Day Fly-In</div>
-                    </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="mb-3">Selfie with White Lion</h4>
-                        <div class="d-flex mb-3">
-                            <span class="me-3"><i class="fas fa-plane text-primary me-2"></i>From Zanzibar</span>
-                            <span><i class="fas fa-paw text-primary me-2"></i>Serval Wildlife</span>
-                        </div>
-                        <p class="mb-4 flex-grow-1">A unique all-inclusive day trip from Zanzibar featuring flights,
-                            Serval Wildlife, coffee tour, and cultural insights.</p>
-                        <div class="safari-features mb-4">
-                            <h6 class="mb-2">Highlights:</h6>
-                            <ul class="list-unstyled">
-                                <li><i class="fas fa-check text-primary me-2"></i>Return Flights Incl.</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>White Lion Encounter</li>
-                                <li><i class="fas fa-check text-primary me-2"></i>Unique Day Adventure</li>
-                            </ul>
-                        </div>
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <a href="{{ route('inquiry.create', 'selfie-with-white-lion') }}" class="btn btn-primary px-4 rounded-pill">Inquire</a>
-                            <a href="{{ url('/selfie-with-white-lion') }}" class="text-primary">Details <i
-                                    class="fas fa-arrow-right ms-2"></i></a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
+            @endforelse
         </div>
         <div class="text-center mt-5">
             <a href="{{ url('/safaris') }}" class="btn btn-outline-primary py-3 px-5 rounded-pill">View All Safari Packages</a>
@@ -1043,109 +954,31 @@
             <h1 class="display-5 mb-5">Explore Tanzania's Wonders</h1>
         </div>
         <div class="row g-4">
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.1s">
-                <a href="{{ url('/serengeti') }}" class="destination-card-v2">
+            @forelse($destinations as $index => $destination)
+            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="{{ (($index % 6) * 0.1 + 0.1) }}s">
+                <a href="{{ route('destination.show', $destination->slug) }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_serengeti') }}" class="card-img" alt="Serengeti National Park"
+                        <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : site_image('hero_fallback_3') }}" class="card-img"
+                            alt="{{ $destination->name }}"
                             width="600" height="400" loading="lazy">
                     </div>
                     <div class="card-title-overlay">
-                        <h4 class="card-title">Serengeti</h4>
-                        <span class="card-subtitle">The Endless Plains & Great Migration</span>
+                        <h4 class="card-title">{{ $destination->name }}</h4>
+                        @if($destination->subtitle)
+                        <span class="card-subtitle">{{ $destination->subtitle }}</span>
+                        @endif
                     </div>
                     <div class="card-hover-overlay">
-                        <p class="hover-text">Witness the vast plains and the incredible Great Migration.</p>
+                        <p class="hover-text">{{ $destination->short_description ? Str::limit(strip_tags($destination->short_description), 100) : ($destination->description ? Str::limit(strip_tags($destination->description), 100) : 'Explore this destination') }}</p>
                         <span class="btn btn-explore">Explore Details</span>
                     </div>
                 </a>
             </div>
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.2s">
-                <a href="{{ url('/ngorongoro') }}" class="destination-card-v2">
-                    <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_ngorongoro') }}" class="card-img" alt="Ngorongoro Crater" width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="card-title-overlay">
-                        <h4 class="card-title">Ngorongoro</h4>
-                        <span class="card-subtitle">Wildlife Haven in a Caldera</span>
-                    </div>
-                    <div class="card-hover-overlay">
-                        <p class="hover-text">Descend into the world's largest intact caldera, teeming with
-                            wildlife.</p>
-                        <span class="btn btn-explore">Explore Details</span>
-                    </div>
-                </a>
+            @empty
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">No destinations available at the moment.</p>
             </div>
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.3s">
-                <a href="{{ url('/tarangire') }}" class="destination-card-v2">
-                    <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_tarangire') }}" class="card-img" alt="Tarangire National Park"
-                            width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="card-title-overlay">
-                        <h4 class="card-title">Tarangire</h4>
-                        <span class="card-subtitle">Land of Elephants & Baobabs</span>
-                    </div>
-                    <div class="card-hover-overlay">
-                        <p class="hover-text">Marvel at huge elephant herds and ancient, giant baobab trees.</p>
-                        <span class="btn btn-explore">Explore Details</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.4s">
-                <a href="{{ url('/manyara') }}" class="destination-card-v2">
-                    <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_manyara') }}" class="card-img" alt="Lake Manyara National Park"
-                            width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="card-title-overlay">
-                        <h4 class="card-title">Lake Manyara</h4>
-                        <span class="card-subtitle">Tree-Climbing Lions & Rift Valley Views</span>
-                    </div>
-                    <div class="card-hover-overlay">
-                        <p class="hover-text">Discover diverse habitats, flamingos, and perhaps lions lounging in
-                            trees.</p>
-                        <span class="btn btn-explore">Explore Details</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.5s">
-                <a href="{{ url('/mtkilimanjaro') }}" class="destination-card-v2">
-                    <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_kilimanjaro') }}" class="card-img" alt="Mount Kilimanjaro" width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="card-title-overlay">
-                        <h4 class="card-title">Kilimanjaro</h4>
-                        <span class="card-subtitle">Climb the Roof of Africa</span>
-                    </div>
-                    <div class="card-hover-overlay">
-                        <p class="hover-text">Embark on the challenge of summiting Africa's highest peak.</p>
-                        <span class="btn btn-explore">Explore Details</span>
-                    </div>
-                </a>
-            </div>
-
-            <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="0.6s">
-                <a href="{{ url('/zanzibar-archipelago') }}" class="destination-card-v2">
-                    <div class="card-img-wrapper">
-                        <img src="{{ site_image('home_destination_zanzibar') }}" class="card-img" alt="Zanzibar Beach" width="600" height="400" loading="lazy">
-                    </div>
-                    <div class="card-title-overlay">
-                        <h4 class="card-title">Zanzibar</h4>
-                        <span class="card-subtitle">Spice Island Paradise</span>
-                    </div>
-                    <div class="card-hover-overlay">
-                        <p class="hover-text">Relax on pristine beaches, explore Stone Town, and savor island life.
-                            </p>
-                        <span class="btn btn-explore">Explore Details</span>
-                    </div>
-                </a>
-            </div>
-
+            @endforelse
         </div>
         <div class="text-center mt-5">
             <a href="{{ url('/destinations') }}" class="btn btn-outline-primary py-3 px-5 rounded-pill">View All Destinations</a>
@@ -1232,58 +1065,28 @@
             <h1 class="display-5 mb-5">Latest Safari News & Tips</h1>
         </div>
         <div class="row gx-4 justify-content-center">
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.1s">
+            @forelse($latestPosts as $index => $post)
+            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="{{ (($index % 3) * 0.2 + 0.1) }}s">
                 <div class="blog-item">
                     <div class="overflow-hidden rounded">
-                        <img src="{{ site_image('home_blog_1') }}" class="img-fluid w-100" alt="Great Migration Serengeti" width="400" height="250" loading="lazy">
+                        <img src="{{ $post->hero_image_url ?? site_image('blog_hero_fallback') }}" class="img-fluid w-100" alt="{{ $post->title }}" width="400" height="250" loading="lazy">
                     </div>
                     <div class="blog-content mx-4 d-flex rounded bg-light">
                         <div class="text-dark bg-primary rounded-start">
                             <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                <p class="fw-bold mb-0">15</p>
-                                <p class="fw-bold mb-0">Jun</p>
+                                <p class="fw-bold mb-0">{{ $post->published_at ? $post->published_at->format('d') : '' }}</p>
+                                <p class="fw-bold mb-0">{{ $post->published_at ? $post->published_at->format('M') : '' }}</p>
                             </div>
                         </div>
-                        <a href="{{ route('blog.show', 'best-time-to-see-great-migration-serengeti') }}" class="h5 lh-base my-auto h-100 p-3">Best Time to See the
-                            Great Migration in Serengeti</a>
+                        <a href="{{ route('blog.show', $post->slug) }}" class="h5 lh-base my-auto h-100 p-3">{{ $post->title }}</a>
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.3s">
-                <div class="blog-item">
-                    <div class="overflow-hidden rounded">
-                        <img src="{{ site_image('home_blog_2') }}" class="img-fluid w-100" alt="Kilimanjaro trek preparation" width="400" height="250" loading="lazy">
-                    </div>
-                    <div class="blog-content mx-4 d-flex rounded bg-light">
-                        <div class="text-dark bg-primary rounded-start">
-                            <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                <p class="fw-bold mb-0">02</p>
-                                <p class="fw-bold mb-0">Jul</p>
-                            </div>
-                        </div>
-                        <a href="{{ route('blog.show', 'preparing-for-kilimanjaro-trek-essential-guide') }}" class="h5 lh-base my-auto h-100 p-3">Preparing for
-                            Your Kilimanjaro Trek: Essential Guide</a>
-                    </div>
-                </div>
+            @empty
+            <div class="col-12 text-center py-5">
+                <p class="text-muted">No blog posts available yet. Check back soon!</p>
             </div>
-            <div class="col-md-6 col-lg-4 wow bounceInUp" data-wow-delay="0.5s">
-                <div class="blog-item">
-                    <div class="overflow-hidden rounded">
-                        <img src="{{ site_image('home_blog_3') }}" class="img-fluid w-100" alt="Safari photography tips"
-                            width="400" height="250" loading="lazy">
-                    </div>
-                    <div class="blog-content mx-4 d-flex rounded bg-light">
-                        <div class="text-dark bg-primary rounded-start">
-                            <div class="h-100 p-3 d-flex flex-column justify-content-center text-center">
-                                <p class="fw-bold mb-0">22</p>
-                                <p class="fw-bold mb-0">Jul</p>
-                            </div>
-                        </div>
-                        <a href="{{ route('blog.show', 'top-10-wildlife-photography-tips-tanzania-safari') }}" class="h5 lh-base my-auto h-100 p-3">Wildlife Photography
-                            Tips for Your Safari</a>
-                    </div>
-                </div>
-            </div>
+            @endforelse
         </div>
     </div>
 </div>

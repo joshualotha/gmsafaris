@@ -7,6 +7,7 @@ use App\Http\Controllers\BlogController;
 use App\Http\Controllers\BookingController;
 use App\Http\Controllers\InquiryController;
 use App\Http\Controllers\JoinSafariController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\SitemapController;
 use App\Http\Controllers\Admin\GalleryController;
 
@@ -19,9 +20,7 @@ use App\Http\Controllers\Admin\GalleryController;
 // XML Sitemap — must be before any catch-all routes
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
-Route::get('/', function () {
-    return view('index');
-})->name('home');
+Route::get('/', [HomeController::class, 'index'])->name('home');
 
 // Main pages
 Route::view('/about', 'about')->name('about');
