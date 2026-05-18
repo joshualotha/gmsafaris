@@ -22,7 +22,7 @@
                     {{-- GTranslate flags — always visible --}}
                     <div class="gtranslate_wrapper"></div>
                     {{-- Book Now button — mobile only --}}
-                    <a href="{{ route('booking') }}" class="btn btn-sm btn-dark rounded-pill px-3 d-md-none fw-bold" style="font-size: 0.75rem; padding: 3px 14px;">
+                    <a href="{{ route('booking') }}" class="btn btn-sm d-md-none fw-bold" style="font-size: 0.75rem; padding: 3px 14px; border-radius: 3px; background: #1a1a2e; color: #d69c40; border: 1px solid #d69c40;">
                         Book Now
                     </a>
                     {{-- Social icons — desktop only --}}
