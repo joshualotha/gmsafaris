@@ -1,8 +1,9 @@
 <!-- Topbar Start -->
-<div class="container-fluid topbar d-none d-lg-block">
+<div class="container-fluid topbar d-block">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-7 text-center text-md-start">
+            {{-- Left: Phone, Email, Hours (hidden on mobile) --}}
+            <div class="col-md-7 d-none d-md-block text-center text-md-start">
                 <div class="d-inline-flex align-items-center gap-3" style="line-height: 1;">
                     <a href="tel:+255786383273" class="text-dark text-decoration-none topbar-link" style="font-size: 0.8rem;">
                         <i class="fas fa-phone-alt text-dark me-1" style="font-size: 0.7rem;"></i> +255 786 383 273
@@ -15,21 +16,30 @@
                     </span>
                 </div>
             </div>
-            <div class="col-md-5 text-center text-md-end">
-                <div class="d-inline-flex align-items-center" style="gap: 4px;">
+            {{-- Right: GTranslate + Social (desktop) / Book Now + GTranslate (mobile) --}}
+            <div class="col-md-5 col-12 text-center text-md-end">
+                <div class="d-inline-flex align-items-center justify-content-between w-100" style="gap: 4px;">
+                    {{-- GTranslate flags — always visible --}}
                     <div class="gtranslate_wrapper"></div>
-                    <a href="https://www.facebook.com/gmsafaris" target="_blank" rel="noopener noreferrer"
-                       class="topbar-social" aria-label="Facebook">
-                        <i class="fab fa-facebook-f"></i>
+                    {{-- Book Now button — mobile only --}}
+                    <a href="{{ route('booking') }}" class="btn btn-sm btn-dark rounded-pill px-3 d-md-none fw-bold" style="font-size: 0.75rem; padding: 3px 14px;">
+                        Book Now
                     </a>
-                    <a href="https://www.instagram.com/gmsafaris/" target="_blank" rel="noopener noreferrer"
-                       class="topbar-social" aria-label="Instagram">
-                        <i class="fab fa-instagram"></i>
-                    </a>
-                    <a href="https://www.tiktok.com/@gmsafaris" target="_blank" rel="noopener noreferrer"
-                       class="topbar-social" aria-label="TikTok">
-                        <i class="fab fa-tiktok"></i>
-                    </a>
+                    {{-- Social icons — desktop only --}}
+                    <span class="d-none d-md-inline-flex align-items-center" style="gap: 4px;">
+                        <a href="https://www.facebook.com/gmsafaris" target="_blank" rel="noopener noreferrer"
+                           class="topbar-social" aria-label="Facebook">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="https://www.instagram.com/gmsafaris/" target="_blank" rel="noopener noreferrer"
+                           class="topbar-social" aria-label="Instagram">
+                            <i class="fab fa-instagram"></i>
+                        </a>
+                        <a href="https://www.tiktok.com/@gmsafaris" target="_blank" rel="noopener noreferrer"
+                           class="topbar-social" aria-label="TikTok">
+                            <i class="fab fa-tiktok"></i>
+                        </a>
+                    </span>
                 </div>
             </div>
             <script>

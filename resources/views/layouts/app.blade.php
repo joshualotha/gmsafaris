@@ -249,65 +249,7 @@
     </style>
     <!-- End Floating WhatsApp Button -->
 
-    <!-- Sticky Mobile Booking Bar (visible only on small screens) -->
-    <div class="mobile-booking-bar">
-        <div class="container-fluid d-lg-none">
-            <div class="row g-0 text-center">
-                <div class="col-4">
-                    <a href="tel:+255786383273" class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
-                        <i class="fas fa-phone-alt me-1"></i> Call
-                    </a>
-                </div>
-                <div class="col-4">
-                    <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
-                       target="_blank" rel="noopener noreferrer"
-                       class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
-                        <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                    </a>
-                </div>
-                <div class="col-4">
-                    <a href="{{ route('booking') }}" class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
-                        <i class="fas fa-calendar-check me-1"></i> Book
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
-    <style>
-        .mobile-booking-bar {
-            position: fixed;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            z-index: 9998;
-            background: linear-gradient(135deg, #1a1a2e, #16213e);
-            box-shadow: 0 -2px 15px rgba(0,0,0,0.2);
-            display: none;
-        }
-        @media (max-width: 991.98px) {
-            .mobile-booking-bar {
-                display: block !important;
-            }
-            body {
-                padding-bottom: 52px;
-            }
-        }
-        .mobile-bar-btn {
-            font-size: 0.85rem;
-            font-weight: 600;
-            transition: background 0.2s;
-        }
-        .mobile-bar-btn:hover {
-            background: rgba(255,255,255,0.1);
-        }
-        /* Ensure WhatsApp float doesn't overlap the mobile bar */
-        @media (max-width: 991.98px) {
-            .whatsapp-float {
-                bottom: 72px;
-            }
-        }
-    </style>
-    <!-- End Sticky Mobile Booking Bar -->
+
 </body>
 
 </html>
