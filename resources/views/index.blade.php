@@ -178,7 +178,7 @@
             margin-bottom: 0.8rem;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1.1rem;
+            font-size: 1rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
             max-width: 100%;
@@ -210,7 +210,7 @@
             margin-bottom: 0.6rem;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1rem;
+            font-size: 0.95rem;
             line-height: 1.4;
             margin-bottom: 1rem;
             max-width: 100%;
