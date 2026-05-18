@@ -143,29 +143,8 @@
         background: rgba(214, 156, 64, 0.7) !important;
     }
 
-    /* ── Tablet (≤992px) ── */
+    /* ── Tablet & Mobile (≤992px) ── */
     @media (max-width: 992px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 72%;
-            left: 6%;
-        }
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 4rem;
-            letter-spacing: 1px;
-        }
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1.1rem;
-            margin-bottom: 1.8rem;
-            max-width: 100%;
-        }
-        .hero-carousel .owl-item {
-            height: 100vh;
-            min-height: 500px;
-        }
-    }
-
-    /* ── Mobile Large (≤768px) ── */
-    @media (max-width: 768px) {
         .hero-carousel .carousel-caption-gms {
             max-width: 98%;
             left: 50%;
