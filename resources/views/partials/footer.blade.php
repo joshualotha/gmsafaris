@@ -3,27 +3,19 @@
     <div class="container">
         <div class="row">
 
-            <!-- Column 1: Brand + Contact + Trust Badges -->
+            <!-- Column 1: Brand + Contact -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <a href="{{ route('home') }}">
-                        <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="footer-logo mb-4"
+                        <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="footer-logo mb-3"
                             width="180" height="40">
                     </a>
+                    <p class="text-muted small mb-3">Locally owned Tanzanian safari operator crafting authentic wildlife adventures since 2023.</p>
                     <div class="d-flex flex-column align-items-start mb-3">
-                        <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
-                        <p class="mb-1"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273</p>
-                        <p class="mb-1"><i class="fas fa-envelope text-primary me-2"></i> info@gmsafaris.co.tz</p>
-                        <p class="mb-1"><i class="fa fa-clock text-primary me-2"></i> Mon-Sun: 8AM - 6PM</p>
-                    </div>
-                    <!-- Trust Badges -->
-                    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
-                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
-                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO Registered
-                        </span>
-                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
-                            <i class="fas fa-star text-warning me-1"></i>TripAdvisor
-                        </span>
+                        <p class="mb-1 small"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
+                        <p class="mb-1 small"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273</p>
+                        <p class="mb-1 small"><i class="fas fa-envelope text-primary me-2"></i> info@gmsafaris.co.tz</p>
+                        <p class="mb-1 small"><i class="fa fa-clock text-primary me-2"></i> Mon-Sun: 8AM - 6PM</p>
                     </div>
                     <div class="footer-icon d-flex">
                         <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="https://www.facebook.com/gmsafaris" target="_blank"
@@ -84,34 +76,43 @@
                 </div>
             </div>
 
-            <!-- Column 4: Quick Contact CTA -->
+            <!-- Column 4: Trust & Reviews -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="mb-4">Start Your Adventure</h4>
-                    <p class="text-muted small mb-3">Ready to experience Tanzania? Our team is here to help you plan the perfect safari.</p>
-                    <div class="d-flex flex-column gap-2">
-                        <a href="tel:+255786383273" class="btn btn-outline-primary rounded-pill py-2 text-start px-3">
-                            <i class="fas fa-phone-alt me-2"></i>+255 786 383 273
-                        </a>
-                        <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
-                           class="btn btn-success rounded-pill py-2 text-start px-3"
-                           target="_blank" rel="noopener noreferrer">
-                            <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
-                        </a>
-                        <a href="mailto:info@gmsafaris.co.tz" class="btn btn-outline-primary rounded-pill py-2 text-start px-3">
-                            <i class="fas fa-envelope me-2"></i>info@gmsafaris.co.tz
-                        </a>
-                    </div>
-                    <div class="mt-3 pt-2 border-top">
-                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html"
-                           target="_blank" rel="noopener noreferrer" class="text-body small">
-                            <i class="fas fa-star text-warning me-1"></i>Review us on TripAdvisor
-                        </a>
-                        <br>
-                        <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/"
-                           target="_blank" rel="noopener noreferrer" class="text-body small">
-                            <i class="fas fa-route text-primary me-1"></i>Find us on GetYourGuide
-                        </a>
+                    <h4 class="mb-4">Book With Confidence</h4>
+                    <ul class="list-unstyled mb-3">
+                        <li class="mb-2 small">
+                            <i class="fas fa-shield-alt text-primary me-2"></i>
+                            <strong>TATO Registered</strong> — Licensed Tanzanian tour operator
+                        </li>
+                        <li class="mb-2 small">
+                            <i class="fas fa-hand-holding-heart text-primary me-2"></i>
+                            100% locally owned & operated
+                        </li>
+                        <li class="mb-2 small">
+                            <i class="fas fa-star text-warning me-2"></i>
+                            Excellent reviews on <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">TripAdvisor</a>
+                        </li>
+                        <li class="mb-2 small">
+                            <i class="fas fa-route text-primary me-2"></i>
+                            Featured on <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">GetYourGuide</a>
+                        </li>
+                        <li class="mb-2 small">
+                            <i class="fas fa-undo-alt text-primary me-2"></i>
+                            Flexible booking & free cancellation
+                        </li>
+                        <li class="small">
+                            <i class="fas fa-tree text-success me-2"></i>
+                            Carbon-offset safaris
+                        </li>
+                    </ul>
+                    <div class="d-flex flex-wrap gap-2 mt-3">
+                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
+                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO
+                        </span>
+                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
+                            <i class="fas fa-star text-warning me-1"></i>TripAdvisor
+                        </span>
                     </div>
                 </div>
             </div>
