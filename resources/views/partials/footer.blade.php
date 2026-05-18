@@ -1,18 +1,3 @@
-<style>
-    .trust-tile {
-        background: rgba(255,255,255,0.75);
-        border: 1px solid rgba(0,0,0,0.07);
-        border-radius: 10px;
-        padding: 10px 6px;
-        transition: background 0.2s, border-color 0.2s;
-        min-height: 75px;
-    }
-    .trust-tile:hover {
-        background: #fff;
-        border-color: rgba(0,0,0,0.14);
-    }
-</style>
-
 <!-- Footer Start -->
 <div class="container-fluid footer py-6 my-6 mb-0 bg-light wow bounceInUp" data-wow-delay="0.1s">
     <div class="container">
@@ -91,49 +76,23 @@
                 </div>
             </div>
 
-            <!-- Column 4: Trust & Reviews (Icon Grid) -->
+            <!-- Column 4: Trust & Reviews (Minimal) -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <h4 class="mb-3">Book With Confidence</h4>
-                    <div class="row g-2 mb-3">
-                        <div class="col-6">
-                            <div class="d-flex flex-column align-items-center justify-content-center trust-tile">
-                                <i class="fas fa-shield-alt text-primary mb-1" style="font-size: 1.2rem;"></i>
-                                <strong style="font-size: 0.8rem;">TATO</strong>
-                                <span class="text-muted" style="font-size: 0.6rem; line-height: 1.2;">Licensed</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="text-decoration-none">
-                                <div class="d-flex flex-column align-items-center justify-content-center trust-tile">
-                                    <i class="fas fa-star text-warning mb-1" style="font-size: 1.2rem;"></i>
-                                    <strong style="font-size: 0.8rem; color: inherit;">4.9 ★</strong>
-                                    <span class="text-muted" style="font-size: 0.6rem; line-height: 1.2;">TripAdvisor</span>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex flex-column align-items-center justify-content-center trust-tile">
-                                <i class="fas fa-flag text-primary mb-1" style="font-size: 1.2rem;"></i>
-                                <strong style="font-size: 0.8rem;">Local</strong>
-                                <span class="text-muted" style="font-size: 0.6rem; line-height: 1.2;">Tanzanian Owned</span>
-                            </div>
-                        </div>
-                        <div class="col-6">
-                            <div class="d-flex flex-column align-items-center justify-content-center trust-tile">
-                                <i class="fas fa-tree text-success mb-1" style="font-size: 1.2rem;"></i>
-                                <strong style="font-size: 0.8rem;">Carbon</strong>
-                                <span class="text-muted" style="font-size: 0.6rem; line-height: 1.2;">Offset Safaris</span>
-                            </div>
-                        </div>
-                    </div>
+                    <p class="text-muted small mb-3">
+                        TATO-licensed Tanzanian safari operator with excellent reviews on
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">TripAdvisor</a>
+                        &amp;
+                        <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="text-body text-decoration-underline">GetYourGuide</a>.
+                    </p>
                     <div class="d-flex flex-wrap gap-2">
                         <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
-                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO
+                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO Licensed
                         </span>
-                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm text-decoration-none" style="font-size: 0.75rem;">
                             <i class="fas fa-star text-warning me-1"></i>TripAdvisor
-                        </span>
+                        </a>
                         <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank" rel="noopener noreferrer" class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm text-decoration-none" style="font-size: 0.75rem;">
                             <i class="fas fa-route text-primary me-1"></i>GetYourGuide
                         </a>
