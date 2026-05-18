@@ -14,12 +14,14 @@
 
 @section('extra_styles')
 <style>
-    /* Hero Section Styles */
+    /* ═══════════════════════════════════════════
+       HERO SECTION — Dramatic Full-Screen Carousel
+       ═══════════════════════════════════════════ */
     .hero-section {
         position: relative;
         overflow: hidden;
         padding: 0;
-        background-color: #333;
+        background-color: #111;
     }
 
     .hero-carousel .owl-item {
@@ -41,45 +43,56 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        filter: brightness(0.6);
+        filter: brightness(0.45);
+    }
+
+    /* Dark gradient overlay for drama + reading legibility */
+    .hero-carousel .carousel-image-container::after {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(90deg, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0.1) 70%, transparent 100%);
+        z-index: 1;
     }
 
     .hero-carousel .carousel-caption-gms {
         position: absolute;
         top: 50%;
-        left: 10%;
+        left: 8%;
         transform: translateY(-50%);
         text-align: left;
-        color: white;
-        z-index: 2;
+        color: #fff;
+        z-index: 3;
         width: auto;
-        max-width: 60%;
+        max-width: 55%;
         padding-right: 20px;
     }
 
     .hero-carousel .carousel-caption-gms h1 {
-        font-size: 3.5rem;
-        font-weight: bold;
-        margin-bottom: 1rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+        font-size: 4.2rem;
+        font-weight: 800;
+        letter-spacing: 3px;
+        text-transform: uppercase;
+        margin-bottom: 1.2rem;
+        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
     }
 
     .hero-carousel .carousel-caption-gms .gold-text {
         color: #d69c40;
+        text-shadow: 0 0 25px rgba(214, 156, 64, 0.35);
     }
 
     .hero-carousel .carousel-caption-gms p {
-        font-size: 1.1rem;
-        line-height: 1.7;
-        margin-bottom: 2rem;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
+        font-size: 1.3rem;
+        line-height: 1.6;
+        font-weight: 400;
+        margin-bottom: 2.2rem;
+        text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
+        max-width: 620px;
     }
 
-    /* Owl Carousel Navigation/Dots */
-    .hero-carousel .owl-nav {
-        display: none !important;
-    }
-
+    /* Owl Dots */
+    .hero-carousel .owl-nav { display: none !important; }
 
     .hero-carousel .owl-dots {
         position: absolute;
@@ -89,11 +102,11 @@
         z-index: 3;
         display: flex;
         align-items: center;
-        gap: 10px;
+        gap: 12px;
     }
 
     .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.5) !important;
+        background: rgba(255, 255, 255, 0.4) !important;
         width: 12px !important;
         height: 12px !important;
         margin: 0 !important;
@@ -103,66 +116,93 @@
 
     .hero-carousel .owl-dots .owl-dot.active span {
         background: #d69c40 !important;
-        box-shadow: 0 0 10px rgba(214, 156, 64, 0.6);
-        transform: scale(1.2);
+        box-shadow: 0 0 12px rgba(214, 156, 64, 0.6);
+        transform: scale(1.25);
     }
 
     .hero-carousel .owl-dots .owl-dot:hover span {
         background: #d69c40 !important;
     }
 
-
+    /* ── Tablet (≤992px) ── */
     @media (max-width: 992px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 72%;
+            left: 6%;
+        }
         .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.8rem;
+            font-size: 3.4rem;
+            letter-spacing: 2px;
         }
-
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1rem;
-            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+            margin-bottom: 1.8rem;
         }
-
         .hero-carousel .owl-item {
             height: 100vh;
             min-height: 500px;
         }
+    }
 
-        .hero-carousel .owl-nav {
-            display: none;
+    /* ── Mobile Large (≤768px) ── */
+    @media (max-width: 768px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 90%;
+            left: 5%;
         }
-
+        .hero-carousel .carousel-caption-gms h1 {
+            font-size: 2.8rem;
+            letter-spacing: 1.5px;
+            margin-bottom: 0.8rem;
+        }
+        .hero-carousel .carousel-caption-gms p {
+            font-size: 1.15rem;
+            line-height: 1.5;
+            margin-bottom: 1.5rem;
+        }
+        .hero-carousel .owl-item {
+            height: 100vh;
+        }
         .hero-carousel .carousel-caption-gms .btn {
-            font-size: 0.85rem;
-            padding: 8px 16px !important;
+            font-size: 0.9rem;
+            padding: 10px 22px !important;
         }
     }
 
-    /* Booking section images visible only on desktop */
+    /* ── Mobile Small (≤480px) ── */
+    @media (max-width: 480px) {
+        .hero-carousel .carousel-caption-gms {
+            max-width: 94%;
+            left: 3%;
+            top: 48%;
+        }
+        .hero-carousel .carousel-caption-gms h1 {
+            font-size: 2.2rem;
+            letter-spacing: 1px;
+            margin-bottom: 0.6rem;
+        }
+        .hero-carousel .carousel-caption-gms p {
+            font-size: 1rem;
+            line-height: 1.4;
+            margin-bottom: 1rem;
+        }
+        .hero-carousel .owl-item {
+            height: 100vh;
+            min-height: 500px;
+        }
+        .hero-carousel .carousel-caption-gms .btn {
+            font-size: 0.85rem;
+            padding: 9px 18px !important;
+        }
+    }
+
+    /* Booking section images — desktop only */
     @media (max-width: 767px) {
         .booking-side-image { display: none !important; }
     }
     @media (min-width: 768px) {
         .booking-side-image { display: block; }
     }
-
-    @media (max-width: 768px) {
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.2rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 0.9rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 100vh;
-        }
-
-        .hero-carousel .owl-nav {
-            display: none;
-        }
-    }
-
 
     .gold-btn {
         background-color: #d69c40 !important;
@@ -448,110 +488,7 @@
         }
     }
 
-    /* Inside the <style> block in index.html */
 
-    .hero-carousel .carousel-caption-gms h1 {
-        color: #d69c40;
-        font-size: 4.2rem;
-        font-weight: bold;
-        margin-bottom: 1.5rem;
-        text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
-    }
-
-    .hero-carousel .carousel-caption-gms .gold-text {
-        color: #d69c40;
-    }
-
-    .hero-carousel .carousel-caption-gms p {
-        font-size: 1.3rem;
-        line-height: 1.7;
-        margin-bottom: 2.5rem;
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
-    }
-
-    /* Responsive adjustments for carousel text */
-    @media (max-width: 992px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 75%;
-            left: 8%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 3.2rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 1.15rem;
-            margin-bottom: 1.5rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 100vh;
-        }
-    }
-
-    /* Booking section images visible only on desktop */
-    @media (max-width: 767px) {
-        .booking-side-image { display: none !important; }
-    }
-    @media (min-width: 768px) {
-        .booking-side-image { display: block; }
-    }
-
-    @media (max-width: 768px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 92%;
-            left: 4%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.2rem;
-            margin-bottom: 0.6rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 0.88rem;
-            line-height: 1.5;
-            margin-bottom: 1rem;
-            max-height: none;
-        }
-
-        .hero-carousel .owl-item {
-            height: 60vh;
-            min-height: 400px;
-        }
-
-        .hero-carousel .owl-nav {
-            display: none;
-        }
-
-        .hero-carousel .carousel-caption-gms .btn {
-            font-size: 0.85rem;
-            padding: 8px 16px !important;
-        }
-    }
-
-    @media (max-width: 480px) {
-        .hero-carousel .carousel-caption-gms {
-            max-width: 95%;
-            left: 2.5%;
-            top: 45%;
-        }
-
-        .hero-carousel .carousel-caption-gms h1 {
-            font-size: 1.7rem;
-        }
-
-        .hero-carousel .carousel-caption-gms p {
-            font-size: 0.8rem;
-            margin-bottom: 0.7rem;
-        }
-
-        .hero-carousel .owl-item {
-            height: 100vh;
-            min-height: 500px;
-        }
-    }
 </style>
 @endsection
 
