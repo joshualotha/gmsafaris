@@ -70,13 +70,26 @@
     .nav-bar {
         padding-top: 0 !important;
     }
-    /* GTranslate flags in topbar */
+    /* GTranslate flags in topbar — smaller with spacing */
     .topbar .gtranslate_wrapper {
-        display: inline-block;
+        display: inline-flex !important;
+        align-items: center;
         vertical-align: middle;
+        gap: 6px;
     }
-    .topbar .gtranslate_wrapper .gt_switcher {
-        margin: 0 !important;
+    .topbar .gtranslate_wrapper a {
+        margin: 0 3px !important;
+        opacity: 0.85;
+        transition: opacity 0.2s;
+    }
+    .topbar .gtranslate_wrapper a:hover {
+        opacity: 1;
+    }
+    .topbar .gtranslate_wrapper img {
+        width: 20px !important;
+        height: 14px !important;
+        border-radius: 2px;
+        box-shadow: 0 1px 3px rgba(0,0,0,0.15);
     }
 </style>
 <!-- Topbar End -->
