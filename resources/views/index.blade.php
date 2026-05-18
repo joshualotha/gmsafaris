@@ -958,7 +958,7 @@
             <div class="col-lg-4 col-md-6 wow bounceInUp" data-wow-delay="{{ (($index % 6) * 0.1 + 0.1) }}s">
                 <a href="{{ route('destination.show', $destination->slug) }}" class="destination-card-v2">
                     <div class="card-img-wrapper">
-                        <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : $destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : site_image('hero_fallback_3') }}" class="card-img"
+                        <img src="{{ $destination->thumbnail_image ? \App\Models\Destination::resolveImageUrl($destination->thumbnail_image) : ($destination->hero_image ? \App\Models\Destination::resolveImageUrl($destination->hero_image) : site_image('hero_fallback_3')) }}" class="card-img"
                             alt="{{ $destination->name }}"
                             width="600" height="400" loading="lazy">
                     </div>
