@@ -882,7 +882,7 @@
                         <span class="duration-badge">{{ $safari->duration }}</span>
                         @endif
                         @if($safari->price_from)
-                        <div class="price-badge">${{ number_format($safari->price_from, 0) }}<small>per person</small></div>
+                        <div class="price-badge">${{ number_format($safari->price_from, 0) }}<small>start from</small></div>
                         @endif
                     </div>
                     <div class="card-body">

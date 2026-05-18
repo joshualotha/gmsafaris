@@ -25,7 +25,7 @@
                 @if($safari->price_from)
                 <div class="safari-card-price-tag">
                     <span class="safari-price-amount">${{ number_format($safari->price_from, 0) }}</span>
-                    <span class="safari-price-label">per person</span>
+                    <span class="safari-price-label">start from</span>
                 </div>
                 @endif
             </div>

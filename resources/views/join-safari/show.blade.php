@@ -154,7 +154,7 @@
                         <h4 class="fw-bold mb-3">
                             @if($joinSafari->price_per_person)
                                 ${{ number_format($joinSafari->price_per_person) }}
-                                <small class="text-muted fs-6">per person</small>
+                                <small class="text-muted fs-6">start from</small>
                             @else
                                 Contact for Pricing
                             @endif

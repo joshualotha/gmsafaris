@@ -249,7 +249,7 @@
                                     <div class="text-end">
                                         @if($firstIsNumeric)
                                             <strong class="text-primary" style="font-size: 1.3rem;">${{ number_format((float)$firstPrice) }}</strong>
-                                            <small class="text-muted d-block">{{ $firstTier['note'] ?? 'per person' }}</small>
+                                            <small class="text-muted d-block">{{ $firstTier['note'] ?? 'start from' }}</small>
                                         @else
                                             <span class="text-muted">{{ $firstPrice }}</span>
                                         @endif
@@ -274,7 +274,7 @@
                                                             <td class="pe-0 py-1 text-end">
                                                                 @if($isNumeric)
                                                                     <small class="text-primary fw-bold">${{ number_format((float)$price) }}</small>
-                                                                    <small class="text-muted d-block">{{ $tier['note'] ?? 'per person' }}</small>
+                                                                    <small class="text-muted d-block">{{ $tier['note'] ?? 'start from' }}</small>
                                                                 @else
                                                                     <small class="text-muted">{{ $price }}</small>
                                                                 @endif
@@ -294,7 +294,7 @@
                                     <strong class="text-dark">Price</strong>
                                     <div class="text-end">
                                         <strong class="text-primary" style="font-size: 1.3rem;">${{ number_format($safari->price_from, 2) }}</strong>
-                                        <small class="text-muted d-block">per person</small>
+                                        <small class="text-muted d-block">start from</small>
                                     </div>
                                 </div>
                                 @if($safari->price_label)

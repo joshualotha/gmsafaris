@@ -81,7 +81,7 @@
                                             <div class="text-end">
                                                 @if($joinSafari->price_per_person)
                                                     <strong class="text-primary fs-5">${{ number_format($joinSafari->price_per_person) }}</strong>
-                                                    <small class="d-block text-muted">per person</small>
+                                                    <small class="d-block text-muted">start from</small>
                                                 @endif
                                             </div>
                                         </div>
@@ -161,7 +161,7 @@
                                         <div class="text-end">
                                             @if($joinSafari->price_per_person)
                                                 <strong class="text-primary fs-5">${{ number_format($joinSafari->price_per_person) }}</strong>
-                                                <small class="d-block text-muted">per person</small>
+                                                <small class="d-block text-muted">start from</small>
                                             @endif
                                         </div>
                                     </div>

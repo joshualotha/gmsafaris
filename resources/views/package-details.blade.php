@@ -452,7 +452,7 @@
                     <div class="sticky-top" style="top: 20px;">
                         <div class="price-card">
                             <h3 class="mb-4">Package Pricing</h3>
-                            <div class="price-amount">$2,800 <span class="price-per">per person</span></div>
+                            <div class="price-amount">$2,800 <span class="price-per">start from</span></div>
                             <p class="text-muted">Based on 2 people sharing</p>
                             
                             <div class="d-grid gap-2">

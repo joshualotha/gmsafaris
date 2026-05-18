@@ -646,7 +646,7 @@ $(document).ready(function() {
             var text = selected.text();
             var info = 'You selected: <strong>' + text + '</strong>';
             if (price) {
-                info += ' | Price from: <strong>$' + parseFloat(price).toLocaleString() + '</strong>';
+                info += ' | Start from: <strong>$' + parseFloat(price).toLocaleString() + '</strong>';
             }
             $('#packageInfoText').html(info);
             $('#packageInfo').slideDown();
