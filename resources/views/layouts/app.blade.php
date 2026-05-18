@@ -64,8 +64,46 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet"></noscript>
 
-    <!-- Bootstrap CSS (synchronous; required for site layout/styling) -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Preload critical CSS (starts download early, doesn't block render) -->
+    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" fetchpriority="high">
+    <link rel="preload" href="{{ asset('css/style.min.css') }}" as="style">
+
+    <!-- Bootstrap CSS (deferred via media-swap to avoid render-blocking) -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
+
+    <!-- Template Stylesheet (deferred the same way) -->
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="{{ asset('css/style.min.css') }}" rel="stylesheet"></noscript>
+
+    <!-- Critical inline styles — applied immediately to prevent FOUC on hero + layout -->
+    <style>
+        /* Base reset so page is usable while CSS loads */
+        body { font-family: 'Open Sans', sans-serif; color: #333; background: #fff; margin: 0; padding: 0; }
+        img { max-width: 100%; height: auto; display: block; }
+        .hero-section { position: relative; overflow: hidden; background: #111; }
+        .hero-carousel .owl-item { position: relative; }
+        .hero-carousel .carousel-image-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.45); }
+        .hero-carousel .carousel-caption-gms { position: absolute; top: 50%; left: 8%; transform: translateY(-50%); color: #fff; z-index: 3; max-width: 50%; }
+        .hero-carousel .carousel-caption-gms h1 { color: #fff; font-size: 5rem; font-weight: 900; letter-spacing: 1px; text-shadow: 0 4px 16px rgba(0,0,0,.7); }
+        .hero-carousel .carousel-caption-gms .gold-text { color: #d69c40; }
+        .hero-carousel .carousel-caption-gms p { font-size: 1.4rem; line-height: 1.7; text-shadow: 0 2px 8px rgba(0,0,0,.6); }
+        .gold-btn { background-color: #d69c40; color: #fff; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; display: inline-block; }
+        .gold-outline-btn { color: #d69c40; border: 2px solid #d69c40; padding: 10px 20px; border-radius: 5px; font-weight: bold; text-decoration: none; display: inline-block; background: transparent; }
+        .nav-bar { background: #fff; }
+        .topbar { background: linear-gradient(135deg,#d69c40,#e8b84b); padding: 3px 0; }
+        @media (max-width: 992px) {
+            .hero-carousel .carousel-caption-gms { left: 0; right: 0; max-width: 96%; margin: 0 auto; text-align: center; padding: 0 10px; }
+            .hero-carousel .carousel-caption-gms h1 { font-size: 3.2rem; }
+            .hero-carousel .carousel-caption-gms p { font-size: 1.1rem; }
+            .hero-carousel .owl-item { height: 70vh; }
+        }
+        @media (max-width: 480px) {
+            .hero-carousel .carousel-caption-gms h1 { font-size: 2.6rem; }
+            .hero-carousel .carousel-caption-gms p { font-size: 1rem; }
+            .hero-carousel .owl-item { height: 60vh; }
+        }
+    </style>
 
     <!-- Deferred Non-Critical Stylesheets -->
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
