@@ -59,13 +59,14 @@
         position: absolute;
         top: 50%;
         left: 8%;
+        right: auto;
         transform: translateY(-50%);
         text-align: left;
         color: #fff;
         z-index: 3;
         width: auto;
-        max-width: 55%;
-        padding-right: 20px;
+        max-width: 50%;
+        padding: 0;
     }
 
     .hero-carousel .carousel-caption-gms h1 {
@@ -88,7 +89,6 @@
         font-weight: 400;
         margin-bottom: 2.2rem;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-        max-width: 680px;
     }
 
     /* Owl Dots — Modern Pill Indicators */
@@ -146,9 +146,12 @@
     /* ── Tablet & Mobile (≤992px) ── */
     @media (max-width: 992px) {
         .hero-carousel .carousel-caption-gms {
-            max-width: 98%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 96%;
+            margin: 0 auto;
             text-align: center;
             padding: 0 10px;
         }
@@ -161,7 +164,6 @@
             font-size: 1.1rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
-            max-width: 100%;
         }
         .hero-carousel .owl-item {
             height: 70vh;
@@ -179,9 +181,12 @@
     /* ── Mobile Small (≤480px) ── */
     @media (max-width: 480px) {
         .hero-carousel .carousel-caption-gms {
-            max-width: 98%;
-            left: 50%;
-            transform: translate(-50%, -50%);
+            left: 0;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            max-width: 96%;
+            margin: 0 auto;
             text-align: center;
             padding: 0 8px;
         }
@@ -194,7 +199,6 @@
             font-size: 1rem;
             line-height: 1.4;
             margin-bottom: 1rem;
-            max-width: 100%;
         }
         .hero-carousel .owl-item {
             height: 60vh;
@@ -588,7 +592,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro, and Tanzania's wildest national parks.</p>
+                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro, and Tanzania&#039;s most iconic parks. Your African adventure starts here.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
@@ -610,7 +614,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">From the Serengeti plains to Zanzibar's beaches — your Tanzanian adventure starts here.</p>
+                <p class="animated bounceInUp">From the wild savannas to the shores of Zanzibar &mdash; every corner of Tanzania promises a new discovery.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
@@ -632,7 +636,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Get closer to the Big Five and Great Migration on the safari of a lifetime.</p>
+                <p class="animated bounceInUp">Encounter the Big Five and witness the Great Migration up close. Moments you&#039;ll treasure for a lifetime.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
@@ -653,7 +657,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Descend into the world's largest intact caldera — a UNESCO wonder teeming with wildlife.</p>
+                <p class="animated bounceInUp">Descend into Ngorongoro Crater &mdash; a UNESCO World Heritage site teeming with wildlife unlike anywhere on Earth.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
