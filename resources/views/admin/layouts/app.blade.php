@@ -307,7 +307,7 @@
                 <i class="fas fa-images"></i> Gallery
             </a>
             <a href="{{ route('admin.site-images.index') }}" class="{{ request()->routeIs('admin.site-images.*') ? 'active' : '' }}">
-                <i class="fas fa-paint-brush"></i> Site Images
+                <i class="fas fa-photo-video"></i> Site Images
             </a>
 
             <div class="menu-label">Management</div>

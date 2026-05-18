@@ -109,7 +109,13 @@
         <div class="col-md-4">
             <div class="stat-card-sm">
                 <p class="number text-primary">{{ \App\Models\SiteImage::count() }}</p>
-                <p class="label">Registered Keys</p>
+                <p class="label">Total Images</p>
+            </div>
+            <div class="col-md-4">
+                <div class="stat-card-sm">
+                    <p class="number text-info">{{ \App\Models\SiteImage::select('category')->distinct()->count() }}</p>
+                    <p class="label">Pages</p>
+                </div>
             </div>
         </div>
         <div class="col-md-4">
@@ -137,10 +143,10 @@
                 <input type="text" name="search" class="form-control form-control-sm" placeholder="Search by key, alt text, filepath..." value="{{ request('search') }}">
             </div>
             <div class="col-md-2">
-                <select name="category" class="form-select form-select-sm">
-                    <option value="">All Categories</option>
+                        <select name="category" class="form-select form-select-sm">
+                    <option value="">All Pages</option>
                     @foreach($categories as $cat)
-                        <option value="{{ $cat }}" @selected(request('category') == $cat)>{{ ucfirst($cat ?? 'uncategorized') }}</option>
+                        <option value="{{ $cat }}" @selected(request('category') == $cat)>{{ ucfirst(str_replace('_', ' ', $cat ?? 'uncategorized')) }}</option>
                     @endforeach
                 </select>
             </div>
@@ -159,8 +165,8 @@
                     <div class="site-image-card">
                         <div class="thumb-wrap">
                             <img src="{{ $image->url }}" alt="{{ $image->alt_text ?: $image->key }}" loading="lazy">
-                            <span class="category-tag" style="position:absolute;top:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);color:#fff;">
-                                {{ $image->category ?? 'uncategorized' }}
+                            <span class="category-tag" style="position:absolute;top:0.5rem;left:0.5rem;background:rgba(0,0,0,0.6);color:#fff;text-transform:capitalize;">
+                                {{ str_replace('_', ' ', $image->category ?? 'uncategorized') }}
                             </span>
                         </div>
                         <div class="card-body">

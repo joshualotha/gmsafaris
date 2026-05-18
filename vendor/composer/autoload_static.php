@@ -31,6 +31,7 @@ class ComposerStaticInita256aa15fb234f74a958f9bbf9e640a5
         'f57d353b41eb2e234b26064d63d8c5dd' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Filesystem/functions.php',
         'f0906e6318348a765ffb6eb24e0d0938' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Foundation/helpers.php',
         '58571171fd5812e6e447dce228f52f4d' => __DIR__ . '/..' . '/laravel/framework/src/Illuminate/Support/helpers.php',
+        '809a7c760ec5b2d39f1e144635bccd90' => __DIR__ . '/../..' . '/app/helpers.php',
     );
 
     public static $prefixLengthsPsr4 = array (
@@ -464,6 +465,7 @@ class ComposerStaticInita256aa15fb234f74a958f9bbf9e640a5
         'App\\Http\\Controllers\\Admin\\InquiryController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/InquiryController.php',
         'App\\Http\\Controllers\\Admin\\JoinSafariController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/JoinSafariController.php',
         'App\\Http\\Controllers\\Admin\\SafariController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SafariController.php',
+        'App\\Http\\Controllers\\Admin\\SiteImageController' => __DIR__ . '/../..' . '/app/Http/Controllers/Admin/SiteImageController.php',
         'App\\Http\\Controllers\\BlogController' => __DIR__ . '/../..' . '/app/Http/Controllers/BlogController.php',
         'App\\Http\\Controllers\\BookingController' => __DIR__ . '/../..' . '/app/Http/Controllers/BookingController.php',
         'App\\Http\\Controllers\\Controller' => __DIR__ . '/../..' . '/app/Http/Controllers/Controller.php',
@@ -471,6 +473,7 @@ class ComposerStaticInita256aa15fb234f74a958f9bbf9e640a5
         'App\\Http\\Controllers\\InquiryController' => __DIR__ . '/../..' . '/app/Http/Controllers/InquiryController.php',
         'App\\Http\\Controllers\\JoinSafariController' => __DIR__ . '/../..' . '/app/Http/Controllers/JoinSafariController.php',
         'App\\Http\\Controllers\\SafariController' => __DIR__ . '/../..' . '/app/Http/Controllers/SafariController.php',
+        'App\\Http\\Controllers\\SitemapController' => __DIR__ . '/../..' . '/app/Http/Controllers/SitemapController.php',
         'App\\Http\\Kernel' => __DIR__ . '/../..' . '/app/Http/Kernel.php',
         'App\\Http\\Middleware\\Authenticate' => __DIR__ . '/../..' . '/app/Http/Middleware/Authenticate.php',
         'App\\Http\\Middleware\\AuthenticateSession' => __DIR__ . '/../..' . '/app/Http/Middleware/AuthenticateSession.php',
@@ -501,7 +504,9 @@ class ComposerStaticInita256aa15fb234f74a958f9bbf9e640a5
         'App\\Models\\Inquiry' => __DIR__ . '/../..' . '/app/Models/Inquiry.php',
         'App\\Models\\JoinSafari' => __DIR__ . '/../..' . '/app/Models/JoinSafari.php',
         'App\\Models\\JoinSafariParticipant' => __DIR__ . '/../..' . '/app/Models/JoinSafariParticipant.php',
+        'App\\Models\\JoinSafariVehicle' => __DIR__ . '/../..' . '/app/Models/JoinSafariVehicle.php',
         'App\\Models\\Safari' => __DIR__ . '/../..' . '/app/Models/Safari.php',
+        'App\\Models\\SiteImage' => __DIR__ . '/../..' . '/app/Models/SiteImage.php',
         'App\\Providers\\AppServiceProvider' => __DIR__ . '/../..' . '/app/Providers/AppServiceProvider.php',
         'App\\Providers\\RouteServiceProvider' => __DIR__ . '/../..' . '/app/Providers/RouteServiceProvider.php',
         'Attribute' => __DIR__ . '/..' . '/symfony/polyfill-php80/Resources/stubs/Attribute.php',
@@ -619,6 +624,7 @@ class ComposerStaticInita256aa15fb234f74a958f9bbf9e640a5
         'Database\\Seeders\\DestinationSeeder' => __DIR__ . '/../..' . '/database/seeders/DestinationSeeder.php',
         'Database\\Seeders\\MigrationSafariSeeder' => __DIR__ . '/../..' . '/database/seeders/MigrationSafariSeeder.php',
         'Database\\Seeders\\SafariSeeder' => __DIR__ . '/../..' . '/database/seeders/SafariSeeder.php',
+        'Database\\Seeders\\SiteImageSeeder' => __DIR__ . '/../..' . '/database/seeders/SiteImageSeeder.php',
         'DateError' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateError.php',
         'DateException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateException.php',
         'DateInvalidOperationException' => __DIR__ . '/..' . '/symfony/polyfill-php83/Resources/stubs/DateInvalidOperationException.php',
