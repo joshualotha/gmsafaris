@@ -91,37 +91,41 @@
         max-width: 680px;
     }
 
-    /* Owl Dots */
+    /* Owl Dots — Minimal & Stylish */
     .hero-carousel .owl-nav { display: none !important; }
 
     .hero-carousel .owl-dots {
         position: absolute;
-        bottom: 30px;
+        bottom: 35px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
         display: flex;
         align-items: center;
-        gap: 12px;
+        gap: 8px;
     }
 
     .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.4) !important;
-        width: 12px !important;
-        height: 12px !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        width: 8px !important;
+        height: 8px !important;
         margin: 0 !important;
         border-radius: 50% !important;
-        transition: all 0.3s ease;
+        border: 1px solid rgba(255, 255, 255, 0.5) !important;
+        transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
     }
 
     .hero-carousel .owl-dots .owl-dot.active span {
         background: #d69c40 !important;
-        box-shadow: 0 0 12px rgba(214, 156, 64, 0.6);
-        transform: scale(1.25);
+        border-color: #d69c40 !important;
+        width: 10px !important;
+        height: 10px !important;
+        box-shadow: 0 0 10px rgba(214, 156, 64, 0.5);
     }
 
     .hero-carousel .owl-dots .owl-dot:hover span {
-        background: #d69c40 !important;
+        background: rgba(214, 156, 64, 0.7) !important;
+        border-color: rgba(214, 156, 64, 0.7) !important;
     }
 
     /* ── Tablet (≤992px) ── */
