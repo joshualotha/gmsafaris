@@ -225,70 +225,18 @@
     <!-- Luxury Safari Content End -->
 
 
-    <!-- ======================= DETAILED LUXURY INQUIRY FORM START ========================== -->
-    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s" id="inquire-luxury"> 
+    <!-- ======================= LUXURY SAFARI CTA START ========================== -->
+    <div class="container-fluid py-6 wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="row g-0">
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
-                </div>
-                <div class="col-lg-10 col-md-12">
-                    <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Begin Your Luxury Journey</small> 
-                            <h1 class="display-5 mb-4">Inquire About Your Luxury Safari</h1> 
-                             <p class="mb-4 mx-auto" style="max-width: 600px;">Provide us with your preferences, and our luxury travel specialists will design a bespoke itinerary and quotation for your ultimate Tanzanian adventure.</p> 
-                        </div>
-                        
-                        <form action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
-                            <div class="row g-3 form">
-
-                        
-                                <div class="col-md-6">
-                                    <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
-                                </div>
-                                <div class="col-md-6">
-                                     <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
-                                </div>
-
-                                <hr class="my-4">
-
-                                <div class="col-12">
-                                    <label for="luxurySubject" class="form-label small ms-1">Subject</label>
-                                    <input type="text" class="form-control border-primary p-2" id="luxurySubject" name="subject" value="Luxury Safari Inquiry" placeholder="Subject">
-                                </div>
-
-                                 <div class="col-12 mt-3">
-                                     <label for="safariDetails" class="form-label small ms-1">Your Luxury Safari Ideas & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="safariDetails" name="message" rows="6" placeholder="Describe your ideal luxury experience: preferred parks/regions, specific lodges if known, desired activities (ballooning, walking?), pace, special occasions, any preferences or needs." required></textarea>
-                                </div>
-
-                                
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request Luxury Safari Quote</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Luxury Safari" loading="lazy">
-                </div>
+            <div class="text-center bg-light rounded p-5 border border-primary">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-white border border-primary rounded-pill px-4 py-1 mb-3">Begin Your Luxury Journey</small>
+                <h2 class="display-5 mb-3">Ready to Start Your Luxury Safari?</h2>
+                <p class="lead mb-4 mx-auto" style="max-width: 600px;">Share your preferences and our luxury travel specialists will design a bespoke itinerary for your ultimate Tanzanian adventure.</p>
+                <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3 rounded-pill fw-bold">Get Your Free Quote <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
-    <!-- ======================= DETAILED LUXURY INQUIRY FORM END ========================== -->
+    <!-- ======================= LUXURY SAFARI CTA END ========================== -->
 
 
 @endsection

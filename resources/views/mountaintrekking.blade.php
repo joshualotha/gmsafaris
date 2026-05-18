@@ -222,112 +222,18 @@
     <!-- Mountain Trekking Content End -->
 
 
-    <!-- ======================= DETAILED TREKKING INQUIRY FORM START ========================== -->
-    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s" id="inquire-trek"> <!-- Updated ID -->
+    <!-- ======================= TREKKING CTA START ========================== -->
+    <div class="container-fluid py-6 wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="row g-0">
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
-                </div>
-                <div class="col-lg-10 col-md-12">
-                    <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Plan Your Ascent</small> <!-- Updated Subtitle -->
-                            <h1 class="display-5 mb-4">Inquire About Your Mountain Trek</h1> <!-- Updated Heading -->
-                             <p class="mb-4 mx-auto" style="max-width: 600px;">Share your trekking plans and preferences, and our mountain specialists will help you prepare for an incredible adventure.</p> <!-- Updated Text -->
-                        </div>
-                        <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
-                            <div class="row g-3 form">
-
-                                <!-- Contact Info -->
-                                <div class="col-md-6">
-                                    <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
-                                </div>
-                                <div class="col-md-6">
-                                     <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
-                                </div>
-
-                                <hr class="my-4">
-
-                                <div class="col-12">
-                                    <label for="trekSubject" class="form-label small ms-1">Subject</label>
-                                    <input type="text" class="form-control border-primary p-2" id="trekSubject" name="subject" value="Mountain Trekking Inquiry" placeholder="Subject">
-                                </div>
-
-                                <!-- Trip Details -->
-                                <div class="col-lg-4 col-md-6">
-                                     <label for="trekInterest" class="form-label small ms-1">Mountain/Route Preference*</label>
-                                    <select class="form-select border-primary p-2" id="trekInterest" name="trek_interest" aria-label="Select Trek Interest" required>
-                                        <option value="" selected disabled>Select Trek...</option>
-                                        <option value="Kilimanjaro - Machame">Kilimanjaro - Machame Route</option>
-                                        <option value="Kilimanjaro - Lemosho">Kilimanjaro - Lemosho Route</option>
-                                        <option value="Kilimanjaro - Marangu">Kilimanjaro - Marangu Route</option>
-                                        <option value="Kilimanjaro - Rongai">Kilimanjaro - Rongai Route</option>
-                                        <option value="Kilimanjaro - Other">Kilimanjaro - Other Route</option>
-                                        <option value="Kilimanjaro - Unsure">Kilimanjaro - Unsure/Recommendation</option>
-                                        <option value="Mount Meru">Mount Meru</option>
-                                    </select>
-                                </div>
-                                
-                                 <div class="col-lg-4 col-md-6">
-                                    <label for="duration" class="form-label small ms-1">Approximate Trek Duration*</label>
-                                    <select class="form-select border-primary p-2" id="duration" name="duration" aria-label="Select Duration" required>
-                                        <option value="" selected disabled>Select Days...</option>
-                                        <option value="4 Days (Meru)">4 Days (Meru)</option>
-                                        <option value="5-6 Days (Kili)">5-6 Days (Kili)</option>
-                                        <option value="7 Days (Kili)">7 Days (Kili)</option>
-                                        <option value="8 Days (Kili)">8 Days (Kili)</option>
-                                        <option value="9+ Days (Kili)">9+ Days (Kili)</option>
-                                        <option value="Flexible">Flexible</option>
-                                    </select>
-                                </div>
-                                  
-                                <div class="col-lg-4 col-md-6">
-                                    <label for="accommodation" class="form-label small ms-1">Pre/Post Trek Accommodation</label>
-                                    <select class="form-select border-primary p-2" id="accommodation" name="accommodation_level" aria-label="Accommodation Level">
-                                        <option value="" selected disabled>Select Preference...</option>
-                                        <option value="Budget">Budget</option>
-                                        <option value="Mid-Range">Mid-Range</option>
-                                        <option value="Luxury">Luxury</option>
-                                        <option value="Will Arrange Own">Will Arrange Own</option>
-                                        <option value="Discuss Options">Discuss Options</option>
-                                    </select>
-                                </div>
-                                
-
-                                <!-- Detailed Request -->
-                                 <div class="col-12 mt-3">
-                                     <label for="trekDetails" class="form-label small ms-1">Trekking Experience & Requirements*</label>
-                                    <textarea class="form-control border-primary p-2" id="trekDetails" name="trek_details" rows="6" placeholder="Please describe your previous trekking experience (if any), general fitness level, preferred route if 'Other', any specific dates, equipment rental needs, dietary requirements, or other questions." required></textarea>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request Trekking Information</button> <!-- Button Text Updated -->
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Trek" loading="lazy">
-                </div>
+            <div class="text-center bg-light rounded p-5 border border-primary">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-white border border-primary rounded-pill px-4 py-1 mb-3">Plan Your Ascent</small>
+                <h2 class="display-5 mb-3">Ready to Start Your Mountain Trek?</h2>
+                <p class="lead mb-4 mx-auto" style="max-width: 600px;">Share your trekking plans and our mountain specialists will help you prepare for an incredible adventure.</p>
+                <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3 rounded-pill fw-bold">Get Your Free Quote <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
-    <!-- ======================= DETAILED TREKKING INQUIRY FORM END ========================== -->
+    <!-- ======================= TREKKING CTA END ========================== -->
 
 
 @endsection

@@ -205,66 +205,18 @@
     <!-- Tailored Safari Content End -->
 
 
-    <!-- ======================= DETAILED INQUIRY FORM START ========================== -->
-    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s" id="start-planning"> 
+    <!-- ======================= TAILORED SAFARI CTA START ========================== -->
+    <div class="container-fluid py-6 wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="row g-0">
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Planning Safari" loading="lazy">
-                </div>
-                <div class="col-lg-10 col-md-12"> 
-                    <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100"> 
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Let's Plan Together</small>
-                            <h1 class="display-5 mb-4">Request Your Tailored Safari Quote</h1>
-                             <p class="mb-4 mx-auto" style="max-width: 600px;">Fill in the details below, and our specialists will craft a personalized proposal just for you.</p>
-                        </div>
-                   
-                        <form action="{{ route('inquiry.store') }}" method="POST">
-                            @csrf
-                            <div class="row g-3 form">
-
-                                
-                                <div class="col-md-6">
-                                    <label for="yourName" class="form-label small ms-1">Your Name*</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourName" name="name" placeholder="Full Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourEmail" class="form-label small ms-1">Your Email*</label>
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmail" name="email" placeholder="email@example.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourPhone" class="form-label small ms-1">Phone Number</label>
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhone" name="phone" placeholder="(Include country code)">
-                                </div>
-                                <div class="col-md-6">
-                                     <label for="yourCountry" class="form-label small ms-1">Country of Residence</label>
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountry" name="country" placeholder="Your Country">
-                                </div>
-
-                                <hr class="my-4">
-
-                               
-                                  <div class="col-12 mt-3">
-                                      <label for="safariDetails" class="form-label small ms-1">Your Ideas & Requirements*</label>
-                                     <textarea class="form-control border-primary p-2" id="safariDetails" name="message" rows="6" placeholder="Please describe your ideal tailored safari: destinations you want to visit, specific animals or activities, must-haves, pace, any special requirements (dietary, mobility, etc.). The more detail, the better!" required></textarea>
-                                </div>
-
-                               
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Request My Tailored Quote</button>
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-1 d-none d-lg-block"> 
-                    <img src="{{ asset('img/home-booking.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Planning Safari" loading="lazy">
-                </div>
+            <div class="text-center bg-light rounded p-5 border border-primary">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-white border border-primary rounded-pill px-4 py-1 mb-3">Let's Plan Together</small>
+                <h2 class="display-5 mb-3">Ready to Start Your Tailored Safari?</h2>
+                <p class="lead mb-4 mx-auto" style="max-width: 600px;">Tell us what you're looking for and our safari specialists will craft the perfect personalized itinerary for you.</p>
+                <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3 rounded-pill fw-bold">Get Your Free Quote <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
-    <!-- ======================= DETAILED INQUIRY FORM END ========================== -->
+    <!-- ======================= TAILORED SAFARI CTA END ========================== -->
 
 
 @endsection

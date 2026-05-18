@@ -1169,70 +1169,71 @@
                             Your Safari</small>
                         <h1 class="display-5 mb-5">Customize Your Tanzania Adventure</h1>
                     </div>
-                    <div class="row g-4 form">
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select border-primary p-2" aria-label="Default select example">
-                                <option selected>Select Safari Type</option>
-                                <option value="1">Wildlife Safari</option>
-                                <option value="2">Beach Holiday</option>
-                                <option value="3">Kilimanjaro Trek</option>
-                                <option value="4">Cultural Tour</option>
-                                <option value="5">Honeymoon Package</option>
-                            </select>
+                    <form action="{{ route('inquiry.store') }}" method="POST" id="homeQuoteForm">
+                        @csrf
+                        <input type="hidden" name="subject" value="Homepage Quick Quote">
+                        <input type="hidden" name="message" id="homeQuoteMessage" value="Quick quote request from homepage">
+                        <div class="row g-4">
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" name="safari_type" id="safariType">
+                                    <option value="" selected disabled>Select Safari Type</option>
+                                    <option value="Wildlife Safari">Wildlife Safari</option>
+                                    <option value="Beach Holiday">Beach Holiday</option>
+                                    <option value="Kilimanjaro Trek">Kilimanjaro Trek</option>
+                                    <option value="Cultural Tour">Cultural Tour</option>
+                                    <option value="Honeymoon Package">Honeymoon Package</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" name="duration" id="safariDuration">
+                                    <option value="" selected disabled>Select Duration</option>
+                                    <option value="3-5 Days">3-5 Days</option>
+                                    <option value="6-8 Days">6-8 Days</option>
+                                    <option value="9-12 Days">9-12 Days</option>
+                                    <option value="13+ Days">13+ Days</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" name="travel_month" id="travelMonth">
+                                    <option value="" selected disabled>Travel Month</option>
+                                    <option value="January - March">January - March</option>
+                                    <option value="April - June">April - June</option>
+                                    <option value="July - September">July - September</option>
+                                    <option value="October - December">October - December</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" name="accommodation" id="accommodation">
+                                    <option value="" selected disabled>Accommodation Level</option>
+                                    <option value="Budget Camping">Budget Camping</option>
+                                    <option value="Mid-Range Lodges">Mid-Range Lodges</option>
+                                    <option value="Luxury Tented Camps">Luxury Tented Camps</option>
+                                    <option value="5-Star Lodges">5-Star Lodges</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <select class="form-select border-primary p-2" name="travelers" id="travelers">
+                                    <option value="" selected disabled>Number of Travelers</option>
+                                    <option value="1-2 People">1-2 People</option>
+                                    <option value="3-4 People">3-4 People</option>
+                                    <option value="5-6 People">5-6 People</option>
+                                    <option value="7+ People">7+ People</option>
+                                </select>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="text" name="name" class="form-control border-primary p-2" placeholder="Your Name *" required>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="email" name="email" class="form-control border-primary p-2" placeholder="Your Email *" required>
+                            </div>
+                            <div class="col-lg-4 col-md-6">
+                                <input type="tel" name="phone" class="form-control border-primary p-2" placeholder="Phone Number (optional)">
+                            </div>
+                            <div class="col-12 text-center">
+                                <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Get Safari Quote</button>
+                            </div>
                         </div>
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select border-primary p-2" aria-label="Default select example">
-                                <option selected>Select Duration</option>
-                                <option value="1">3-5 Days</option>
-                                <option value="2">6-8 Days</option>
-                                <option value="3">9-12 Days</option>
-                                <option value="4">13+ Days</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select border-primary p-2" aria-label="Default select example">
-                                <option selected>Travel Month</option>
-                                <option value="1">January - March</option>
-                                <option value="2">April - June</option>
-                                <option value="3">July - September</option>
-                                <option value="4">October - December</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select border-primary p-2" aria-label="Default select example">
-                                <option selected>Accommodation Level</option>
-                                <option value="1">Budget Camping</option>
-                                <option value="2">Mid-Range Lodges</option>
-                                <option value="3">Luxury Tented Camps</option>
-                                <option value="4">5-Star Lodges</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <select class="form-select border-primary p-2" aria-label="Default select example">
-                                <option selected>Number of Travelers</option>
-                                <option value="1">1-2 People</option>
-                                <option value="2">3-4 People</option>
-                                <option value="3">5-6 People</option>
-                                <option value="4">7+ People</option>
-                            </select>
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <input type="text" class="form-control border-primary p-2" placeholder="Your Name">
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <input type="email" class="form-control border-primary p-2" placeholder="Your Email">
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <input type="tel" class="form-control border-primary p-2" placeholder="Phone Number">
-                        </div>
-                        <div class="col-lg-4 col-md-6">
-                            <input type="text" class="form-control border-primary p-2" placeholder="Country">
-                        </div>
-                        <div class="col-12 text-center">
-                            <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Get Safari
-                                Quote</button>
-                        </div>
-                    </div>
+                    </form>
                 </div>
             </div>
             <div class="col-1 booking-side-image">

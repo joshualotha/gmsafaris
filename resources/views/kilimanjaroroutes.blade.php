@@ -373,98 +373,17 @@
     <!-- Route Comparison Content End -->
 
 
-    <!-- ======================= KILIMANJARO ROUTE INQUIRY FORM START ========================== -->
-    <div class="container-fluid contact py-6 wow bounceInUp" data-wow-delay="0.1s" id="inquire-routes"> <!-- Updated ID -->
+    <!-- ======================= KILIMANJARO ROUTE CTA START ========================== -->
+    <div class="container-fluid py-6 wow bounceInUp" data-wow-delay="0.1s">
         <div class="container">
-            <div class="row g-0">
-                <div class="col-1 d-none d-lg-block">
-                    <img src="{{ asset('img/kilimanjaro-trekking-group.webp') }}" class="img-fluid h-100 w-100 rounded-start" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy">
-                </div>
-                <div class="col-lg-10 col-md-12">
-                    <div class="border-bottom border-top border-primary bg-light py-5 px-4 h-100">
-                        <div class="text-center">
-                            <small class="d-inline-block fw-bold text-dark text-uppercase bg-light border border-primary rounded-pill px-4 py-1 mb-3">Let Us Help You Decide</small>
-                            <h1 class="display-5 mb-4">Discuss Your Kilimanjaro Route Options</h1>
-                             <p class="mb-4 mx-auto" style="max-width: 600px;">Fill in your details and preferences, and our team will provide personalized recommendations and answer your questions about climbing Kilimanjaro.</p>
-                        </div>
-                        <!-- Form Action: Replace '#' with your form processing script URL -->
-                        <form id="kiliRoutesForm" action="{{ route('inquiry.store') }}" method="POST">
-                             @csrf
-                             <div class="row g-3 form">
-
-                                <!-- Contact Info -->
-                                <div class="col-md-6">
-                                    <label for="yourNameRoute" class="form-label small ms-1">Your Name*</label> <!-- Added suffix to ID -->
-                                    <input type="text" class="form-control border-primary p-2" id="yourNameRoute" name="name" placeholder="Full Name" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourEmailRoute" class="form-label small ms-1">Your Email*</label> <!-- Added suffix to ID -->
-                                    <input type="email" class="form-control border-primary p-2" id="yourEmailRoute" name="email" placeholder="email@example.com" required>
-                                </div>
-                                <div class="col-md-6">
-                                    <label for="yourPhoneRoute" class="form-label small ms-1">Phone Number</label> <!-- Added suffix to ID -->
-                                    <input type="tel" class="form-control border-primary p-2" id="yourPhoneRoute" name="phone" placeholder="(Include country code)">
-                                </div>
-                                <div class="col-md-6">
-                                     <label for="yourCountryRoute" class="form-label small ms-1">Country of Residence</label> <!-- Added suffix to ID -->
-                                    <input type="text" class="form-control border-primary p-2" id="yourCountryRoute" name="country" placeholder="Your Country">
-                                </div>
-
-                                <hr class="my-4">
-
-                                <div class="col-12">
-                                    <label for="kiliSubject" class="form-label small ms-1">Subject</label>
-                                    <input type="text" class="form-control border-primary p-2" id="kiliSubject" name="subject" value="Kilimanjaro Route Inquiry" placeholder="Subject">
-                                </div>
-
-                                <!-- Detailed Request -->
-                                 <div class="col-12 mt-3">
-                                     <label for="detailsRoute" class="form-label small ms-1">Priorities & Questions*</label> <!-- Added suffix to ID -->
-                                    <textarea class="form-control border-primary p-2" id="detailsRoute" name="message" rows="6" placeholder="What's most important to you (scenery, success rate, fewer crowds, budget)? What's your fitness level? Any specific concerns or questions about choosing a route or preparing for the climb?" required></textarea>
-                                </div>
-
-                                <!-- Submit Button -->
-                                <div class="col-12 text-center mt-4">
-                                    <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Get Route Advice & Info</button> <!-- Button Text Updated -->
-                                </div>
-                            </div>
-                        </form>
-                    </div>
-                </div>
-                <div class="col-1 d-none d-lg-block">
-                     <img src="{{ asset('img/kilimanjaro-trekking-group.webp') }}" class="img-fluid h-100 w-100 rounded-end" style="object-fit: cover; opacity: 0.7;" alt="Group trekking on Kilimanjaro" loading="lazy">
-                </div>
+            <div class="text-center bg-light rounded p-5 border border-primary">
+                <small class="d-inline-block fw-bold text-dark text-uppercase bg-white border border-primary rounded-pill px-4 py-1 mb-3">Let Us Help You Decide</small>
+                <h2 class="display-5 mb-3">Ready to Discuss Your Kilimanjaro Route?</h2>
+                <p class="lead mb-4 mx-auto" style="max-width: 600px;">Not sure which route is right for you? Contact us and our team will provide personalized recommendations for your climb.</p>
+                <a href="{{ route('contact') }}" class="btn btn-primary px-5 py-3 rounded-pill fw-bold">Get Route Advice <i class="fas fa-arrow-right ms-2"></i></a>
             </div>
         </div>
     </div>
-    <!-- ======================= KILIMANJARO ROUTE INQUIRY FORM END ========================== -->
-
-
-    <!-- Page-specific form handler -->
-    <script>
-$(function(){
-  $('#kiliRoutesForm').on('submit', function(e){
-    e.preventDefault();
-    var form = $(this);
-    $.ajax({
-      url: '{{ route('inquiry.store') }}',
-      type: 'POST',
-      data: form.serialize(),
-      dataType: 'json',
-      success: function(resp){
-        if(resp.success){
-          alert(resp.message);
-          form[0].reset();
-        } else {
-          alert('Error: ' + resp.message);
-        }
-      },
-      error: function(xhr){
-        alert('There was a problem sending your message.\n' + xhr.responseText);
-      }
-    });
-  });
-});
-    </script>
+    <!-- ======================= KILIMANJARO ROUTE CTA END ========================== -->
 
 @endsection
