@@ -210,79 +210,8 @@
     <!-- Testimonials List Start -->
     <div class="container-fluid bg-light py-6">
         <div class="container">
-             <div class="row g-4">
-
-                 <!-- Testimonial 1 -->
-                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                     <div class="testimonial-card rounded shadow-sm">
-                         <i class="fas fa-quote-right quote-icon"></i>
-                         <div class="star-rating mb-2">
-                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                         </div>
-                         <p class="review-text">
-                             "Amazing experience organized by GOLDEN MEMORIES SAFARIES for Safari with my family in Tanzania. A true immersion in the wilderness! Extraordinary was watching so closely thanks to our majestic animal drivers in their natural habitat. Henry and his organization played a vital role in making our safari special. The expertise and passion of those who organize these trips really makes a difference in a context like Tanzania, where every detail counts. I recommend GOLDEN MEMORIES SAFARIES , wonderful experience."
-                         </p>
-                         <p class="reviewer-name mb-0">Maurizio E</p>
-                         <p class="reviewer-meta mb-0">Italy | Reviewed November 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor review logo" loading="lazy"></a></p>
-                     </div>
-                 </div>
-
-                 <!-- Testimonial 2 -->
-                  <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                     <div class="testimonial-card rounded shadow-sm">
-                         <i class="fas fa-quote-right quote-icon"></i>
-                          <div class="star-rating mb-2">
-                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                         </div>
-                          <p class="review-text">
-                             Great hospitality, excellent guides with a lot of stories to tell. Everything was top ranked, they took really good care of us as their clients, they listened to all our requests and made them into life.
-                             We had a lof of food, drinks etc. They were taking care of our mood during trip.
-                             Really recommend this one"
-                         </p>
-                         <p class="reviewer-name mb-0">Monika U</p>
-                          <p class="reviewer-meta mb-0">United Kingdom | Reviewed January 2025</p>
-                          <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor review logo" loading="lazy"></a></p>
-                     </div>
-                 </div>
-
-                 <!-- Testimonial 3 -->
-                 <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.1s">
-                     <div class="testimonial-card rounded shadow-sm">
-                          <i class="fas fa-quote-right quote-icon"></i>
-                          <div class="star-rating mb-2">
-                             <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i>
-                         </div>
-                          <p class="review-text">
-                             "We went on a 4 day safari on the Seregeti and Ngorongoro conservation area, January 2025. Fantastic trip and excellent service! The locally owned Golden Memories give top guiding and premium hospitality.
-
-                             "
-                         </p>
-                         <p class="reviewer-name mb-0">Erlend G</p>
-                         <p class="reviewer-meta mb-0">Italy | Reviewed September 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor review logo" loading="lazy"></a></p>
-                     </div>
-                 </div>
-
-                  <!-- Testimonial 4 -->
-                  <div class="col-lg-6 wow fadeInUp" data-wow-delay="0.2s">
-                     <div class="testimonial-card rounded shadow-sm">
-                        <i class="fas fa-quote-right quote-icon"></i>
-                        <div class="star-rating mb-2">
-                            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="far fa-star"></i>
-                         </div>
-                          <p class="review-text">
-                             "Unforgettable experience. The guys at Golden Memories are real professionals and in addition they are also very nice, always available on every occasion. We did a really five star Serengeti and Ngorongoro Safari! Three intense days that will always remain impressed.
-                             I recommend it to everyone. Worth the money spent and as they say they really give emotions and Golden Memories"
-                         </p>
-                         <p class="reviewer-name mb-0">Raffi V</p>
-                         <p class="reviewer-meta mb-0">Germany | Reviewed November 2024</p>
-                         <p class="testimonial-source">Source: TripAdvisor <a href="#" target="_blank" rel="noopener noreferrer"><img src="{{ asset('img/trip.webp') }}" alt="TripAdvisor review logo" loading="lazy"></a></p>
-                     </div>
-                 </div>
-
-            </div>
-
+            <script src="https://elfsightcdn.com/platform.js" async></script>
+            <div class="elfsight-app-db9a06ca-93ea-42fd-a8ae-92fa266ec0fa" data-elfsight-app-lazy></div>
         </div>
     </div>
     <!-- Testimonials List End -->
