@@ -10,10 +10,10 @@ class HomeController extends Controller
 {
     public function index()
     {
-        $featuredSafaris = Safari::featured()->active()->published()->ordered()->take(4)->get();
+        $featuredSafaris = Safari::featured()->active()->published()->ordered()->take(8)->get();
 
-        if ($featuredSafaris->count() < 4) {
-            $featuredSafaris = Safari::active()->published()->ordered()->take(4)->get();
+        if ($featuredSafaris->count() < 8) {
+            $featuredSafaris = Safari::active()->published()->ordered()->take(8)->get();
         }
 
         $destinations = Destination::featured()->active()->ordered()->take(6)->get();
