@@ -595,31 +595,33 @@
                     
                     <div class="card shadow">
                         <div class="card-body p-4 p-md-5">
-                            <form>
+                            <form action="{{ route('inquiry.store') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="subject" value="Great Migration Safari Inquiry">
                                 <div class="row g-4">
                                     <div class="col-md-6">
                                         <label for="name" class="form-label">Full Name</label>
-                                        <input type="text" class="form-control" id="name" required>
+                                        <input type="text" class="form-control" id="name" name="name" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="email" class="form-label">Email Address</label>
-                                        <input type="email" class="form-control" id="email" required>
+                                        <input type="email" class="form-control" id="email" name="email" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="phone" class="form-label">Phone Number</label>
-                                        <input type="tel" class="form-control" id="phone" required>
+                                        <input type="tel" class="form-control" id="phone" name="phone" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="country" class="form-label">Country</label>
-                                        <input type="text" class="form-control" id="country" required>
+                                        <input type="text" class="form-control" id="country" name="country" required>
                                     </div>
                                     <div class="col-md-6">
                                         <label for="date" class="form-label">Preferred Travel Dates</label>
-                                        <input type="text" class="form-control" id="date" placeholder="MM/YYYY">
+                                        <input type="text" class="form-control" id="date" name="travel_date" placeholder="MM/YYYY">
                                     </div>
                                     <div class="col-md-6">
                                         <label for="people" class="form-label">Number of Travelers</label>
-                                        <select class="form-select" id="people">
+                                        <select class="form-select" id="people" name="travelers">
                                             <option value="1">1 Person</option>
                                             <option value="2" selected>2 People</option>
                                             <option value="3">3 People</option>
@@ -631,7 +633,7 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="accommodation" class="form-label">Accommodation Preference</label>
-                                        <select class="form-select" id="accommodation">
+                                        <select class="form-select" id="accommodation" name="accommodation">
                                             <option value="luxury" selected>Luxury Tented Camp</option>
                                             <option value="mid-range">Mid-Range Lodge</option>
                                             <option value="no-preference">No Preference</option>
@@ -639,14 +641,14 @@
                                     </div>
                                     <div class="col-md-6">
                                         <label for="balloon" class="form-label">Hot Air Balloon Safari</label>
-                                        <select class="form-select" id="balloon">
+                                        <select class="form-select" id="balloon" name="balloon_safari">
                                             <option value="no">No, thanks</option>
                                             <option value="yes">Yes, add balloon safari ($550 pp)</option>
                                         </select>
                                     </div>
                                     <div class="col-12">
                                         <label for="message" class="form-label">Special Requests</label>
-                                        <textarea class="form-control" id="message" rows="4"></textarea>
+                                        <textarea class="form-control" id="message" name="message" rows="4"></textarea>
                                     </div>
                                     <div class="col-12 text-center">
                                         <button type="submit" class="btn btn-primary btn-lg px-5 py-3 rounded-pill">Submit Booking Request</button>
