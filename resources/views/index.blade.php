@@ -1173,7 +1173,7 @@
                         @csrf
                         <input type="hidden" name="subject" value="Homepage Quick Quote">
                         <input type="hidden" name="message" id="homeQuoteMessage" value="Quick quote request from homepage">
-                        <div class="row g-4">
+                        <div class="row g-4 justify-content-center">
                             <div class="col-lg-4 col-md-6">
                                 <select class="form-select border-primary p-2" name="safari_type" id="safariType">
                                     <option value="" selected disabled>Select Safari Type</option>
@@ -1185,49 +1185,10 @@
                                 </select>
                             </div>
                             <div class="col-lg-4 col-md-6">
-                                <select class="form-select border-primary p-2" name="duration" id="safariDuration">
-                                    <option value="" selected disabled>Select Duration</option>
-                                    <option value="3-5 Days">3-5 Days</option>
-                                    <option value="6-8 Days">6-8 Days</option>
-                                    <option value="9-12 Days">9-12 Days</option>
-                                    <option value="13+ Days">13+ Days</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <select class="form-select border-primary p-2" name="travel_month" id="travelMonth">
-                                    <option value="" selected disabled>Travel Month</option>
-                                    <option value="January - March">January - March</option>
-                                    <option value="April - June">April - June</option>
-                                    <option value="July - September">July - September</option>
-                                    <option value="October - December">October - December</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <select class="form-select border-primary p-2" name="accommodation" id="accommodation">
-                                    <option value="" selected disabled>Accommodation Level</option>
-                                    <option value="Budget Camping">Budget Camping</option>
-                                    <option value="Mid-Range Lodges">Mid-Range Lodges</option>
-                                    <option value="Luxury Tented Camps">Luxury Tented Camps</option>
-                                    <option value="5-Star Lodges">5-Star Lodges</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <select class="form-select border-primary p-2" name="travelers" id="travelers">
-                                    <option value="" selected disabled>Number of Travelers</option>
-                                    <option value="1-2 People">1-2 People</option>
-                                    <option value="3-4 People">3-4 People</option>
-                                    <option value="5-6 People">5-6 People</option>
-                                    <option value="7+ People">7+ People</option>
-                                </select>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
                                 <input type="text" name="name" class="form-control border-primary p-2" placeholder="Your Name *" required>
                             </div>
                             <div class="col-lg-4 col-md-6">
                                 <input type="email" name="email" class="form-control border-primary p-2" placeholder="Your Email *" required>
-                            </div>
-                            <div class="col-lg-4 col-md-6">
-                                <input type="tel" name="phone" class="form-control border-primary p-2" placeholder="Phone Number (optional)">
                             </div>
                             <div class="col-12 text-center">
                                 <button type="submit" class="btn btn-primary px-5 py-3 rounded-pill">Get Safari Quote</button>
