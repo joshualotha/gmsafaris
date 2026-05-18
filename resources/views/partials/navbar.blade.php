@@ -1,7 +1,7 @@
 <!-- Navbar start -->
 <div class="container-fluid nav-bar">
     <div class="container">
-        <nav class="navbar navbar-light navbar-expand-lg py-3">
+        <nav class="navbar navbar-light navbar-expand-md py-3">
             <a href="{{ route('home') }}" class="navbar-brand">
                 <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="img-fluid"
                     width="180" height="50" style="max-height: 50px; width: auto;">

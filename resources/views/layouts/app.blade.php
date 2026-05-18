@@ -108,7 +108,7 @@
         }
 
         /* Better tap targets for mobile nav links */
-        @media (max-width: 991.98px) {
+        @media (max-width: 767.98px) {
             .navbar-nav .nav-link {
                 padding: 12px 16px !important;
                 font-size: 1rem;
