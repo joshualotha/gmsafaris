@@ -70,25 +70,25 @@
 
     .hero-carousel .carousel-caption-gms h1 {
         color: #fff;
-        font-size: 4.2rem;
-        font-weight: 800;
+        font-size: 5rem;
+        font-weight: 900;
         letter-spacing: 1px;
         margin-bottom: 1.2rem;
-        text-shadow: 0 4px 12px rgba(0, 0, 0, 0.6);
+        text-shadow: 0 4px 16px rgba(0, 0, 0, 0.7);
     }
 
     .hero-carousel .carousel-caption-gms .gold-text {
         color: #d69c40;
-        text-shadow: 0 0 25px rgba(214, 156, 64, 0.35);
+        text-shadow: 0 0 30px rgba(214, 156, 64, 0.4);
     }
 
     .hero-carousel .carousel-caption-gms p {
-        font-size: 1.3rem;
-        line-height: 1.6;
+        font-size: 1.4rem;
+        line-height: 1.7;
         font-weight: 400;
         margin-bottom: 2.2rem;
         text-shadow: 0 2px 8px rgba(0, 0, 0, 0.6);
-        max-width: 620px;
+        max-width: 680px;
     }
 
     /* Owl Dots */
@@ -131,11 +131,11 @@
             left: 6%;
         }
         .hero-carousel .carousel-caption-gms h1 {
-            font-size: 3.4rem;
-            letter-spacing: 2px;
+            font-size: 4rem;
+            letter-spacing: 1px;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             margin-bottom: 1.8rem;
         }
         .hero-carousel .owl-item {
@@ -151,12 +151,12 @@
             left: 5%;
         }
         .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.8rem;
-            letter-spacing: 1.5px;
+            font-size: 3.2rem;
+            letter-spacing: 0.5px;
             margin-bottom: 0.8rem;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1.15rem;
+            font-size: 1.2rem;
             line-height: 1.5;
             margin-bottom: 1.5rem;
         }
@@ -177,12 +177,12 @@
             top: 48%;
         }
         .hero-carousel .carousel-caption-gms h1 {
-            font-size: 2.2rem;
-            letter-spacing: 1px;
+            font-size: 2.6rem;
+            letter-spacing: 0.5px;
             margin-bottom: 0.6rem;
         }
         .hero-carousel .carousel-caption-gms p {
-            font-size: 1rem;
+            font-size: 1.1rem;
             line-height: 1.4;
             margin-bottom: 1rem;
         }
@@ -575,7 +575,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro &amp; beyond.</p>
+                <p class="animated bounceInUp">Expert-guided safaris across the vast plains of Serengeti, the breathtaking Ngorongoro Crater, and Tanzania's most iconic national parks. Your African adventure begins here.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
@@ -597,7 +597,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">From the wild savannas to the shores of Zanzibar &mdash; adventure awaits.</p>
+                <p class="animated bounceInUp">From the untamed savannas of Serengeti to the pristine beaches of Zanzibar, every corner of Tanzania offers a new adventure. Immerse yourself in rich cultures, breathtaking landscapes, and unforgettable experiences.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
@@ -619,7 +619,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Get closer to wildlife than ever before. Create memories that last a lifetime.</p>
+                <p class="animated bounceInUp">Get closer to Africa's iconic wildlife than ever before, from the Big Five to the Great Migration. Each moment in the wild creates a memory you'll carry forever. Let us guide you on the adventure of a lifetime.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
@@ -640,7 +640,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Descend into the world's largest intact caldera &mdash; teeming with wildlife.</p>
+                <p class="animated bounceInUp">Descend into the world's largest intact caldera, a UNESCO World Heritage site teeming with wildlife and breathtaking landscapes. Explore one of Africa's most spectacular destinations with expert guides who know every hidden corner.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
