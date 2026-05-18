@@ -94,36 +94,53 @@
     /* Owl Dots — Modern Pill Indicators */
     .hero-carousel .owl-nav { display: none !important; }
 
-    .hero-carousel .owl-dots {
+    .owl-carousel.hero-carousel .owl-dots {
         position: absolute;
-        bottom: 35px;
+        bottom: 30px;
         left: 50%;
         transform: translateX(-50%);
         z-index: 3;
-        display: flex;
+        display: flex !important;
         align-items: center;
-        gap: 6px;
+        justify-content: center;
+        gap: 5px;
+        margin: 0;
+        padding: 0;
     }
 
-    .hero-carousel .owl-dots .owl-dot span {
-        background: rgba(255, 255, 255, 0.3) !important;
-        width: 20px !important;
+    .owl-carousel.hero-carousel .owl-dots button.owl-dot {
+        background: none !important;
+        border: none !important;
+        padding: 0 !important;
+        margin: 0 !important;
+        outline: none !important;
+        box-shadow: none !important;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .owl-carousel.hero-carousel .owl-dots button.owl-dot span {
+        display: block !important;
+        background: rgba(255, 255, 255, 0.35) !important;
+        width: 18px !important;
         height: 3px !important;
         margin: 0 !important;
         border-radius: 2px !important;
         border: none !important;
         transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
+        padding: 0 !important;
     }
 
-    .hero-carousel .owl-dots .owl-dot.active span {
+    .owl-carousel.hero-carousel .owl-dots button.owl-dot.active span {
         background: #d69c40 !important;
-        width: 40px !important;
+        width: 36px !important;
         height: 3px !important;
-        box-shadow: 0 0 8px rgba(214, 156, 64, 0.4);
+        box-shadow: 0 0 8px rgba(214, 156, 64, 0.5);
     }
 
-    .hero-carousel .owl-dots .owl-dot:hover span {
-        background: rgba(214, 156, 64, 0.6) !important;
+    .owl-carousel.hero-carousel .owl-dots button.owl-dot:hover span {
+        background: rgba(214, 156, 64, 0.7) !important;
     }
 
     /* ── Tablet (≤992px) ── */
