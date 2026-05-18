@@ -505,6 +505,104 @@
         }
     }
 
+    /* ═══════════════════════════════════════════
+       MINIMAL SAFARI CARDS (Homepage)
+       ═══════════════════════════════════════════ */
+    .safari-card-min {
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: transform 0.25s ease, box-shadow 0.25s ease;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+    }
+    .safari-card-min:hover {
+        transform: translateY(-4px);
+        box-shadow: 0 8px 24px rgba(0,0,0,0.08);
+    }
+    .safari-card-min .card-img-wrap {
+        position: relative;
+        height: 200px;
+        overflow: hidden;
+    }
+    .safari-card-min .card-img-wrap img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform 0.4s ease;
+    }
+    .safari-card-min:hover .card-img-wrap img {
+        transform: scale(1.04);
+    }
+    .safari-card-min .duration-badge {
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        background: rgba(0,0,0,0.7);
+        color: #fff;
+        font-size: 0.75rem;
+        font-weight: 600;
+        padding: 4px 12px;
+        border-radius: 20px;
+        backdrop-filter: blur(4px);
+    }
+    .safari-card-min .price-badge {
+        position: absolute;
+        bottom: 12px;
+        right: 12px;
+        background: rgba(0,0,0,0.65);
+        color: #d69c40;
+        font-size: 0.95rem;
+        font-weight: 700;
+        padding: 4px 12px;
+        border-radius: 6px;
+        backdrop-filter: blur(4px);
+        line-height: 1.2;
+        text-align: right;
+    }
+    .safari-card-min .price-badge small {
+        display: block;
+        font-size: 0.6rem;
+        font-weight: 400;
+        color: rgba(255,255,255,0.7);
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+    }
+    .safari-card-min .card-body {
+        padding: 1.25rem;
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+    }
+    .safari-card-min .card-body h4 {
+        font-size: 1.05rem;
+        font-weight: 700;
+        margin-bottom: 0.5rem;
+        line-height: 1.3;
+    }
+    .safari-card-min .card-body p {
+        font-size: 0.85rem;
+        color: #666;
+        line-height: 1.55;
+        flex: 1;
+        margin-bottom: 0;
+    }
+    .safari-card-min .card-footer {
+        display: flex;
+        gap: 8px;
+        padding: 0 1.25rem 1.25rem;
+    }
+    .safari-card-min .card-footer .btn {
+        flex: 1;
+        font-size: 0.8rem;
+        font-weight: 600;
+        border-radius: 8px;
+        padding: 8px 0;
+    }
+    .safari-card-min .card-footer .btn-outline-primary {
+        border-width: 2px;
+    }
 
 </style>
 @endsection
@@ -775,44 +873,25 @@
         </div>
         <div class="row g-4">
             @forelse($featuredSafaris as $index => $safari)
-            <div class="col-lg-3 col-md-6 wow bounceInUp" data-wow-delay="{{ (($index % 4) * 0.2 + 0.1) }}s">
-                <div class="safari-card rounded overflow-hidden h-100 d-flex flex-column">
-                    <div class="safari-img position-relative">
+            <div class="col-lg-3 col-md-6 wow fadeInUp" data-wow-delay="{{ (($index % 4) * 0.1 + 0.05) }}s">
+                <div class="safari-card-min">
+                    <div class="card-img-wrap">
                         <img src="{{ $safari->hero_image ? \App\Models\Safari::resolveImageUrl($safari->hero_image) : ($safari->thumbnail_image ? \App\Models\Safari::resolveImageUrl($safari->thumbnail_image) : site_image('hero_fallback_1')) }}"
-                            class="img-fluid w-100"
-                            alt="{{ $safari->title }}"
-                            width="400" height="300" loading="lazy">
+                            alt="{{ $safari->title }}" loading="lazy">
                         @if($safari->duration)
-                        <div class="safari-days badge bg-primary">{{ $safari->duration }}</div>
+                        <span class="duration-badge">{{ $safari->duration }}</span>
+                        @endif
+                        @if($safari->price_from)
+                        <div class="price-badge">${{ number_format($safari->price_from, 0) }}<small>per person</small></div>
                         @endif
                     </div>
-                    <div class="p-4 d-flex flex-column flex-grow-1">
-                        <h4 class="mb-3">{{ $safari->title }}</h4>
-                        @if($safari->location || $safari->category)
-                        <div class="d-flex mb-3">
-                            @if($safari->location)
-                            <span class="me-3"><i class="fas fa-map-marked-alt text-primary me-2"></i>{{ $safari->location }}</span>
-                            @endif
-                            @if($safari->category)
-                            <span><i class="fas fa-tag text-primary me-2"></i>{{ $safari->category }}</span>
-                            @endif
-                        </div>
-                        @endif
-                        <p class="mb-4 flex-grow-1">{{ $safari->short_description ?: Str::limit(strip_tags($safari->description), 150) }}</p>
-                        @if($safari->highlights && count($safari->highlights) > 0)
-                        <div class="safari-features mb-4">
-                            <h6 class="mb-2">Highlights:</h6>
-                            <ul class="list-unstyled">
-                                @foreach(array_slice($safari->highlights, 0, 3) as $highlight)
-                                <li><i class="fas fa-check text-primary me-2"></i>{{ is_array($highlight) ? ($highlight['title'] ?? $highlight['description'] ?? '') : $highlight }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                        @endif
-                        <div class="d-flex justify-content-between align-items-center mt-auto">
-                            <a href="{{ route('inquiry.create', $safari->slug) }}" class="btn btn-primary px-4 rounded-pill">Inquire</a>
-                            <a href="{{ route('safari.show', $safari->slug) }}" class="text-primary">Details <i class="fas fa-arrow-right ms-2"></i></a>
-                        </div>
+                    <div class="card-body">
+                        <h4>{{ $safari->title }}</h4>
+                        <p>{{ $safari->short_description ?: Str::limit(strip_tags($safari->description), 120) }}</p>
+                    </div>
+                    <div class="card-footer">
+                        <a href="{{ route('safari.show', $safari->slug) }}" class="btn btn-outline-primary">View Details</a>
+                        <a href="{{ route('inquiry.create', $safari->slug) }}" class="btn btn-primary">Inquire</a>
                     </div>
                 </div>
             </div>
