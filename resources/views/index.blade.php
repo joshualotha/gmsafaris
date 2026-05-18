@@ -167,10 +167,11 @@
     /* ── Mobile Large (≤768px) ── */
     @media (max-width: 768px) {
         .hero-carousel .carousel-caption-gms {
-            max-width: 92%;
+            max-width: 98%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            padding: 0 10px;
         }
         .hero-carousel .carousel-caption-gms h1 {
             font-size: 3.2rem;
@@ -199,10 +200,11 @@
     /* ── Mobile Small (≤480px) ── */
     @media (max-width: 480px) {
         .hero-carousel .carousel-caption-gms {
-            max-width: 94%;
+            max-width: 98%;
             left: 50%;
             transform: translate(-50%, -50%);
             text-align: center;
+            padding: 0 8px;
         }
         .hero-carousel .carousel-caption-gms h1 {
             font-size: 2.6rem;
