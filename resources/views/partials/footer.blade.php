@@ -3,17 +3,27 @@
     <div class="container">
         <div class="row">
 
+            <!-- Column 1: Brand + Contact + Trust Badges -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
                     <a href="{{ route('home') }}">
                         <img src="{{ asset('img/logo.webp') }}" alt="Golden Memories Safaris Logo" class="footer-logo mb-4"
                             width="180" height="40">
                     </a>
-                    <div class="d-flex flex-column align-items-start mb-4">
+                    <div class="d-flex flex-column align-items-start mb-3">
                         <p class="mb-1"><i class="fa fa-map-marker-alt text-primary me-2"></i> Arusha, Tanzania</p>
                         <p class="mb-1"><i class="fa fa-phone-alt text-primary me-2"></i> +255 786 383 273</p>
                         <p class="mb-1"><i class="fas fa-envelope text-primary me-2"></i> info@gmsafaris.co.tz</p>
                         <p class="mb-1"><i class="fa fa-clock text-primary me-2"></i> Mon-Sun: 8AM - 6PM</p>
+                    </div>
+                    <!-- Trust Badges -->
+                    <div class="d-flex flex-wrap align-items-center gap-2 mb-3">
+                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
+                            <i class="fas fa-shield-alt text-primary me-1"></i>TATO Registered
+                        </span>
+                        <span class="badge bg-white text-dark border px-3 py-2 rounded-pill shadow-sm" style="font-size: 0.75rem;">
+                            <i class="fas fa-star text-warning me-1"></i>TripAdvisor
+                        </span>
                     </div>
                     <div class="footer-icon d-flex">
                         <a class="btn btn-primary btn-sm-square me-2 rounded-circle" href="https://www.facebook.com/gmsafaris" target="_blank"
@@ -28,62 +38,80 @@
                 </div>
             </div>
 
+            <!-- Column 2: Safari Services -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="mb-4">Our Services</h4>
+                    <h4 class="mb-4">Safari Types</h4>
                     <div class="d-flex flex-column align-items-start">
-                        <a class="text-body mb-2" href="{{ route('tailoredsafaris') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Tailored Safaris</a>
+                        <a class="text-body mb-2" href="{{ route('safaris') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>All Safari Packages</a>
                         <a class="text-body mb-2" href="{{ route('luxurysafari') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Luxury Safaris</a>
-                        <a class="text-body mb-2" href="{{ route('mountaintrekking') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Mountain Trekking</a>
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Luxury Safaris</a>
+                        <a class="text-body mb-2" href="{{ route('tailoredsafaris') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Tailored Safaris</a>
                         <a class="text-body mb-2" href="{{ route('groupsafaris') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Group Safaris</a>
-                        <a class="text-body mb-2" href="{{ url('/ZanzibarArchipelago') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Zanzibar Holidays</a>
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Group Safaris</a>
                         <a class="text-body mb-2" href="{{ route('budgetsafari') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Budget Safaris</a>
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Budget Safaris</a>
+                        <a class="text-body mb-2" href="{{ route('zanzibarbeachholiday') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Zanzibar Holidays</a>
+                        <a class="text-body mb-2" href="{{ route('mountaintrekking') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Mountain Trekking</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Column 3: Travel Resources -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="mb-4">Useful Links</h4>
+                    <h4 class="mb-4">Travel Resources</h4>
                     <div class="d-flex flex-column align-items-start">
                         <a class="text-body mb-2" href="{{ route('besttimetovisit') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Best Time to Visit</a>
-                        <a class="text-body mb-2" href="{{ route('localcustoms') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Local Customs & Etiquette</a>
-                        <a class="text-body mb-2" href="{{ route('healthandsafety') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Health & Safety Guide</a>
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Best Time to Visit</a>
+                        <a class="text-body mb-2" href="{{ route('destinations') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Destinations</a>
+                        <a class="text-body mb-2" href="{{ route('blog') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Safari Blog</a>
                         <a class="text-body mb-2" href="{{ route('visa') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Visa Information</a>
-                        <a class="text-body mb-2" href="{{ url('/insurance') }}"><i
-                                class="fa fa-check text-primary me-2"></i>Insurance & Emergency</a>
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Visa Information</a>
+                        <a class="text-body mb-2" href="{{ route('healthandsafety') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Health & Safety</a>
+                        <a class="text-body mb-2" href="{{ route('kilimanjaroroutes') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Kilimanjaro Routes</a>
+                        <a class="text-body mb-2" href="{{ route('testimonial') }}"><i
+                                class="fa fa-chevron-right text-primary me-2" style="font-size: 0.65rem;"></i>Traveler Reviews</a>
                     </div>
                 </div>
             </div>
 
+            <!-- Column 4: Quick Contact CTA -->
             <div class="col-lg-3 col-md-6">
                 <div class="footer-item">
-                    <h4 class="mb-4">Connect & Review</h4>
-                    <div class="d-flex flex-column align-items-start">
-                        <a class="text-body mb-2" href="https://immigration.go.tz/" target="_blank"
-                            rel="noopener noreferrer"><i class="fas fa-passport text-primary me-2"></i>Official
-                            eVisa Application</a>
-                        <a class="text-body mb-2"
-                            href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html"
-                            target="_blank" rel="noopener noreferrer"><i
-                                class="fas fa-pen text-primary me-2"></i>Review us on TripAdvisor</a>
-                        <a class="text-body mb-2"
-                            href="https://www.getyourguide.com/golden-memories-safaris-s392921/" target="_blank"
-                            rel="noopener noreferrer"><i class="fas fa-route text-primary me-2"></i>Find us on
-                            GetYourGuide</a>
-                        <a class="text-body mb-2" href="https://immigration.go.tz/index.php/immigration-hq-dodoma"
-                            target="_blank" rel="noopener noreferrer"><i
-                                class="fas fa-hands-helping text-primary me-2"></i>Contact your Embassy</a>
+                    <h4 class="mb-4">Start Your Adventure</h4>
+                    <p class="text-muted small mb-3">Ready to experience Tanzania? Our team is here to help you plan the perfect safari.</p>
+                    <div class="d-flex flex-column gap-2">
+                        <a href="tel:+255786383273" class="btn btn-outline-primary rounded-pill py-2 text-start px-3">
+                            <i class="fas fa-phone-alt me-2"></i>+255 786 383 273
+                        </a>
+                        <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
+                           class="btn btn-success rounded-pill py-2 text-start px-3"
+                           target="_blank" rel="noopener noreferrer">
+                            <i class="fab fa-whatsapp me-2"></i>Chat on WhatsApp
+                        </a>
+                        <a href="mailto:info@gmsafaris.co.tz" class="btn btn-outline-primary rounded-pill py-2 text-start px-3">
+                            <i class="fas fa-envelope me-2"></i>info@gmsafaris.co.tz
+                        </a>
+                    </div>
+                    <div class="mt-3 pt-2 border-top">
+                        <a href="https://www.tripadvisor.com/Attraction_Review-g297913-d27751442-Reviews-GOLDEN_MEMORIES_SAFARIS-Arusha_Arusha_Region.html"
+                           target="_blank" rel="noopener noreferrer" class="text-body small">
+                            <i class="fas fa-star text-warning me-1"></i>Review us on TripAdvisor
+                        </a>
+                        <br>
+                        <a href="https://www.getyourguide.com/golden-memories-safaris-s392921/"
+                           target="_blank" rel="noopener noreferrer" class="text-body small">
+                            <i class="fas fa-route text-primary me-1"></i>Find us on GetYourGuide
+                        </a>
                     </div>
                 </div>
             </div>

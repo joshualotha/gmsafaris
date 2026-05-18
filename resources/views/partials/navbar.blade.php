@@ -13,26 +13,33 @@
             <div class="collapse navbar-collapse" id="navbarCollapse">
                 <div class="navbar-nav mx-auto">
                     <a href="{{ route('home') }}" class="nav-item nav-link @if(Route::currentRouteNamed('home')) active @endif">Home</a>
-                    <a href="{{ route('about') }}" class="nav-item nav-link @if(Route::currentRouteNamed('about')) active @endif">About</a>
                     <a href="{{ route('safaris') }}" class="nav-item nav-link @if(Route::currentRouteNamed('safaris') || Route::currentRouteNamed('safari.show')) active @endif">Safaris</a>
-                    <a href="{{ route('join-safari.index') }}" class="nav-item nav-link @if(Route::currentRouteNamed('join-safari.*')) active @endif">Join a Safari</a>
                     <a href="{{ route('destinations') }}" class="nav-item nav-link @if(Route::currentRouteNamed('destinations') || Route::currentRouteNamed('destination.show')) active @endif">Destinations</a>
+                    <a href="{{ route('blog') }}" class="nav-item nav-link @if(Route::currentRouteNamed('blog') || Route::currentRouteNamed('blog.show')) active @endif">Blog</a>
+                    <a href="{{ route('testimonial') }}" class="nav-item nav-link @if(Route::currentRouteNamed('testimonial')) active @endif">Reviews</a>
                     <a href="{{ route('gallery') }}" class="nav-item nav-link @if(Route::currentRouteNamed('gallery')) active @endif">Gallery</a>
                     <div class="nav-item dropdown">
                         <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown">More</a>
                         <div class="dropdown-menu bg-light">
-                            <a href="{{ route('booking') }}" class="dropdown-item">Booking</a>
-                            <a href="{{ route('blog') }}" class="dropdown-item">Travel Blog</a>
                             <a href="{{ route('about') }}" class="dropdown-item">About Us</a>
-                            <a href="{{ route('testimonial') }}" class="dropdown-item">Testimonials</a>
+                            <a href="{{ route('join-safari.index') }}" class="dropdown-item">Join a Safari</a>
+                            <a href="{{ route('besttimetovisit') }}" class="dropdown-item">Best Time to Visit</a>
+                            <a href="{{ route('visa') }}" class="dropdown-item">Visa Guide</a>
+                            <a href="{{ route('kilimanjaroroutes') }}" class="dropdown-item">Kilimanjaro Routes</a>
+                            <a href="{{ route('booking') }}" class="dropdown-item">Book Now</a>
                         </div>
                     </div>
                     <a href="{{ route('contact') }}" class="nav-item nav-link @if(Route::currentRouteNamed('contact')) active @endif">Contact</a>
                 </div>
-                <button class="btn-search btn btn-primary btn-md-square me-4 rounded-circle d-none d-lg-inline-flex"
+                <!-- Phone Number (visible on tablet+) -->
+                <a href="tel:+255786383273" class="text-decoration-none me-3 d-none d-lg-inline-block" aria-label="Call us">
+                    <small class="text-dark fw-semibold"><i class="fas fa-phone-alt text-primary me-1"></i>+255 786 383 273</small>
+                </a>
+                <!-- Search Toggle -->
+                <button class="btn-search btn btn-primary btn-md-square me-2 rounded-circle d-none d-lg-inline-flex"
                     data-bs-toggle="modal" data-bs-target="#searchModal"><i class="fas fa-search"></i></button>
-                <a href="{{ route('booking') }}" class="btn btn-primary py-2 px-4 d-none d-xl-inline-block rounded-pill">Book
-                    Now</a>
+                <!-- Book Now CTA — visible on all screen sizes where navbar is expanded -->
+                <a href="{{ route('booking') }}" class="btn btn-primary py-2 px-4 d-none d-lg-inline-block rounded-pill fw-bold">Book Now</a>
             </div>
         </nav>
     </div>

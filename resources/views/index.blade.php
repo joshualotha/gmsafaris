@@ -526,7 +526,12 @@
     "opens": "08:00",
     "closes": "18:00"
   },
-  "sameAs": [],
+  "sameAs": [
+    "https://www.facebook.com/gmsafaris",
+    "https://www.instagram.com/gmsafaris/",
+    "https://www.tiktok.com/@gmsafaris",
+    "https://www.youtube.com/@gmsafaris"
+  ],
   "priceRange": "$$",
   "areaServed": {
     "@type": "Country",
@@ -551,7 +556,7 @@
   "url": "https://www.gmsafaris.co.tz",
   "potentialAction": {
     "@type": "SearchAction",
-    "target": "https://www.gmsafaris.co.tz/?s={search_term_string}",
+    "target": "https://www.gmsafaris.co.tz/safaris/search?q={search_term_string}",
     "query-input": "required name=search_term_string"
   }
 }

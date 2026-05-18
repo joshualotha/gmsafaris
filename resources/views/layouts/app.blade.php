@@ -34,13 +34,10 @@
     <link rel="canonical" href="@yield('canonical', 'https://www.gmsafaris.co.tz/')">
 
     <!-- Hreflang Tags for International SEO -->
+    <!-- Currently only English content is available. Language-specific routes (/de/, /fr/, /it/) do not exist yet.
+         When multilingual pages are created, add proper hreflang tags pointing to each language version. -->
     <link rel="alternate" href="https://www.gmsafaris.co.tz/" hreflang="en" />
     <link rel="alternate" href="https://www.gmsafaris.co.tz/" hreflang="x-default" />
-    <link rel="alternate" href="https://www.gmsafaris.co.tz/it/" hreflang="it" />
-    <link rel="alternate" href="https://www.gmsafaris.co.tz/pl/" hreflang="pl" />
-    <link rel="alternate" href="https://www.gmsafaris.co.tz/sv/" hreflang="sv" />
-    <link rel="alternate" href="https://www.gmsafaris.co.tz/fr/" hreflang="fr" />
-    <link rel="alternate" href="https://www.gmsafaris.co.tz/de/" hreflang="de" />
 
     <meta property="og:type" content="website">
     <meta property="og:title" content="@yield('og_title', 'Golden Memories Safaris | Premium Tanzania Safari Tours')">
@@ -125,6 +122,142 @@
     });
     </script>
     <!--End of Tawk.to Script-->
+
+    <!-- Floating WhatsApp Button -->
+    <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
+       class="whatsapp-float"
+       target="_blank"
+       rel="noopener noreferrer"
+       aria-label="Chat with us on WhatsApp">
+        <div class="whatsapp-float-inner">
+            <i class="fab fa-whatsapp whatsapp-icon"></i>
+            <span class="whatsapp-text">Chat with us</span>
+        </div>
+    </a>
+    <style>
+        .whatsapp-float {
+            position: fixed;
+            bottom: 24px;
+            right: 24px;
+            z-index: 9999;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover {
+            transform: translateY(-3px);
+        }
+        .whatsapp-float-inner {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #25D366, #128C7E);
+            color: white;
+            padding: 14px 22px;
+            border-radius: 50px;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            font-family: 'Open Sans', sans-serif;
+            font-weight: 600;
+            font-size: 15px;
+            transition: all 0.3s ease;
+        }
+        .whatsapp-float:hover .whatsapp-float-inner {
+            box-shadow: 0 6px 28px rgba(37, 211, 102, 0.55);
+        }
+        .whatsapp-float .whatsapp-icon {
+            font-size: 26px;
+            line-height: 1;
+        }
+        .whatsapp-float .whatsapp-text {
+            white-space: nowrap;
+        }
+        /* Show only icon on very small screens, full button on larger */
+        @media (max-width: 480px) {
+            .whatsapp-float {
+                bottom: 16px;
+                right: 16px;
+            }
+            .whatsapp-float-inner {
+                padding: 12px 14px;
+                border-radius: 50px;
+            }
+            .whatsapp-float .whatsapp-text {
+                display: none;
+            }
+            .whatsapp-float .whatsapp-icon {
+                font-size: 30px;
+            }
+        }
+        /* Animate a subtle pulse effect */
+        @keyframes whatsapp-pulse {
+            0% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+            50% { box-shadow: 0 4px 30px rgba(37, 211, 102, 0.7); }
+            100% { box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4); }
+        }
+        .whatsapp-float-inner {
+            animation: whatsapp-pulse 2s infinite;
+        }
+    </style>
+    <!-- End Floating WhatsApp Button -->
+
+    <!-- Sticky Mobile Booking Bar (visible only on small screens) -->
+    <div class="mobile-booking-bar">
+        <div class="container-fluid d-lg-none">
+            <div class="row g-0 text-center">
+                <div class="col-4">
+                    <a href="tel:+255786383273" class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
+                        <i class="fas fa-phone-alt me-1"></i> Call
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
+                       target="_blank" rel="noopener noreferrer"
+                       class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
+                        <i class="fab fa-whatsapp me-1"></i> WhatsApp
+                    </a>
+                </div>
+                <div class="col-4">
+                    <a href="{{ route('booking') }}" class="d-block py-2 text-white text-decoration-none mobile-bar-btn">
+                        <i class="fas fa-calendar-check me-1"></i> Book
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        .mobile-booking-bar {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 9998;
+            background: linear-gradient(135deg, #1a1a2e, #16213e);
+            box-shadow: 0 -2px 15px rgba(0,0,0,0.2);
+            display: none;
+        }
+        @media (max-width: 991.98px) {
+            .mobile-booking-bar {
+                display: block !important;
+            }
+            body {
+                padding-bottom: 52px;
+            }
+        }
+        .mobile-bar-btn {
+            font-size: 0.85rem;
+            font-weight: 600;
+            transition: background 0.2s;
+        }
+        .mobile-bar-btn:hover {
+            background: rgba(255,255,255,0.1);
+        }
+        /* Ensure Tawk.to and WhatsApp float don't overlap the mobile bar */
+        @media (max-width: 991.98px) {
+            .whatsapp-float {
+                bottom: 72px;
+            }
+        }
+    </style>
+    <!-- End Sticky Mobile Booking Bar -->
 </body>
 
 </html>

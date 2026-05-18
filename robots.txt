@@ -1,11 +1,15 @@
 User-agent: *
 Allow: /
+Allow: /img/
+Allow: /css/
+Allow: /js/
+Allow: /storage/
 Disallow: /admin/
-Disallow: /storage/
 Disallow: /vendor/
-Disallow: /css/
-Disallow: /js/
 Disallow: /lib/
-Disallow: /img/
+
+# Allow search engines to index images for Google Image Search
+User-agent: Googlebot-Image
+Allow: /
 
 Sitemap: https://www.gmsafaris.co.tz/sitemap.xml

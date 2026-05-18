@@ -79,30 +79,6 @@
     </style>
 @endsection
 
-@section('structured_data')
-<script type="application/ld+json">
-
-    {
-      "@context": "https://schema.org",
-      "@type": "BreadcrumbList",
-      "itemListElement": [
-        {
-          "@type": "ListItem",
-          "position": 1,
-          "name": "Home",
-          "item": "https://www.gmsafaris.co.tz/"
-        },
-        {
-          "@type": "ListItem",
-          "position": 2,
-          "name": "Travel Insurance & Emergency Info",
-          "item": "https://www.gmsafaris.co.tz/insurance"
-        }
-      ]
-    }
-    </script>
-@endsection
-
 @section('body_content')
 
                         <span id="search-icon-1" class="input-group-text p-3"><i class="fa fa-search"></i></span>
