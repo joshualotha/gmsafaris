@@ -104,11 +104,6 @@
 
     @yield('extra_scripts')
 
-    <!-- GTranslate Widget (deferred) -->
-    <div class="gtranslate_wrapper"></div>
-    <script>window.gtranslateSettings = {"default_language":"en","languages":["en","de","it","pl","sv","fr"],"wrapper_selector":".gtranslate_wrapper"}</script>
-    <script src="https://cdn.gtranslate.net/widgets/latest/float.js" defer></script>
-
     <!--Start of Tawk.to Script (loaded after page is fully interactive to avoid blocking LCP)-->
     <script>
     window.addEventListener('load', function() {
@@ -139,7 +134,7 @@
         .whatsapp-float {
             position: fixed;
             bottom: 24px;
-            right: 24px;
+            left: 24px;
             z-index: 9999;
             text-decoration: none;
             transition: all 0.3s ease;
@@ -175,7 +170,7 @@
         @media (max-width: 480px) {
             .whatsapp-float {
                 bottom: 16px;
-                right: 16px;
+                left: 16px;
             }
             .whatsapp-float-inner {
                 padding: 12px 14px;
@@ -251,7 +246,7 @@
         .mobile-bar-btn:hover {
             background: rgba(255,255,255,0.1);
         }
-        /* Ensure Tawk.to and WhatsApp float don't overlap the mobile bar */
+        /* Ensure WhatsApp float doesn't overlap the mobile bar */
         @media (max-width: 991.98px) {
             .whatsapp-float {
                 bottom: 72px;

@@ -17,11 +17,7 @@
             </div>
             <div class="col-md-5 text-center text-md-end">
                 <div class="d-inline-flex align-items-center gap-2">
-                    <a href="https://wa.me/255786383273?text=Hello!%20I'm%20interested%20in%20booking%20a%20Tanzania%20safari."
-                       class="btn btn-sm btn-success rounded-pill px-3 topbar-whatsapp"
-                       target="_blank" rel="noopener noreferrer">
-                        <i class="fab fa-whatsapp me-1"></i> WhatsApp
-                    </a>
+                    <div class="gtranslate_wrapper"></div>
                     <a href="https://www.facebook.com/gmsafaris" target="_blank" rel="noopener noreferrer"
                        class="topbar-social" aria-label="Facebook">
                         <i class="fab fa-facebook-f"></i>
@@ -36,6 +32,10 @@
                     </a>
                 </div>
             </div>
+            <script>
+            window.gtranslateSettings = {"default_language":"en","languages":["en","it","pl","de","sv","fr","ko"],"wrapper_selector":".gtranslate_wrapper"}
+            </script>
+            <script src="https://cdn.gtranslate.net/widgets/latest/flags.js" defer></script>
         </div>
     </div>
 </div>
@@ -67,19 +67,16 @@
         background: rgba(0,0,0,0.2);
         color: #000 !important;
     }
-    .topbar-whatsapp {
-        font-size: 0.8rem;
-        font-weight: 600;
-        padding: 3px 12px !important;
-        background: #128C7E !important;
-        border-color: #128C7E !important;
-    }
-    .topbar-whatsapp:hover {
-        background: #075E54 !important;
-        border-color: #075E54 !important;
-    }
     .nav-bar {
         padding-top: 0 !important;
+    }
+    /* GTranslate flags in topbar */
+    .topbar .gtranslate_wrapper {
+        display: inline-block;
+        vertical-align: middle;
+    }
+    .topbar .gtranslate_wrapper .gt_switcher {
+        margin: 0 !important;
     }
 </style>
 <!-- Topbar End -->
