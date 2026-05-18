@@ -495,10 +495,7 @@
             font-size: 0.88rem;
             line-height: 1.5;
             margin-bottom: 1rem;
-            display: -webkit-box;
-            -webkit-line-clamp: 4;
-            -webkit-box-orient: vertical;
-            overflow: hidden;
+            max-height: none;
         }
 
         .hero-carousel .owl-item {
@@ -529,7 +526,6 @@
 
         .hero-carousel .carousel-caption-gms p {
             font-size: 0.8rem;
-            -webkit-line-clamp: 3;
             margin-bottom: 0.7rem;
         }
 
