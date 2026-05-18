@@ -588,7 +588,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">#Visit <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">Expert-guided safaris across the vast plains of Serengeti, the breathtaking Ngorongoro Crater, and Tanzania's most iconic national parks. Your African adventure begins here.</p>
+                <p class="animated bounceInUp">Expert-guided safaris across Serengeti, Ngorongoro, and Tanzania's wildest national parks.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('booking') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Book
                         Safari</a>
@@ -610,7 +610,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Karibu <span class="gold-text">Tanzania</span></h1>
-                <p class="animated bounceInUp">From the untamed savannas of Serengeti to the pristine beaches of Zanzibar, every corner of Tanzania offers a new adventure. Immerse yourself in rich cultures, breathtaking landscapes, and unforgettable experiences.</p>
+                <p class="animated bounceInUp">From the Serengeti plains to Zanzibar's beaches — your Tanzanian adventure starts here.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('destinations') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Discover
@@ -632,7 +632,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Unforgettable <span class="gold-text">Encounters</span></h1>
-                <p class="animated bounceInUp">Get closer to Africa's iconic wildlife than ever before, from the Big Five to the Great Migration. Each moment in the wild creates a memory you'll carry forever. Let us guide you on the adventure of a lifetime.</p>
+                <p class="animated bounceInUp">Get closer to the Big Five and Great Migration on the safari of a lifetime.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ route('gallery') }}" class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">View
                         Gallery</a>
@@ -653,7 +653,7 @@
             </div>
             <div class="carousel-caption-gms">
                 <h1 class="animated bounceInDown">Experience <span class="gold-text">Ngorongoro</span></h1>
-                <p class="animated bounceInUp">Descend into the world's largest intact caldera, a UNESCO World Heritage site teeming with wildlife and breathtaking landscapes. Explore one of Africa's most spectacular destinations with expert guides who know every hidden corner.</p>
+                <p class="animated bounceInUp">Descend into the world's largest intact caldera — a UNESCO wonder teeming with wildlife.</p>
                 <div class="d-flex flex-wrap justify-content-start gap-3 animated bounceInUp">
                     <a href="{{ url('/ngorongoro') }}"
                         class="btn gold-btn border-0 rounded-pill py-2 py-lg-3 px-4 px-md-5">Explore Ngorongoro</a>
@@ -1443,60 +1443,5 @@
         //     smartSpeed: 1000
         // });
     });
-
-    // Force hero dot styling — runs after everything loads
-    (function forceHeroDots() {
-        var style = document.createElement('style');
-        style.textContent = `
-            .owl-carousel.hero-carousel .owl-dots button.owl-dot {
-                background: none !important;
-                border: none !important;
-                padding: 0 !important;
-                margin: 0 3px !important;
-                outline: none !important;
-                box-shadow: none !important;
-                display: inline-flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-            }
-            .owl-carousel.hero-carousel .owl-dots button.owl-dot span {
-                display: block !important;
-                background: rgba(255, 255, 255, 0.35) !important;
-                width: 18px !important;
-                height: 3px !important;
-                margin: 0 !important;
-                border-radius: 2px !important;
-                border: none !important;
-                padding: 0 !important;
-                transition: all 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94) !important;
-            }
-            .owl-carousel.hero-carousel .owl-dots button.owl-dot.active span {
-                background: #d69c40 !important;
-                width: 36px !important;
-                height: 3px !important;
-                box-shadow: 0 0 8px rgba(214, 156, 64, 0.5) !important;
-            }
-            .owl-carousel.hero-carousel .owl-dots button.owl-dot:hover span {
-                background: rgba(214, 156, 64, 0.7) !important;
-            }
-            .owl-carousel.hero-carousel .owl-dots {
-                display: flex !important;
-                align-items: center !important;
-                justify-content: center !important;
-                gap: 5px !important;
-                position: absolute !important;
-                bottom: 30px !important;
-                left: 50% !important;
-                transform: translateX(-50%) !important;
-                z-index: 3 !important;
-                margin: 0 !important;
-                padding: 0 !important;
-            }
-            .owl-carousel.hero-carousel .owl-nav {
-                display: none !important;
-            }
-        `;
-        document.head.appendChild(style);
-    })();
 </script>
 @endsection
