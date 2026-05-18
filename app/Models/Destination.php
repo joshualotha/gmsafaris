@@ -37,6 +37,7 @@ class Destination extends Model
         'video_url',
         'related_destinations',
         'is_active',
+        'is_featured',
         'sort_order',
         'seo_title',
         'seo_description',
@@ -54,6 +55,7 @@ class Destination extends Model
         'faq' => 'array',
         'related_destinations' => 'array',
         'is_active' => 'boolean',
+        'is_featured' => 'boolean',
     ];
 
     protected $appends = [
@@ -74,6 +76,11 @@ class Destination extends Model
     public function scopeActive($query)
     {
         return $query->where('is_active', true);
+    }
+
+    public function scopeFeatured($query)
+    {
+        return $query->where('is_featured', true);
     }
 
     public function scopeOrdered($query)

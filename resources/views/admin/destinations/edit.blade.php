@@ -438,6 +438,11 @@
                             <input type="checkbox" name="is_active" class="form-check-input" value="1" id="is_active" @checked(old('is_active', $destination->is_active))>
                             <label class="form-check-label" for="is_active">Active</label>
                         </div>
+                        <div class="form-check mb-3">
+                            <input type="hidden" name="is_featured" value="0">
+                            <input type="checkbox" name="is_featured" class="form-check-input" value="1" id="is_featured" @checked(old('is_featured', $destination->is_featured))>
+                            <label class="form-check-label" for="is_featured">Featured (shows on homepage)</label>
+                        </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">

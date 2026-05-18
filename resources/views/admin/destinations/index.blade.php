@@ -20,6 +20,7 @@
                         <th>Subtitle</th>
                         <th>Location</th>
                         <th>Active</th>
+                        <th>Featured</th>
                         <th>Order</th>
                         <th>Actions</th>
                     </tr>
@@ -35,6 +36,13 @@
                                 <span class="badge {{ $dest->is_active ? 'bg-success' : 'bg-secondary' }}">
                                     {{ $dest->is_active ? 'Yes' : 'No' }}
                                 </span>
+                            </td>
+                            <td>
+                                @if($dest->is_featured)
+                                    <span class="badge bg-warning text-dark"><i class="fas fa-star me-1"></i>Featured</span>
+                                @else
+                                    <span class="text-muted">&mdash;</span>
+                                @endif
                             </td>
                             <td>{{ $dest->sort_order }}</td>
                             <td>
@@ -54,7 +62,7 @@
                         </tr>
                     @empty
                         <tr>
-                            <td colspan="7" class="text-center py-4 text-muted">
+                            <td colspan="8" class="text-center py-4 text-muted">
                                 <i class="fas fa-map-marker-alt fa-2x mb-2 d-block"></i>
                                 No destinations found. <a href="{{ route('admin.destinations.create') }}">Create one</a>.
                             </td>
