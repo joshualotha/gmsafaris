@@ -123,8 +123,26 @@
         }
 
         .hero-carousel .owl-item {
-            height: 75vh;
+            height: 100vh;
+            min-height: 500px;
         }
+
+        .hero-carousel .owl-nav {
+            display: none;
+        }
+
+        .hero-carousel .carousel-caption-gms .btn {
+            font-size: 0.85rem;
+            padding: 8px 16px !important;
+        }
+    }
+
+    /* Booking section images visible only on desktop */
+    @media (max-width: 767px) {
+        .booking-side-image { display: none !important; }
+    }
+    @media (min-width: 768px) {
+        .booking-side-image { display: block; }
     }
 
     @media (max-width: 768px) {
@@ -137,7 +155,7 @@
         }
 
         .hero-carousel .owl-item {
-            height: 65vh;
+            height: 100vh;
         }
 
         .hero-carousel .owl-nav {
@@ -468,7 +486,7 @@
         }
 
         .hero-carousel .owl-item {
-            height: 75vh;
+            height: 100vh;
         }
     }
 
@@ -530,8 +548,8 @@
         }
 
         .hero-carousel .owl-item {
-            height: 55vh;
-            min-height: 350px;
+            height: 100vh;
+            min-height: 500px;
         }
     }
 </style>
