@@ -32,11 +32,6 @@ class SafariController extends Controller
             $query->where('duration', $duration);
         }
 
-        // Filter by type
-        if ($type = $request->input('type')) {
-            $query->where('type', $type);
-        }
-
         // Filter by price tier
         if ($priceTier = $request->input('price_tier')) {
             $query->where('price_tier', $priceTier);
@@ -45,10 +40,9 @@ class SafariController extends Controller
         $safaris = $query->paginate(12)->withQueryString();
 
         $durations = Safari::active()->published()->select('duration')->distinct()->whereNotNull('duration')->orderBy('duration')->pluck('duration');
-        $types = Safari::active()->published()->select('type')->distinct()->whereNotNull('type')->orderBy('type')->pluck('type');
         $priceTiers = Safari::active()->published()->select('price_tier')->distinct()->whereNotNull('price_tier')->orderBy('price_tier')->pluck('price_tier');
 
-        return view('safaris', compact('safaris', 'durations', 'types', 'priceTiers'));
+        return view('safaris', compact('safaris', 'durations', 'priceTiers'));
     }
 
     /**
@@ -69,10 +63,6 @@ class SafariController extends Controller
 
         if ($duration = $request->input('duration')) {
             $query->where('duration', $duration);
-        }
-
-        if ($type = $request->input('type')) {
-            $query->where('type', $type);
         }
 
         if ($priceTier = $request->input('price_tier')) {

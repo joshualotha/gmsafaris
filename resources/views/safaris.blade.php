@@ -651,7 +651,7 @@
                             <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
                         </span>
                         <input type="text" id="searchInput" class="premium-search-input" placeholder="Search safaris by name, location, or type..." value="{{ request('search') }}" autocomplete="off">
-                        <a href="{{ route('safaris') }}" class="premium-search-clear {{ request('search') || request('duration') || request('type') || request('price_tier') ? 'visible' : '' }}" id="clearBtn"><i class="fas fa-times"></i></a>
+                        <a href="{{ route('safaris') }}" class="premium-search-clear {{ request('search') || request('duration') || request('price_tier') ? 'visible' : '' }}" id="clearBtn"><i class="fas fa-times"></i></a>
                     </div>
                 </div>
                 <!-- Duration Filter -->
@@ -672,28 +672,8 @@
                         </span>
                     </div>
                 </div>
-                <!-- Type Filter -->
-                <div class="col-lg-3 col-md-3">
-                    <div class="premium-filter-label">
-                        <i class="fas fa-tag"></i>
-                        <span>Type</span>
-                    </div>
-                    <div class="premium-select-wrap">
-                        <select id="typeSelect" class="premium-select">
-                            <option value="">All Types</option>
-                            @foreach($types as $t)
-                                <option value="{{ $t }}" {{ request('type') == $t ? 'selected' : '' }}>{{ $t }}</option>
-                            @endforeach
-                        </select>
-                        <span class="select-arrow">
-                            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="6 9 12 15 18 9"/></svg>
-                        </span>
-                    </div>
-                </div>
-            </div>
-            <div class="row g-3 align-items-end mt-2">
                 <!-- Price Tier Filter -->
-                <div class="col-lg-3 col-md-4">
+                <div class="col-lg-3 col-md-3">
                     <div class="premium-filter-label">
                         <i class="fas fa-dollar-sign"></i>
                         <span>Price Tier</span>
@@ -710,7 +690,9 @@
                         </span>
                     </div>
                 </div>
-                <div class="col-lg-9 col-md-8 d-flex align-items-end justify-content-end">
+            </div>
+            <div class="row g-3 align-items-end mt-2">
+                <div class="col-12 d-flex align-items-end justify-content-end">
                     <a href="{{ route('safaris') }}" class="btn btn-outline-secondary btn-sm px-4">Reset Filters</a>
                 </div>
             </div>
@@ -753,7 +735,6 @@
 (function() {
     var searchInput = document.getElementById('searchInput');
     var durationSelect = document.getElementById('durationSelect');
-    var typeSelect = document.getElementById('typeSelect');
     var priceTierSelect = document.getElementById('priceTierSelect');
     var resultsContainer = document.getElementById('safariResults');
     var clearBtn = document.getElementById('clearBtn');
@@ -768,9 +749,8 @@
         if (!clearBtn) return;
         var hasValue = searchInput && searchInput.value.trim().length > 0;
         var hasDuration = durationSelect && durationSelect.value !== '';
-        var hasType = typeSelect && typeSelect.value !== '';
         var hasPrice = priceTierSelect && priceTierSelect.value !== '';
-        if (hasValue || hasDuration || hasType || hasPrice) {
+        if (hasValue || hasDuration || hasPrice) {
             clearBtn.classList.add('visible');
         } else {
             clearBtn.classList.remove('visible');
@@ -805,11 +785,9 @@
         var params = new URLSearchParams();
         var searchVal = searchInput ? searchInput.value.trim() : '';
         var durationVal = durationSelect ? durationSelect.value : '';
-        var typeVal = typeSelect ? typeSelect.value : '';
         var priceVal = priceTierSelect ? priceTierSelect.value : '';
         if (searchVal) params.set('search', searchVal);
         if (durationVal) params.set('duration', durationVal);
-        if (typeVal) params.set('type', typeVal);
         if (priceVal) params.set('price_tier', priceVal);
         return params;
     }
@@ -853,7 +831,6 @@
     }
 
     if (durationSelect) durationSelect.addEventListener('change', fetchResults);
-    if (typeSelect) typeSelect.addEventListener('change', fetchResults);
     if (priceTierSelect) priceTierSelect.addEventListener('change', fetchResults);
 
     if (clearBtn) {
@@ -861,7 +838,6 @@
             e.preventDefault();
             if (searchInput) searchInput.value = '';
             if (durationSelect) durationSelect.value = '';
-            if (typeSelect) typeSelect.value = '';
             if (priceTierSelect) priceTierSelect.value = '';
             updateClearButton();
             fetchResults();
@@ -878,11 +854,9 @@
                     var params = getParams();
                     var searchVal = searchInput ? searchInput.value.trim() : '';
                     var durationVal = durationSelect ? durationSelect.value : '';
-                    var typeVal = typeSelect ? typeSelect.value : '';
                     var priceVal = priceTierSelect ? priceTierSelect.value : '';
                     if (searchVal) params.set('search', searchVal);
                     if (durationVal) params.set('duration', durationVal);
-                    if (typeVal) params.set('type', typeVal);
                     if (priceVal) params.set('price_tier', priceVal);
                     params.set('page', page);
 
