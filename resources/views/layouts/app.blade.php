@@ -108,11 +108,11 @@
     </style>
 
     <!-- ═══════════════════════════════════════════════════
-         STYLESHEETS — Purged Bootstrap (50KB smaller than original)
-         Loaded synchronously for reliable rendering on all server configs.
+         STYLESHEETS — Original Bootstrap (proven styling)
+         Loaded synchronously for reliable rendering.
          ═══════════════════════════════════════════════════ -->
-    <link href="{{ asset('css/purged/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
