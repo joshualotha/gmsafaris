@@ -70,16 +70,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet"></noscript>
 
-    <!-- Preload critical CSS (starts download early) -->
-    <link rel="preload" href="{{ asset('css/style.min.css') }}" as="style">
+    <!-- Bootstrap CSS (synchronous — required for grid layout to prevent total collapse) -->
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
 
-    <!-- Bootstrap CSS (deferred to eliminate render-blocking — saves ~600ms LCP) -->
-    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
-
-    <!-- Template Stylesheet (deferred to avoid render-blocking) -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link href="{{ asset('css/style.min.css') }}" rel="stylesheet"></noscript>
+    <!-- Template Stylesheet (synchronous — applies custom styles immediately) -->
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
 
     <!-- Critical inline styles — applied immediately to prevent FOUC -->
     <style>
