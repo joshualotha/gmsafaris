@@ -231,16 +231,47 @@
 
         .form-label { font-weight: 600; font-size: 0.9rem; color: #555; }
 
-        /* Pagination active state */
+        /* Pagination */
+        .pagination {
+            gap: 4px;
+        }
+        .pagination .page-item .page-link {
+            color: #555;
+            border: 1px solid #e9ecef;
+            border-radius: 8px !important;
+            padding: 6px 12px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            margin: 0;
+        }
+        .pagination .page-item .page-link:hover {
+            background: #f0ebe4;
+            border-color: #d4c4b0;
+            color: #2d2a24;
+        }
         .pagination .page-item.active .page-link {
             background-color: var(--primary-color);
             border-color: var(--primary-color);
+            color: #fff;
+            font-weight: 600;
         }
-        .pagination .page-link {
-            color: #050709;
+        .pagination .page-item.disabled .page-link {
+            background: #f8f9fa;
+            color: #bbb;
+            border-color: #f0f0f0;
         }
         .pagination .page-link:focus {
-            box-shadow: 0 0 0 0.25rem rgba(212, 167, 98, 0.25);
+            box-shadow: 0 0 0 0.2rem rgba(212, 167, 98, 0.2);
+        }
+        /* Next/Previous buttons — compact, gold accent */
+        .pagination .page-item:first-child .page-link,
+        .pagination .page-item:last-child .page-link {
+            padding: 6px 16px;
+            font-weight: 600;
+            text-transform: uppercase;
+            font-size: 0.8rem;
+            letter-spacing: 0.3px;
         }
 
         /* Dropdown menu */
