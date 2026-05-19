@@ -71,16 +71,18 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet"></noscript>
 
     <!-- ═══════════════════════════════════════════════════
-         CRITICAL INLINE STYLES — applied immediately
-         Hero carousel CLS fix + font render safeguards.
-         Targets BOTH pre-Owl (.item) and post-Owl (.owl-item)
+         CLS FIXES — Hero carousel + Owl Carousel stage.
+         Targets pre-Owl (.item) AND post-Owl (.owl-item, .owl-stage)
          so the carousel reserves vertical space before JS runs.
+         Also fixes font display, aspect-ratio for all images.
          ═══════════════════════════════════════════════════ -->
     <style>
         img { max-width: 100%; height: auto; aspect-ratio: auto; }
         .hero-section { position: relative; overflow: hidden; background: #111; }
         .hero-carousel .item,
-        .hero-carousel .owl-item { position: relative; height: 90vh; min-height: 500px; }
+        .hero-carousel .owl-item,
+        .hero-carousel .owl-stage-outer,
+        .hero-carousel .owl-stage { position: relative; height: 90vh; min-height: 500px; }
         .hero-carousel { position: relative; }
         .hero-carousel .carousel-image-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .hero-carousel .carousel-image-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.45); }
@@ -97,22 +99,36 @@
             .hero-carousel .carousel-caption-gms h1 { font-size: 3.2rem; }
             .hero-carousel .carousel-caption-gms p { font-size: 1.1rem; }
             .hero-carousel .item,
-            .hero-carousel .owl-item { height: 70vh; }
+            .hero-carousel .owl-item,
+            .hero-carousel .owl-stage-outer,
+            .hero-carousel .owl-stage { height: 70vh; }
         }
         @media (max-width: 480px) {
             .hero-carousel .carousel-caption-gms h1 { font-size: 2.6rem; }
             .hero-carousel .carousel-caption-gms p { font-size: 1rem; }
             .hero-carousel .item,
-            .hero-carousel .owl-item { height: 60vh; }
+            .hero-carousel .owl-item,
+            .hero-carousel .owl-stage-outer,
+            .hero-carousel .owl-stage { height: 60vh; }
         }
     </style>
 
     <!-- ═══════════════════════════════════════════════════
-         STYLESHEETS — Original Bootstrap (proven styling)
-         Loaded synchronously for reliable rendering.
+         CRITICAL CSS — inlined (12KB). Contains Bootstrap grid,
+         navbar, buttons, forms, utilities + all custom styles.
+         This is enough for the page to render correctly while
+         the full Bootstrap CSS loads asynchronously.
          ═══════════════════════════════════════════════════ -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    @includeIf('partials.critical-css')
+
+    <!-- ═══════════════════════════════════════════════════
+         DEFERRED STYLESHEETS — non-render-blocking
+         Full Bootstrap + custom styles load after page render.
+         ═══════════════════════════════════════════════════ -->
+    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="{{ asset('css/style.min.css') }}" rel="stylesheet"></noscript>
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
