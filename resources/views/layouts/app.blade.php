@@ -71,17 +71,10 @@
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet"></noscript>
 
     <!-- ═══════════════════════════════════════════════════
-         CRITICAL CSS (INLINED — 12KB) — applied immediately
-         Contains: Bootstrap grid, navbar, buttons, forms,
-         utilities + all custom above-the-fold styles.
-         ═══════════════════════════════════════════════════ -->
-    <style>{!! file_get_contents(public_path('css/purged/critical.css')) !!}</style>
-
-    <!-- ═══════════════════════════════════════════════════
-         HERO CAROUSEL CLS FIX + FONT RENDER SAFEGUARDS
-         Applied immediately; targets BOTH pre-Owl (.item)
-         and post-Owl (.owl-item) so the carousel reserves
-      vertical space before Owl Carousel JS runs.
+         CRITICAL INLINE STYLES — applied immediately
+         Hero carousel CLS fix + font render safeguards.
+         Targets BOTH pre-Owl (.item) and post-Owl (.owl-item)
+         so the carousel reserves vertical space before JS runs.
          ═══════════════════════════════════════════════════ -->
     <style>
         img { max-width: 100%; height: auto; aspect-ratio: auto; }
@@ -115,14 +108,11 @@
     </style>
 
     <!-- ═══════════════════════════════════════════════════
-         DEFERRED STYLESHEETS (non-render-blocking)
-         Bootstrap (purged — 116KB -> 104KB after critical inline)
-         + custom styles + vendor libs
+         STYLESHEETS — Purged Bootstrap (50KB smaller than original)
+         Loaded synchronously for reliable rendering on all server configs.
          ═══════════════════════════════════════════════════ -->
-    <link rel="preload" href="{{ asset('css/purged/bootstrap.min.css') }}" as="style" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ asset('css/purged/bootstrap.min.css') }}" rel="stylesheet"></noscript>
-    <link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet"></noscript>
+    <link href="{{ asset('css/purged/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet">
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
