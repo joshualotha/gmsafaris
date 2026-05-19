@@ -113,8 +113,8 @@
             </div>
             <div class="col-md-4">
                 <div class="stat-card-sm">
-                    <p class="number text-info">{{ \App\Models\SiteImage::select('category')->distinct()->count() }}</p>
-                    <p class="label">Pages</p>
+<p class="number text-info">{{ \App\Models\SiteImage::select('category')->distinct()->get()->count() }}</p>
+                <p class="label">Pages</p>
                 </div>
             </div>
         </div>
