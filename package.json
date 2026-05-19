@@ -1,0 +1,13 @@
+{
+  "private": true,
+  "scripts": {
+    "build:purge": "purgecss --config purgecss.config.js --output css/purged",
+    "build:critical": "node generate-critical-css.mjs",
+    "build": "npm run build:purge && npm run build:critical",
+    "build:all": "npm run build && echo '✓ PurgeCSS + critical CSS generated. Run `git add css/purged/` to deploy.'"
+  },
+  "devDependencies": {
+    "purgecss": "^5.0.0",
+    "critical": "^5.0.0"
+  }
+}

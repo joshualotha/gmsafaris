@@ -70,22 +70,21 @@
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet"></noscript>
 
-    <!-- Bootstrap CSS (synchronous — required for grid layout to prevent total collapse) -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- ═══════════════════════════════════════════════════
+         CRITICAL CSS (INLINED — 12KB) — applied immediately
+         Contains: Bootstrap grid, navbar, buttons, forms,
+         utilities + all custom above-the-fold styles.
+         ═══════════════════════════════════════════════════ -->
+    <style>{!! file_get_contents(public_path('css/purged/critical.css')) !!}</style>
 
-    <!-- Template Stylesheet (synchronous — applies custom styles immediately) -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
-
-    <!-- Critical inline styles — applied immediately to prevent FOUC -->
+    <!-- ═══════════════════════════════════════════════════
+         HERO CAROUSEL CLS FIX + FONT RENDER SAFEGUARDS
+         Applied immediately; targets BOTH pre-Owl (.item)
+         and post-Owl (.owl-item) so the carousel reserves
+      vertical space before Owl Carousel JS runs.
+         ═══════════════════════════════════════════════════ -->
     <style>
-        /* Base reset so page is usable while CSS loads */
-        body { font-family: 'Open Sans', sans-serif; color: #333; background: #fff; margin: 0; padding: 0; }
-        /* Aspect-ratio from HTML width/height attrs prevents CLS while CSS loads */
-        img { max-width: 100%; height: auto; display: block; aspect-ratio: auto; }
-        /* ═══ CRITICAL CLS FIX ═══
-           Target BOTH pre-Owl (.item) and post-Owl (.owl-item) selectors so the
-           hero carousel reserves vertical space before Owl Carousel JS runs.
-           Without this, the page starts at 0 height then CLAMPS to 90vh on init. */
+        img { max-width: 100%; height: auto; aspect-ratio: auto; }
         .hero-section { position: relative; overflow: hidden; background: #111; }
         .hero-carousel .item,
         .hero-carousel .owl-item { position: relative; height: 90vh; min-height: 500px; }
@@ -115,7 +114,15 @@
         }
     </style>
 
-    <!-- Deferred Non-Critical Stylesheets -->
+    <!-- ═══════════════════════════════════════════════════
+         DEFERRED STYLESHEETS (non-render-blocking)
+         Bootstrap (purged — 116KB -> 104KB after critical inline)
+         + custom styles + vendor libs
+         ═══════════════════════════════════════════════════ -->
+    <link rel="preload" href="{{ asset('css/purged/bootstrap.min.css') }}" as="style" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{{ asset('css/purged/bootstrap.min.css') }}" rel="stylesheet"></noscript>
+    <link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
+    <noscript><link href="{{ asset('css/purged/style.min.css') }}" rel="stylesheet"></noscript>
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
@@ -127,12 +134,10 @@
     <link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet"></noscript>
 
-    <!-- Template Stylesheet already loaded deferred above — removed duplicate synchronous load -->
     @yield('extra_styles')
 
-    <!-- Global Mobile Optimizations -->
+    <!-- Global Mobile Optimizations + Composited Animations -->
     <style>
-        /* Reduce giant vertical padding on mobile */
         @media (max-width: 575px) {
             .py-6 { padding-top: 3rem !important; padding-bottom: 3rem !important; }
             .my-6 { margin-top: 3rem !important; margin-bottom: 3rem !important; }
@@ -142,84 +147,41 @@
         @media (max-width: 767px) {
             .py-6 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
         }
-
-        /* Ensure images never overflow on mobile (dupe removed — already covered in critical block) */
-
-        /* Fix testimonial quote icon positioning */
         .testimonial-item { position: relative; }
-
-        /* Breadcrumb text wrap fix */
         .breadcrumb-item { white-space: normal !important; }
-
-        /* Search modal — full width on mobile */
         @media (max-width: 575px) {
             .search-modal-form { width: 100% !important; }
         }
-
-        /* Better tap targets for mobile nav links */
         @media (max-width: 767.98px) {
-            .navbar-nav .nav-link {
-                padding: 12px 16px !important;
-                font-size: 1rem;
-            }
-            .dropdown-item {
-                padding: 10px 24px !important;
-            }
-            /* Smaller brand logo on mobile */
-            .navbar-brand img {
-                max-height: 38px !important;
-                width: auto;
-            }
+            .navbar-nav .nav-link { padding: 12px 16px !important; font-size: 1rem; }
+            .dropdown-item { padding: 10px 24px !important; }
+            .navbar-brand img { max-height: 38px !important; width: auto; }
         }
         @media (max-width: 575px) {
-            .navbar-brand img {
-                max-height: 32px !important;
-            }
+            .navbar-brand img { max-height: 32px !important; }
         }
-
-        /* Fix filter bar on safaris page for mobile */
         @media (max-width: 575px) {
             .filter-bar .btn { font-size: 0.8rem; padding: 4px 10px; }
         }
-
-        /* Touch target sizing — accessible minimum without breaking design */
-        .navbar-toggler,
-        .btn-search,
-        .btn-close {
-            min-height: 44px;
-            min-width: 44px;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
+        .navbar-toggler, .btn-search, .btn-close {
+            min-height: 44px; min-width: 44px; display: inline-flex;
+            align-items: center; justify-content: center;
         }
-        .owl-dot {
-            min-height: 32px;
-            min-width: 32px;
-        }
+        .owl-dot { min-height: 32px; min-width: 32px; }
 
-        /* ── Composited animation overrides ──
-           Replaces animate.css bounceInUp/bounceInDown/fadeInUp (non-composited)
-           with GPU-friendly versions using only transform & opacity.
-           This eliminates 35 non-composited animated elements flagged by
-           Lighthouse and prevents layout thrashing from scroll-driven reveals. */
-        .animated.bounceInUp,
-        .wow.bounceInUp {
+        .animated.bounceInUp, .wow.bounceInUp {
             animation-name: bounceInUpFade !important;
             will-change: transform, opacity;
         }
-        .animated.bounceInDown,
-        .wow.bounceInDown {
+        .animated.bounceInDown, .wow.bounceInDown {
             animation-name: bounceInDownFade !important;
             will-change: transform, opacity;
         }
-        .animated.fadeInUp,
-        .wow.fadeInUp {
+        .animated.fadeInUp, .wow.fadeInUp {
             animation-name: fadeInUpGpu !important;
             will-change: transform, opacity;
         }
-        .wow {
-            visibility: visible !important; /* prevent FOUC before WOW runs */
-        }
+        .wow { visibility: visible !important; }
         @keyframes bounceInUpFade {
             0%   { opacity: 0; transform: translateY(40px); }
             100% { opacity: 1; transform: translateY(0); }
