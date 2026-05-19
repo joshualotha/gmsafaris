@@ -1,37 +1,27 @@
 (function ($) {
     "use strict";
 
-    // Spinner - remove immediately
-    var spinner = function () {
-        setTimeout(function () {
-            if ($('#spinner').length > 0) {
-                $('#spinner').removeClass('show');
+    // Spinner removed — already display:none via inline style (no layout impact)
+
+    // WOW.js initialized in scripts.blade.php (deferred after LCP) — not here
+
+    // Back to top button — use CSS opacity/visibility instead of jQuery fadeIn/fadeOut
+    // to avoid non-composited display transitions (CLS culprit)
+    var backToTop = $('.back-to-top');
+    if (backToTop.length) {
+        backToTop.css({ opacity: 0, visibility: 'hidden', transition: 'opacity 0.3s, visibility 0.3s' });
+        $(window).scroll(function () {
+            if ($(this).scrollTop() > 300) {
+                backToTop.css({ opacity: 1, visibility: 'visible' });
+            } else {
+                backToTop.css({ opacity: 0, visibility: 'hidden' });
             }
-        }, 1);
-    };
-    spinner(0);
-
-
-    // Initiate the wowjs
-    $(document).ready(function () {
-        if (typeof WOW === 'function') {
-            new WOW().init();
-        }
-    });
-
-
-    // Back to top button
-    $(window).scroll(function () {
-        if ($(this).scrollTop() > 300) {
-            $('.back-to-top').fadeIn('slow');
-        } else {
-            $('.back-to-top').fadeOut('slow');
-        }
-    });
-    $('.back-to-top').click(function () {
-        $('html, body').animate({ scrollTop: 0 }, 1500, 'easeInOutExpo');
-        return false;
-    });
+        });
+        backToTop.click(function () {
+            $('html, body').animate({ scrollTop: 0 }, 800, 'easeInOutExpo');
+            return false;
+        });
+    }
 
     // Hero Carousel
     $(document).ready(function () {

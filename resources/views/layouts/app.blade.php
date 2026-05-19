@@ -21,12 +21,17 @@
     <link rel="alternate icon" href="{{ site_image('logo_png') }}" type="image/png">
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
+    <!-- DNS prefetch for critical 3rd-party origins (lightweight hint) -->
     <link rel="dns-prefetch" href="https://fonts.googleapis.com">
     <link rel="dns-prefetch" href="https://fonts.gstatic.com">
     <link rel="dns-prefetch" href="https://cdn.jsdelivr.net">
     <link rel="dns-prefetch" href="https://use.fontawesome.com">
-    <link rel="preconnect" href="https://cdn.gtranslate.net">
-    <link rel="preconnect" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://cdn.gtranslate.net">
+    <link rel="dns-prefetch" href="https://www.google-analytics.com">
+    <link rel="dns-prefetch" href="https://embed.tawk.to">
+    <!-- Preconnect only for the most critical origins (avoids the ">4 preconnect" warning) -->
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
 
     <!-- Preload hero image with responsive media queries for LCP optimization -->
     <link rel="preload" as="image" href="{{ site_image('home_hero_1_480w') }}" media="(max-width: 480px)" fetchpriority="high">
@@ -58,17 +63,19 @@
     <meta name="geo.region" content="TZ-01">
     <meta name="geo.placename" content="Arusha, Tanzania">
 
-    <!-- Google Web Fonts (preconnect for performance) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-    <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=swap" rel="stylesheet"></noscript>
+    <!-- Google Web Fonts (preconnect already set above — no duplicate needed) -->
+    <!-- font-display:optional eliminates layout shift when web fonts load;
+         text renders in fallback font until the file arrives, then stays there
+         (no invisible-text flash, no re-layout). Previously was 'swap'. -->
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet" media="print" onload="this.media='all'">
+    <noscript><link href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;600&family=Playball&display=optional" rel="stylesheet"></noscript>
 
     <!-- Preload critical CSS (starts download early) -->
     <link rel="preload" href="{{ asset('css/style.min.css') }}" as="style">
 
-    <!-- Bootstrap CSS (synchronous — required to prevent CLS from layout shifts) -->
-    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <!-- Bootstrap CSS (deferred to eliminate render-blocking — saves ~600ms LCP) -->
+    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" fetchpriority="low" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
 
     <!-- Template Stylesheet (deferred to avoid render-blocking) -->
     <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
@@ -78,9 +85,17 @@
     <style>
         /* Base reset so page is usable while CSS loads */
         body { font-family: 'Open Sans', sans-serif; color: #333; background: #fff; margin: 0; padding: 0; }
-        img { max-width: 100%; height: auto; display: block; }
+        /* Aspect-ratio from HTML width/height attrs prevents CLS while CSS loads */
+        img { max-width: 100%; height: auto; display: block; aspect-ratio: auto; }
+        /* ═══ CRITICAL CLS FIX ═══
+           Target BOTH pre-Owl (.item) and post-Owl (.owl-item) selectors so the
+           hero carousel reserves vertical space before Owl Carousel JS runs.
+           Without this, the page starts at 0 height then CLAMPS to 90vh on init. */
         .hero-section { position: relative; overflow: hidden; background: #111; }
-        .hero-carousel .owl-item { position: relative; }
+        .hero-carousel .item,
+        .hero-carousel .owl-item { position: relative; height: 90vh; min-height: 500px; }
+        .hero-carousel { position: relative; }
+        .hero-carousel .carousel-image-container { position: absolute; top: 0; left: 0; width: 100%; height: 100%; }
         .hero-carousel .carousel-image-container img { width: 100%; height: 100%; object-fit: cover; filter: brightness(.45); }
         .hero-carousel .carousel-caption-gms { position: absolute; top: 50%; left: 8%; transform: translateY(-50%); color: #fff; z-index: 3; max-width: 50%; }
         .hero-carousel .carousel-caption-gms h1 { color: #fff; font-size: 5rem; font-weight: 900; letter-spacing: 1px; text-shadow: 0 4px 16px rgba(0,0,0,.7); }
@@ -94,11 +109,13 @@
             .hero-carousel .carousel-caption-gms { left: 0; right: 0; max-width: 96%; margin: 0 auto; text-align: center; padding: 0 10px; }
             .hero-carousel .carousel-caption-gms h1 { font-size: 3.2rem; }
             .hero-carousel .carousel-caption-gms p { font-size: 1.1rem; }
+            .hero-carousel .item,
             .hero-carousel .owl-item { height: 70vh; }
         }
         @media (max-width: 480px) {
             .hero-carousel .carousel-caption-gms h1 { font-size: 2.6rem; }
             .hero-carousel .carousel-caption-gms p { font-size: 1rem; }
+            .hero-carousel .item,
             .hero-carousel .owl-item { height: 60vh; }
         }
     </style>
@@ -115,8 +132,7 @@
     <link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'">
     <noscript><link href="{{ asset('lib/owlcarousel/owl.carousel.min.css') }}" rel="stylesheet"></noscript>
 
-    <!-- Template Stylesheet (minified for production) -->
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
+    <!-- Template Stylesheet already loaded deferred above — removed duplicate synchronous load -->
     @yield('extra_styles')
 
     <!-- Global Mobile Optimizations -->
@@ -132,8 +148,7 @@
             .py-6 { padding-top: 4rem !important; padding-bottom: 4rem !important; }
         }
 
-        /* Ensure images never overflow on mobile */
-        img { max-width: 100%; height: auto; }
+        /* Ensure images never overflow on mobile (dupe removed — already covered in critical block) */
 
         /* Fix testimonial quote icon positioning */
         .testimonial-item { position: relative; }
@@ -187,16 +202,39 @@
             min-width: 32px;
         }
 
-        /* ── Composited animation override ──
-           Replaces animate.css bounceInUp (non-composited) with a GPU-friendly
-           fade+slide that only uses transform & opacity (no layout thrashing). */
+        /* ── Composited animation overrides ──
+           Replaces animate.css bounceInUp/bounceInDown/fadeInUp (non-composited)
+           with GPU-friendly versions using only transform & opacity.
+           This eliminates 35 non-composited animated elements flagged by
+           Lighthouse and prevents layout thrashing from scroll-driven reveals. */
         .animated.bounceInUp,
         .wow.bounceInUp {
             animation-name: bounceInUpFade !important;
             will-change: transform, opacity;
         }
+        .animated.bounceInDown,
+        .wow.bounceInDown {
+            animation-name: bounceInDownFade !important;
+            will-change: transform, opacity;
+        }
+        .animated.fadeInUp,
+        .wow.fadeInUp {
+            animation-name: fadeInUpGpu !important;
+            will-change: transform, opacity;
+        }
+        .wow {
+            visibility: visible !important; /* prevent FOUC before WOW runs */
+        }
         @keyframes bounceInUpFade {
             0%   { opacity: 0; transform: translateY(40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes bounceInDownFade {
+            0%   { opacity: 0; transform: translateY(-40px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+        @keyframes fadeInUpGpu {
+            0%   { opacity: 0; transform: translateY(20px); }
             100% { opacity: 1; transform: translateY(0); }
         }
     </style>

@@ -11,20 +11,25 @@
 <!-- Template Javascript (minified for production) -->
 <script defer src="{{ asset('js/main.min.js') }}"></script>
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        // Initialize lightbox
-        if (typeof lightbox !== 'undefined') {
-            lightbox.option({
-                'resizeDuration': 200,
-                'wrapAround': true
-            });
-        }
-        // Initialize WOW.js — disabled on mobile to reduce main-thread blocking
-        if (typeof WOW !== 'undefined' && window.innerWidth >= 768) {
-            new WOW({
-                offset: 80,
-                mobile: false
-            }).init();
-        }
+    // Defer non-critical initializations to AFTER LCP to avoid long main-thread tasks
+    // that delay Largest Contentful Paint.
+    self.addEventListener('load', function() {
+        requestAnimationFrame(function() {
+            // Initialize lightbox (not needed for LCP)
+            if (typeof lightbox !== 'undefined') {
+                lightbox.option({
+                    'resizeDuration': 200,
+                    'wrapAround': true
+                });
+            }
+            // Initialize WOW.js — desktop only, delayed post-LCP to avoid
+            // 35 simultaneous element mutations on the main thread.
+            if (typeof WOW !== 'undefined' && window.innerWidth >= 768) {
+                new WOW({
+                    offset: 80,
+                    mobile: false
+                }).init();
+            }
+        });
     });
 </script>

@@ -1175,14 +1175,16 @@
 
 @section('extra_scripts')
 <script>
-    // Video Modal Script
+    // Video Modal Script — plain JS (no dependency on jQuery, runs on interaction)
     const videoModal = document.getElementById('videoModal');
     if (videoModal) {
         videoModal.addEventListener('show.bs.modal', function (event) {
             const button = event.relatedTarget;
             const videoSrc = button.getAttribute('data-src');
-            const iframe = videoModal.querySelector('iframe');
-            iframe.src = videoSrc + "?autoplay=1";
+            if (videoSrc) {
+                const iframe = videoModal.querySelector('iframe');
+                iframe.src = videoSrc + "?autoplay=1";
+            }
         });
 
         videoModal.addEventListener('hidden.bs.modal', function () {
@@ -1190,26 +1192,5 @@
             iframe.src = "";
         });
     }
-
-    // Initialize Owl Carousel for Hero Section
-    $(document).ready(function () {
-        // This specific initialization is for the hero carousel.
-        // If main.js also initializes .owl-carousel generally, ensure it doesn't conflict.
-        // Or, ensure main.js targets other carousels with more specific selectors like ".testimonial-carousel".
-        // The following initialization has been moved to js/main.js for better consistency and load management.
-        // $(".hero-carousel").owlCarousel({
-        //     items: 1,
-        //     loop: true,
-        //     autoplay: true,
-        //     autoplayTimeout: 7000,
-        //     autoplayHoverPause: true,
-        //     dots: true,
-        //     nav: true,
-        //     navText: ["<i class='fa fa-chevron-left'></i>","<i class='fa fa-chevron-right'></i>"],
-        //     animateOut: 'fadeOut',
-        //     animateIn: 'fadeIn',
-        //     smartSpeed: 1000
-        // });
-    });
 </script>
 @endsection
