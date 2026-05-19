@@ -114,21 +114,10 @@
     </style>
 
     <!-- ═══════════════════════════════════════════════════
-         CRITICAL CSS — inlined (12KB). Contains Bootstrap grid,
-         navbar, buttons, forms, utilities + all custom styles.
-         This is enough for the page to render correctly while
-         the full Bootstrap CSS loads asynchronously.
+         STYLESHEETS — Synchronous (proven to render correctly)
          ═══════════════════════════════════════════════════ -->
-    @includeIf('partials.critical-css')
-
-    <!-- ═══════════════════════════════════════════════════
-         DEFERRED STYLESHEETS — non-render-blocking
-         Full Bootstrap + custom styles load after page render.
-         ═══════════════════════════════════════════════════ -->
-    <link rel="preload" href="{{ asset('css/bootstrap.min.css') }}" as="style" onload="this.onload=null;this.rel='stylesheet'">
-    <noscript><link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet"></noscript>
-    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet" media="print" onload="this.media='all'; this.onload=null;">
-    <noscript><link href="{{ asset('css/style.min.css') }}" rel="stylesheet"></noscript>
+    <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.min.css') }}" rel="stylesheet">
     <link rel="preload" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
     <noscript><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.15.4/css/all.css"></noscript>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css" rel="stylesheet" media="print" onload="this.media='all'">
